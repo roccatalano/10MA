@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 7–8; Year 9 for box plots)"
  },
  "skills": [
   {
@@ -28,6 +29,19 @@
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 9 review, multiple-choice Q7 (p. 713)",
      "vc2": "VC2M10ST04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 3,
+     "q": "Classify the following variables as categorical, continuous numerical or discrete numerical data.<br><b>a</b>&nbsp; the number of cars in each household<br><b>b</b>&nbsp; the highest temperature of the ocean each day<br><b>c</b>&nbsp; the favourite brand of chocolate of the teachers at your school",
+     "sol": [
+      "a discrete numerical",
+      "b continuous numerical",
+      "c categorical"
+     ],
+     "src": "Cambridge Essential Mathematics 7 (3rd Ed), Exercise 8A Q2a, c, d (p. 517); adapted: parts chosen",
+     "vc2": "VC2M7ST01"
     }
    ]
   },
@@ -53,6 +67,17 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 10 review, multiple-choice Q10 (p. 566)",
      "vc2": "VC2M10ST04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "A survey is conducted to determine how many siblings children have. Which of the following methods of conducting the survey is more likely to lead to bias?<br>Method 1: Choosing $20$ children at random from a school.<br>Method 2: Asking $20$ children waiting outside a primary school at the end of a day.",
+     "sol": [
+      "Method 2: children waiting outside a primary school at the end of the day are more likely to be picking up a younger brother or sister, so they are more likely to have siblings."
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8F Q4c (p. 585); adapted: stem from Q4 kept, graph and parts a–b left out",
+     "vc2": "VC2M8ST01"
     }
    ]
   }

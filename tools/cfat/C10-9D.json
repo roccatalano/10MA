@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 7–8; Year 9 for box plots)"
  },
  "skills": [
   {
@@ -64,6 +65,30 @@
      "src": "Oxford Maths 10 VC (2022), Ch 10 review, multiple-choice Q1 (p. 565)",
      "vc2": "VC2M10ST04",
      "fill": true
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Find the range of $9, 3, 9, 3, 10, 5, 0, 2$.",
+     "sol": [
+      "Range $= 10 - 0 = 10$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8E Q2a (p. 578); adapted: stem reworded for a single part",
+     "vc2": "VC2M8ST02"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Find the IQR of the following set. Remember to sort first.<br>$6, 11, 3, 15, 18, 14, 13, 2, 16, 7, 7$",
+     "sol": [
+      "$2, 3, 6, 7, 7, \\underline{11}, 13, 14, 15, 16, 18$ (remove the middle value)",
+      "Lower quartile $= 6$, upper quartile $= 15$",
+      "IQR $= 15 - 6 = 9$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8E Q5c (p. 578); adapted: stem reworded for a single part",
+     "vc2": "VC2M8ST02"
     }
    ]
   },
@@ -95,6 +120,19 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Exercise 10B Q2b–d (p. 509); adapted: parts b–d combined",
      "vc2": "VC2M10ST04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Consider the frequency table showing the number of aces served by a tennis player.<table style=\"border-collapse:collapse;font-size:9.5pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Aces</th><th style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Frequency</th></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">0</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">1</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">1</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">3</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">2</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">4</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">3</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">2</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">4</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">6</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">5</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">1</td></tr><tr><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">10</td><td style=\"border:1px solid #000;padding:.2mm 2.4mm;text-align:center\">1</td></tr></table><b>a</b>&nbsp; Construct a dot plot for the frequency table.<br><b>b</b>&nbsp; Use your dot plot to identify any outliers.",
+     "sol": [
+      "<svg class=\"fig\" width=\"420\" height=\"82\" viewBox=\"0 0 420 82\"><line x1=\"2\" y1=\"60\" x2=\"418\" y2=\"60\" stroke=\"#000\" stroke-width=\"1.2\"/><path d=\"M420 60 l-7 -3.5 v7z\"/><path d=\"M0 60 l7 -3.5 v7z\"/><line x1=\"14.0\" y1=\"57\" x2=\"14.0\" y2=\"63\" stroke=\"#000\"/><text x=\"14.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">0</text><line x1=\"53.2\" y1=\"57\" x2=\"53.2\" y2=\"63\" stroke=\"#000\"/><text x=\"53.2\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">1</text><line x1=\"92.4\" y1=\"57\" x2=\"92.4\" y2=\"63\" stroke=\"#000\"/><text x=\"92.4\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">2</text><line x1=\"131.6\" y1=\"57\" x2=\"131.6\" y2=\"63\" stroke=\"#000\"/><text x=\"131.6\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">3</text><line x1=\"170.8\" y1=\"57\" x2=\"170.8\" y2=\"63\" stroke=\"#000\"/><text x=\"170.8\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">4</text><line x1=\"210.0\" y1=\"57\" x2=\"210.0\" y2=\"63\" stroke=\"#000\"/><text x=\"210.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">5</text><line x1=\"249.2\" y1=\"57\" x2=\"249.2\" y2=\"63\" stroke=\"#000\"/><text x=\"249.2\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">6</text><line x1=\"288.4\" y1=\"57\" x2=\"288.4\" y2=\"63\" stroke=\"#000\"/><text x=\"288.4\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">7</text><line x1=\"327.6\" y1=\"57\" x2=\"327.6\" y2=\"63\" stroke=\"#000\"/><text x=\"327.6\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">8</text><line x1=\"366.8\" y1=\"57\" x2=\"366.8\" y2=\"63\" stroke=\"#000\"/><text x=\"366.8\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">9</text><line x1=\"406.0\" y1=\"57\" x2=\"406.0\" y2=\"63\" stroke=\"#000\"/><text x=\"406.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">10</text><circle cx=\"14.0\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"53.2\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"53.2\" cy=\"42\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"53.2\" cy=\"33\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"92.4\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"92.4\" cy=\"42\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"92.4\" cy=\"33\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"92.4\" cy=\"24\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"131.6\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"131.6\" cy=\"42\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"42\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"33\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"24\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"15\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"170.8\" cy=\"6\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"210.0\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/><circle cx=\"406.0\" cy=\"51\" r=\"3.6\" fill=\"#d00000\"/></svg>",
+      "b $10$ aces is an outlier: it is separated from the main cluster ($0$ to $5$)."
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8C Q2a, c (p. 564); adapted: parts chosen",
+     "vc2": "VC2M8ST02",
+     "blank": "<svg class=\"fig\" width=\"420\" height=\"82\" viewBox=\"0 0 420 82\"><line x1=\"2\" y1=\"60\" x2=\"418\" y2=\"60\" stroke=\"#000\" stroke-width=\"1.2\"/><path d=\"M420 60 l-7 -3.5 v7z\"/><path d=\"M0 60 l7 -3.5 v7z\"/><line x1=\"14.0\" y1=\"57\" x2=\"14.0\" y2=\"63\" stroke=\"#000\"/><text x=\"14.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">0</text><line x1=\"53.2\" y1=\"57\" x2=\"53.2\" y2=\"63\" stroke=\"#000\"/><text x=\"53.2\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">1</text><line x1=\"92.4\" y1=\"57\" x2=\"92.4\" y2=\"63\" stroke=\"#000\"/><text x=\"92.4\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">2</text><line x1=\"131.6\" y1=\"57\" x2=\"131.6\" y2=\"63\" stroke=\"#000\"/><text x=\"131.6\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">3</text><line x1=\"170.8\" y1=\"57\" x2=\"170.8\" y2=\"63\" stroke=\"#000\"/><text x=\"170.8\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">4</text><line x1=\"210.0\" y1=\"57\" x2=\"210.0\" y2=\"63\" stroke=\"#000\"/><text x=\"210.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">5</text><line x1=\"249.2\" y1=\"57\" x2=\"249.2\" y2=\"63\" stroke=\"#000\"/><text x=\"249.2\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">6</text><line x1=\"288.4\" y1=\"57\" x2=\"288.4\" y2=\"63\" stroke=\"#000\"/><text x=\"288.4\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">7</text><line x1=\"327.6\" y1=\"57\" x2=\"327.6\" y2=\"63\" stroke=\"#000\"/><text x=\"327.6\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">8</text><line x1=\"366.8\" y1=\"57\" x2=\"366.8\" y2=\"63\" stroke=\"#000\"/><text x=\"366.8\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">9</text><line x1=\"406.0\" y1=\"57\" x2=\"406.0\" y2=\"63\" stroke=\"#000\"/><text x=\"406.0\" y=\"76\" font-size=\"12\" text-anchor=\"middle\">10</text></svg>"
     }
    ]
   }

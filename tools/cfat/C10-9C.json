@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 7–8; Year 9 for box plots)"
  },
  "skills": [
   {
@@ -29,6 +30,20 @@
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 9 review, multiple-choice Q2 (p. 713)",
      "vc2": "VC2M10ST05"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 4,
+     "q": "The two-way table below shows the results of a poll conducted of a group of boys and girls who own mobile phones to see who pays their own bills.<table style=\"border-collapse:collapse;font-size:10pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Boys</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Girls</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Pay own bill</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">4</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">7</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">11</td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Do not pay own bill</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">8</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">7</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">15</td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">12</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">14</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">26</td></tr></table><b>a</b>&nbsp; How many people participated in this poll?<br><b>b</b>&nbsp; How many boys were surveyed?<br><b>c</b>&nbsp; How many of the people surveyed pay their own bill?<br><b>d</b>&nbsp; Find the probability that a randomly selected person is a boy and pays his own bill.",
+     "sol": [
+      "a $26$",
+      "b $12$",
+      "c $11$",
+      "d $\\dfrac{4}{26} = \\dfrac{2}{13}$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8J Q4a–c, d i (p. 616); adapted: parts chosen",
+     "vc2": "VC2M8P02"
     }
    ]
   },
@@ -48,6 +63,19 @@
      "src": "Oxford Maths 10 VC (2022), Exercise 11C Q18 (p. 590)",
      "vc2": "VC2M10ST05",
      "blank": "<table style=\"border-collapse:collapse;font-size:11pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Left-handed</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Right-handed</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Boys</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Girls</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr></table>"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "In a group of $40$ dogs, $25$ had a name tag and a collar, $7$ had only a name tag and $4$ had only a collar.<br><b>a</b>&nbsp; How many dogs had neither a name tag nor a collar?<br><b>b</b>&nbsp; Represent the survey findings in a two-way table.",
+     "sol": [
+      "a $40 - 25 - 7 - 4 = 4$",
+      "<table style=\"border-collapse:collapse;font-size:10pt;color:#d00000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Collar</th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">No collar</th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>Name tag</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">25</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">7</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">32</td></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>No name tag</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">4</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">4</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">8</td></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">29</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">11</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">40</td></tr></table>"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 8J Q2a, f (p. 615); adapted: parts chosen",
+     "vc2": "VC2M8P02",
+     "blank": "<table style=\"border-collapse:collapse;font-size:11pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Collar</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">No collar</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Name tag</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>No name tag</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr></table>"
     }
    ]
   }

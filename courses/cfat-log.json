@@ -13,6 +13,13 @@
   {
    "date": "2026-11-16",
    "stream": "10MAG",
+   "unit": "Univariate Statistics",
+   "decision": "Pilot 10MAG Modified unit built: CFAT 1.9.1M (9A\u20139C, /15) and 1.9.2M (9D\u20139E, /12) = same weeks and skills as 1.9.1/1.9.2, new level L0 from Cambridge 7 and 8 exercises/reviews (Cambridge 9 for box plots, first met in Year 9), short answer only, verbatim + cited. Modified worksheets per lesson from Cambridge 7/8/9 Example \u2192 Now you try pairs; practice = mapped Freefall sheets in the modified workbook (G: only; Freefall 8 answer pages left out). Rocco to review.",
+   "by": "Claude"
+  },
+  {
+   "date": "2026-11-16",
+   "stream": "10MAG",
    "unit": "",
    "decision": "10MAG Modified: every 10MAG CFAT gets an M version (same week and skills, Year 7-8 level, code + M, e.g. 1.9.1M). Modified lessons/workbooks use Freefall 7/8/9 sheets mapped per subchapter (courses/modified.json), checked and approved per unit on the planner; workbooks built on G: only (Freefall licence). Gaps (trig, parabolas, networks, recursion, simultaneous eqns, conditional prob) decided unit by unit and logged here.",
    "by": "Rocco"

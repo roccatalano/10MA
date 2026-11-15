@@ -4,7 +4,7 @@
 Stream levels: 10MAG = L1 + L2, 10MAA = L2 + L3. Which subchapters = courses/lessons.json cfats[stream|unit][n-1]."""
 import json,sys,os,re
 HERE=os.path.dirname(os.path.abspath(__file__));ROOT=os.path.join(HERE,'..','..')
-LEVELS={'10MAG':('L1','L2'),'10MAA':('L2','L3')}
+LEVELS={'10MAG':('L1','L2'),'10MAA':('L2','L3'),'10MAGM':('L0','L0')}   # 10MAGM = 10MAG Modified: same weeks/skills as 10MAG, L0 questions
 
 CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetica,sans-serif;font-size:9.8pt;line-height:1.28;color:#000;margin:0}
 .sheet>*:last-child{margin-bottom:0}
@@ -48,7 +48,8 @@ def load(card): return json.loads(open(os.path.join(HERE,f'{card}.json')).read()
 import re
 def build(stream,n,unit):
     lp=json.load(open(os.path.join(ROOT,'courses/lessons.json')))
-    cards=[x['id'] for x in lp['cfats'][f'{stream}|{unit}'][n-1]['items']]
+    base=stream.rstrip('M') if stream=='10MAGM' else stream
+    cards=[x['id'] for x in lp['cfats'][f'{base}|{unit}'][n-1]['items']]
     lv=LEVELS[stream];subs=[c.split('-')[1] for c in cards]
     lib=json.load(open(os.path.join(ROOT,'library/C10.json')))
     A=[];B=[];skills=[]
@@ -124,7 +125,7 @@ def build(stream,n,unit):
     def isk(it):
         if it.get('blank'):return False
         f=[x for x in it['sol'] if str(x).startswith('<svg')];return bool(f) and 'viewBox="0 -6' not in f[-1]
-    AUTO_PAIR=stream=='10MAG'   # 10MAG: adjacent sketch questions go side by side with big grids underneath
+    AUTO_PAIR=base=='10MAG'   # 10MAG: adjacent sketch questions go side by side with big grids underneath
     def sarows():
         out=[];k=0;q0=len(A)
         while k<len(B):
@@ -136,24 +137,24 @@ def build(stream,n,unit):
     TITLES={('10MAA','Algebra and Linear Relations'):{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
             ('10MAG','Algebra and Linear Relations'):{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'},
             ('10MAG','Univariate Statistics'):{1:'Types of data, data displays and two-way tables',2:'Summary statistics and box plots'}}
-    title=TITLES.get((stream,unit),{}).get(n,unit)
+    title=TITLES.get((base,unit),{}).get(n,unit)
     # CFAT code = unit.chapter.cfat (unit = position in the stream's unit list on the planner; chapter = textbook chapter)
-    us=[u for u in json.load(open(os.path.join(ROOT,'courses/units.json')))['units'] if u['stream']==stream]
-    ui=next(k for k,u in enumerate(us,1) if u['name']==unit);ch=re.match(r'\d+',cards[0].split('-')[1]).group(0);code=f'{ui}.{ch}.{n}'
-    body=(f'<div class="title"><div class="code">CFAT<br>{code}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
+    us=[u for u in json.load(open(os.path.join(ROOT,'courses/units.json')))['units'] if u['stream']==base]
+    ui=next(k for k,u in enumerate(us,1) if u['name']==unit);ch=re.match(r'\d+',cards[0].split('-')[1]).group(0);code=f'{ui}.{ch}.{n}'+('M' if stream=='10MAGM' else '')
+    body=(f'<div class="title"><div class="code">CFAT<br>{code}</div><h1>{title}<div>{", ".join(subs)} · {'10MAG Modified' if stream=='10MAGM' else stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           +(f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}' if A else '')
           +f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+sarows()
           )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
-    base=f'CFAT {code} - {stream} - {subs[0]}-{subs[-1]}'
+    fbase=f'CFAT {code} - {"10MAG Modified" if stream=="10MAGM" else stream} - {subs[0]}-{subs[-1]}'
     for sol in (False,True):
-        name=base+(' - Solutions' if sol else '')
+        name=fbase+(' - Solutions' if sol else '')
         html=(f'<!DOCTYPE html><html><head><meta charset="utf-8"><title>{name}</title>'
           '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
-          f'<style>{CSS}body{{--gh:{GH}}}</style></head><body class="{"sol" if sol else ""}" data-cap="{22 if stream=='10MAG' else 999}"><div id="flow">'
+          f'<style>{CSS}body{{--gh:{GH}}}</style></head><body class="{"sol" if sol else ""}" data-cap="{22 if base=='10MAG' else 999}"><div id="flow">'
           + body.replace('Show all working','<b style="color:#c00">Solutions</b>' if sol else 'Show all working') +
           """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false});
 document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const CAP=+document.body.dataset.cap;const mm=v=>v*96/25.4;

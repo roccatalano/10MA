@@ -136,6 +136,33 @@
    "FF8 10-07"
   ]
  },
- "approved": {},
- "notes": {}
+ "approved": {
+  "10MAG|Univariate Statistics": "2026-11-16 (pilot)"
+ },
+ "notes": {},
+ "materials": {
+  "10MAG|Univariate Statistics": {
+   "cfats": [
+    {
+     "n": 1,
+     "html": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C.html",
+     "solutions": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C - Solutions.html"
+    },
+    {
+     "n": 2,
+     "html": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E.html",
+     "solutions": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E - Solutions.html"
+    }
+   ],
+   "worksheets": {
+    "0": "lessons/C10-9A modified worksheet.html",
+    "1": "lessons/C10-9B modified worksheet.html",
+    "2": "lessons/C10-9C modified worksheet.html",
+    "3": "lessons/C10-9D modified worksheet.html",
+    "4": "lessons/C10-9E modified worksheet (part 1).html",
+    "5": "lessons/C10-9E modified worksheet (part 2).html"
+   },
+   "workbook": "G: 01 Lesson materials / 10MAG Modified Univariate Statistics - Unit workbook.pdf (Freefall: G: only)"
+  }
+ }
 }

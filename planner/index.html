@@ -189,7 +189,7 @@ a{color:var(--accent)}
 .split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:10px;margin-bottom:16px;align-items:start}.modcol{background:#f0faf8;border-radius:10px;box-shadow:0 0 0 6px #f0faf8}#lessons.wide .cp{max-width:1500px}
 .t-mod{--c:#2f9e8f;--b:#e0f4f0}.card.gap{border-style:dashed;background:#fffaf0}.card.gap .tag{--b:var(--review);--c:var(--review-i)}
 @media(max-width:1100px){.split{grid-template-columns:1fr 1fr}}.split .card .ttl{font-size:13px}
-.umsolid{background:var(--lesson-i);color:#fff;border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:5px}.umsolid .ttl{font-weight:600}.umsolid a{color:#fff;text-decoration:none;font-size:12px;border:1px solid rgba(255,255,255,.55);border-radius:6px;padding:1px 8px;margin:0 4px 3px 0;display:inline-block;font-weight:600}.umsolid a:hover{background:rgba(255,255,255,.15)}.umsolid.mod{background:#1d7266}.umsolid label,.umsolid .nolink{font-size:12px}
+.split .pcol{min-width:0}.split .pdetail{min-width:0;overflow:hidden}.split .madd{width:100%;min-width:0}.umsolid{background:var(--lesson-i);color:#fff;border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:5px}.umsolid .ttl{font-weight:600}.umsolid a{color:#fff;text-decoration:none;font-size:12px;border:1px solid rgba(255,255,255,.55);border-radius:6px;padding:1px 8px;margin:0 4px 3px 0;display:inline-block;font-weight:600}.umsolid a:hover{background:rgba(255,255,255,.15)}.umsolid.mod{background:#1d7266}.umsolid label,.umsolid .nolink{font-size:12px}
 .vtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:6px}.vtog button{border:0;background:var(--card);padding:5px 14px;cursor:pointer;font-size:13px}.vtog button.on{background:var(--ink);color:#fff}
 @media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
@@ -707,11 +707,13 @@ function modSheets(l){return [...new Set(l.items.map(x=>x.id))].flatMap(id=>(MOD
 function mcard(l){if(l.kind!=='teach'&&l.kind!=='practice')return pcard({...l,id:'M:'+l.id}).replace('class="card','class="card mod');
   const S=modSheets(l),gap=l.items.length&&!S.length;
   return `<div class="card mod t-mod ${gap?'gap':''} ${lopenId==='M:'+l.id?'open':''}" data-id="M:${esc(l.id)}">
-   <div class="meta"><span>L${l.n}${l.section?' · '+esc(l.section):''}</span><span class="tags">${l.cfs.length?`<span class="tag cfat">CFAT ${l.cfs.map(c=>c+'M').join(', ')}</span>`:''}<span class="tag">${gap?'No match yet':S.length+' Freefall sheet'+(S.length===1?'':'s')}</span></span></div>
+   <div class="meta"><span>L${l.n}${l.section?' · '+esc(l.section):''}</span><span class="tags">${l.cfs.length?`<span class="tag cfat">CFAT ${l.cfs.map(c=>c+'M').join(', ')}</span>`:''}${(((MOD.materials||{})[ukey(l.u)]||{}).worksheets||{})[String(l.k)]?'<span class="tag" style="--b:#e0f4f0;--c:#1d7266">Worksheet</span>':''}<span class="tag">${gap?'No match yet':S.length+' Freefall sheet'+(S.length===1?'':'s')}</span></span></div>
    <div class="ttl">${S.length?esc([...new Set(S.map(s=>s.title))].join(' · ')):gap?'Decide: closest sheets, Cambridge 7–8, or unmodified':esc(l.title)}</div></div>`}
 function mdetail(l){const subs=[...new Set(l.items.map(x=>x.id))];
   const opts=Object.values(FFB).length?Object.keys(FFB).map(b=>`<optgroup label="${esc(FFB[b].name)}">${Object.values(FF).filter(s=>s.book===b).map(s=>`<option value="${esc(s.id)}">${esc(s.id)} ${esc(s.chapter_title)}: ${esc(s.title)}</option>`).join('')}</optgroup>`).join(''):'';
-  return `<div class="pdetail" data-mfor="${esc(l.id)}"><div class="meta">10MAG Modified · Lesson ${l.n}</div><h2>${l.section?esc(l.section)+' · ':''}Freefall sheets</h2>
+  const mw=((MOD.materials||{})[ukey(l.u)]||{}).worksheets||{},wf=mw[String(l.k)];
+  return `<div class="pdetail" data-mfor="${esc(l.id)}"><div class="meta">10MAG Modified · Lesson ${l.n}</div><h2>${l.section?esc(l.section)+' · ':''}Modified lesson</h2>
+  ${wf?`<div class="nest n-mat" style="padding:8px 12px"><b>Modified worksheet</b> <a class="pill" href="../${encodeURI(wf)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a> <a class="pill" href="../${encodeURI(wf.replace(/\.html$/,'.pdf'))}?v=${BUST}" download>PDF ⬇</a><div class="src">Year 7–9 Cambridge Example → You try pairs. Practice = the Freefall sheets below (in the modified workbook).</div></div>`:''}<h4 style="margin:8px 0 2px">Freefall sheets</h4>
   ${subs.map(id=>{const s=IDX[id],L=(MOD.sheets[id]||[]);return `<h4 style="margin:6px 0 2px">${esc(s?.sub||id)} ${esc(s?.title||'')}</h4>
     <ul class="crl">${L.map((k,i)=>`<li>${FF[k]?ffLabel(FF[k]):esc(k)} <button class="x mrm" data-sub="${id}" data-i="${i}" title="Remove">✕</button></li>`).join('')||'<li class="empty">No Freefall match yet</li>'}</ul>
     <div class="dadd"><select class="madd" data-sub="${id}" style="flex:1;max-width:100%"><option value="">+ add a Freefall sheet…</option>${opts}</select></div>`}).join('')}
@@ -722,7 +724,8 @@ function splitLessons(g){const out=[[],[],[],[]];
     out[0].push(pcard(l)+(lexpand||l.id===lopenId?pdetail(l):''));out[2].push(mcard(l)+((lexpand||'M:'+l.id===lopenId)&&(l.kind==='teach'||l.kind==='practice')?mdetail(l):''));
     l.cfs.forEach(ci=>{const c=g.cf[ci-1],M=((LP.materials||{})[ukey(g.u)]||[]).find(m=>m.kind==='cfat'&&m.n===ci),code=cfatCode(g.u,ci-1,c),rng=esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)));
       out[1].push(`<div class="card fa t-cfat"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${M?'Ready':'To build'}</span></span></div><div class="ttl">CFAT ${code} · ${rng}</div>${M?`<div><a href="../${encodeURI(M.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(M.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`);
-      out[3].push(`<div class="card fa t-cfat mod"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">To plan</span></span></div><div class="ttl">CFAT ${code}M · ${rng}</div><div class="src">Same week and skills, Year 7–8 level</div></div>`)})});
+      const MM=(((MOD.materials||{})[ukey(g.u)]||{}).cfats||[]).find(m=>m.n===ci);
+      out[3].push(`<div class="card fa t-cfat mod"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${MM?'Ready':'To plan'}</span></span></div><div class="ttl">CFAT ${code}M · ${rng}</div>${MM?`<div><a href="../${encodeURI(MM.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(MM.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:'<div class="src">Same week and skills, Year 7–8 level</div>'}</div>`)})});
   return out}
 function umatSolid(g){const M=(LP.materials||{})[ukey(g.u)]||[],sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat');
   return `<div class="umsolid"><div class="ttl">Unit materials</div><div>${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}<a href="donow.html?s=${g.u.stream}&u=${g.U}" target="_blank" rel="noopener">Do Now sheets ↗</a></div></div>`}
@@ -730,7 +733,7 @@ function splitUnit(g){const [a,c,b,d]=splitLessons(g),k=ukey(g.u),ap=MOD.approve
   return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${umatSolid(g)}${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
    <div class="pcol"><div class="pcolh">10MAG assessments</div>${c.join('')||'<div class="empty">No assessments yet</div>'}</div>
    <div class="pcol modcol"><div class="pcolh">Modified lessons</div>
-   <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div><span class="nolink">Modified workbook: ${ap?'approved, ready to build (G: only)':'built once the mapping is approved'}</span></div>
+   <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div><span class="nolink">Modified workbook: ${((MOD.materials||{})[k]||{}).workbook?'built, on G: in 01 Lesson materials (Freefall: not online)':ap?'approved, ready to build (G: only)':'built once the mapping is approved'}</span></div>
    <label><input type="checkbox" class="mapp" data-k="${esc(k)}" ${ap?'checked':''}> Freefall mapping approved</label></div>${b.join('')}</div>
    <div class="pcol modcol"><div class="pcolh">Modified assessments</div>${d.join('')||'<div class="empty">No assessments yet</div>'}</div></div>`}
 
