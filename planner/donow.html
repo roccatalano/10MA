@@ -48,5 +48,6 @@ Promise.all([j('../library/C10.json'),j('../library/G11.json'),j('../courses/uni
   document.getElementById('out').innerHTML=pages.join('')||'<p style="color:#fff">No Do Now for that lesson (review / assessment lessons have none).</p>';
   document.getElementById('info').textContent=`${S} ${tag} ${u.name} · ${n} Do Now sheet${n===1?'':'s'} (2 copies per A4, cut on the dashed line)`;
   renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+  if(P.get('pdf')){document.title=`${S} ${tag} ${u.name} - Do Now sheets`;setTimeout(()=>print(),600)}
 });
 </script></body></html>
