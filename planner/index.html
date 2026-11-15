@@ -184,6 +184,8 @@ a{color:var(--accent)}
 .nest .nb a.pill{text-decoration:none;font-size:12px;border:1px solid #9fd3c9;color:#1d7266;border-radius:6px;padding:1px 8px;font-weight:600;background:#fff}
 .seqempty{color:var(--muted);font-style:italic;border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
 .pnote{width:100%;min-height:50px;font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.ctab{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}.ctab th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:#fbfaf6;padding:7px 10px;border-bottom:1px solid var(--line)}.ctab td:first-child{white-space:nowrap}.ctab td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}.ctab tr.chr td{background:#f5f0fb;color:var(--g11);font-weight:600;font-size:12px}.ctab a.pill{text-decoration:none;font-size:12px;border:1px solid #9fd3c9;color:#1d7266;border-radius:6px;padding:1px 8px;font-weight:600}
+.dadd{display:flex;gap:6px;margin:6px 0 10px;flex-wrap:wrap}.dadd input,.dadd select{border:1px solid var(--line);border-radius:7px;padding:5px 8px;background:#fff}.crl{margin:4px 0;padding-left:18px;line-height:1.55;font-size:13px}
 .vtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:6px}.vtog button{border:0;background:var(--card);padding:5px 14px;cursor:pointer;font-size:13px}.vtog button.on{background:var(--ink);color:#fff}
 @media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
@@ -226,6 +228,7 @@ const BUST=Date.now().toString(36); // always fetch the latest materials
 const LKEY='10ma-lessons-v1',LFILE='courses/lessons.json';
 const REPO='roccatalano/10MA',FILE='courses/units.json',TTFILE='courses/timetable.json',TTKEY='10ma-tt-v1';
 const apiOf=f=>`https://api.github.com/repos/${REPO}/contents/${f}`;
+let CLOG={decisions:[],rules:[],open:[]},clDirty=false;const CKEY='10ma-cfatlog-v1',CFILE='courses/cfat-log.json';
 let dirty=false,ttDirty=false,Y=null,TT=null,LP=null,lpDirty=false;
 const b64e=s=>btoa(unescape(encodeURIComponent(s))), b64d=s=>decodeURIComponent(escape(atob(s.replace(/\n/g,''))));
 async function loadRepo(file,fallback){
@@ -235,8 +238,9 @@ async function loadRepo(file,fallback){
   return fallback;
 }
 Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
-  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}})])
-.then(([c10,g11,units,yr,tt,lp])=>{
+  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}}),loadRepo(CFILE,{decisions:[],rules:[],open:[]})])
+.then(([c10,g11,units,yr,tt,lp,cl])=>{
+  {const lc=store.get(CKEY);CLOG=lc?JSON.parse(lc):cl;clDirty=!!lc}
   {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll;
    // material links always come from GitHub (a browser draft may predate them); CFATs too if the draft has none
    LP.materials=lp.materials||{};if(!LP.cfats&&lp.cfats)LP.cfats=lp.cfats}
@@ -249,7 +253,7 @@ Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G1
   status();renderLib();renderUnits();
   setTab(store.get('10ma-tab')||'units');
 });
-function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty||lpDirty;
+function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty||lpDirty||clDirty;
   setSaved(msg||(d?'Unsaved changes (kept in this browser)':(tok?'All saved to GitHub':'Up to date with GitHub')));
   const b=document.getElementById('gh');b.disabled=!d;b.style.opacity=d?1:.45;}
 async function putGH(file,data,msg,H){
@@ -265,6 +269,7 @@ async function saveGH(){
   try{
     if(dirty){await putGH(FILE,UNITS,'Update unit plan from planner page',H);try{localStorage.removeItem(KEY)}catch(_){}dirty=false}
     if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY)}catch(_){}ttDirty=false}
+    if(clDirty){await putGH(CFILE,CLOG,'Update CFAT decisions log from planner page',H);try{localStorage.removeItem(CKEY)}catch(_){}clDirty=false}
     if(lpDirty){await putGH(LFILE,LP,'Update lesson groupings from planner page',H);try{localStorage.removeItem(LKEY)}catch(_){}lpDirty=false}
     status('Saved to GitHub · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
   }catch(e){status('Not saved: '+e.message);alert('Could not save to GitHub.\n\n'+e.message+'\n\nYour changes are still kept in this browser.')}
@@ -380,7 +385,7 @@ document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
 document.getElementById('impf').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{UNITS=migrate(JSON.parse(t));save()}catch(_){alert('That file is not a units.json')}})};
-document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units, lessons and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY)}catch(_){}location.reload()}};
+document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units, lessons and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY);localStorage.removeItem(CKEY)}catch(_){}location.reload()}};
 
 /* ---------- 2027 tab: calendar + class timetables ---------- */
 const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -508,7 +513,7 @@ function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(
 function dnLine(d,u,k){if(!d)return'';
   if(!d.items.length)return `<span class="dnl">Do Now: <i>nothing taught yet (pools only exist for Ch1 so far)</i></span>`;
   return `<span class="dnl">Do Now: ${d.items.map(q=>`<span class="q" title="${esc((q.stem+' '+q.tex).replace(/<[^>]+>/g,' ').replace(/\$/g,''))}">${q.sub} ${q.id.split('-').pop()}</span>`).join('')}<a href="donow.html?s=${u.stream}&u=${numOf(u)}&l=${k+1}" target="_blank" rel="noopener">Sheet ↗</a></span>`}
-function renderLessons(){if(!LP)return;if(lmode==='plan')return renderPlanView();renderLessonsEdit()}
+function renderLessons(){if(!LP)return;if(lmode==='plan')return renderPlanView();if(lmode==='cfat')return renderCfatView();renderLessonsEdit()}
 function renderLessonsEdit(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream),DNS=DN.doNows(lstream,UNITS,LP,IDX);
@@ -568,7 +573,7 @@ function renderLessonsEdit(){
 }
 
 /* ---------- Lesson planning: Course plan view (12MAG-style cards + nested lesson detail) ---------- */
-function modeTog(){return `<span class="vtog"><button data-m="plan" class="${lmode==='plan'?'on':''}">Course plan</button><button data-m="edit" class="${lmode==='edit'?'on':''}">Edit lessons</button></span>`}
+function modeTog(){return `<span class="vtog"><button data-m="plan" class="${lmode==='plan'?'on':''}">Course plan</button><button data-m="edit" class="${lmode==='edit'?'on':''}">Edit lessons</button><button data-m="cfat" class="${lmode==='cfat'?'on':''}">CFAT planning</button></span>`}
 function wireMode(box){box.querySelectorAll('.vtog button').forEach(b=>b.onclick=()=>{lmode=b.dataset.m;store.set('10ma-lmode',lmode);renderLessons()})}
 const lnest=k=>store.get('10ma-nest:'+k)==='1';
 function pnest(k,title,body,cnt,cls){return body?`<details class="nest ${cls||''}" data-nest="${k}" ${lnest(k)?'open':''}><summary>${title}${cnt!=null?`<span class="cnt">${cnt}</span>`:''}</summary><div class="nb">${body}</div></details>`:''}
@@ -645,6 +650,43 @@ function renderPlanView(){
   box.querySelectorAll('.pdetail').forEach(dv=>{const id=dv.dataset.for,g=G.find(g=>id.startsWith(ukey(g.u)+'#'));
     dv.querySelector('.pnote').onchange=e=>{const p=JSON.parse(JSON.stringify(planOf(g.u)));p[+e.target.dataset.k].note=e.target.value;setPlan(g.u,p)}});
   if(window.renderMathInElement)renderMathInElement(box,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+}
+
+/* ---------- Lesson planning: CFAT planning (both streams side by side + decisions log) ---------- */
+function cfatCode(u,ci,c){const s=IDX[c.items[0]?.id];return `${numOf(u)}.${s?s.chapter:'?'}.${ci+1}`}
+function allCfats(stream){const out=[];UNITS.units.filter(u=>u.stream===stream).forEach(u=>{const M=(LP.materials||{})[ukey(u)]||[];
+  cfatsOf(u).forEach((c,ci)=>{if(!c.items.length)return;out.push({u,ci,c,code:cfatCode(u,ci,c),subs:c.items.map(x=>x.id),m:M.find(m=>m.kind==='cfat'&&m.n===ci+1)})})});return out}
+function cfChip(x){if(!x)return '<span class="empty">–</span>';
+  return `<b>CFAT ${x.code}</b> <span class="src">${esc(subRange(x.subs.map(i=>IDX[i]?.sub||i)))}</span> ${x.m?`<a class="pill" href="../${encodeURI(x.m.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>`:'<span class="tag">to build</span>'}`}
+function renderCfatView(){
+  const box=document.getElementById('lessons'),top=box.scrollTop,G=allCfats('10MAG'),A=allCfats('10MAA');
+  const byId=(arr,id)=>arr.find(x=>x.subs.includes(id));
+  // every subchapter on any CFAT, in textbook order
+  const ids=[...new Set([...G,...A].flatMap(x=>x.subs))].sort((a,b)=>{const x=IDX[a],y=IDX[b];return (x?.book||'').localeCompare(y?.book||'')||(x?.chapter||0)-(y?.chapter||0)||(x?.sub||a).localeCompare(y?.sub||b,undefined,{numeric:true})});
+  let rows='',last='';
+  ids.forEach(id=>{const s=IDX[id],ch=s?`${s.book==='G11'?'Year 11 · ':''}Chapter ${s.chapter}`:'';if(ch!==last){last=ch;rows+=`<tr class="chr"><td colspan="4">${esc(ch)}</td></tr>`}
+    const g=byId(G,id),a=byId(A,id);
+    rows+=`<tr><td><b>${s?(s.book==='G11'?'Y11 ':'')+s.sub:id}</b> ${esc(s?.title||'')}</td><td>${cfChip(g)}</td><td>${cfChip(a)}</td><td>${g&&a?'<span class="tag" style="--b:var(--prac);--tc:var(--prac-i)">both</span>':g?'10MAG only':'10MAA only'}</td></tr>`});
+  const CL=CLOG,rl=(CL.rules||[]).map(r=>`<li>${esc(r)}</li>`).join(''),op=(CL.open||[]).map((r,i)=>`<li>${esc(r)} <button class="x odel" data-i="${i}" title="Remove (settled)">✕</button></li>`).join('');
+  const dec=(CL.decisions||[]).map((d,i)=>`<tr><td>${esc(d.date)}</td><td>${esc(d.stream)}</td><td>${esc(d.unit||'')}</td><td>${esc(d.decision)}</td><td>${esc(d.by||'')}</td><td><button class="x ddel" data-i="${i}" title="Delete">✕</button></td></tr>`).join('');
+  const uopts=[...new Set(UNITS.units.map(u=>u.name))].map(n=>`<option>${esc(n)}</option>`).join('');
+  box.innerHTML=`<div class="ybar">${modeTog()}<span class="src">${G.length} 10MAG CFATs · ${A.length} 10MAA CFATs · ${G.filter(x=>x.m).length+A.filter(x=>x.m).length} built. Decisions save with <b>Save to GitHub</b> (courses/cfat-log.json).</span></div>
+  <div class="cp cfp">
+   <div class="aos"><b>Decisions log</b><span>${(CL.decisions||[]).length} decisions</span></div>
+   <div class="dadd"><input type="date" id="dd" value="${new Date().toLocaleDateString('en-CA')}"><select id="ds"><option>Both</option><option>10MAG</option><option>10MAA</option></select>
+    <select id="du"><option value="">All units</option>${uopts}</select><input id="dt" placeholder="Decision…" style="flex:1"><select id="db"><option>Rocco</option><option>Claude</option></select><button class="btn dark" id="dadd">Add</button></div>
+   <table class="ctab"><tr><th>Date</th><th>Stream</th><th>Unit</th><th>Decision</th><th>By</th><th></th></tr>${dec}</table>
+   <div class="aos"><b>CFATs across streams</b><span>Each subchapter and the CFAT that assesses it in each stream</span></div>
+   <table class="ctab"><tr><th>Subchapter</th><th>10MAG</th><th>10MAA</th><th></th></tr>${rows}</table>
+   <div class="chgrid" style="grid-template-columns:1fr 1fr;margin-top:18px"><div><div class="aos"><b>Standing rules</b></div><ul class="crl">${rl}</ul></div>
+    <div><div class="aos"><b>Open questions</b></div><ul class="crl">${op||'<li class="empty">None</li>'}</ul><div class="dadd"><input id="oq" placeholder="New open question…" style="flex:1"><button class="btn" id="oadd">Add</button></div></div></div></div>`;
+  box.scrollTop=top;wireMode(box);
+  const sv=()=>{store.set(CKEY,JSON.stringify(CLOG));clDirty=true;status();renderLessons()};
+  box.querySelector('#dadd').onclick=()=>{const t=box.querySelector('#dt').value.trim();if(!t)return;
+    CLOG.decisions=CLOG.decisions||[];CLOG.decisions.unshift({date:box.querySelector('#dd').value,stream:box.querySelector('#ds').value,unit:box.querySelector('#du').value,decision:t,by:box.querySelector('#db').value});sv()};
+  box.querySelector('#oadd').onclick=()=>{const t=box.querySelector('#oq').value.trim();if(!t)return;CLOG.open=CLOG.open||[];CLOG.open.push(t);sv()};
+  box.querySelectorAll('.ddel').forEach(b=>b.onclick=()=>{if(confirm('Delete this decision?')){CLOG.decisions.splice(+b.dataset.i,1);sv()}});
+  box.querySelectorAll('.odel').forEach(b=>b.onclick=()=>{CLOG.open.splice(+b.dataset.i,1);sv()});
 }
 
 const modal=document.getElementById('modal');
