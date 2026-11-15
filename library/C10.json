@@ -1,1 +1,2431 @@
-[]
+{
+ "book": {
+  "id": "C10",
+  "title": "Essential Mathematics for the Victorian Curriculum 10 & 10A (3rd ed, 2024)",
+  "pdf_offset": 21
+ },
+ "chapters": [
+  {
+   "id": "C10-Ch1",
+   "book": "C10",
+   "chapter": 1,
+   "title": "Algebra, equations and linear relationships",
+   "pdf_page": 22,
+   "vc2_codes": [
+    {
+     "code": "VC2M10A01",
+     "text": "factorise algebraic expressions by taking out a common algebraic factor",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A03",
+     "text": "apply the 4 operations to simple algebraic fractions with numerical or single variable denominators",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A05",
+     "text": "substitute values into formulas to determine an unknown and rearrange formulas to solve for a particular term",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A07",
+     "text": "solve problems involving linear equations, including those derived from formulas",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A08",
+     "text": "solve linear inequalities and graph their solutions on a number line",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A09",
+     "text": "solve simultaneous linear equations, using algebraic and graphical techniques including using digital tools",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A10",
+     "text": "solve problems involving gradients of parallel and perpendicular lines",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A12",
+     "text": "solve linear equations involving simple algebraic fractions",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A15",
+     "text": "use mathematical modelling to solve applied problems involving inverse proportion, growth and decay, including in financial contexts to establish the compound interest formula as repeated applications of simple interest; formulate problems, choosing to apply linear, quadratic or exponential models; interpret solutions in terms of the situation; evaluate and modify models as necessary and report assumptions, methods and findings",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10A16",
+     "text": "solve equations graphically or using systematic numerical guess-check-and-refine with digital tools, with consideration of whether all solutions have been found",
+     "tenA": false,
+     "level": "10"
+    },
+    {
+     "code": "VC2M10AA02",
+     "text": "devise and use algorithms and simulations to solve mathematical problems",
+     "tenA": true,
+     "level": "10A"
+    },
+    {
+     "code": "VC2M10AA03",
+     "text": "simplify combinations of linear expressions with rational coefficients and the solution of related equations",
+     "tenA": true,
+     "level": "10A"
+    },
+    {
+     "code": "VC2M10AA09",
+     "text": "solve linear and non-linear simultaneous equations using graphing or systematic guess-check-and-refine with digital tools",
+     "tenA": true,
+     "level": "10A"
+    },
+    {
+     "code": "VC2M9A02",
+     "text": "simplify algebraic expressions, apply the distributive law to expand algebraic expressions including binomial products, and factorise monic quadratic expressions",
+     "tenA": false,
+     "level": "9"
+    },
+    {
+     "code": "VC2M9A03",
+     "text": "sketch linear graphs of equations in various algebraic forms, using the coordinates of 2 points, and solve linear equations",
+     "tenA": false,
+     "level": "9"
+    },
+    {
+     "code": "VC2M9A04",
+     "text": "find the gradient of a line segment, the midpoint of the line interval and the distance between 2 distinct points on the Cartesian plane",
+     "tenA": false,
+     "level": "9"
+    }
+   ],
+   "chapter_resources": [
+    {
+     "name": "Progress quiz",
+     "printed_page": 45
+    },
+    {
+     "name": "Applications and problem-solving",
+     "printed_page": 64
+    },
+    {
+     "name": "Modelling",
+     "printed_page": 82
+    },
+    {
+     "name": "Technology and computational thinking",
+     "printed_page": 83
+    },
+    {
+     "name": "Investigation",
+     "printed_page": 85
+    },
+    {
+     "name": "Problems and challenges",
+     "printed_page": 86
+    },
+    {
+     "name": "Chapter summary",
+     "printed_page": 87
+    },
+    {
+     "name": "Chapter checklist with success criteria",
+     "printed_page": 88
+    },
+    {
+     "name": "Chapter review",
+     "printed_page": 90
+    }
+   ],
+   "subchapters": [
+    {
+     "id": "C10-1A",
+     "sub": "1A",
+     "title": "Review of algebra",
+     "printed_page": 4,
+     "tenA": false,
+     "consolidating": true,
+     "pdf_page": 25,
+     "pdf_end": 31,
+     "printed_end": 10,
+     "learning_intentions": [
+      "To review the key words of algebra: term, coefﬁcient, expression, equation",
+      "To review how to combine like terms under addition and subtraction",
+      "To review how to multiply and divide algebraic terms and apply the distributive law to expand brackets",
+      "To review how to factorise an expression using the highest common factor",
+      "To be able to substitute values for pronumerals and evaluate expressions"
+     ],
+     "examples": [
+      {
+       "n": 1,
+       "title": "Collecting like terms"
+      },
+      {
+       "n": 2,
+       "title": "Multiplying and dividing expressions"
+      },
+      {
+       "n": 3,
+       "title": "Expanding brackets"
+      },
+      {
+       "n": 4,
+       "title": "Factorising simple algebraic expressions"
+      },
+      {
+       "n": 5,
+       "title": "Evaluating expressions"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–5",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–6",
+       "pathways_raw": [
+        "1−6(1/2)",
+        "​",
+        "​ ​",
+        "​ ​",
+        "1−6(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "7",
+        "7, 8",
+        "8"
+       ],
+       "q": "7–8"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "9",
+        "9, 10",
+        "10, 11"
+       ],
+       "q": "9–11"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "12"
+       ],
+       "title": "Algebraic circular spaces",
+       "q": "12"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M9A02",
+       "text": "simplify algebraic expressions, apply the distributive law to expand algebraic expressions including binomial products, and factorise monic quadratic expressions",
+       "tenA": false,
+       "level": "9"
+      },
+      {
+       "code": "VC2M10A01",
+       "text": "factorise algebraic expressions by taking out a common algebraic factor",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10A05",
+       "text": "substitute values into formulas to determine an unknown and rearrange formulas to solve for a particular term",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 1,
+       "text": "I can simplify expressions using the four operations + , − , × , ÷."
+      },
+      {
+       "n": 2,
+       "text": "I can expand brackets using the distributive law."
+      },
+      {
+       "n": 3,
+       "text": "I can factorise simple algebraic expressions with a common factor."
+      },
+      {
+       "n": 4,
+       "text": "I can substitute numbers for pronumerals and evaluate."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 1,
+       "skill": "I can simplify expressions using the four operations + , − , × , ÷.",
+       "question_locator": "Simplify 3x × 2y − 4x 2y + 2xy + 3x 2y.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 2,
+       "skill": "I can expand brackets using the distributive law.",
+       "question_locator": "Expand and simplify − 4y(2y + 3).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 3,
+       "skill": "I can factorise simple algebraic expressions with a common factor.",
+       "question_locator": "Factorise 6x 2 − 15x.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 4,
+       "skill": "I can substitute numbers for pronumerals and evaluate.",
+       "question_locator": "Given a = − 3 and b = 4, evaluate ab + a 2.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      }
+     ],
+     "key_vocab": [
+      "term",
+      "coefficient",
+      "expression",
+      "equation"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Review of Algebra (5 videos)",
+       "url": "https://classmathematics.com.au/resources/sa/year-10/maths-10a/linear-relations/review-of-algebra"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-4E",
+       "n": 11,
+       "skill": "I can simplify expressions involving multiplication.",
+       "question_locator": "Simplify 4a × 2b × 3c, giving your final answer without multiplication signs.",
+       "src": "Cambridge Year 7 Ch4 checklist",
+       "pdf_page": 298
+      },
+      {
+       "book": "C8",
+       "sub": "C8-5C",
+       "n": 6,
+       "skill": "I can simplify expressions by combining like terms.",
+       "question_locator": "Simplify 5ac + 3b − 2ca + 4b − 5b.",
+       "src": "Cambridge Year 8 Ch5 checklist",
+       "pdf_page": 420
+      },
+      {
+       "book": "C8",
+       "sub": "C8-5H",
+       "n": 15,
+       "skill": "I can factorise expressions by taking out the highest common factor.",
+       "question_locator": "Factorise 12a + 18ab.",
+       "src": "Cambridge Year 8 Ch5 checklist",
+       "pdf_page": 420
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2A",
+       "n": 2,
+       "skill": "I can substitute values into expressions and evaluate.",
+       "question_locator": "Evaluate a 2 + 3(ab − c) if a = − 2, b = 3 and c = − 8.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 1,
+       "sub": "C9-2A",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 2,
+       "sub": "C9-2A",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 3,
+       "sub": "C9-2B",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1B",
+     "sub": "1B",
+     "title": "Solving linear equations",
+     "printed_page": 11,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 32,
+     "pdf_end": 38,
+     "printed_end": 17,
+     "learning_intentions": [
+      "To know the form of a linear equation",
+      "To understand that an equivalent equation can be generated by applying the same operation to each side of the equation",
+      "To be able to solve a linear equation involving two or more steps, including brackets and variables on both sides",
+      "To be able to solve linear equations involving algebraic fractions",
+      "To be able to combine simple algebraic fractions under addition or subtraction",
+      "To understand that solutions can be checked by substituting into both sides of an equation"
+     ],
+     "examples": [
+      {
+       "n": 6,
+       "title": "Solving linear equations"
+      },
+      {
+       "n": 7,
+       "title": "Solving equations involving fractions"
+      },
+      {
+       "n": 8,
+       "title": "Solving equations by combining simple algebraic fractions"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–6",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–5",
+       "pathways_raw": [
+        "1−3(1/2), 5(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "q": "6–12",
+       "pathways_raw": [
+        "6−9",
+        "6(1/2), 7, 9, 10"
+       ]
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "13",
+        "13",
+        "14"
+       ],
+       "q": "13–14"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "15, 16"
+       ],
+       "title": "Equations with more than one pronumeral",
+       "q": "15–16"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A07",
+       "text": "solve problems involving linear equations, including those derived from formulas",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10A12",
+       "text": "solve linear equations involving simple algebraic fractions",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10A03",
+       "text": "apply the 4 operations to simple algebraic fractions with numerical or single variable denominators",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 5,
+       "text": "I can solve linear equations including with brackets and variables on both sides."
+      },
+      {
+       "n": 6,
+       "text": "I can solve linear equations involving simple fractions."
+      },
+      {
+       "n": 7,
+       "text": "I can add / subtract simple algebraic fractions to solve an equation."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 5,
+       "skill": "I can solve linear equations including with brackets and variables on both sides.",
+       "question_locator": "Solve 4(3x − 5) = 7x.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 6,
+       "skill": "I can solve linear equations involving simple fractions.",
+       "question_locator": "Solve _",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 7,
+       "skill": "I can add / subtract simple algebraic fractions to solve an equation.",
+       "question_locator": "Simplify _x + _",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      }
+     ],
+     "key_vocab": [
+      "linear equation"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Solving Linear Equations (3 videos)",
+       "url": "https://classmathematics.com.au/resources/wa/year-10/maths-10a/linear-relations/solving-linear-equations"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-9D",
+       "n": 8,
+       "skill": "I can solve two-step equations using equivalent equations.",
+       "question_locator": "Solve 7 + 4a = 23 algebraically.",
+       "src": "Cambridge Year 7 Ch9 checklist",
+       "pdf_page": 665
+      },
+      {
+       "book": "C8",
+       "sub": "C8-7D",
+       "n": 6,
+       "skill": "I can solve equations with pronumerals on both sides.",
+       "question_locator": "Solve 6x + 4 = 22 − 3x algebraically.",
+       "src": "Cambridge Year 8 Ch7 checklist",
+       "pdf_page": 559
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2E",
+       "n": 10,
+       "skill": "I can solve linear equations with brackets.",
+       "question_locator": "Solve 2(4x + 3) = 7.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 1,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1A"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 4,
+       "sub": "C9-2B",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 5,
+       "sub": "C9-2C",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1C",
+     "sub": "1C",
+     "title": "Linear inequalities",
+     "printed_page": 18,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 39,
+     "pdf_end": 44,
+     "printed_end": 23,
+     "learning_intentions": [
+      "To know the meaning of the term inequality",
+      "To be able to use and interpret the symbols >, ⩾, ⩽, <",
+      "To know how to interpret and represent an inequality on a number line",
+      "To understand when to reverse the direction in an inequality",
+      "To be able to solve a linear inequality"
+     ],
+     "examples": [
+      {
+       "n": 9,
+       "title": "Writing inequalities from number lines"
+      },
+      {
+       "n": 10,
+       "title": "Solving linear inequalities"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–6",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–4",
+       "pathways_raw": [
+        "1−4(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "5, 6",
+        "5, 6",
+        "6, 7"
+       ],
+       "q": "5–7"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "8",
+        "8, 9",
+        "9, 10"
+       ],
+       "q": "8–10"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "11−12(1/2)"
+       ],
+       "title": "Mixed inequalities",
+       "q": "11–12"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A08",
+       "text": "solve linear inequalities and graph their solutions on a number line",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 8,
+       "text": "I can interpret number lines to write inequalities."
+      },
+      {
+       "n": 9,
+       "text": "I can solve linear inequalities and graph the solution on a number line."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 8,
+       "skill": "I can interpret number lines to write inequalities.",
+       "question_locator": "Write as an inequality. −2 −1 0 1",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 9,
+       "skill": "I can solve linear inequalities and graph the solution on a number line.",
+       "question_locator": "Solve 4 − _x > 8 and represent the solution on a number line.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      }
+     ],
+     "key_vocab": [
+      "inequality symbols"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Linear Inequalities",
+       "url": "https://classmathematics.com.au/resources/wa/year-10/maths-10/linear-relations/linear-inequalities"
+      },
+      {
+       "title": "Khan Academy: Plotting an inequality on a number line",
+       "url": "https://www.youtube.com/watch?v=dTwZ5N126gw"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-6A",
+       "n": 2,
+       "skill": "I can compare two integers.",
+       "question_locator": "Insert the symbol < (less than) or > (greater than) into the statement − 1 − 6 to",
+       "src": "Cambridge Year 7 Ch6 checklist",
+       "pdf_page": 418
+      },
+      {
+       "book": "C8",
+       "sub": "C8-7J",
+       "n": 15,
+       "skill": "I can solve inequalities algebraically.",
+       "question_locator": "Solve 15 − 2x > 1 algebraically.",
+       "src": "Cambridge Year 8 Ch7 checklist",
+       "pdf_page": 559
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2G",
+       "n": 14,
+       "skill": "I can represent an inequality on a number line.",
+       "question_locator": "Show x is less than or equal to 3 (x ⩽ 3) on a number line.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 2,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1B"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 1,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1A"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 6,
+       "sub": "C9-2C",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1D",
+     "sub": "1D",
+     "title": "Linear equations involving more complex algebraic fractions",
+     "printed_page": 24,
+     "tenA": true,
+     "consolidating": false,
+     "pdf_page": 45,
+     "pdf_end": 49,
+     "printed_end": 28,
+     "learning_intentions": [
+      "To know how to ﬁnd the lowest common denominator of algebraic fractions",
+      "To be able to combine numerators using expansion and addition of like terms",
+      "To be able to add and subtract algebraic fractions",
+      "To be able to solve linear equations involving algebraic fractions"
+     ],
+     "examples": [
+      {
+       "n": 11,
+       "title": "Adding and subtracting algebraic fractions"
+      },
+      {
+       "n": 12,
+       "title": "Solving more complex equations involving algebraic fractions"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–6",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–3",
+       "pathways_raw": [
+        "1−3(1/2)​",
+        "​",
+        "​ ​",
+        "1−3(1/2)  ​",
+        "​ ​",
+        "​ ​",
+        "1−3(1/3)​",
+        "​ ​",
+        "​ ​"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "q": "4–7",
+       "pathways_raw": [
+        "4(1/2)"
+       ]
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "8",
+        "8, 9",
+        "8, 9"
+       ],
+       "q": "8–9"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "10, 11"
+       ],
+       "title": "Binomial denominators",
+       "q": "10–11"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A03",
+       "text": "apply the 4 operations to simple algebraic fractions with numerical or single variable denominators",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10A12",
+       "text": "solve linear equations involving simple algebraic fractions",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10AA03",
+       "text": "simplify combinations of linear expressions with rational coefficients and the solution of related equations",
+       "tenA": true,
+       "level": "10A"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 10,
+       "text": "I can combine algebraic fractions under addition or subtraction."
+      },
+      {
+       "n": 11,
+       "text": "I can solve linear equations involving algebraic fractions."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 10,
+       "skill": "I can combine algebraic fractions under addition or subtraction.",
+       "question_locator": "Simplify _ x + 4.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 11,
+       "skill": "I can solve linear equations involving algebraic fractions.",
+       "question_locator": "Solve _ x − 2 = 2 and _",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      }
+     ],
+     "key_vocab": [
+      "algebraic fraction",
+      "lowest common denominator"
+     ],
+     "key_vocab_note": "bold terms from Key ideas + terms from the learning intentions",
+     "videos": [
+      {
+       "title": "Class Mathematics: Adding and Subtracting Algebraic Fractions",
+       "url": "https://classmathematics.com.au/resources/wa/year-10/maths-10/linear-relations/adding-and-subtracting-algebraic-fractions"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-3E",
+       "n": 11,
+       "skill": "I can add two fractions by converting to a common denominator if required.",
+       "question_locator": "Find the value of _ 5.",
+       "src": "Cambridge Year 7 Ch3 checklist",
+       "pdf_page": 244
+      },
+      {
+       "book": "C8",
+       "sub": "C8-5E",
+       "n": 10,
+       "skill": "I can add and subtract algebraic fractions and simplify the result.",
+       "question_locator": "Simplify _ 2a and _a − _",
+       "src": "Cambridge Year 8 Ch5 checklist",
+       "pdf_page": 420
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2D",
+       "n": 9,
+       "skill": "I can solve linear equations involving fractions.",
+       "question_locator": "Solve _",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 4,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1C"
+      },
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 3,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1B"
+      },
+      {
+       "src": "C9 Ch2 Progress quiz",
+       "q": 8,
+       "sub": "C9-2E",
+       "pdf_page": 145,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch2)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1E",
+     "sub": "1E",
+     "title": "Graphing straight lines",
+     "printed_page": 29,
+     "tenA": false,
+     "consolidating": true,
+     "pdf_page": 50,
+     "pdf_end": 58,
+     "printed_end": 37,
+     "learning_intentions": [
+      "To understand what it means for a point to lie on a line: graphically and algebraically",
+      "To understand that straight lines have a constant gradient that can be positive, negative, zero or undeﬁned",
+      "To know how to determine the gradient of a line from its equation and use it and a point to sketch its graph",
+      "To be able to ﬁnd the axis intercepts of a linear graph and use them to sketch the graph",
+      "To be able to sketch straight lines with only one intercept"
+     ],
+     "examples": [
+      {
+       "n": 13,
+       "title": "Deciding if a point is on a line"
+      },
+      {
+       "n": 14,
+       "title": "Sketching linear graphs using the gradient–intercept method"
+      },
+      {
+       "n": 15,
+       "title": "Sketching linear graphs using the x- and y-intercepts"
+      },
+      {
+       "n": 16,
+       "title": "Sketching lines with one intercept"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–4",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "pathways": [
+        "1, 2−5(1/2)",
+        "​ ​",
+        "​ ​"
+       ],
+       "q": "1–5"
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "6, 7",
+        "6−8",
+        "7−9"
+       ],
+       "q": "6–9"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "10",
+        "10, 11",
+        "11, 12"
+       ],
+       "q": "10–12"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "13"
+       ],
+       "title": "Graphical areas",
+       "q": "13"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M9A03",
+       "text": "sketch linear graphs of equations in various algebraic forms, using the coordinates of 2 points, and solve linear equations",
+       "tenA": false,
+       "level": "9"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 12,
+       "text": "I can determine if a point is on a straight line."
+      },
+      {
+       "n": 13,
+       "text": "I can find the gradient and y-intercept from a straight line equation."
+      },
+      {
+       "n": 14,
+       "text": "I can use the gradient and y-intercept to sketch a graph."
+      },
+      {
+       "n": 15,
+       "text": "I can find the x- and y-intercepts of a linear graph."
+      },
+      {
+       "n": 16,
+       "text": "I can sketch a horizontal or vertical line."
+      },
+      {
+       "n": 17,
+       "text": "I can sketch a line of the form y = mx."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 12,
+       "skill": "I can determine if a point is on a straight line.",
+       "question_locator": "Decide if the point (3, − 1) is on the line 3x + 2y = 7.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 13,
+       "skill": "I can find the gradient and y-intercept from a straight line equation.",
+       "question_locator": "State the gradient and y-intercept of 3y − 2x = 6.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 14,
+       "skill": "I can use the gradient and y-intercept to sketch a graph.",
+       "question_locator": "Find the gradient and y-intercept of y = − 2x + 7 and sketch its graph.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 15,
+       "skill": "I can find the x- and y-intercepts of a linear graph.",
+       "question_locator": "Find the x- and y-intercepts and sketch the graph of 3x + y = 9.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 16,
+       "skill": "I can sketch a horizontal or vertical line.",
+       "question_locator": "Sketch y = 3 and x = − 2.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      },
+      {
+       "n": 17,
+       "skill": "I can sketch a line of the form y = mx.",
+       "question_locator": "Sketch y = 2x labelling the axis intercept and one other point.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 88,
+       "pdf_page": 109
+      }
+     ],
+     "key_vocab": [
+      "gradient"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Graphing Straight Lines",
+       "url": "https://classmathematics.com.au/resources/wa/year-10/maths-10/linear-relations/graphing-straight-lines"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-2K",
+       "n": 22,
+       "skill": "I can draw a graph of a rule by completing a table of values.",
+       "question_locator": "For the rule output(y) = input(x) + 1, construct a table of values using input values of 0, 1, 2",
+       "src": "Cambridge Year 7 Ch2 checklist",
+       "pdf_page": 156
+      },
+      {
+       "book": "C8",
+       "sub": "C8-9F",
+       "n": 12,
+       "skill": "I can find the x-intercept and y-intercept for the graph of a rule.",
+       "question_locator": "Find the x-intercept and y-intercept for the graph of y = − 2x + 1.",
+       "src": "Cambridge Year 8 Ch9 checklist",
+       "pdf_page": 746
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4F",
+       "n": 10,
+       "skill": "I can rearrange linear equations.",
+       "question_locator": "Rearrange 2x + 3y = 8 to the form y = mx + c.",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 339
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 5,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1D"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 3,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1C"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 1,
+       "sub": "C9-4A",
+       "pdf_page": 302,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1F",
+     "sub": "1F",
+     "title": "Finding the equation of a line",
+     "printed_page": 38,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 59,
+     "pdf_end": 65,
+     "printed_end": 44,
+     "learning_intentions": [
+      "To understand that the gradient is the same between any two points on a straight line",
+      "To know how to ﬁnd the gradient of a line using two points",
+      "To understand the gradient–intercept form, y = mx + c, of a straight line equation",
+      "To be able to ﬁnd the equation of a line given two points on the line",
+      "To know the form of the equation of horizontal and vertical lines"
+     ],
+     "examples": [
+      {
+       "n": 17,
+       "title": "Finding the gradient of a line joining two points"
+      },
+      {
+       "n": 18,
+       "title": "Finding the equation of a line given the y-intercept and a point"
+      },
+      {
+       "n": 19,
+       "title": "Finding the equation of a line given two points"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–7",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–4",
+       "pathways_raw": [
+        "1(1/2), 2, 3(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "5",
+        "5, 6",
+        "6, 7"
+       ],
+       "q": "5–7"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "8",
+        "8, 9",
+        "8, 9"
+       ],
+       "q": "8–9"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "10"
+       ],
+       "title": "Linear archery",
+       "q": "10"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M9A03",
+       "text": "sketch linear graphs of equations in various algebraic forms, using the coordinates of 2 points, and solve linear equations",
+       "tenA": false,
+       "level": "9"
+      },
+      {
+       "code": "VC2M9A04",
+       "text": "find the gradient of a line segment, the midpoint of the line interval and the distance between 2 distinct points on the Cartesian plane",
+       "tenA": false,
+       "level": "9"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 18,
+       "text": "I can find the gradient of a line joining two points."
+      },
+      {
+       "n": 19,
+       "text": "I can find the equation of a line using a point and the y-intercept."
+      },
+      {
+       "n": 20,
+       "text": "I can find the equation of a line given two points."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 18,
+       "skill": "I can find the gradient of a line joining two points.",
+       "question_locator": "Determine the gradient of the line joining the points (− 2, 4) and (3, 1).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 19,
+       "skill": "I can find the equation of a line using a point and the y-intercept.",
+       "question_locator": "Find the equation of the straight line shown.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 20,
+       "skill": "I can find the equation of a line given two points.",
+       "question_locator": "Find the equation of the straight line joining the points (− 2, − 2) and (2, 3).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "gradient",
+      "y-intercept"
+     ],
+     "key_vocab_note": "bold terms from Key ideas + terms from the learning intentions",
+     "videos": [
+      {
+       "title": "Class Mathematics: Finding an Equation of a Line",
+       "url": "https://classmathematics.com.au/resources/wa/year-10/maths-10/linear-relations/finding-an-equation-of-a-line"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C8",
+       "sub": "C8-None",
+       "n": 15,
+       "skill": "I can calculate the gradient of a line.",
+       "question_locator": "Find the gradient of this line.",
+       "src": "Cambridge Year 8 ChNone checklist",
+       "pdf_page": 747
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4D",
+       "n": 8,
+       "skill": "I can find the gradient between two points.",
+       "question_locator": "Find the gradient of the line joining the points (− 1, 3) and (4, 9).",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 338
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4G",
+       "n": 14,
+       "skill": "I can determine the equation of a line given the gradient and a point.",
+       "question_locator": "Find the equation of the line which has a gradient of 2 and passes through the point (− 2, 5).",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 339
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 7,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1E"
+      },
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 6,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1D"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 2,
+       "sub": "C9-4A",
+       "pdf_page": 302,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1G",
+     "sub": "1G",
+     "title": "Length and midpoint of a line segment",
+     "printed_page": 46,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 67,
+     "pdf_end": 71,
+     "printed_end": 50,
+     "learning_intentions": [
+      "To know the meaning of the terms line segment and midpoint",
+      "To understand that Pythagoras’ theorem can be used to ﬁnd the distance between two points",
+      "To be able to ﬁnd the length of a line segment (or distance between two points)",
+      "To know how to ﬁnd the midpoint of a line segment"
+     ],
+     "examples": [
+      {
+       "n": 20,
+       "title": "Finding the distance between two points"
+      },
+      {
+       "n": 21,
+       "title": "Finding the midpoint of a line segment joining two points"
+      },
+      {
+       "n": 22,
+       "title": "Using a given distance to find coordinates"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–5",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–2",
+       "pathways_raw": [
+        "1−2(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "3, 4−5(1/2) ​ ​",
+        "​ ​",
+        "3, 4−5(1/2)"
+       ],
+       "q": "3–6"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "7",
+        "7, 8",
+        "8, 9(1/2)"
+       ],
+       "q": "7–9"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "10"
+       ],
+       "title": "Shortest distance",
+       "q": "10"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M9A04",
+       "text": "find the gradient of a line segment, the midpoint of the line interval and the distance between 2 distinct points on the Cartesian plane",
+       "tenA": false,
+       "level": "9"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 21,
+       "text": "I can find the distance between two points."
+      },
+      {
+       "n": 22,
+       "text": "I can find the midpoint of a line segment joining two points."
+      },
+      {
+       "n": 23,
+       "text": "I can use a given distance to find coordinates."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 21,
+       "skill": "I can find the distance between two points.",
+       "question_locator": "Find the exact distance between the points (2, 4) and (5, 2).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 22,
+       "skill": "I can find the midpoint of a line segment joining two points.",
+       "question_locator": "Find the midpoint of the line segment joining (− 1, 5) and (5, 2).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 23,
+       "skill": "I can use a given distance to find coordinates.",
+       "question_locator": "Find the values of a if the distance between (3, a) and (6, 10) is √34 .",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "length of a line segment",
+      "midpoint"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Khan Academy: Midpoint formula",
+       "url": "https://www.youtube.com/watch?v=Ez_-RwV9WVo"
+      },
+      {
+       "title": "Mathispower4u: Distance between two points",
+       "url": "https://youtu.be/Vj7twkiUgf0"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-6G",
+       "n": 13,
+       "skill": "I can plot a point from a given pair of coordinates.",
+       "question_locator": "Draw a set of axes from − 4 to 4 on both axes, and plot the points (− 3, 2) and",
+       "src": "Cambridge Year 7 Ch6 checklist",
+       "pdf_page": 418
+      },
+      {
+       "book": "C8",
+       "sub": "C8-4K",
+       "n": 24,
+       "skill": "I can decide if three numbers form a Pythagorean triple.",
+       "question_locator": "Decide if 6, 8, 10 is a Pythagorean triple.",
+       "src": "Cambridge Year 8 Ch4 checklist",
+       "pdf_page": 348
+      },
+      {
+       "book": "C9",
+       "sub": "C9-3B",
+       "n": 2,
+       "skill": "I can find the length of a shorter side using Pythagoras’ theorem.",
+       "question_locator": "Find the value of the pronumeral correct to one decimal place.",
+       "src": "Cambridge Year 9 Ch3 checklist",
+       "pdf_page": 257
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 10,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Last lesson",
+       "sub": "C10-1F"
+      },
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 8,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1E"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 3,
+       "sub": "C9-4B",
+       "pdf_page": 302,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1H",
+     "sub": "1H",
+     "title": "Parallel and perpendicular lines",
+     "printed_page": 51,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 72,
+     "pdf_end": 77,
+     "printed_end": 56,
+     "learning_intentions": [
+      "To know what it means for lines to be parallel or perpendicular",
+      "To know that parallel lines have the same gradient",
+      "To know that the gradients of perpendicular lines multiply to −1",
+      "To be able to determine if lines are parallel or perpendicular using their gradients",
+      "To be able to ﬁnd the equation of a parallel or perpendicular line given a point on the line"
+     ],
+     "examples": [
+      {
+       "n": 23,
+       "title": "Deciding if lines are parallel or perpendicular"
+      },
+      {
+       "n": 24,
+       "title": "Finding the equation of a parallel or perpendicular line"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–4",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–3",
+       "pathways_raw": [
+        "1−3(1/2)​ ​",
+        "​ ​",
+        "1−3(1/2)",
+        "​ ​",
+        "​ ​",
+        "1(1/3), 2−3(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "q": "4–7",
+       "pathways_raw": [
+        "4(1/2)"
+       ]
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "8",
+        "8, 9",
+        "8−10"
+       ],
+       "q": "8–10"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "11−13"
+       ],
+       "title": "Perpendicular and parallel geometry",
+       "q": "11–13"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A10",
+       "text": "solve problems involving gradients of parallel and perpendicular lines",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 24,
+       "text": "I can decide if lines are parallel, perpendicular or neither."
+      },
+      {
+       "n": 25,
+       "text": "I can find the equation of a parallel line."
+      },
+      {
+       "n": 26,
+       "text": "I can find the equation of a perpendicular line."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 24,
+       "skill": "I can decide if lines are parallel, perpendicular or neither.",
+       "question_locator": "Decide if the graph of the lines y = 2x + 5 and 2y + x = 3 will be parallel, perpendicular or neither.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 25,
+       "skill": "I can find the equation of a parallel line.",
+       "question_locator": "Find the equation of the line that is parallel to y = 3x − 4 and passes through (2, 4).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 26,
+       "skill": "I can find the equation of a perpendicular line.",
+       "question_locator": "Find the equation of a line that is perpendicular to y = − 2x + 5 and passes through (0, 8).",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "parallel lines",
+      "perpendicular lines"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Khan Academy: Equations of parallel and perpendicular lines",
+       "url": "https://www.youtube.com/watch?v=9hryH94KFJA"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-7C",
+       "n": 10,
+       "skill": "I can determine whether two lines are parallel given a transversal.",
+       "question_locator": "State whether the two lines cut by this transversal are parallel.",
+       "src": "Cambridge Year 7 Ch7 checklist",
+       "pdf_page": 522
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4D",
+       "n": 7,
+       "skill": "I can find the gradient of a line.",
+       "question_locator": "For the graphs shown, state whether the gradient is positive, negative, zero or undefined and",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 338
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4F",
+       "n": 10,
+       "skill": "I can rearrange linear equations.",
+       "question_locator": "Rearrange 2x + 3y = 8 to the form y = mx + c.",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 339
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 9,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Last lesson",
+       "sub": "C10-1G"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 8,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1F"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 4,
+       "sub": "C9-4C",
+       "pdf_page": 302,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1I",
+     "sub": "1I",
+     "title": "Simultaneous equations using substitution",
+     "printed_page": 57,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 78,
+     "pdf_end": 86,
+     "printed_end": 65,
+     "learning_intentions": [
+      "To understand that a single linear equation in two variables has an inﬁnite number of solutions",
+      "To know that two different simultaneous linear equations (straight lines) can have 0 or 1 solution (points of intersection)",
+      "To understand that the solution of two simultaneous equations satisﬁes both equations and lies on both straight line graphs",
+      "To know how to substitute one algebraic expression for another to obtain an equation in one unknown",
+      "To be able to solve simultaneous equations using the substitution method"
+     ],
+     "examples": [
+      {
+       "n": 25,
+       "title": "Solving simultaneous equations using substitution"
+      },
+      {
+       "n": 26,
+       "title": "Solving simultaneously with both equations in the form"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–2",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–2",
+       "pathways_raw": [
+        "1−2(1/2)  ​ ​",
+        "​ ​",
+        "1−2(1/2)​ ​",
+        "​ ​",
+        "1−2(1/3)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "3, 4",
+        "3−5",
+        "4−6"
+       ],
+       "q": "3–6"
+      },
+      {
+       "section": "reasoning",
+       "q": "7–9",
+       "pathways_raw": [
+        "7(1/2)"
+       ]
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "10(1/2), 11"
+       ],
+       "title": "Factorise to solve",
+       "q": "10–11"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A09",
+       "text": "solve simultaneous linear equations, using algebraic and graphical techniques including using digital tools",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 27,
+       "text": "I can solve simultaneous equations using substitution."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 27,
+       "skill": "I can solve simultaneous equations using substitution.",
+       "question_locator": "Solve the pair of simultaneous equations x − 2y = 4 and y = x − 3 using the method of",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "simultaneous equations",
+      "unique"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Simultaneous Equations Using Substitution",
+       "url": "https://classmathematics.com.au/resources/sa/year-10/maths-10a/linear-relations/simultaneous-equations-using-substitution"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C8",
+       "sub": "C8-9B",
+       "n": 4,
+       "skill": "I can decide whether a point lies on the graph of a given rule.",
+       "question_locator": "Decide if the (1, 3) and (− 2, − 4) lie on the graph of y = 3x.",
+       "src": "Cambridge Year 8 Ch9 checklist",
+       "pdf_page": 745
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4K",
+       "n": 20,
+       "skill": "I can check if a point is the intersection point of two lines.",
+       "question_locator": "Determine if the point (2, − 1) is at the intersection of the lines with equations y = − 2x + 3",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 339
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2E",
+       "n": 11,
+       "skill": "I can solve linear equations with pronumerals on both sides.",
+       "question_locator": "Solve 6x + 5 = 3x − 13.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 10,
+       "printed_page": 93,
+       "pdf_page": 114,
+       "slot": "Last lesson",
+       "sub": "C10-1H"
+      },
+      {
+       "src": "C10 Ch1 Progress quiz",
+       "q": 9,
+       "printed_page": 45,
+       "pdf_page": 66,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1E"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 5,
+       "sub": "C9-4D",
+       "pdf_page": 302,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1J",
+     "sub": "1J",
+     "title": "Simultaneous equations using elimination",
+     "printed_page": 66,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 87,
+     "pdf_end": 90,
+     "printed_end": 69,
+     "learning_intentions": [
+      "To be able to identify and form equations involving a matching pair of terms",
+      "To be able to use the process of elimination to solve simultaneous equations"
+     ],
+     "examples": [
+      {
+       "n": 27,
+       "title": "Using the elimination method with a matching pair of terms"
+      },
+      {
+       "n": 28,
+       "title": "Using the elimination method to solve simultaneous equations"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–3",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "q": "1–3",
+       "pathways_raw": [
+        "1−3(1/2)"
+       ]
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "4",
+        "4, 5",
+        "5, 6"
+       ],
+       "q": "4–6"
+      },
+      {
+       "section": "reasoning",
+       "q": "7–9",
+       "pathways_raw": [
+        "7",
+        "7, 8(1/2)",
+        "​ ​",
+        "​ ​",
+        "8, 9"
+       ]
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "−",
+        "−",
+        "10(1/2)"
+       ],
+       "title": "Partial fractions",
+       "q": "10"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A09",
+       "text": "solve simultaneous linear equations, using algebraic and graphical techniques including using digital tools",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 28,
+       "text": "I can solve simultaneous equations by adding or subtracting them."
+      },
+      {
+       "n": 29,
+       "text": "I can use the elimination method to solve simultaneous equations."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 28,
+       "skill": "I can solve simultaneous equations by adding or subtracting them.",
+       "question_locator": "Solve the simultaneous equations x − 2y = 10 and x + y = 4 using elimination.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 29,
+       "skill": "I can use the elimination method to solve simultaneous equations.",
+       "question_locator": "Solve the pair of simultaneous equations 2x + 3y = 5 and 3x − 4y = − 18 using the",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "elimination"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [
+      {
+       "title": "Class Mathematics: Simultaneous Equations Using Elimination",
+       "url": "https://classmathematics.com.au/resources/sa/year-10/maths-10/linear-relations/simultaneous-equations-using-elimination"
+      },
+      {
+       "title": "Khan Academy: Systems with elimination practice",
+       "url": "https://www.youtube.com/watch?v=u5dPUHjagSI"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-9C",
+       "n": 5,
+       "skill": "I can apply an operation to both sides of an equation.",
+       "question_locator": "State the result of adding 4 to both sides of the equation 7q − 4 = 10.",
+       "src": "Cambridge Year 7 Ch9 checklist",
+       "pdf_page": 665
+      },
+      {
+       "book": "C8",
+       "sub": "C8-5C",
+       "n": 6,
+       "skill": "I can simplify expressions by combining like terms.",
+       "question_locator": "Simplify 5ac + 3b − 2ca + 4b − 5b.",
+       "src": "Cambridge Year 8 Ch5 checklist",
+       "pdf_page": 420
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2I",
+       "n": 19,
+       "skill": "I can solve simultaneous linear equations using substitution.",
+       "question_locator": "Solve the following pair of simultaneous equations using substitution: x + 2y = 4",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 182
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 12,
+       "printed_page": 93,
+       "pdf_page": 114,
+       "slot": "Last lesson",
+       "sub": "C10-1I"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 11,
+       "printed_page": 93,
+       "pdf_page": 114,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1H"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 6,
+       "sub": "C9-4D",
+       "pdf_page": 303,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1K",
+     "sub": "1K",
+     "title": "Further applications of simultaneous equations",
+     "printed_page": 70,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 91,
+     "pdf_end": 94,
+     "printed_end": 73,
+     "learning_intentions": [
+      "To know the steps involved in solving a word problem with two unknowns",
+      "To be able to form linear equations in two unknowns from a word problem",
+      "To be able to choose an appropriate method to solve two equations simultaneously"
+     ],
+     "examples": [
+      {
+       "n": 29,
+       "title": "Setting up and solving simultaneous equations"
+      },
+      {
+       "n": 30,
+       "title": "Solving further applications of simultaneous equations involving two variables"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–3",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "pathways": [
+        "1–4",
+        "1, 3–5",
+        "2–5"
+       ],
+       "q": "1–5"
+      },
+      {
+       "section": "problem_solving",
+       "pathways": [
+        "6, 7",
+        "6–8",
+        "7–9"
+       ],
+       "q": "6–9"
+      },
+      {
+       "section": "reasoning",
+       "pathways": [
+        "10",
+        "10, 11",
+        "11, 12"
+       ],
+       "q": "10–12"
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "–",
+        "–",
+        "13, 14"
+       ],
+       "title": "Concentration time",
+       "q": "13–14"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A09",
+       "text": "solve simultaneous linear equations, using algebraic and graphical techniques including using digital tools",
+       "tenA": false,
+       "level": "10"
+      },
+      {
+       "code": "VC2M10A07",
+       "text": "solve problems involving linear equations, including those derived from formulas",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 30,
+       "text": "I can set up and solve simultaneous equations."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 30,
+       "skill": "I can set up and solve simultaneous equations.",
+       "question_locator": "A teacher buys 5 of the same chocolate bars and 2 of the same ice-creams for $18 while",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "simultaneous equations"
+     ],
+     "key_vocab_note": "bold terms from Key ideas + terms from the learning intentions",
+     "videos": [
+      {
+       "title": "Khan Academy: Setting up systems of linear equations",
+       "url": "https://www.youtube.com/watch?v=pL4PXSXH-R8"
+      }
+     ],
+     "apk": [
+      {
+       "book": "C7",
+       "sub": "C7-9A",
+       "n": 3,
+       "skill": "I can write an equation from an English description.",
+       "question_locator": "Write an equation for “the sum of x and 5 is 22.”",
+       "src": "Cambridge Year 7 Ch9 checklist",
+       "pdf_page": 665
+      },
+      {
+       "book": "C8",
+       "sub": "C8-7H",
+       "n": 11,
+       "skill": "I can solve problems using equations.",
+       "question_locator": "The weight of 6 identical books is 1.2 kg. Set up and solve an equation to find the weight of",
+       "src": "Cambridge Year 8 Ch7 checklist",
+       "pdf_page": 559
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2F",
+       "n": 13,
+       "skill": "I can solve a word problem using an equation.",
+       "question_locator": "Ava and Elise have 27 soft toys between them. Ava has 5 more than Elise.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Review · Short answer",
+       "q": 15,
+       "printed_page": 91,
+       "pdf_page": 112,
+       "note": "no progress-quiz/MC item for 1J",
+       "slot": "Last lesson",
+       "sub": "C10-1J"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 5,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1E"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 7,
+       "sub": "C9-4E",
+       "pdf_page": 303,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    },
+    {
+     "id": "C10-1L",
+     "sub": "1L",
+     "title": "Regions on the Cartesian plane",
+     "printed_page": 74,
+     "tenA": false,
+     "consolidating": false,
+     "pdf_page": 95,
+     "pdf_end": 102,
+     "printed_end": 81,
+     "learning_intentions": [
+      "To know that a linear inequality can be represented as a region on the Cartesian plane",
+      "To know how to determine which side of a line to shade to sketch a region",
+      "To understand that if a pair of coordinates satisfy an inequality then the point is in the required region",
+      "To be able to ﬁnd the intersecting region of two or more linear inequalities"
+     ],
+     "examples": [
+      {
+       "n": 31,
+       "title": "Sketching regions on the Cartesian plane"
+      },
+      {
+       "n": 32,
+       "title": "Finding the intersecting region"
+      }
+     ],
+     "exercise": [
+      {
+       "section": "building_understanding",
+       "q": "1–3",
+       "pathways_raw": []
+      },
+      {
+       "section": "fluency",
+       "pathways": [
+        "1−2(1/2), 3, 4(1/2)",
+        "1−4(1/2)",
+        "1−2(1/2), 4(1/2)"
+       ],
+       "q": "1–4"
+      },
+      {
+       "section": "problem_solving",
+       "q": "5–6",
+       "pathways_raw": [
+        "5",
+        "5, 6(1/2)  ​"
+       ]
+      },
+      {
+       "section": "reasoning",
+       "q": "7–8",
+       "pathways_raw": [
+        "7(1/2)"
+       ]
+      },
+      {
+       "section": "enrichment",
+       "pathways": [
+        "–",
+        "–",
+        "9, 10"
+       ],
+       "title": "Areas of regions",
+       "q": "9–10"
+      }
+     ],
+     "vc2": [
+      {
+       "code": "VC2M10A08",
+       "text": "solve linear inequalities and graph their solutions on a number line",
+       "tenA": false,
+       "level": "10"
+      }
+     ],
+     "success_criteria": [
+      {
+       "n": 31,
+       "text": "I can sketch a region on the Cartesian plane."
+      },
+      {
+       "n": 32,
+       "text": "I can find the intersecting region of two inequalities."
+      }
+     ],
+     "exit_tasks": [
+      {
+       "n": 31,
+       "skill": "I can sketch a region on the Cartesian plane.",
+       "question_locator": "Sketch the region y > 2x − 5.",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      },
+      {
+       "n": 32,
+       "skill": "I can find the intersecting region of two inequalities.",
+       "question_locator": "Sketch both the inequalities 2x + y ⩾ − 2 and 2x − 3y < 6 on the same set of axes, showing",
+       "src": "C10 Ch1 Chapter checklist",
+       "printed_page": 89,
+       "pdf_page": 110
+      }
+     ],
+     "key_vocab": [
+      "intersecting region"
+     ],
+     "key_vocab_note": "bold terms from Key ideas",
+     "videos": [],
+     "apk": [
+      {
+       "book": "C8",
+       "sub": "C8-9E",
+       "n": 10,
+       "skill": "I can sketch a region using horizontal or vertical lines.",
+       "question_locator": "Sketch the region y < 4.",
+       "src": "Cambridge Year 8 Ch9 checklist",
+       "pdf_page": 746
+      },
+      {
+       "book": "C9",
+       "sub": "C9-2G",
+       "n": 14,
+       "skill": "I can represent an inequality on a number line.",
+       "question_locator": "Show x is less than or equal to 3 (x ⩽ 3) on a number line.",
+       "src": "Cambridge Year 9 Ch2 checklist",
+       "pdf_page": 181
+      },
+      {
+       "book": "C9",
+       "sub": "C9-4B",
+       "n": 4,
+       "skill": "I can sketch a graph of a straight line labelling intercepts.",
+       "question_locator": "Sketch the graphs of y = − 2x + 4 and 3x − 4y = 12 showing x- and y-intercepts.",
+       "src": "Cambridge Year 9 Ch4 checklist",
+       "pdf_page": 338
+      }
+     ],
+     "do_now": [
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 13,
+       "printed_page": 93,
+       "pdf_page": 114,
+       "slot": "Last lesson",
+       "sub": "C10-1K"
+      },
+      {
+       "src": "C10 Ch1 Review · Multiple choice",
+       "q": 6,
+       "printed_page": 92,
+       "pdf_page": 113,
+       "slot": "Earlier this chapter",
+       "sub": "C10-1E"
+      },
+      {
+       "src": "C9 Ch4 Progress quiz",
+       "q": 8,
+       "sub": "C9-4F",
+       "pdf_page": 303,
+       "printed_page": null,
+       "slot": "Previous year (Y9 Ch4)"
+      }
+     ],
+     "status": "indexed"
+    }
+   ]
+  }
+ ]
+}
