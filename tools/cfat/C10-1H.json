@@ -146,6 +146,26 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q13a (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "fill": true,
+     "q": "A line has a gradient of $-\\dfrac{3}{4}$. A line perpendicular to this line would have a gradient of:",
+     "options": [
+      "$3$",
+      "$-\\dfrac{3}{4}$",
+      "$\\dfrac{3}{4}$",
+      "$-\\dfrac{4}{3}$",
+      "$\\dfrac{4}{3}$"
+     ],
+     "answer": "E",
+     "sol": [
+      "$m_2 = -\\dfrac{1}{-\\frac{3}{4}} = \\dfrac{4}{3}$ (E)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q11 (p. 207)",
+     "vc2": "VC2M10A06"
     }
    ]
   }

@@ -56,6 +56,27 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q15c (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "fill": true,
+     "q": "When $y = 3x - 4$ is substituted into the equation $x - 2y = 3$, the resulting equation is:",
+     "options": [
+      "$-5x - 8 = 3$",
+      "$-5x + 8 = 3$",
+      "$5x + 8 = 3$",
+      "$5x - 8 = 3$",
+      "$7x + 8 = 3$"
+     ],
+     "answer": "B",
+     "sol": [
+      "$x - 2(3x - 4) = x - 6x + 8 = -5x + 8$",
+      "(B)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q14 (p. 207)",
+     "vc2": "VC2M10A04"
     }
    ]
   }

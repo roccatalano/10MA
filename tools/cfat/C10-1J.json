@@ -26,7 +26,7 @@
      "level": "L2",
      "type": "mc",
      "marks": 1,
-     "q": "Consider the two equations: $2x - y + 3 = 0$ ① and $4x - y + 5 = 0$ ②. If equation ② is subtracted from equation ①, the resulting equation will be:",
+     "q": "Consider the two equations: $2x - y + 3 = 0$ [1] and $4x - y + 5 = 0$ [2]. If equation [2] is subtracted from equation [1], the resulting equation will be:",
      "options": [
       "$-2x - 2 = 0$",
       "$-2x - 8 = 0$",
@@ -36,7 +36,7 @@
      ],
      "answer": "A",
      "sol": [
-      "① − ②: $-2x - 2 = 0$ (A)"
+      "[1] − [2]: $-2x - 2 = 0$ (A)"
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q15 (p. 207)",
      "vc2": "VC2M10A04"

@@ -2,7 +2,7 @@
 (title box with code + Name + score box; Section A multiple choice in a 2-column grid; Section B short answer).
    python3 tools/cfat/paper.py 10MAA 1 "Algebra and Linear Relations"
 Stream levels: 10MAG = L1 + L2, 10MAA = L2 + L3. Which subchapters = courses/lessons.json cfats[stream|unit][n-1]."""
-import json,sys,os
+import json,sys,os,re
 HERE=os.path.dirname(os.path.abspath(__file__));ROOT=os.path.join(HERE,'..','..')
 LEVELS={'10MAG':('L1','L2'),'10MAA':('L2','L3')}
 
@@ -32,8 +32,8 @@ CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetic
 .skill{font-size:8pt;color:#555;font-weight:normal}
 svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
-.ans>div{margin:.3mm 0}.ans svg.fig{max-height:26mm;height:auto;width:auto;max-width:100%}.q svg.fig{height:14mm;width:auto}
-.brk{break-before:page}
+.ans>div{margin:.3mm 0}.ans svg.fig{height:30mm;width:auto;max-width:100%;display:block;margin:2mm auto 0}.ans svg.fig[viewBox^="0 -6"]{height:15mm}.q svg.fig{height:14mm;width:auto}
+.brk{break-before:page}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;gap:4mm}.skl{flex:1;display:flex;flex-direction:column}.skr{flex:none;width:46mm}.skr svg{width:46mm;height:46mm;display:block}.skr .ans svg.fig{height:46mm;margin:0!important}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
@@ -49,15 +49,19 @@ def build(stream,n,unit):
     lib=json.load(open(os.path.join(ROOT,'library/C10.json')))
     A=[];B=[];skills=[]
     nsk=sum(len(load(c)['skills']) for c in cards);FEW=nsk<6   # short week: test both of the stream's levels
+    fills=[]
     for c in cards:
         b=load(c);sub=c.split('-')[1]
         for s in b['skills']:
             tag=f'{sub}.{s["n"]}';skills.append([tag,s['skill'],0])
             # one question per skill: alternate the stream's two levels within a subchapter (10A subchapters take the harder level)
             want=lv[1] if (card_tenA(lib,c) or s['n']%2==0) else lv[0]
-            pick=[x for x in s['items'] if (x['level'] in lv if FEW else x['level']==want)]
+            pick=[x for x in s['items'] if not x.get('fill') and (x['level'] in lv if FEW else x['level']==want)]
+            fills+=[dict(x,tag=tag) for x in s['items'] if x.get('fill') and x['level'] in lv]
             for it in pick:
                 it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
+    while len(A)==1 and fills:   # never a lone multiple-choice question
+        f=fills.pop(0);A.append(f);[sk.__setitem__(2,sk[2]+f['marks']) for sk in skills if sk[0]==f['tag']]
     tot=sum(s[2] for s in skills);ma=sum(i['marks'] for i in A);mb=sum(i['marks'] for i in B)
     qn=[0]
     def hd(it):
@@ -67,8 +71,29 @@ def build(stream,n,unit):
     def mcbox(it):
         o=''.join(f'<div class="{"ok" if "ABCDE"[k]==it["answer"] else ""}"><b>{"ABCDE"[k]}.</b><span>{x}</span></div>' for k,x in enumerate(it['options']))
         return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc">{o}</div>{cite(it)}</div></div>'
+    import re
+    def blank(v):
+        v=re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*(#d00000|#f4b6b6)[^>]*/?>(</text>)?','',v)
+        return re.sub(r'<text[^>]*fill="#d00000"[^<]*</text>','',v)
+    def grid10():
+        u=6;o=[]
+        for k in range(-10,11):
+            c='#bbb' if k else '#000';w=.5 if k else 1.2
+            o.append(f'<line x1="{(k+10)*u}" y1="0" x2="{(k+10)*u}" y2="{20*u}" stroke="{c}" stroke-width="{w}"/>')
+            o.append(f'<line x1="0" y1="{(k+10)*u}" x2="{20*u}" y2="{(k+10)*u}" stroke="{c}" stroke-width="{w}"/>')
+        for k in (-10,-5,5,10):
+            o.append(f'<text x="{(k+10)*u}" y="{10*u+7}" font-size="5" text-anchor="middle">{k}</text><text x="{10*u-2}" y="{(10-k)*u+2}" font-size="5" text-anchor="end">{k}</text>')
+        o.append(f'<text x="{20*u+3}" y="{10*u+2}" font-size="6" font-style="italic" font-family="Times New Roman">x</text><text x="{10*u+2}" y="-2" font-size="6" font-style="italic" font-family="Times New Roman">y</text>')
+        return f'<svg class="g10" viewBox="-4 -8 132 136">{"".join(o)}</svg>'
     def sabox(it):
+        figs=[x for x in it['sol'] if x.startswith('<svg')]
+        nl=figs and 'viewBox="0 -6' in figs[-1]
         h=12
+        if figs and not nl:
+            txt=dict(it,sol=[x for x in it['sol'] if not x.startswith('<svg')])
+            return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd skb" style="min-height:{h}mm"><div class="skl"><p class="q">{it["q"]}</p>{ans(txt)}<div class="blank"></div>{cite(it)}</div>'
+                    f'<div class="skr"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div></div></div>')
+        if nl: it=dict(it,q=it['q']+'<div class="stu">'+re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*#d00000[^>]*/?>(</text>)?','',figs[-1]).replace('class="fig"','class="fig ax nl"')+'</div>')
         return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
     title={1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'}.get(n,unit)
