@@ -13,10 +13,10 @@ H={ # (fluency, problem-solving, reasoning, enrichment) x (Foundation, Standard,
 '1K':[('1–4','1, 3–5','2–5'),('6, 7','6–8','7–9'),('10','10, 11','11, 12'),('–','–','13, 14')],
 '1L':[('1–2(½), 3, 4(½)','1–4(½)','1–2(½), 4(½)'),('5','5, 6(½)','5–6(½)'),('7(½)','7(½)','7, 8'),('–','–','9, 10')],
 }
-TIERS=[('Good','Minimum for your coursework tick'),('Better','The standard for doing well on assessments'),('Best','The full challenge')]
+TIERS=[('Good','Minimum for your coursework tick'),('Better',''),('Best','')]
 SEC=['Fluency','Problem-solving','Reasoning','Enrichment']
 def box(sub,pages):
-  rows=''.join(f'<tr><th><b>{t}</b><br><span>{d}</span></th>'+''.join(f'<td>{"Q"+H[sub][c][i] if H[sub][c][i]!="–" else "–"}</td>' for c in range(4))+'<td class="tk"></td></tr>' for i,(t,d) in enumerate(TIERS))
+  rows=''.join(f'<tr><th><b>{t}</b>{'<br><span>'+d+'</span>' if d else ''}</th>'+''.join(f'<td>{"Q"+H[sub][c][i] if H[sub][c][i]!="–" else "–"}</td>' for c in range(4))+'<td class="tk"></td></tr>' for i,(t,d) in enumerate(TIERS))
   return (f'<div class="box "><div class="hd">Coursework · Exercise {sub} (Cambridge {pages})<span>Your teacher will tell you which row to do</span></div><div class="bd">'
    '<style>.hwt{width:100%;border-collapse:collapse;font-size:10.5pt}.hwt th,.hwt td{border:1px solid #000;padding:1.5mm 2mm;text-align:left;vertical-align:middle}.hwt thead th{background:#eee;font-size:9.5pt;text-transform:uppercase;letter-spacing:.3px}.hwt tbody th{width:30%;font-weight:normal}.hwt tbody th span{font-size:8.5pt}.hwt td.tk{width:12mm}.hwt thead th:last-child{text-align:center}</style>'
    f'<table class="hwt"><thead><tr><th>Option</th>{"".join(f"<th>{s}</th>" for s in SEC)}<th>Done</th></tr></thead><tbody>{rows}</tbody></table>'
