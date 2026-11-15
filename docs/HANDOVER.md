@@ -42,3 +42,11 @@
 - Scripts + parsed checklists now saved in `tools/` and `tools/data/` (see tools/README.md), so nothing needs re-extracting.
 - Checklist parser fixes: 10A-tagged labels, label on the same line as the item, "checklist and success criteria" heading (C9 Ch7–8 were missing).
 - Next: G11 units (Ch 1, 2, 3, 4, 7, 8) need proper indexing first (LIs, examples, chapter review), then the same fields; G11 has no "I can" checklist, so success criteria/exit tasks need another source (chapter review or Edrolo) — Rocco to choose. Then Do Now once lessons are grouped.
+
+## 15 Nov 2026 (night, later) — G11 cards filled
+- Rocco's rules for G11: LIs from the start of each subchapter; success criteria + exit tasks from the chapter Skills checklist; key definitions from the glossary; worked examples + Now try this; Do Now from **Edrolo U1&2 VCAA exam questions** (for the lesson after the subchapter); APK not decided, so Claude used **C9/C10 checklist skills** (Rocco to confirm).
+- Filled all 46 G11 subchapters in units (1A–1F, 2A–2I, 3A–3I, 4A–4I, 7A–7E, 8A–8H). New fields: `key_definitions`, `edrolo_lessons`, `do_now_pool`. The planner card shows them.
+- Edrolo is the 2020 edition (old study design): 230 unique VCAA questions, mostly in "Questions from multiple lessons". Each is matched to a G11 subchapter by its content, so **check the matches**. Not matched: 95 (mostly geometry/linear topics outside these units). No Edrolo lesson for 4G–4H (transition matrices). Empty pools: 1E 1F 2B 2G 3B 3F 4A 4B 4C 4F 4G 4H 7A 8E 8F 8H.
+- Book has no LI box for 1B, 1D, 1E, 1F. Some examples have no Now try this in the book (e.g. 2A Ex 1–4, 2G).
+- No video yet: 2G, 4G, 4H. Videos are from Class Mathematics VIC Y11 General; Rocco to vet.
+- Next: Rocco groups lessons → then fill Do Now slots (C10 from progress quiz/review; G11 from do_now_pool).

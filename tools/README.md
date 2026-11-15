@@ -9,3 +9,10 @@ Run from a work folder that sits next to the repo (`work/` and `10MA/` side by s
 
 `data/` keeps the parsed outputs so nothing has to be re-extracted.
 Do Now is left empty on purpose: it depends on lesson groupings (last lesson / earlier this chapter).
+
+## G11 (Cambridge General U1&2) + E11 (Edrolo)
+Text files: `g11.txt`, `e11.txt` (pdftotext -layout).
+1. `g11parse.py` → LIs, examples + Now try this, exercises, Skills checklist (→ success criteria + exit tasks). Writes `g11_stage1.json`.
+2. `g11gloss.py` → `g11_glossary.json` (glossary terms + definitions + page refs, via PyMuPDF).
+3. `edrolo.py` → every VCAA-tagged question in Edrolo; `map_edrolo.py` matches each (unique by VCAA source) to a G11 subchapter by keywords, with a fallback by exam module (`mapped_by`).
+4. `build_g11.py` → writes `library/G11.json` for G11 subchapters in units. Hand choices: `maps_apk_g11.py` (C9/C10 checklist skills), `maps_vid_g11.py`, and the Edrolo-lesson map `E2G` inside `build_g11.py`.
