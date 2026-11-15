@@ -94,7 +94,7 @@ button,select,input{font:inherit}
 .slot{font-size:11px;font-weight:600;color:var(--lesson-i)}
 .vocab{display:flex;flex-wrap:wrap;gap:6px}.vocab span{border:1px solid var(--line);border-radius:14px;padding:2px 10px;background:#fff}
 .empty{color:var(--muted);font-style:italic}
-.rp li{margin-bottom:6px}.rp .mc{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:3px}
+.rp li{margin-bottom:6px}.hwo{border-collapse:collapse;font-size:13px}.hwo th,.hwo td{border:1px solid var(--line);padding:4px 9px;text-align:left}.hwo th{background:#f4f2ec}.rp .mc{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:3px}
 .tabs{display:flex;gap:4px;background:var(--other);border-radius:10px;padding:3px}
 .tabs button{border:0;background:none;padding:5px 14px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--muted)}
 .tabs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
@@ -561,6 +561,7 @@ function showDetail(id){
   h+=S(6,'Self-study videos',li((x.videos||[]).map(v=>`<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></li>`)));
   h+=S(7,'Worked examples → Now you try',li((x.examples||[]).map(e=>`<li><b>Example ${e.n}</b> ${esc(e.title)}${e.now_you_try?' <span class="tag tfull">+ Now you try</span>':''}</li>`)));
   h+=S(8,'Exercise '+x.sub,li((x.exercise||[]).map(e=>`<li><b>${SECN[e.section]||e.section}</b>${e.title?' · '+esc(e.title):''} Q${esc(e.q)}${e.pathways?` <span class="src">(pathways: ${e.pathways.map(esc).join(' | ')})</span>`:''}</li>`)));
+  if(x.homework)h+=S('8b','Homework options (Good / Better / Best)','<table class="hwo"><tr><th></th>'+Object.keys(x.homework.good).map(k=>`<th>${k}</th>`).join('')+'</tr>'+['good','better','best'].map(t=>`<tr><th>${t[0].toUpperCase()+t.slice(1)}</th>`+Object.values(x.homework[t]).map(v=>`<td>${v==='–'?'–':'Q'+esc(v)}</td>`).join('')+'</tr>').join('')+`</table><p class="src">${esc(x.homework_note||'')}</p>`,true);
   h+=S(9,'Exit tasks (skills checklist questions)',li((x.exit_tasks||[]).map(e=>`<li>☐ ${esc(e.skill)}<br><span class="src">e.g. <span class="loc">${esc(e.question_locator)}</span> · checklist #${e.n}, p. ${e.printed_page}</span></li>`)),true);
   h+=S(10,'Success criteria (end-of-lesson skills checklist)',li((x.success_criteria||[]).map(s=>`<li>☐ ${esc(s.text)}</li>`)),true);
   document.getElementById('detail').innerHTML=h+'</div>';

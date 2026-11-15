@@ -472,7 +472,28 @@
        "id": "C10-1A-MC1"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–6(½)",
+       "Problem-solving": "7",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–6(½)",
+       "Problem-solving": "7, 8",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–6(⅓)",
+       "Problem-solving": "8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1B",
@@ -760,7 +781,28 @@
        "id": "C10-1B-MC4"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–3(½), 5(½)",
+       "Problem-solving": "6–9",
+       "Reasoning": "13",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6(½), 7, 9, 10",
+       "Reasoning": "13",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6–7(½), 10–12",
+       "Reasoning": "14",
+       "Enrichment": "15, 16"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1C",
@@ -1003,7 +1045,28 @@
        "id": "C10-1C-SA4d"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "11–12(½)"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1D",
@@ -1290,7 +1353,28 @@
        "id": "C10-1D-SA7d"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½), 5",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4(⅓), 5–7",
+       "Reasoning": "8, 9",
+       "Enrichment": "10, 11"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1E",
@@ -1699,7 +1783,28 @@
        "id": "C10-1E-MC7"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1, 2–5(½)",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2–5(½)",
+       "Problem-solving": "6–8",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1, 2–5(⅓)",
+       "Problem-solving": "7–9",
+       "Reasoning": "11, 12",
+       "Enrichment": "13"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1F",
@@ -1902,7 +2007,28 @@
        "id": "C10-1F-MC8"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1(½), 2, 3(½)",
+       "Problem-solving": "5",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1(⅓), 2–4(½)",
+       "Problem-solving": "6, 7",
+       "Reasoning": "8, 9",
+       "Enrichment": "10"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1G",
@@ -2132,7 +2258,28 @@
        "id": "C10-1G-MC9"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3, 4–5(½)",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3, 4–5(½)",
+       "Reasoning": "7, 8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓)",
+       "Problem-solving": "4–5(½), 6",
+       "Reasoning": "8, 9(½)",
+       "Enrichment": "10"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1H",
@@ -2387,7 +2534,28 @@
        "id": "C10-1H-MC11"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4–6(½)",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1(⅓), 2–3(½)",
+       "Problem-solving": "4–6(½), 7",
+       "Reasoning": "8–10",
+       "Enrichment": "11–13"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1I",
@@ -2567,7 +2735,28 @@
        "id": "C10-1I-MC12"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3, 4",
+       "Reasoning": "7(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3–5",
+       "Reasoning": "7(½), 8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓)",
+       "Problem-solving": "4–6",
+       "Reasoning": "7(½), 8, 9",
+       "Enrichment": "10(½), 11"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1J",
@@ -2749,7 +2938,28 @@
        "id": "C10-1J-SA15b"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4, 5",
+       "Reasoning": "7, 8(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓), 3(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "10(½)"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1K",
@@ -2922,7 +3132,28 @@
        "id": "C10-1K-MC13"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–5",
+       "Problem-solving": "6–8",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–5",
+       "Problem-solving": "7–9",
+       "Reasoning": "11, 12",
+       "Enrichment": "13, 14"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     },
     {
      "id": "C10-1L",
@@ -3114,7 +3345,28 @@
        "id": "C10-1L-MC14"
       }
      ],
-     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
+     "homework": {
+      "good": {
+       "Fluency": "1–2(½), 3, 4(½)",
+       "Problem-solving": "5",
+       "Reasoning": "7(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6(½)",
+       "Reasoning": "7(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(½), 4(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "7, 8",
+       "Enrichment": "9, 10"
+      }
+     },
+     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
     }
    ],
    "status": "full"

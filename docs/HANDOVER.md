@@ -72,3 +72,4 @@
 ## 15 Nov 2026 (late) — Do Now rebuilt as retrieval pools
 - Cards now hold retrieval pools about themselves; each lesson's Do Now is computed from what was taught before it (see PLANNER.md). Printable half-page sheets per lesson. Ch1 pools done (84 verbatim items).
 - Next: pools for the other chapters in units (C10 2K–9J, G11 from Edrolo/chapter review in KaTeX); diagram questions (redraw in house style); first lesson of the year has no Do Now (no C9 pool yet).
+- Homework now Good / Better / Best per subchapter (= Foundation / Standard / Advanced pathways from the book, Ch1 read off the pages), table on every worksheet + on the planner card (`homework` field). Teacher tells each student which row (target ~90–120 min/week). Signature box: Teacher stamp + Student signature + Parent signature. Scripts in tools/worksheets/.
