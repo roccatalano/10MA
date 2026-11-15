@@ -210,7 +210,9 @@ async function loadRepo(file,fallback){
 Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
   fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}})])
 .then(([c10,g11,units,yr,tt,lp])=>{
-  {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll}
+  {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll;
+   // material links always come from GitHub (a browser draft may predate them); CFATs too if the draft has none
+   LP.materials=lp.materials||{};if(!LP.cfats&&lp.cfats)LP.cfats=lp.cfats}
   LIB={C10:c10,G11:g11};Y=yr;
   for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
   const local=store.get(KEY);
