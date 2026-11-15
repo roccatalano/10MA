@@ -17,7 +17,7 @@ TIERS=[('Good','Minimum for your coursework tick'),('Better','The standard for d
 SEC=['Fluency','Problem-solving','Reasoning','Enrichment']
 def box(sub,pages):
   rows=''.join(f'<tr><th><b>{t}</b><br><span>{d}</span></th>'+''.join(f'<td>{"Q"+H[sub][c][i] if H[sub][c][i]!="–" else "–"}</td>' for c in range(4))+'<td class="tk"></td></tr>' for i,(t,d) in enumerate(TIERS))
-  return (f'<div class="box "><div class="hd">Homework · Exercise {sub} (Cambridge {pages})<span>Your teacher will tell you which row to do</span></div><div class="bd">'
+  return (f'<div class="box "><div class="hd">Coursework · Exercise {sub} (Cambridge {pages})<span>Your teacher will tell you which row to do</span></div><div class="bd">'
    '<style>.hwt{width:100%;border-collapse:collapse;font-size:10.5pt}.hwt th,.hwt td{border:1px solid #000;padding:1.5mm 2mm;text-align:left;vertical-align:middle}.hwt thead th{background:#eee;font-size:9.5pt;text-transform:uppercase;letter-spacing:.3px}.hwt tbody th{width:30%;font-weight:normal}.hwt tbody th span{font-size:8.5pt}.hwt td.tk{width:12mm}.hwt thead th:last-child{text-align:center}</style>'
    f'<table class="hwt"><thead><tr><th>Option</th>{"".join(f"<th>{s}</th>" for s in SEC)}<th>Done</th></tr></thead><tbody>{rows}</tbody></table>'
    '<p class="hwn"><b>(½)</b> = every second part (a, c, e, …) &nbsp;·&nbsp; <b>(⅓)</b> = every third part (a, d, g, …). Do the other parts for revision. Options follow the book\'s Foundation, Standard and Advanced pathways.</p>'

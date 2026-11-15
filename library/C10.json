@@ -473,7 +473,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–6(½)",
        "Problem-solving": "7",
@@ -493,7 +493,7 @@
        "Enrichment": "12"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1B",
@@ -782,7 +782,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–3(½), 5(½)",
        "Problem-solving": "6–9",
@@ -802,7 +802,7 @@
        "Enrichment": "15, 16"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1C",
@@ -1046,7 +1046,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–4(½)",
        "Problem-solving": "5, 6",
@@ -1066,7 +1066,7 @@
        "Enrichment": "11–12(½)"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1D",
@@ -1354,7 +1354,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–3(½)",
        "Problem-solving": "4(½)",
@@ -1374,7 +1374,7 @@
        "Enrichment": "10, 11"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1E",
@@ -1784,7 +1784,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1, 2–5(½)",
        "Problem-solving": "6, 7",
@@ -1804,7 +1804,7 @@
        "Enrichment": "13"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1F",
@@ -2008,7 +2008,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1(½), 2, 3(½)",
        "Problem-solving": "5",
@@ -2028,7 +2028,7 @@
        "Enrichment": "10"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1G",
@@ -2259,7 +2259,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–2(½)",
        "Problem-solving": "3, 4–5(½)",
@@ -2279,7 +2279,7 @@
        "Enrichment": "10"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1H",
@@ -2535,7 +2535,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–3(½)",
        "Problem-solving": "4(½)",
@@ -2555,7 +2555,7 @@
        "Enrichment": "11–13"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1I",
@@ -2736,7 +2736,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–2(½)",
        "Problem-solving": "3, 4",
@@ -2756,7 +2756,7 @@
        "Enrichment": "10(½), 11"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1J",
@@ -2939,7 +2939,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–3(½)",
        "Problem-solving": "4",
@@ -2959,7 +2959,7 @@
        "Enrichment": "10(½)"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1K",
@@ -3133,7 +3133,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–4",
        "Problem-solving": "6, 7",
@@ -3153,7 +3153,7 @@
        "Enrichment": "13, 14"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-1L",
@@ -3346,7 +3346,7 @@
       }
      ],
      "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js).",
-     "homework": {
+     "coursework": {
       "good": {
        "Fluency": "1–2(½), 3, 4(½)",
        "Problem-solving": "5",
@@ -3366,7 +3366,7 @@
        "Enrichment": "9, 10"
       }
      },
-     "homework_note": "Good/Better/Best = the book's Foundation/Standard/Advanced pathways"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     }
    ],
    "status": "full"
@@ -4324,7 +4324,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2, 4–6",
+       "Problem-solving": "7, 8",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–6",
+       "Problem-solving": "7–9",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3–6",
+       "Problem-solving": "8–10",
+       "Reasoning": "12, 13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-2L",
@@ -4494,7 +4515,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "5, 7",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1, 2, 4",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-2M",
@@ -4657,7 +4699,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2, 4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–5",
+       "Problem-solving": "6–8",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3–5",
+       "Problem-solving": "7–9",
+       "Reasoning": "10–12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-2N",
@@ -4808,7 +4871,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3, 4",
+       "Problem-solving": "5(½), 6, 7",
+       "Reasoning": "8–10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     }
    ]
   },
@@ -5192,7 +5276,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½), 6",
+       "Reasoning": "8(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5(½), 6",
+       "Reasoning": "8(½), 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(¼)",
+       "Problem-solving": "5(⅓), 6, 7",
+       "Reasoning": "8(⅓), 9, 10",
+       "Enrichment": "11–13(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3B",
@@ -5359,7 +5464,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "6(½)",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6–7(½)",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–5(¼)",
+       "Problem-solving": "6–7(⅓), 8",
+       "Reasoning": "10–12",
+       "Enrichment": "13(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3C",
@@ -5535,7 +5661,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½), 6(½)",
+       "Problem-solving": "7",
+       "Reasoning": "9, 10(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½), 6(½)",
+       "Problem-solving": "7(½), 8",
+       "Reasoning": "9, 10–11(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–6(⅓)",
+       "Problem-solving": "7(⅓), 8",
+       "Reasoning": "10–11(⅓), 12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3D",
@@ -5710,7 +5857,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–7(⅓)",
+       "Reasoning": "8, 9",
+       "Enrichment": "10"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3E",
@@ -5860,7 +6028,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4, 5(½)",
+       "Reasoning": "7, 8(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "5(⅓), 6",
+       "Reasoning": "8(½), 9, 10(½)",
+       "Enrichment": "11(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3F",
@@ -6033,7 +6222,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "5(½), 6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "5(½), 6–8",
+       "Reasoning": "9–12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3G",
@@ -6366,7 +6576,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2, 3–5(½)",
+       "Problem-solving": "6(½), 7",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5(½)",
+       "Problem-solving": "6(⅓), 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6(¼), 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3J",
@@ -6523,7 +6754,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5",
+       "Problem-solving": "6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–5",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3K",
@@ -6673,7 +6925,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–7(½)",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–7(⅓)",
+       "Reasoning": "8(½), 9, 10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-3L",
@@ -6825,7 +7098,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4, 5",
+       "Reasoning": "7, 8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "10"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     }
    ]
   },
@@ -7124,7 +7418,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5(½)",
+       "Problem-solving": "7, 8",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–6(⅓)",
+       "Problem-solving": "7, 8, 10(½)",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–6(¼)",
+       "Problem-solving": "8, 9, 10(½)",
+       "Reasoning": "12, 13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4B",
@@ -7280,7 +7595,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½)",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½), 6(½)",
+       "Reasoning": "7, 8(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4–6(⅓)",
+       "Reasoning": "8(½), 9",
+       "Enrichment": "10(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4C",
@@ -7457,7 +7793,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–7(½)",
+       "Problem-solving": "8",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–7(½)",
+       "Problem-solving": "8, 9(½)",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–7(⅓)",
+       "Problem-solving": "8, 9(½), 10",
+       "Reasoning": "12, 13",
+       "Enrichment": "14–15(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4D",
@@ -7590,7 +7947,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "6",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½), 6",
+       "Reasoning": "8, 9(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–7(⅓)",
+       "Reasoning": "9(⅓), 10",
+       "Enrichment": "11(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4E",
@@ -7767,7 +8145,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2, 3(½), 4",
+       "Problem-solving": "6(½), 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3(½), 4, 5(½)",
+       "Problem-solving": "6(½), 7, 8(½)",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 3(½), 4, 5(½)",
+       "Problem-solving": "6(⅓), 8, 9",
+       "Reasoning": "11–13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4F",
@@ -7923,7 +8322,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "5(½), 6",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½), 6, 7(½)",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓), 3–4(½)",
+       "Problem-solving": "7–9",
+       "Reasoning": "11, 12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4G",
@@ -8115,7 +8535,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2–4(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6(½)",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "6(½), 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4H",
@@ -8358,7 +8799,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2, 3(½)",
+       "Problem-solving": "6–7(½)",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2, 3(½), 4",
+       "Problem-solving": "6–8(½)",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓), 3(½), 4, 5",
+       "Problem-solving": "6–8(½), 9",
+       "Reasoning": "11–13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4J",
@@ -8600,7 +9062,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1(½), 2, 3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1(½), 2, 3, 4(½)",
+       "Problem-solving": "6, 7(½)",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1(⅓), 2, 3, 4(½)",
+       "Problem-solving": "7(½), 8",
+       "Reasoning": "10–12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-4L",
@@ -9039,7 +9522,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6–7(½)",
+       "Reasoning": "10–11(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "6–8(⅓)",
+       "Reasoning": "10–12(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–5(¼)",
+       "Problem-solving": "6–8(⅓), 9",
+       "Reasoning": "10(½), 12–13(½)",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5B",
@@ -9238,7 +9742,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(⅓), 6(½)",
+       "Problem-solving": "7(½)",
+       "Reasoning": "11(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–6(⅓)",
+       "Problem-solving": "7–9(½)",
+       "Reasoning": "11(½), 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–6(¼)",
+       "Problem-solving": "7–10(½)",
+       "Reasoning": "11(¼), 12–14",
+       "Enrichment": "15(½), 16"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5C",
@@ -9395,7 +9920,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5",
+       "Reasoning": "9(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5, 6(½)",
+       "Reasoning": "9(½), 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "6–8(½)",
+       "Reasoning": "9(½), 10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5D",
@@ -9558,7 +10104,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "8, 9(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(¼)",
+       "Problem-solving": "5–7(½)",
+       "Reasoning": "9(½), 10, 11",
+       "Enrichment": "12(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5E",
@@ -9695,7 +10262,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2(½)",
+       "Problem-solving": "4(½), 5",
+       "Reasoning": "7(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4(⅓), 5, 6(⅓)",
+       "Reasoning": "7–8(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(¼)",
+       "Problem-solving": "4(⅓), 5, 6(⅓)",
+       "Reasoning": "7–8(⅓), 9",
+       "Enrichment": "10(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5F",
@@ -9869,7 +10457,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "5(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–7(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–7(⅓)",
+       "Reasoning": "8, 9",
+       "Enrichment": "10"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5G",
@@ -10027,7 +10636,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–7(½)",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "6–7(⅓), 8(½)",
+       "Reasoning": "10, 11",
+       "Enrichment": "12(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5H",
@@ -10166,7 +10796,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "12",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–5",
+       "Problem-solving": "7–10",
+       "Reasoning": "12, 13",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3–6",
+       "Problem-solving": "8–11",
+       "Reasoning": "13, 14",
+       "Enrichment": "15, 16"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5I",
@@ -10305,7 +10956,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "4(½), 5",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4(⅓), 5, 6–7(½)",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "5, 6–7(⅓), 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-5J",
@@ -10463,7 +11135,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4, 5(½)",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4, 5(½), 6",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "5(½), 7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     }
    ]
   },
@@ -10709,7 +11402,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4, 5",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "5–7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓), 3",
+       "Problem-solving": "6–9",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6B",
@@ -10846,7 +11560,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4, 5",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3(½)",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6C",
@@ -10997,7 +11732,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5",
+       "Problem-solving": "7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 4–6",
+       "Problem-solving": "8, 9",
+       "Reasoning": "11–13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6D",
@@ -11147,7 +11903,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5",
+       "Problem-solving": "8, 9",
+       "Reasoning": "12",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2, 4–6",
+       "Problem-solving": "8–10",
+       "Reasoning": "12, 13",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 4, 5, 7",
+       "Problem-solving": "10, 11",
+       "Reasoning": "12–14",
+       "Enrichment": "15, 16"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6E",
@@ -11275,7 +12052,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2, 4, 5",
+       "Problem-solving": "6–8",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "3–5",
+       "Problem-solving": "7–9",
+       "Reasoning": "10, 11",
+       "Enrichment": "12, 13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6F",
@@ -11440,7 +12238,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3–5",
+       "Reasoning": "8(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4–6",
+       "Reasoning": "8(½), 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓)",
+       "Problem-solving": "5–7",
+       "Reasoning": "8(⅓), 9, 10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6G",
@@ -11589,7 +12408,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3–5",
+       "Reasoning": "8(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "4–6",
+       "Reasoning": "8(½), 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(⅓)",
+       "Problem-solving": "5–7",
+       "Reasoning": "8(⅓), 9, 10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6H",
@@ -11738,7 +12578,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1(½), 3(½)",
+       "Problem-solving": "4, 5",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1(½), 2, 3(½)",
+       "Problem-solving": "4–6",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–3(⅓)",
+       "Problem-solving": "4–7(⅓)",
+       "Reasoning": "8–10",
+       "Enrichment": "11"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-6I",
@@ -12237,7 +13098,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "5–7(½)",
+       "Reasoning": "9–11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–7(½), 8",
+       "Reasoning": "9–11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–4(½)",
+       "Problem-solving": "5–7(⅓), 8",
+       "Reasoning": "9–11, 12",
+       "Enrichment": "13(½), 14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7B",
@@ -12416,7 +13298,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2–4(½)",
+       "Problem-solving": "5(½)",
+       "Reasoning": "8(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "8–9(½)",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–6(⅓), 7",
+       "Reasoning": "9(½), 10",
+       "Enrichment": "11(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7C",
@@ -12579,7 +13482,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "6(½), 7",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5(½)",
+       "Problem-solving": "6(½), 7, 8",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–5(⅓)",
+       "Problem-solving": "7, 9, 10",
+       "Reasoning": "12–14",
+       "Enrichment": "15(½)"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7D",
@@ -12735,7 +13659,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2–6(½)",
+       "Problem-solving": "7",
+       "Reasoning": "10(½)",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–6(½)",
+       "Problem-solving": "7–8(½)",
+       "Reasoning": "10(½), 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–6(⅓)",
+       "Problem-solving": "7–9(½)",
+       "Reasoning": "10(⅓), 11, 12(⅓), 13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7E",
@@ -12906,7 +13851,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5(½)",
+       "Reasoning": "8",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4(½)",
+       "Problem-solving": "5–6(½)",
+       "Reasoning": "8, 9",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–4(⅓)",
+       "Problem-solving": "5–6(⅓), 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "11, 12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7F",
@@ -13050,7 +14016,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9–11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "11, 12",
+       "Enrichment": "13, 14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-7G",
@@ -13588,7 +14575,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–5(½)",
+       "Problem-solving": "8, 9",
+       "Reasoning": "11, 12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-8B",
@@ -13752,7 +14760,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "7, 8",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5",
+       "Problem-solving": "7, 9",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 4–6",
+       "Problem-solving": "8–10",
+       "Reasoning": "12, 13",
+       "Enrichment": "14, 15"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-8C",
@@ -13902,7 +14931,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–5",
+       "Problem-solving": "6, 7, 8(½)",
+       "Reasoning": "10, 11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–5",
+       "Problem-solving": "8, 9",
+       "Reasoning": "11, 12",
+       "Enrichment": "13, 14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-8D",
@@ -14054,7 +15104,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–2(½), 3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½), 3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(¼), 3, 4",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-8E",
@@ -14276,7 +15347,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "5, 7",
+       "Reasoning": "9–11",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–4",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10–12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-8G",
@@ -14906,7 +15998,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–3",
+       "Problem-solving": "5–7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 3",
+       "Problem-solving": "6–8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12, 13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9B",
@@ -15071,7 +16184,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–5",
+       "Problem-solving": "7, 8",
+       "Reasoning": "11",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2, 4–6",
+       "Problem-solving": "8, 9",
+       "Reasoning": "11, 12",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 4–6",
+       "Problem-solving": "9, 10",
+       "Reasoning": "12, 13",
+       "Enrichment": "14"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9C",
@@ -15222,7 +16356,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "5–7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 4",
+       "Problem-solving": "6–8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9D",
@@ -15378,7 +16533,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "5, 6(½)",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1(½), 2, 3",
+       "Problem-solving": "6(½), 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–4",
+       "Problem-solving": "7, 8",
+       "Reasoning": "10–12",
+       "Enrichment": "13"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9E",
@@ -15513,7 +16689,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1",
+       "Problem-solving": "3, 4",
+       "Reasoning": "6",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3, 4",
+       "Reasoning": "6, 7",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1–2(½)",
+       "Problem-solving": "3, 5",
+       "Reasoning": "7, 8",
+       "Enrichment": "9"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9F",
@@ -15783,7 +16980,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1, 2",
+       "Problem-solving": "4, 5",
+       "Reasoning": "7",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3",
+       "Problem-solving": "4, 5",
+       "Reasoning": "7, 8",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2, 3",
+       "Problem-solving": "5, 6",
+       "Reasoning": "8, 9",
+       "Enrichment": "10"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9I",
@@ -15920,7 +17138,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–4",
+       "Problem-solving": "5, 6",
+       "Reasoning": "9",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 3, 4",
+       "Problem-solving": "6, 7",
+       "Reasoning": "9, 10",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "2–4",
+       "Problem-solving": "6, 8",
+       "Reasoning": "10, 11",
+       "Enrichment": "12"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     },
     {
      "id": "C10-9J",
@@ -16080,7 +17319,28 @@
       }
      ],
      "do_now": [],
-     "do_now_note": "waiting for lesson groupings"
+     "do_now_note": "waiting for lesson groupings",
+     "coursework": {
+      "good": {
+       "Fluency": "1–3",
+       "Problem-solving": "4",
+       "Reasoning": "6",
+       "Enrichment": "–"
+      },
+      "better": {
+       "Fluency": "1, 2(½), 3",
+       "Problem-solving": "4, 5",
+       "Reasoning": "6, 7",
+       "Enrichment": "–"
+      },
+      "best": {
+       "Fluency": "1, 3",
+       "Problem-solving": "4, 5",
+       "Reasoning": "6–8",
+       "Enrichment": "9"
+      }
+     },
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
     }
    ]
   },
