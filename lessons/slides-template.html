@@ -40,7 +40,11 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 /* ---- shared column layouts ---- */
 .cols{flex:1;display:grid;border:1.5px solid #000;min-height:0;margin-top:16px}
 .col{border-left:1.5px solid #000;padding:12px 16px;min-width:0;display:flex;flex-direction:column;font-size:20px;line-height:1.35;overflow:hidden}
-.col.sm{font-size:16.5px;line-height:1.3}.col.sm li{margin-bottom:4px}
+.col.sm{font-size:16px;line-height:1.3}
+.col.sm ul{list-style:none;padding:0;display:flex;flex-direction:column;justify-content:space-evenly;flex:1}
+.col.sm ul li{margin:0;padding:5px 2px;border-bottom:1.5px dashed #888}.col.sm ul li:last-child{border-bottom:0}
+.col.sm table.kt{flex:1;border-collapse:collapse;height:100%}.col.sm table.kt tr td{border-bottom:1.5px dashed #888;padding:10px 12px 10px 0;vertical-align:middle}
+.col.sm table.kt tr:last-child td{border-bottom:0}
 .col:first-child{border-left:0}
 .col h2{font-size:15px;text-transform:uppercase;letter-spacing:.5px;margin:-12px -16px 10px;padding:5px 16px;background:#eee;border-bottom:1.5px solid #000}
 .col ul,.col ol{margin:0;padding-left:22px}.col li{margin-bottom:7px}
@@ -54,8 +58,15 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 /* question columns with a small skill line on top (APK, exit tasks) */
 .part .skill{font-size:15px;color:#333;margin-bottom:8px;line-height:1.3;white-space:normal}
 .part .qtxt{font-size:22px;line-height:1.4;white-space:normal}
-.part .qtxt .katex,.part .qtxt .katex-html{white-space:normal}
+.part .qtxt .katex,.part .qtxt .katex-html{white-space:nowrap}
 .slide.ex4 .q{flex:none}
+.parts.g22{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+.parts.g22 .part:nth-child(odd){border-left:0}.parts.g22 .part:nth-child(n+3){border-top:1.5px solid #000}
+.parts.g22 .part:nth-child(2){border-left:1.5px solid #000}.parts.g22 .part:nth-child(4){border-left:1.5px solid #000}
+.parts.g22 .skill{font-size:16px;margin-bottom:5px}
+.parts.g22 .part{padding:9px 16px}.parts.g22 .st{margin:0 0 4px!important;font-size:22px}.parts.g22 .work{padding-top:6px}
+.skill.ck{display:flex;gap:10px;align-items:flex-start;font-size:19px!important;color:#000!important;font-weight:bold}.skill.ck .box{flex:none;width:22px;height:22px;border:2px solid #000;margin-top:1px}.parts.g22 .qtxt{font-size:21px}
+.parts.g22 .work{display:flex;flex-direction:column}
 .slide.ex4 .part .st{font-size:24px}
 .slide.ex4 .part .work{padding-top:10px}
 /* coursework table */
@@ -80,7 +91,7 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 <!-- ACTIVATING PRIOR KNOWLEDGE (reveals like a worked example) -->
 <section class="slide ex4"><div class="bar"><span class="tag">APK</span><h1>Activating prior knowledge</h1><span class="sub">1A Review of algebra</span></div>
 <p class="q" style="margin:18px 4px 12px">Answer each question.</p>
-<div class="parts" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="part"><div class="skill">Year 7 · I can simplify expressions involving multiplication.</div><div class="qtxt"><b>1.</b> Simplify $4a \times 2b \times 3c$, giving your final answer without multiplication signs.</div><div class="work"><div class="st final">$= \boldsymbol{24abc}$</div></div></div><div class="part"><div class="skill">Year 8 · I can simplify expressions by combining like terms.</div><div class="qtxt"><b>2.</b> Simplify $5ac + 3b - 2ca + 4b - 5b$.</div><div class="work"><div class="st final">$= \boldsymbol{3ac + 2b}$</div></div></div><div class="part"><div class="skill">Year 8 · I can factorise expressions by taking out the highest common factor.</div><div class="qtxt"><b>3.</b> Factorise $12a + 18ab$.</div><div class="work"><div class="st final">$= \boldsymbol{6a(2 + 3b)}$</div></div></div><div class="part"><div class="skill">Year 9 · I can substitute values into expressions and evaluate.</div><div class="qtxt"><b>4.</b> Evaluate $a^2 + 3(ab - c)$ if $a = -2$, $b = 3$ and $c = -8$.</div><div class="work"><div class="st">$= (-2)^2 + 3\big((-2)(3) - (-8)\big)$</div><div class="st">$= 4 + 3(2)$</div><div class="st final">$= \boldsymbol{10}$</div></div></div></div>
+<div class="parts g22"><div class="part"><div class="skill">Year 7 · I can simplify expressions involving multiplication.</div><div class="qtxt"><b>1.</b> Simplify $4a \times 2b \times 3c$, giving your final answer without multiplication signs.</div><div class="work"><div class="st final">$= \boldsymbol{24abc}$</div></div></div><div class="part"><div class="skill">Year 8 · I can simplify expressions by combining like terms.</div><div class="qtxt"><b>2.</b> Simplify $5ac + 3b - 2ca + 4b - 5b$.</div><div class="work"><div class="st final">$= \boldsymbol{3ac + 2b}$</div></div></div><div class="part"><div class="skill">Year 8 · I can factorise expressions by taking out the highest common factor.</div><div class="qtxt"><b>3.</b> Factorise $12a + 18ab$.</div><div class="work"><div class="st final">$= \boldsymbol{6a(2 + 3b)}$</div></div></div><div class="part"><div class="skill">Year 9 · I can substitute values into expressions and evaluate.</div><div class="qtxt"><b>4.</b> Evaluate $a^2 + 3(ab - c)$ if $a = -2$, $b = 3$ and $c = -8$.</div><div class="work"><div class="st">$= (-2)^2 + 3\big((-2)(3) - (-8)\big)$</div><div class="st">$= 4 + 3(2)$</div><div class="st final">$= \boldsymbol{10}$</div></div></div></div>
 <div class="foot"><span>Cambridge Essential Mathematics 3rd Ed: Year 7 Ch4 checklist item 11 (p. 278); Year 8 Ch5 checklist items 6, 15 (p. 400); Year 9 Ch2 checklist item 2 (p. 162). Working by teacher.</span><span class="pg"></span></div></section>
 <!-- KEY IDEAS | KEY FORMULAS -->
 <section class="slide"><div class="bar"><span class="tag">1A</span><h1>Key ideas</h1><span class="sub">1A Review of algebra</span></div>
@@ -96,10 +107,10 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 <li><b>Factorisation</b> involves writing expressions as a product of factors. Many expressions can be factorised by taking out the highest common factor (HCF).</li></ul></div>
 <div class="col sm"><h2>Key formulas</h2><table class="kt">
 <tr><td>Like terms</td><td>$3x - 7x + x = -3x$<br>$6a^2b - ba^2 = 5a^2b$ &nbsp; (note $a^2b = ba^2$)</td></tr>
-<tr><td>$\times$ and $\div$</td><td>$7 \times x \div y = \dfrac{7x}{y}$ &emsp; $-6a^2b \div (ab) = \dfrac{-6a^2b}{ab} = -6a$</td></tr>
+<tr><td>$\times$ and $\div$</td><td>$7 \times x \div y = \dfrac{7x}{y}$<br>$-6a^2b \div (ab) = \dfrac{-6a^2b}{ab} = -6a$</td></tr>
 <tr><td>Distributive law</td><td>$a(b + c) = ab + ac$ &nbsp; e.g. $2(x + 7) = 2x + 14$<br>$a(b - c) = ab - ac$ &nbsp; e.g. $-x(3 - x) = -3x + x^2$</td></tr>
 <tr><td>Factorising (HCF)</td><td>$3x - 12 = 3(x - 4)$<br>$9x^2y - 6xy + 3x = 3x(3xy - 2y + 1)$</td></tr>
-<tr><td>Properties</td><td>commutative $ab = ba$, $a + b = b + a$<br>associative $a \times (b \times c) = (a \times b) \times c$<br>identity $a \times 1 = a$, $a + 0 = a$ &emsp; inverse $a \times \dfrac{1}{a} = 1$, $a + (-a) = 0$</td></tr>
+<tr><td>Properties</td><td>commutative $ab = ba$, $a + b = b + a$<br>associative $a \times (b \times c) = (a \times b) \times c$<br>identity $a \times 1 = a$, $a + 0 = a$<br>inverse $a \times \frac{1}{a} = 1$, $a + (-a) = 0$</td></tr>
 </table></div></div><div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Key ideas (pp. 4–5)</span><span class="pg"></span></div></section>
 <!-- WORKED EXAMPLE -->
 <section class="slide ex" data-id="C10-1A-ex1">
@@ -128,7 +139,7 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 <!-- EXIT TASKS (reveal like a worked example) -->
 <section class="slide ex4"><div class="bar"><span class="tag">Exit</span><h1>Exit tasks</h1><span class="sub">1A Review of algebra</span></div>
 <p class="q" style="margin:18px 4px 12px">Tick each skill in your checklist when you can do it.</p>
-<div class="parts" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="part"><div class="skill">I can simplify expressions using the four operations $+, -, \times, \div$.</div><div class="qtxt"><b>1.</b> Simplify $3x \times 2y - 4x^2y + 2xy + 3x^2y$.</div><div class="work"><div class="st">$= 6xy - 4x^2y + 2xy + 3x^2y$</div><div class="st final">$= \boldsymbol{8xy - x^2y}$</div></div></div><div class="part"><div class="skill">I can expand brackets using the distributive law.</div><div class="qtxt"><b>2.</b> Expand and simplify $-4y(2y + 3)$.</div><div class="work"><div class="st final">$= \boldsymbol{-8y^2 - 12y}$</div></div></div><div class="part"><div class="skill">I can factorise simple algebraic expressions with a common factor.</div><div class="qtxt"><b>3.</b> Factorise $6x^2 - 15x$.</div><div class="work"><div class="st final">$= \boldsymbol{3x(2x - 5)}$</div></div></div><div class="part"><div class="skill">I can substitute numbers for pronumerals and evaluate.</div><div class="qtxt"><b>4.</b> Given $a = -3$ and $b = 4$, evaluate $ab + a^2$.</div><div class="work"><div class="st">$= (-3)(4) + (-3)^2$</div><div class="st">$= -12 + 9$</div><div class="st final">$= \boldsymbol{-3}$</div></div></div></div>
+<div class="parts g22"><div class="part"><div class="skill ck"><span class="box"></span><span>I can simplify expressions using the four operations $+, -, \times, \div$.</span></div><div class="qtxt"><b>1.</b> Simplify $3x \times 2y - 4x^2y + 2xy + 3x^2y$.</div><div class="work"><div class="st">$= 6xy - 4x^2y + 2xy + 3x^2y$</div><div class="st final">$= \boldsymbol{8xy - x^2y}$</div></div></div><div class="part"><div class="skill ck"><span class="box"></span><span>I can expand brackets using the distributive law.</span></div><div class="qtxt"><b>2.</b> Expand and simplify $-4y(2y + 3)$.</div><div class="work"><div class="st final">$= \boldsymbol{-8y^2 - 12y}$</div></div></div><div class="part"><div class="skill ck"><span class="box"></span><span>I can factorise simple algebraic expressions with a common factor.</span></div><div class="qtxt"><b>3.</b> Factorise $6x^2 - 15x$.</div><div class="work"><div class="st final">$= \boldsymbol{3x(2x - 5)}$</div></div></div><div class="part"><div class="skill ck"><span class="box"></span><span>I can substitute numbers for pronumerals and evaluate.</span></div><div class="qtxt"><b>4.</b> Given $a = -3$ and $b = 4$, evaluate $ab + a^2$.</div><div class="work"><div class="st">$= (-3)(4) + (-3)^2$</div><div class="st">$= -12 + 9$</div><div class="st final">$= \boldsymbol{-3}$</div></div></div></div>
 <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, Chapter 1 checklist items 1–4 (p. 88). Working by teacher.</span><span class="pg"></span></div></section>
 <!-- COURSEWORK (last slide of the subchapter) -->
 <section class="slide"><div class="bar"><span class="tag">1A</span><h1>Coursework · Exercise 1A (pp. 8–10)</h1><span class="sub">1A Review of algebra</span></div>
