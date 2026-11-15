@@ -33,7 +33,7 @@ CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetic
 svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
 .ans>div{margin:.3mm 0}.ans svg.fig{height:30mm;width:auto;max-width:100%;display:block;margin:2mm auto 0}.ans svg.fig[viewBox^="0 -6"]{height:15mm}.q svg.fig{height:14mm;width:auto}
-.brk{break-before:page}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;gap:4mm}.skl{flex:1;display:flex;flex-direction:column}.skr{flex:none;width:46mm}.skr svg{width:46mm;height:46mm;display:block}.skr .ans svg.fig{height:46mm;margin:0!important}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
+.brk{break-before:page}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;padding:0!important}.skl{flex:1;display:flex;flex-direction:column;padding:2mm 3mm;border-right:1.2px solid #000}.skr{flex:1;display:flex;align-items:center;justify-content:center;padding:2mm}.skr>div{width:100%}.skr svg{width:100%;height:auto;max-height:var(--gh,66mm);display:block;margin:0 auto}.skr .ans svg.fig{margin:0 auto!important;height:auto}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
@@ -62,6 +62,8 @@ def build(stream,n,unit):
                 it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
     while len(A)==1 and fills:   # never a lone multiple-choice question
         f=fills.pop(0);A.append(f);[sk.__setitem__(2,sk[2]+f['marks']) for sk in skills if sk[0]==f['tag']]
+    nsk_=sum(1 for i in B if any(str(x).startswith('<svg') and 'viewBox="0 -6' not in x for x in i['sol']))
+    GH='66mm' if nsk_<=2 else ('54mm' if nsk_==3 else '46mm')
     tot=sum(s[2] for s in skills);ma=sum(i['marks'] for i in A);mb=sum(i['marks'] for i in B)
     qn=[0]
     def hd(it):
@@ -110,7 +112,7 @@ def build(stream,n,unit):
           '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
-          f'<style>{CSS}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
+          f'<style>{CSS}body{{--gh:{GH}}}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
           + body.replace('Show all working','<b style="color:#c00">Solutions</b>' if sol else 'Show all working') +
           """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false});
 document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const mm=v=>v*96/25.4;
