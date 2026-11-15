@@ -78,5 +78,6 @@
 
 ## 15 Nov 2026 (late) — slide templates (Worked example / You try)
 - `lessons/slides-template.html` (1A Example 1 + You try 1): 1280×720 scaled, worksheet-style title bar (You try = grey bar), instruction + one column per part (maths never wraps; shrinks to fit), empty working space, citation footer.
+- Key idea box top-right (book Key ideas wording + the matching worksheet Key formula), same box on the Example and its You try.
 - Solutions animate one line per click, red, down the column; final line bold. Worked example = the book's solution lines (starting from "="). You try = our own working in exactly the same steps/format as its worked example (Rocco OK'd), final answer checked against the book's Answers (Now you try answers are printed there).
 - Next: lock template → build the 10MAA A1 deck (all 1A–1L examples + You trys), then Do Now / exit-task slides.

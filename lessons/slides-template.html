@@ -17,7 +17,12 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 .bar h1{font-size:30px;margin:0;flex:1;font-weight:bold}
 .bar .sub{font-size:18px;color:#333;white-space:nowrap}
 .slide.yt .bar{background:#eee}
-.q{font-size:30px;margin:22px 4px 10px}
+.q{font-size:30px;margin:0 4px;flex:1}
+/* question instruction on the left, key idea / formula box top-right */
+.top{display:flex;gap:24px;align-items:flex-start;margin:18px 0 12px}
+.ki{width:430px;border:2px solid #000;font-size:17px;line-height:1.35;flex:none}
+.ki .kh{background:#eee;border-bottom:1.5px solid #000;padding:3px 10px;font-weight:bold;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
+.ki .kb{padding:7px 10px}.ki .kf{margin-top:6px;font-size:19px}.ki .kn{font-size:15px;color:#333;margin-top:2px}.ki .katex{font-size:1.05em}
 /* one column per part: question on top, empty working space below */
 .parts{flex:1;display:grid;gap:0;border:1.5px solid #000;min-height:0}
 .part{min-width:0;border-left:1.5px solid #000;padding:14px 18px;font-size:30px;display:flex;flex-direction:column}
@@ -37,25 +42,25 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 <!-- WORKED EXAMPLE -->
 <section class="slide ex" data-id="C10-1A-ex1">
   <div class="bar"><span class="tag">Example 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
-  <p class="q">Simplify by collecting like terms.</p>
+  <div class="top"><p class="q">Simplify by collecting like terms.</p><div class="ki"><div class="kh">Key idea</div><div class="kb"><b>Like terms</b> have the same pronumeral part and, using addition and subtraction, can be collected to form a single term.<div class="kf">$3x - 7x + x = -3x$ &emsp; $6a^2b - ba^2 = 5a^2b$</div><div class="kn">Note that $a^2b = ba^2$</div></div></div></div>
   <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <div class="part"><div class="qq"><span class="lab">a</span>$7a + 3a$</div><div class="work"><div class="st final">$= \boldsymbol{10a}$</div></div></div>
     <div class="part"><div class="qq"><span class="lab">b</span>$3a^2b - 2a^2b$</div><div class="work"><div class="st final">$= \boldsymbol{a^2b}$</div></div></div>
     <div class="part"><div class="qq"><span class="lab">c</span>$5xy + 2xy^2 - 2xy + 3y^2x$</div><div class="work"><div class="st final">$= \boldsymbol{3xy + 5xy^2}$</div></div></div>
   </div>
-  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 (p. 6)</span><span class="pg"></span></div>
+  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 (p. 6); key idea p. 5</span><span class="pg"></span></div>
 </section>
 
 <!-- YOU TRY (same layout; grey title bar) -->
 <section class="slide yt" data-id="C10-1A-yt1">
   <div class="bar"><span class="tag">You try 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
-  <p class="q">Simplify by collecting like terms.</p>
+  <div class="top"><p class="q">Simplify by collecting like terms.</p><div class="ki"><div class="kh">Key idea</div><div class="kb"><b>Like terms</b> have the same pronumeral part and, using addition and subtraction, can be collected to form a single term.<div class="kf">$3x - 7x + x = -3x$ &emsp; $6a^2b - ba^2 = 5a^2b$</div><div class="kn">Note that $a^2b = ba^2$</div></div></div></div>
   <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <div class="part"><div class="qq"><span class="lab">a</span>$4a + 13a$</div><div class="work"><div class="st final">$= \boldsymbol{17a}$</div></div></div>
     <div class="part"><div class="qq"><span class="lab">b</span>$5ab^2 - 2ab^2$</div><div class="work"><div class="st final">$= \boldsymbol{3ab^2}$</div></div></div>
     <div class="part"><div class="qq"><span class="lab">c</span>$3xy + 4x^2y - xy + 2yx^2$</div><div class="work"><div class="st final">$= \boldsymbol{2xy + 6x^2y}$</div></div></div>
   </div>
-  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6); working follows Example 1, answers checked against p. 956</span><span class="pg"></span></div>
+  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6); working follows Example 1, answers checked against p. 956; key idea p. 5</span><span class="pg"></span></div>
 </section>
 
 </div>
