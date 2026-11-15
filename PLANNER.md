@@ -47,3 +47,9 @@
 - Library cards: `materials:[{kind,title,html,pdf}]` → "Lesson materials" box at the top of the card + 📄 on the library list.
 - `lessons.json` `materials:{"<stream>|<unit>":[{kind,title,pdf}]}` → "Unit materials" box under the CFATs (slides, workbook, plus each subchapter worksheet in plan order).
 - Unit workbook = subchapter worksheet PDFs merged in Lesson planning order (rebuild if the order changes).
+
+## Do Now (15 Nov, Rocco's idea)
+- Each subchapter card holds a `retrieval` pool: verbatim questions ABOUT ITSELF (C10: progress quiz + chapter review SA/MC, one part each, KaTeX in `stem`/`tex`, `src`, `page`, `tenA`). Ch1 done (84 items, `tools/donow/c10_ch1_pool.py`); questions needing a graph/number-line picture left out for now.
+- `planner/donow.js` picks each lesson's Do Now from the plan: 3 questions = last lesson · 3–6 lessons back · 7+ back (falls back when a slot is empty); each question once per stream; 10A items skipped for 10MAG. Review/assessment lessons get none.
+- Lesson planning shows the picks under each lesson + "Sheet ↗"; Unit materials has "Do Now sheets ↗" (whole unit).
+- `planner/donow.html?s=10MAA&u=1[&l=8]`: A4, two identical half-page copies per sheet (cut line), KaTeX, cited. Uses the browser's unsaved drafts if any, so it matches the planner.

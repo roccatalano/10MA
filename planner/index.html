@@ -94,6 +94,7 @@ button,select,input{font:inherit}
 .slot{font-size:11px;font-weight:600;color:var(--lesson-i)}
 .vocab{display:flex;flex-wrap:wrap;gap:6px}.vocab span{border:1px solid var(--line);border-radius:14px;padding:2px 10px;background:#fff}
 .empty{color:var(--muted);font-style:italic}
+.rp li{margin-bottom:6px}.rp .mc{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:3px}
 .tabs{display:flex;gap:4px;background:var(--other);border-radius:10px;padding:3px}
 .tabs button{border:0;background:none;padding:5px 14px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--muted)}
 .tabs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
@@ -114,6 +115,7 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 .cf.new{justify-content:center;color:var(--muted);font-size:12px;border-style:dashed;flex:0 0 170px}.cfn{font-weight:700;font-size:12.5px;color:var(--g11);display:flex;gap:2px;align-items:center}.cfn button:first-of-type{margin-left:auto}
 .cc{font-size:11.5px;line-height:1.25;cursor:grab;display:flex;gap:4px;align-items:baseline}.cc .x{font-size:12px;margin-left:auto}.cfmiss{width:100%;font-size:12px;color:var(--sac-i);font-weight:600}
 .mats .btn,.umat .pill{text-decoration:none;font-size:12.5px;padding:3px 11px;border-radius:9px;border:1px solid #b9d3cf;color:#1d5a52;background:#fff;font-weight:600}.mats .btn:hover,.umat .pill:hover{background:#eef7f5}.umat{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px;padding:8px;background:#eef3fd;border-radius:9px;font-size:12.5px}.umat .cft{color:var(--lesson-i)}.umat a{text-decoration:none}.umat .pill{border:1px solid var(--line);background:#fff;border-radius:7px;padding:2px 8px}
+.dnl{width:100%;font-size:11.5px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}.dnl a{text-decoration:none;font-weight:600;color:#1d5a52}.dnl .q{background:#eef7f5;border-radius:5px;padding:0 5px;cursor:help}
 .cmark{margin:2px 0 4px 42px;padding:4px 10px;border-radius:6px;background:var(--g11b);color:var(--g11);font-size:12px;border-left:4px solid var(--g11)}
 .lc em{font-style:normal;font-size:10px;font-weight:700;color:var(--g11);background:var(--g11b);border-radius:4px;padding:0 4px}
 #year{flex:1;overflow:auto;padding:14px 16px}
@@ -159,6 +161,10 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 a{color:var(--accent)}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="donow.js"></script>
 </head>
 <body>
 <header>
@@ -467,12 +473,15 @@ function cfStrip(u,cf,cfIn){const miss=u.items.filter(x=>!cfIn[x.id]);
 function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(l=>l.items.forEach(x=>{if(!order.includes(x.id))order.push(x.id)}));
   const ws=order.map(id=>IDX[id]).filter(s=>s&&(s.materials||[]).length);
   return `<div class="umat"><b class="cft" style="width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Unit materials</b>
-   <span>Slides: <span class="empty">not made yet</span></span>
+   <span>Slides: <span class="empty">not made yet</span></span><span><b>Do Now sheets</b> <a class="pill" href="donow.html?s=${u.stream}&u=${numOf(u)}" target="_blank" rel="noopener">Open ↗</a></span>
    ${M.map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
    ${ws.length?`<span style="width:100%">Worksheets: ${ws.map(s=>`<a class="pill" href="../${encodeURI(s.materials[0].html)}?v=${BUST}" target="_blank" rel="noopener" title="${esc(s.title)}">${s.book==='G11'?'Y11 ':''}${s.sub} ↗</a>`).join(' ')}</span>`:''}</div>`}
+function dnLine(d,u,k){if(!d)return'';
+  if(!d.items.length)return `<span class="dnl">Do Now: <i>nothing taught yet (pools only exist for Ch1 so far)</i></span>`;
+  return `<span class="dnl">Do Now: ${d.items.map(q=>`<span class="q" title="${esc((q.stem+' '+q.tex).replace(/<[^>]+>/g,' ').replace(/\$/g,''))}">${q.sub} ${q.id.split('-').pop()}</span>`).join('')}<a href="donow.html?s=${u.stream}&u=${numOf(u)}&l=${k+1}" target="_blank" rel="noopener">Sheet ↗</a></span>`}
 function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
-  const us=UNITS.units.filter(u=>u.stream===lstream);
+  const us=UNITS.units.filter(u=>u.stream===lstream),DNS=DN.doNows(lstream,UNITS,LP,IDX);
   let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}
    <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'1 CFAT = 1 week = 3 lessons.':'1 CFAT = 1 week = 3 lessons.'}</span></div>`;
   h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
@@ -484,10 +493,11 @@ function renderLessons(){
       b=cfStrip(u,cf,cfIn)+matBox(u,p)+p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
         <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];if(l.kind==='teach')seen[x.id]=(seen[x.id]||0)+1;
           return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${l.kind==='teach'&&cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}${cfIn[x.id]?`<em title="Assessed in CFAT ${cfIn[x.id]}">C${cfIn[x.id]}</em>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
-         <input class="lnote" placeholder="note…" value="${esc(l.note||'')}"></div>
+         <input class="lnote" placeholder="note…" value="${esc(l.note||'')}">${dnLine(DNS[(numOf(u)-1)+'|'+k],u,k)}</div>
         <span class="lbtn"><button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete lesson">✕</button></span></div>`+cmark(k)}).join('');
       b+=(loose.length?`<div class="loose"><b>Not in a lesson yet:</b> ${loose.map(x=>`<span class="lc ${x.id.split('-')[0]}" draggable="true" data-id="${x.id}"><b>${IDX[x.id]?.sub||x.id}</b> <span class="tt">${esc(IDX[x.id]?.title||'')}</span></span>`).join('')}</div>`:'')
        +`<div class="urow" style="margin-top:8px"><button class="btn addl" data-kind="teach">+ Lesson</button><button class="btn addl" data-kind="practice">+ Practice</button><button class="btn addl" data-kind="review">+ Review</button><button class="btn addl" data-kind="assess">+ Assessment</button>${LP.plans[ukey(u)]?'<button class="btn rst" title="Go back to one lesson per subchapter">Reset</button>':''}</div>`}
+    const U=numOf(u);
     return `<div class="unit lu ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}"><div class="uh lh"><span class="num">${SH[u.stream]}${numOf(u)}</span><b style="flex:1">${esc(u.name)}</b>
       <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters · ${cf.length} CFATs${u.items.some(x=>!cfIn[x.id])?` · <b style="color:var(--sac-i)">${u.items.filter(x=>!cfIn[x.id]).length} not in a CFAT</b>`:''}${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
       ${(+u.lessons||0)!==p.length?`<button class="btn uset" title="Set this unit's lesson count on the Unit planning tab to ${p.length}">Use ${p.length}</button>`:''}<span class="caret">${open?'▾':'▸'}</span></div>${open?`<div class="ub">${b}</div>`:''}</div>`}).join('')||'<p class="empty">No units for this stream yet</p>';
@@ -542,6 +552,7 @@ function showDetail(id){
   h+=S(1,'Learning intentions',li((x.learning_intentions||[]).map(t=>`<li>${esc(t)}</li>`)));
   if(x.book==='G11')h+=S(2,'VCE Study Design (General Maths U1&amp;2)',li((x.study_design||[]).map(c=>`<li><span class="code">${c.id.replace('GM-','')}</span> <span class="tag">${c.kind==='content'?'content':'key knowledge'}</span> ${esc(c.text)}<br><span class="src">Unit ${c.unit} · ${esc(c.topic)}</span></li>`)));else
   h+=S(2,'Victorian Curriculum 2.0',li((x.vc2||[]).map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">L9 review</span> ':''}${esc(c.text)}</li>`)));
+  if(x.retrieval)h+=S(3,`Retrieval pool (${x.retrieval.length}): used in the Do Now of lessons after this one`,'<ul class="rp">'+x.retrieval.map(q=>`<li>${q.stem} ${q.tex} <span class="src">${esc(q.src)}, p. ${q.page}${q.tenA?' · 10A':''}</span></li>`).join('')+'</ul>',true);else
   h+=S(3,'Do Now (retrieval)',li((x.do_now||[]).map(d=>`<li><span class="slot">${esc(d.slot)}</span> · ${esc(d.sub)}: ${esc(d.src)} Q${d.q} <span class="src">(${d.printed_page?'p. '+d.printed_page:'PDF p. '+d.pdf_page})${d.note?' · '+esc(d.note):''}</span></li>`)));
   if(x.do_now_pool&&x.do_now_pool.length||x.edrolo_lessons)h+=S('3b','Do Now pool (Edrolo VCAA questions on this subchapter: use in the lesson after it)',(x.edrolo_lessons&&x.edrolo_lessons.length?'<p class="src">Edrolo lessons: '+x.edrolo_lessons.map(esc).join(', ')+'</p>':'<p class="src">No matching Edrolo lesson (old study design)</p>')+li((x.do_now_pool||[]).map(q=>`<li>${esc(q.src)} <span class="src">(${esc(q.section)}, PDF p. ${q.pdf_page}${q.mapped_by==='keyword'?'':' · '+esc(q.mapped_by)})</span><br>${esc(q.vcaa)}<br><span class="src">e.g. <span class="loc">${esc(q.question_locator)}</span></span></li>`)),true);
   h+=S(4,x.book==='G11'?'APK (priming: Year 9 → 10)':'APK (priming: Year 7 → 8 → 9)',li((x.apk||[]).map(a=>`<li><b>${esc(a.book)}</b> ${esc(a.skill)}<br><span class="src">e.g. <span class="loc">${esc(a.question_locator)}</span> · ${esc(a.src)} #${a.n} (${a.sub}), PDF p. ${a.pdf_page}</span></li>`)));
@@ -553,6 +564,7 @@ function showDetail(id){
   h+=S(9,'Exit tasks (skills checklist questions)',li((x.exit_tasks||[]).map(e=>`<li>☐ ${esc(e.skill)}<br><span class="src">e.g. <span class="loc">${esc(e.question_locator)}</span> · checklist #${e.n}, p. ${e.printed_page}</span></li>`)),true);
   h+=S(10,'Success criteria (end-of-lesson skills checklist)',li((x.success_criteria||[]).map(s=>`<li>☐ ${esc(s.text)}</li>`)),true);
   document.getElementById('detail').innerHTML=h+'</div>';
+  if(window.renderMathInElement)renderMathInElement(document.getElementById('detail'),{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
   modal.classList.add('on');
 }
 </script>

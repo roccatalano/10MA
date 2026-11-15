@@ -68,3 +68,7 @@
 - Unit workbooks rebuilt per stream (10MAA order puts 1L after 1H; 10MAG has no 1D) and, with the worksheets, pushed to `lessons/` in the repo and linked from the planner. Solutions copies not regenerated yet. 1D, 1G, 1H, 1I, 1K grew by one page.
 - Decided: one HTML slide deck per unit (sections per subchapter, exit-task slides from the subchapter checklist at the end of each section), built from shared subchapter source so 10MAG/10MAA share slides. Worksheets stay per subchapter → later one unit booklet. A buffer lesson per unit for catch-up.
 - House rules (Rocco): all maths in KaTeX, never screenshots; diagrams redrawn in house style; A4 HTMLs display as an A4 sheet on screen; material buttons read "Open ↗" / "PDF ⬇".
+
+## 15 Nov 2026 (late) — Do Now rebuilt as retrieval pools
+- Cards now hold retrieval pools about themselves; each lesson's Do Now is computed from what was taught before it (see PLANNER.md). Printable half-page sheets per lesson. Ch1 pools done (84 verbatim items).
+- Next: pools for the other chapters in units (C10 2K–9J, G11 from Edrolo/chapter review in KaTeX); diagram questions (redraw in house style); first lesson of the year has no Do Now (no C9 pool yet).

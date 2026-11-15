@@ -361,32 +361,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 1,
-       "sub": "C9-2A",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 2,
-       "sub": "C9-2A",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 3,
-       "sub": "C9-2B",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -395,7 +369,110 @@
        "html": "lessons/C10-1A worksheet.html",
        "pdf": "lessons/C10-1A worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q1a",
+       "page": 45,
+       "stem": "Simplify the following.",
+       "tex": "$15a^2b + 2ab - 6ba^2 + 8b$",
+       "tenA": false,
+       "id": "C10-1A-PQ1a"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q1b",
+       "page": 45,
+       "stem": "Simplify the following.",
+       "tex": "$-3xy \\times 4x$",
+       "tenA": false,
+       "id": "C10-1A-PQ1b"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q1c",
+       "page": 45,
+       "stem": "Simplify the following.",
+       "tex": "$4(m + 5) + 3(3m - 2)$",
+       "tenA": false,
+       "id": "C10-1A-PQ1c"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1a",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$8xy + 5x - 3xy + x$",
+       "tenA": false,
+       "id": "C10-1A-SA1a"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1b",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$3a \\times 4ab$",
+       "tenA": false,
+       "id": "C10-1A-SA1b"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1c",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$18xy \\div (12y)$",
+       "tenA": false,
+       "id": "C10-1A-SA1c"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1d",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$3(b + 5) + 6$",
+       "tenA": false,
+       "id": "C10-1A-SA1d"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1e",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$-3m(2m - 4) + 4m^2$",
+       "tenA": false,
+       "id": "C10-1A-SA1e"
+      },
+      {
+       "sub": "1A",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q1f",
+       "page": 90,
+       "stem": "Simplify the following. You may need to expand the brackets first.",
+       "tex": "$3(2x + 4) - 5(x + 2)$",
+       "tenA": false,
+       "id": "C10-1A-SA1f"
+      },
+      {
+       "sub": "1A",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q1",
+       "page": 92,
+       "stem": "The simplified form of $3x + 2x \\times 7y - 3xy + 5x$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $10x + 4y$</span><span><b>B</b> $35xy - 6x^2y$</span><span><b>C</b> $\\dfrac{35y - 6xy}{7}$</span><span><b>D</b> $5xy - 6x^2$</span><span><b>E</b> $8x + 11xy$</span></div>",
+       "tenA": false,
+       "id": "C10-1A-MC1"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1B",
@@ -572,32 +649,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 1,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1A"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 4,
-       "sub": "C9-2B",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 5,
-       "sub": "C9-2C",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -606,7 +657,110 @@
        "html": "lessons/C10-1B worksheet.html",
        "pdf": "lessons/C10-1B worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q2a",
+       "page": 45,
+       "stem": "Solve the following equations and check your solution by substitution.",
+       "tex": "$2x + 8 = 18$",
+       "tenA": false,
+       "id": "C10-1B-PQ2a"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q2b",
+       "page": 45,
+       "stem": "Solve the following equations and check your solution by substitution.",
+       "tex": "$2(3k - 4) = -17$",
+       "tenA": false,
+       "id": "C10-1B-PQ2b"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q2c",
+       "page": 45,
+       "stem": "Solve the following equations and check your solution by substitution.",
+       "tex": "$\\dfrac{m + 5}{5} = 7$",
+       "tenA": false,
+       "id": "C10-1B-PQ2c"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q3",
+       "page": 45,
+       "stem": "",
+       "tex": "<b>a</b>&nbsp; Simplify $\\dfrac{3}{4} + \\dfrac{m}{8}$ &emsp;&emsp; <b>b</b>&nbsp; Hence, solve $\\dfrac{3}{4} + \\dfrac{m}{8} = 2$",
+       "tenA": false,
+       "id": "C10-1B-PQ3"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q2a",
+       "page": 90,
+       "stem": "Solve these linear equations.",
+       "tex": "$3 - 2x = 9$",
+       "tenA": false,
+       "id": "C10-1B-SA2a"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q2b",
+       "page": 90,
+       "stem": "Solve these linear equations.",
+       "tex": "$3(2x + 1) = 7 - 2(x + 5)$",
+       "tenA": false,
+       "id": "C10-1B-SA2b"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q2c",
+       "page": 90,
+       "stem": "Solve these linear equations.",
+       "tex": "$\\dfrac{x - 9}{4} = -2$",
+       "tenA": false,
+       "id": "C10-1B-SA2c"
+      },
+      {
+       "sub": "1B",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q5a–b",
+       "page": 90,
+       "stem": "Marie’s watering can is initially filled with $2$ litres of water. However, the watering can has a small hole in the base and is leaking at a rate of $0.4$ litres per minute.",
+       "tex": "<b>a</b>&nbsp; Write a rule for the volume of water, $V$ litres, in the can after $t$ minutes.<br><b>b</b>&nbsp; What volume of water remains after $90$ seconds?",
+       "tenA": false,
+       "id": "C10-1B-SA5ab"
+      },
+      {
+       "sub": "1B",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q2",
+       "page": 92,
+       "stem": "The solution to $-4(2x - 6) = 10x$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $x = \\dfrac{3}{2}$</span><span><b>B</b> $x = 12$</span><span><b>C</b> $x = \\dfrac{4}{3}$</span><span><b>D</b> $x = -12$</span><span><b>E</b> $x = -\\dfrac{4}{3}$</span></div>",
+       "tenA": false,
+       "id": "C10-1B-MC2"
+      },
+      {
+       "sub": "1B",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q4",
+       "page": 92,
+       "stem": "$\\dfrac{x + 1}{3} + \\dfrac{2x}{7}$ simplifies to:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $\\dfrac{3x + 1}{10}$</span><span><b>B</b> $\\dfrac{17x + 3}{21}$</span><span><b>C</b> $\\dfrac{3x + 1}{21}$</span><span><b>D</b> $\\dfrac{13x + 7}{21}$</span><span><b>E</b> $\\dfrac{13x + 1}{10}$</span></div>",
+       "tenA": true,
+       "id": "C10-1B-MC4"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1C",
@@ -758,32 +912,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 2,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1B"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 1,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1A"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 6,
-       "sub": "C9-2C",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -792,7 +920,90 @@
        "html": "lessons/C10-1C worksheet.html",
        "pdf": "lessons/C10-1C worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q4a",
+       "page": 45,
+       "stem": "Solve the following inequalities and graph their solutions on a number line.",
+       "tex": "$2a + 3 > 9$",
+       "tenA": false,
+       "id": "C10-1C-PQ4a"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q4b",
+       "page": 45,
+       "stem": "Solve the following inequalities and graph their solutions on a number line.",
+       "tex": "$8 - \\dfrac{x}{2} \\leqslant 10$",
+       "tenA": false,
+       "id": "C10-1C-PQ4b"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q4c",
+       "page": 45,
+       "stem": "Solve the following inequalities and graph their solutions on a number line.",
+       "tex": "$5m + 2 > 7m - 6$",
+       "tenA": false,
+       "id": "C10-1C-PQ4c"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q4d",
+       "page": 45,
+       "stem": "Solve the following inequalities and graph their solutions on a number line.",
+       "tex": "$-(a - 3) \\leqslant 5(a + 3)$",
+       "tenA": false,
+       "id": "C10-1C-PQ4d"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q4a",
+       "page": 90,
+       "stem": "Solve the following inequalities.",
+       "tex": "$4x - 3 > 17$",
+       "tenA": false,
+       "id": "C10-1C-SA4a"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q4b",
+       "page": 90,
+       "stem": "Solve the following inequalities.",
+       "tex": "$3x + 2 \\leqslant 4(x - 2)$",
+       "tenA": false,
+       "id": "C10-1C-SA4b"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q4c",
+       "page": 90,
+       "stem": "Solve the following inequalities.",
+       "tex": "$1 - \\dfrac{x}{3} < 2$",
+       "tenA": false,
+       "id": "C10-1C-SA4c"
+      },
+      {
+       "sub": "1C",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q4d",
+       "page": 90,
+       "stem": "Solve the following inequalities.",
+       "tex": "$-2x \\geqslant -4(1 - 3x)$",
+       "tenA": false,
+       "id": "C10-1C-SA4d"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1D",
@@ -958,32 +1169,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 4,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1C"
-      },
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 3,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1B"
-      },
-      {
-       "src": "C9 Ch2 Progress quiz",
-       "q": 8,
-       "sub": "C9-2E",
-       "pdf_page": 145,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch2)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -992,7 +1177,120 @@
        "html": "lessons/C10-1D worksheet.html",
        "pdf": "lessons/C10-1D worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q5a",
+       "page": 45,
+       "stem": "Simplify the following algebraic fractions.",
+       "tex": "$\\dfrac{a + 4}{8} + \\dfrac{1 - 3a}{12}$",
+       "tenA": true,
+       "id": "C10-1D-PQ5a"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q5b",
+       "page": 45,
+       "stem": "Simplify the following algebraic fractions.",
+       "tex": "$\\dfrac{3x + 2}{5} - \\dfrac{x - 2}{3}$",
+       "tenA": true,
+       "id": "C10-1D-PQ5b"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q6a",
+       "page": 45,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{2y + 1}{2} - \\dfrac{y + 4}{5} = 2$",
+       "tenA": true,
+       "id": "C10-1D-PQ6a"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q6b",
+       "page": 45,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{2a - 3}{3} = \\dfrac{4a + 2}{4}$",
+       "tenA": true,
+       "id": "C10-1D-PQ6b"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q6a",
+       "page": 90,
+       "stem": "Simplify these algebraic fractions using the lowest common denominator.",
+       "tex": "$\\dfrac{2x}{3} + \\dfrac{4}{9}$",
+       "tenA": true,
+       "id": "C10-1D-SA6a"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q6b",
+       "page": 90,
+       "stem": "Simplify these algebraic fractions using the lowest common denominator.",
+       "tex": "$\\dfrac{x}{8} + \\dfrac{x + 2}{4}$",
+       "tenA": true,
+       "id": "C10-1D-SA6b"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q6c",
+       "page": 90,
+       "stem": "Simplify these algebraic fractions using the lowest common denominator.",
+       "tex": "$\\dfrac{x + 2}{3} - \\dfrac{x - 4}{5}$",
+       "tenA": true,
+       "id": "C10-1D-SA6c"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q7a",
+       "page": 90,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{2x + 1}{5} + \\dfrac{x - 3}{10} = 2$",
+       "tenA": true,
+       "id": "C10-1D-SA7a"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q7b",
+       "page": 90,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{4 - x}{6} - \\dfrac{x + 2}{4} = 1$",
+       "tenA": true,
+       "id": "C10-1D-SA7b"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q7c",
+       "page": 90,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{x}{4} - 1 = \\dfrac{3x}{5}$",
+       "tenA": true,
+       "id": "C10-1D-SA7c"
+      },
+      {
+       "sub": "1D",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q7d",
+       "page": 90,
+       "stem": "Solve the following equations.",
+       "tex": "$\\dfrac{x + 2}{3} = \\dfrac{2x - 1}{4}$",
+       "tenA": true,
+       "id": "C10-1D-SA7d"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1E",
@@ -1200,32 +1498,6 @@
        "pdf_page": 339
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 5,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1D"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 3,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1C"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 1,
-       "sub": "C9-4A",
-       "pdf_page": 302,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -1234,7 +1506,200 @@
        "html": "lessons/C10-1E worksheet.html",
        "pdf": "lessons/C10-1E worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q7a",
+       "page": 45,
+       "stem": "Decide if the point $(-3, 2)$ is on the line with the given equations.",
+       "tex": "$y = x + 2$",
+       "tenA": false,
+       "id": "C10-1E-PQ7a"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q7b",
+       "page": 45,
+       "stem": "Decide if the point $(-3, 2)$ is on the line with the given equations.",
+       "tex": "$-2x + y = 8$",
+       "tenA": false,
+       "id": "C10-1E-PQ7b"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q8a",
+       "page": 45,
+       "stem": "Sketch the following linear relations. For parts a and b, use the method suggested.",
+       "tex": "$y = -\\dfrac{3}{2}x + 1$; use the gradient and $y$-intercept.",
+       "tenA": false,
+       "id": "C10-1E-PQ8a"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q8b",
+       "page": 45,
+       "stem": "Sketch the following linear relations. For parts a and b, use the method suggested.",
+       "tex": "$-2x - 3y = 6$; use the $x$- and $y$-intercepts.",
+       "tenA": false,
+       "id": "C10-1E-PQ8b"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q8c",
+       "page": 45,
+       "stem": "Sketch the following linear relations.",
+       "tex": "$y = 3$",
+       "tenA": false,
+       "id": "C10-1E-PQ8c"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q8d",
+       "page": 45,
+       "stem": "Sketch the following linear relations.",
+       "tex": "$x = -2$",
+       "tenA": false,
+       "id": "C10-1E-PQ8d"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q8e",
+       "page": 45,
+       "stem": "Sketch the following linear relations.",
+       "tex": "$y = -\\dfrac{3}{4}x$",
+       "tenA": false,
+       "id": "C10-1E-PQ8e"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q9a",
+       "page": 45,
+       "stem": "State the gradient and coordinates of the $y$-intercept of the following lines.",
+       "tex": "$y = 3x - 2$",
+       "tenA": false,
+       "id": "C10-1E-PQ9a"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Progress quiz Q9b",
+       "page": 45,
+       "stem": "State the gradient and coordinates of the $y$-intercept of the following lines.",
+       "tex": "$3x + 5y = 15$",
+       "tenA": false,
+       "id": "C10-1E-PQ9b"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8a",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$y = 3x - 9$",
+       "tenA": false,
+       "id": "C10-1E-SA8a"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8b",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$y = 5 - 2x$",
+       "tenA": false,
+       "id": "C10-1E-SA8b"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8c",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$y = 3$",
+       "tenA": false,
+       "id": "C10-1E-SA8c"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8d",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$x = 5$",
+       "tenA": false,
+       "id": "C10-1E-SA8d"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8e",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$y = 2x$",
+       "tenA": false,
+       "id": "C10-1E-SA8e"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8f",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$y = -5x$",
+       "tenA": false,
+       "id": "C10-1E-SA8f"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8g",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$x + 2y = 8$",
+       "tenA": false,
+       "id": "C10-1E-SA8g"
+      },
+      {
+       "sub": "1E",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q8h",
+       "page": 90,
+       "stem": "Sketch graphs of the following linear relations, labelling the axis intercepts.",
+       "tex": "$3x + 8y = 24$",
+       "tenA": false,
+       "id": "C10-1E-SA8h"
+      },
+      {
+       "sub": "1E",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q5",
+       "page": 92,
+       "stem": "If $(-1, 2)$ is a point on the line $ax - 4y + 11 = 0$, the value of $a$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $-19$</span><span><b>B</b> $3$</span><span><b>C</b> $-\\dfrac{15}{2}$</span><span><b>D</b> $5$</span><span><b>E</b> $-1$</span></div>",
+       "tenA": false,
+       "id": "C10-1E-MC5"
+      },
+      {
+       "sub": "1E",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q7",
+       "page": 92,
+       "stem": "The gradient and the coordinates of the $y$-intercept, respectively, of the graph of $3x + 8y = 2$ are:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $-\\dfrac{3}{8}, \\left(0, \\dfrac{1}{4}\\right)$</span><span><b>B</b> $3, (0, 2)$</span><span><b>C</b> $\\dfrac{2}{3}, \\left(0, \\dfrac{1}{4}\\right)$</span><span><b>D</b> $-3, (2, 0)$</span><span><b>E</b> $\\dfrac{3}{8}, (2, 0)$</span></div>",
+       "tenA": false,
+       "id": "C10-1E-MC7"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1F",
@@ -1406,32 +1871,6 @@
        "pdf_page": 339
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 7,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1E"
-      },
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 6,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1D"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 2,
-       "sub": "C9-4A",
-       "pdf_page": 302,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -1440,7 +1879,30 @@
        "html": "lessons/C10-1F worksheet.html",
        "pdf": "lessons/C10-1F worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1F",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q10",
+       "page": 91,
+       "stem": "For the line that passes through the points $(-2, 8)$ and $(3, 5)$, determine:",
+       "tex": "<b>a</b>&nbsp; the gradient of the line &emsp;&emsp; <b>b</b>&nbsp; the equation of the line.",
+       "tenA": false,
+       "id": "C10-1F-SA10"
+      },
+      {
+       "sub": "1F",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q8",
+       "page": 92,
+       "stem": "The equation of the line joining the points $(-1, 3)$ and $(1, -1)$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $2y - x = 1$</span><span><b>B</b> $y = 2x - 1$</span><span><b>C</b> $y = -2x + 1$</span><span><b>D</b> $y - 2x = 1$</span><span><b>E</b> $y = \\dfrac{1}{2}x + 1$</span></div>",
+       "tenA": false,
+       "id": "C10-1F-MC8"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1G",
@@ -1609,32 +2071,6 @@
        "pdf_page": 257
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 10,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Last lesson",
-       "sub": "C10-1F"
-      },
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 8,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1E"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 3,
-       "sub": "C9-4B",
-       "pdf_page": 302,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -1643,7 +2079,60 @@
        "html": "lessons/C10-1G worksheet.html",
        "pdf": "lessons/C10-1G worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1G",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q11a",
+       "page": 91,
+       "stem": "Find the midpoint and the exact length of the line segment joining these points.",
+       "tex": "$(2, 5)$ and $(6, 11)$",
+       "tenA": false,
+       "id": "C10-1G-SA11a"
+      },
+      {
+       "sub": "1G",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q11b",
+       "page": 91,
+       "stem": "Find the midpoint and the exact length of the line segment joining these points.",
+       "tex": "$(3, -2)$ and $(8, 4)$",
+       "tenA": false,
+       "id": "C10-1G-SA11b"
+      },
+      {
+       "sub": "1G",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q11c",
+       "page": 91,
+       "stem": "Find the midpoint and the exact length of the line segment joining these points.",
+       "tex": "$(-1, -4)$ and $(2, -1)$",
+       "tenA": false,
+       "id": "C10-1G-SA11c"
+      },
+      {
+       "sub": "1G",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q13c",
+       "page": 91,
+       "stem": "Find the value(s) of the pronumeral in each situation below.",
+       "tex": "The distance between $(c, -1)$ and $(2, 2)$ is $\\sqrt{13}$.",
+       "tenA": false,
+       "id": "C10-1G-SA13c"
+      },
+      {
+       "sub": "1G",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q9",
+       "page": 92,
+       "stem": "The midpoint of the line segment joining the points $(a, -6)$ and $(7, b)$ is $(4.5, -1)$. The values of the pronumerals are:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $a = 2, b = 8$</span><span><b>B</b> $a = 3, b = -11$</span><span><b>C</b> $a = 9, b = 5$</span><span><b>D</b> $a = 2, b = 4$</span><span><b>E</b> $a = 2.5, b = 5$</span></div>",
+       "tenA": false,
+       "id": "C10-1G-MC9"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1H",
@@ -1807,32 +2296,6 @@
        "pdf_page": 339
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 9,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Last lesson",
-       "sub": "C10-1G"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 8,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1F"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 4,
-       "sub": "C9-4C",
-       "pdf_page": 302,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -1841,7 +2304,90 @@
        "html": "lessons/C10-1H worksheet.html",
        "pdf": "lessons/C10-1H worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q12a",
+       "page": 91,
+       "stem": "Determine the equation of the line that is:",
+       "tex": "parallel to the line $y = 3x + 8$ and passes through the point $(2, 4)$",
+       "tenA": false,
+       "id": "C10-1H-SA12a"
+      },
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q12b",
+       "page": 91,
+       "stem": "Determine the equation of the line that is:",
+       "tex": "parallel to the line with equation $y = 4$ and passes through the point $(3, -1)$",
+       "tenA": false,
+       "id": "C10-1H-SA12b"
+      },
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q12c",
+       "page": 91,
+       "stem": "Determine the equation of the line that is:",
+       "tex": "perpendicular to the line $y = 2x - 4$ and has a $y$-intercept with coordinates $(0, 5)$",
+       "tenA": false,
+       "id": "C10-1H-SA12c"
+      },
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q12d",
+       "page": 91,
+       "stem": "Determine the equation of the line that is:",
+       "tex": "perpendicular to the line with equation $x + 3y = 5$ and passes through the point $(2, 5)$.",
+       "tenA": false,
+       "id": "C10-1H-SA12d"
+      },
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q13a",
+       "page": 91,
+       "stem": "Find the value(s) of the pronumeral in each situation below.",
+       "tex": "The gradient of the line joining the points $(2, -5)$ and $(6, a)$ is $3$.",
+       "tenA": false,
+       "id": "C10-1H-SA13a"
+      },
+      {
+       "sub": "1H",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q13b",
+       "page": 91,
+       "stem": "Find the value(s) of the pronumeral in each situation below.",
+       "tex": "The line $bx + 2y = 7$ is parallel to the line $y = 4x + 3$.",
+       "tenA": false,
+       "id": "C10-1H-SA13b"
+      },
+      {
+       "sub": "1H",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q10",
+       "page": 93,
+       "stem": "The line that is perpendicular to the line with equation $y = -3x + 7$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $y = -3x + 2$</span><span><b>B</b> $3x + y = -1$</span><span><b>C</b> $y = 3x - 3$</span><span><b>D</b> $3y = 4 - x$</span><span><b>E</b> $3y - x = 4$</span></div>",
+       "tenA": false,
+       "id": "C10-1H-MC10"
+      },
+      {
+       "sub": "1H",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q11",
+       "page": 93,
+       "stem": "The line that is parallel to the line with equation $y = 2x + 3$ and passes through the point $(-3, 2)$ has the equation:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $2x + y = 5$</span><span><b>B</b> $y = 2x + 8$</span><span><b>C</b> $y = -\\dfrac{1}{2}x + \\dfrac{1}{2}$</span><span><b>D</b> $y = 2x - 4$</span><span><b>E</b> $y - 2x = -7$</span></div>",
+       "tenA": false,
+       "id": "C10-1H-MC11"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1I",
@@ -1980,32 +2526,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 10,
-       "printed_page": 93,
-       "pdf_page": 114,
-       "slot": "Last lesson",
-       "sub": "C10-1H"
-      },
-      {
-       "src": "C10 Ch1 Progress quiz",
-       "q": 9,
-       "printed_page": 45,
-       "pdf_page": 66,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1E"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 5,
-       "sub": "C9-4D",
-       "pdf_page": 302,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -2014,7 +2534,40 @@
        "html": "lessons/C10-1I worksheet.html",
        "pdf": "lessons/C10-1I worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1I",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q14a",
+       "page": 91,
+       "stem": "Solve the following simultaneous equations, using the substitution method.",
+       "tex": "$\\begin{aligned} y &= 5x + 14 \\\\ y &= 2x + 5 \\end{aligned}$",
+       "tenA": false,
+       "id": "C10-1I-SA14a"
+      },
+      {
+       "sub": "1I",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q14b",
+       "page": 91,
+       "stem": "Solve the following simultaneous equations, using the substitution method.",
+       "tex": "$\\begin{aligned} 3x - 2y &= 18 \\\\ y &= 2x + 5 \\end{aligned}$",
+       "tenA": false,
+       "id": "C10-1I-SA14b"
+      },
+      {
+       "sub": "1I",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q12",
+       "page": 93,
+       "stem": "The solution to the simultaneous equations $2x - 3y = -1$ and $y = 2x + 3$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $x = -2, y = -1$</span><span><b>B</b> $x = \\dfrac{5}{2}, y = 8$</span><span><b>C</b> $x = 2, y = 7$</span><span><b>D</b> $x = -\\dfrac{2}{3}, y = -\\dfrac{1}{9}$</span><span><b>E</b> $x = -3, y = 3$</span></div>",
+       "tenA": false,
+       "id": "C10-1I-MC12"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1J",
@@ -2165,32 +2718,6 @@
        "pdf_page": 182
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 12,
-       "printed_page": 93,
-       "pdf_page": 114,
-       "slot": "Last lesson",
-       "sub": "C10-1I"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 11,
-       "printed_page": 93,
-       "pdf_page": 114,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1H"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 6,
-       "sub": "C9-4D",
-       "pdf_page": 303,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -2199,7 +2726,30 @@
        "html": "lessons/C10-1J worksheet.html",
        "pdf": "lessons/C10-1J worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1J",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q15a",
+       "page": 91,
+       "stem": "Solve these simultaneous equations by elimination.",
+       "tex": "$\\begin{aligned} 3x + 2y &= -11 \\\\ 2x - y &= -5 \\end{aligned}$",
+       "tenA": false,
+       "id": "C10-1J-SA15a"
+      },
+      {
+       "sub": "1J",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q15b",
+       "page": 91,
+       "stem": "Solve these simultaneous equations by elimination.",
+       "tex": "$\\begin{aligned} 2y - 5x &= 4 \\\\ 3y - 2x &= 6 \\end{aligned}$",
+       "tenA": false,
+       "id": "C10-1J-SA15b"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1K",
@@ -2341,33 +2891,6 @@
        "pdf_page": 181
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Review · Short answer",
-       "q": 15,
-       "printed_page": 91,
-       "pdf_page": 112,
-       "note": "no progress-quiz/MC item for 1J",
-       "slot": "Last lesson",
-       "sub": "C10-1J"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 5,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1E"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 7,
-       "sub": "C9-4E",
-       "pdf_page": 303,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -2376,7 +2899,30 @@
        "html": "lessons/C10-1K worksheet.html",
        "pdf": "lessons/C10-1K worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1K",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q16",
+       "page": 91,
+       "stem": "At the movies Jodie buys three regular popcorns and five small drinks for her friends at a cost of $\\$24.50$. Her friend Renee buys four regular popcorns and three small drinks for her friends at a cost of $\\$23.50$. Find the individual costs of a regular popcorn and a small drink.",
+       "tex": "",
+       "tenA": false,
+       "id": "C10-1K-SA16"
+      },
+      {
+       "sub": "1K",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q13",
+       "page": 93,
+       "stem": "A community fundraising concert raises $\\$3540$ from ticket sales to $250$ people. Children’s tickets were sold for $\\$12$ and adult tickets sold for $\\$18$. If $x$ adults and $y$ children attended the concert, the two equations that represent this problem are:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $\\begin{aligned} x + y &= 250 \\\\ 18x + 12y &= 3540 \\end{aligned}$</span><span><b>B</b> $\\begin{aligned} x + y &= 3540 \\\\ 216xy &= 3540 \\end{aligned}$</span><span><b>C</b> $\\begin{aligned} x + y &= 250 \\\\ 12x + 18y &= 3540 \\end{aligned}$</span><span><b>D</b> $\\begin{aligned} x + y &= 3540 \\\\ 18x + 12y &= 250 \\end{aligned}$</span><span><b>E</b> $\\begin{aligned} 3x + 2y &= 3540 \\\\ x + y &= 250 \\end{aligned}$</span></div>",
+       "tenA": false,
+       "id": "C10-1K-MC13"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     },
     {
      "id": "C10-1L",
@@ -2517,32 +3063,6 @@
        "pdf_page": 338
       }
      ],
-     "do_now": [
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 13,
-       "printed_page": 93,
-       "pdf_page": 114,
-       "slot": "Last lesson",
-       "sub": "C10-1K"
-      },
-      {
-       "src": "C10 Ch1 Review · Multiple choice",
-       "q": 6,
-       "printed_page": 92,
-       "pdf_page": 113,
-       "slot": "Earlier this chapter",
-       "sub": "C10-1E"
-      },
-      {
-       "src": "C9 Ch4 Progress quiz",
-       "q": 8,
-       "sub": "C9-4F",
-       "pdf_page": 303,
-       "printed_page": null,
-       "slot": "Previous year (Y9 Ch4)"
-      }
-     ],
      "status": "indexed",
      "materials": [
       {
@@ -2551,7 +3071,50 @@
        "html": "lessons/C10-1L worksheet.html",
        "pdf": "lessons/C10-1L worksheet.pdf"
       }
-     ]
+     ],
+     "retrieval": [
+      {
+       "sub": "1L",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q17a",
+       "page": 91,
+       "stem": "Sketch these regions.",
+       "tex": "$y \\geqslant 3x - 4$",
+       "tenA": false,
+       "id": "C10-1L-SA17a"
+      },
+      {
+       "sub": "1L",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q17b",
+       "page": 91,
+       "stem": "Sketch these regions.",
+       "tex": "$2x - 3y > -8$",
+       "tenA": false,
+       "id": "C10-1L-SA17b"
+      },
+      {
+       "sub": "1L",
+       "kind": "sa",
+       "src": "C10 Ch1 Chapter review · Short answer Q18",
+       "page": 91,
+       "stem": "Shade the intersecting region of the inequalities $x + 2y \\geqslant 4$ and $3x - 2y < 12$ by sketching their regions on the same axes and finding their point of intersection.",
+       "tex": "",
+       "tenA": false,
+       "id": "C10-1L-SA18"
+      },
+      {
+       "sub": "1L",
+       "kind": "mc",
+       "src": "C10 Ch1 Chapter review · Multiple choice Q14",
+       "page": 93,
+       "stem": "The point that is <i>not</i> in the region defined by $2x - 3y \\leqslant 5$ is:",
+       "tex": "<div class=\"mc\"><span><b>A</b> $(0, 0)$</span><span><b>B</b> $(1, -1)$</span><span><b>C</b> $(-3, 2)$</span><span><b>D</b> $(2, -1)$</span><span><b>E</b> $\\left(\\dfrac{5}{2}, 3\\right)$</span></div>",
+       "tenA": false,
+       "id": "C10-1L-MC14"
+      }
+     ],
+     "do_now_note": "Do Now is now picked per lesson from the retrieval pools of earlier-taught subchapters (planner/donow.js)."
     }
    ],
    "status": "full"
