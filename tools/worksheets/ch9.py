@@ -189,6 +189,18 @@ def page(sub,d,R):
     o.append(hw.box(sub,f'pp. {d["expg"]}'))
     return ''.join(o)
 
+# A4 sheets on screen and in print (same as the CFATs): content is dealt into 210x297mm sheets
+SHEETS='''@page{size:A4;margin:0}
+html,body{background:#8a8a8a!important;width:auto!important;min-height:0!important;margin:0!important;padding:0!important;box-shadow:none!important}
+#flow{width:186mm;background:#fff}
+.sheet{width:210mm;height:297mm;padding:11mm 12mm 12mm;background:#fff;margin:8mm auto;box-shadow:0 2px 14px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.sheet .pno{position:absolute;bottom:5mm;left:0;right:0;text-align:center;font-size:8.5pt;color:#444}
+@media print{html,body{background:#fff!important}.sheet{margin:0;box-shadow:none;break-after:page}}'''
+PAGINATE='''<script>(function(){const f=document.getElementById('flow');const items=[...f.children];const mm=v=>v*96/25.4;const H=mm(297-11-12-6);
+let sh,used=0;const add=()=>{sh=document.createElement('div');sh.className='sheet';document.body.appendChild(sh);used=0};add();
+items.forEach(el=>{const cs=getComputedStyle(el);const h=el.getBoundingClientRect().height+parseFloat(cs.marginTop)+parseFloat(cs.marginBottom);
+ if(used>0&&used+h>H)add();sh.appendChild(el);used+=h});f.remove();
+const all=[...document.querySelectorAll('.sheet')];all.forEach((x,k)=>{const p=document.createElement('div');p.className='pno';p.textContent='Page '+(k+1)+' of '+all.length;x.appendChild(p)});document.body.dataset.ready=1})()</script>'''
 def katex(strings):
     return json.loads(subprocess.run(['node',os.path.join(HERE,'kt.js')],input=json.dumps(strings),capture_output=True,text=True,check=True).stdout)
 
@@ -202,10 +214,10 @@ def main(subs):
             page(sub,d,lambda s:texts.append(s) or s)           # pass 1: collect strings with maths
             out=dict(zip(texts,katex(texts)))
             body=page(sub,d,lambda s:out[s])
-            html=f'<!DOCTYPE html><html><head><meta charset="utf-8"><title>C10-{sub} worksheet</title><style>{css}.box>.hd{{white-space:normal}}.scg{{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}.sc{{break-inside:avoid}}.box>.hd span{{white-space:nowrap;margin-left:3mm}}</style></head><body>{body}</body></html>'
+            html=f'<!DOCTYPE html><html><head><meta charset="utf-8"><title>C10-{sub} worksheet</title><style>{css}{SHEETS}.box>.hd{{white-space:normal}}.scg{{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}.sc{{break-inside:avoid}}.box>.hd span{{white-space:nowrap;margin-left:3mm}}</style></head><body><div id="flow">{body}</div>{PAGINATE}</body></html>'
             f=os.path.join(ROOT,'lessons',f'C10-{sub} worksheet.html');open(f,'w').write(html)
             pg.goto('file://'+os.path.abspath(f));pg.wait_for_timeout(400)
-            pg.pdf(path=f[:-5]+'.pdf',format='A4',print_background=True,prefer_css_page_size=True)
+            pg.wait_for_selector('body[data-ready]');pg.pdf(path=f[:-5]+'.pdf',format='A4',print_background=True,prefer_css_page_size=True,margin={'top':'0','bottom':'0','left':'0','right':'0'})
             print(f)
         b.close()
 if __name__=='__main__':main(sys.argv[1:] or list(W))

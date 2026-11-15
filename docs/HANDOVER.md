@@ -109,5 +109,6 @@
 
 ## 16 Nov 2026 — 10MAG Unit 1 (Univariate Statistics) worksheets
 - Guided worksheets C10-9A…9E built (`tools/worksheets/ch9.py`, content verbatim + cited inside the script; CSS = `tools/worksheets/ws.css`, copied from the Ch1 worksheets). Linked on the library cards, on G: `01 Lesson materials`.
+- Worksheets show as A4 sheets on screen (same pagination as the CFATs); PDF = the same sheets.
 - Histogram parts get a blank grid, box-plot parts a blank number line, two-way-table parts a blank table.
 - Next for this unit: Rocco sets lesson count + Lesson planning → workbook, CFAT blocks/CFATs, slides (see `docs/WORKSHEETS-CH9-HANDOFF.md`).
