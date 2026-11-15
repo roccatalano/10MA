@@ -103,5 +103,5 @@
 - 10MAG CFATs 1.1–1.5 built with solutions (1A–1C, 1E–1F, 1G–1H, 1I–1J, 1K–1L), each 2 A4 pages, on G: `03 Assessments`, linked on the planner CFAT strip.
 - `paper.py`: titles now per stream; empty Section A is dropped (CFAT 1.5 is all short answer, no MC in 1K/1L); two equations/inequalities joined by "and" in a stem now go one per line, labelled [1], [2].
 - 10MAA papers were NOT rebuilt with the one-per-line rule: doing so pushes all four onto 3 pages. Ask Rocco whether to trim them.
-- 10MAG CFAT 1.2: Q6 and Q7 sit side by side with big grids underneath (`PAIRS` in paper.py). Tried on 10MAA 1.2 but it runs to 3 pages, so 10MAA is unchanged.
+- 10MAG CFATs: adjacent sketch questions sit side by side with 62 mm grids underneath (automatic for 10MAG in paper.py). Spare space per box is capped at 22 mm per mark, so boxes no longer stretch to fill a page (10MAA unchanged).
 - Open: Rocco to check the 10MAG L1 questions suit the class (e.g. 1.3 Q4 find a missing coordinate from a length).

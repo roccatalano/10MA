@@ -35,7 +35,7 @@ svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
 .ans>div{margin:.3mm 0}.ans svg.fig{height:30mm;width:auto;max-width:100%;display:block;margin:2mm auto 0}.ans svg.fig[viewBox^="0 -6"]{height:15mm}.q svg.fig{height:14mm;width:auto}
 .brk{break-before:page}.eqs{margin:1.5mm 0 1.5mm 6mm;line-height:1.7}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;padding:0!important}.skl{flex:1;display:flex;flex-direction:column;padding:2mm 3mm;border-right:1.2px solid #000}.skr{flex:1;display:flex;align-items:center;justify-content:center;padding:2mm}.skr>div{width:100%}.skr svg{width:100%;height:auto;max-height:var(--gh,66mm);display:block;margin:0 auto}.skr .ans svg.fig{margin:0 auto!important;height:auto}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
-.pg{margin-top:2mm}.pg svg{display:block;width:100%;height:auto;max-height:84mm;margin:0 auto}.pg .ans svg.fig{height:auto;margin:0 auto}.sol .pg .stu{display:none}body:not(.sol) .pg .ans{display:none}
+.pg{margin-top:2mm}.pg svg{display:block;height:62mm;width:auto;max-width:100%;margin:0 auto}.pg .ans svg.fig{height:62mm;width:auto;margin:0 auto}.sol .pg .stu{display:none}body:not(.sol) .pg .ans{display:none}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
@@ -116,11 +116,13 @@ def build(stream,n,unit):
         figs=[x for x in it['sol'] if x.startswith('<svg')];txt=dict(it,sol=[x for x in it['sol'] if not x.startswith('<svg')])
         return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:12mm"><p class="q">{it["q"]}</p>{ans(txt)}<div class="blank"></div>'
                 f'<div class="pg"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div>{cite(it)}</div></div>')
-    PAIRS={('10MAG',2):[(6,7)]}.get((stream,n),[])   # question numbers shown side by side
+    def isk(it):
+        f=[x for x in it['sol'] if str(x).startswith('<svg')];return bool(f) and 'viewBox="0 -6' not in f[-1]
+    AUTO_PAIR=stream=='10MAG'   # 10MAG: adjacent sketch questions go side by side with big grids underneath
     def sarows():
         out=[];k=0;q0=len(A)
         while k<len(B):
-            if any(q0+k+1==a for a,b in PAIRS) and k+1<len(B):
+            if AUTO_PAIR and k+1<len(B) and isk(B[k]) and isk(B[k+1]):
                 out.append(f'<div class="qgrid pair">{pbox(B[k])}{pbox(B[k+1])}</div>');k+=2
             else: out.append(f'<div class="sarow">{sabox(B[k])}</div>');k+=1
         return ''.join(out)
@@ -140,10 +142,10 @@ def build(stream,n,unit):
           '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
-          f'<style>{CSS}body{{--gh:{GH}}}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
+          f'<style>{CSS}body{{--gh:{GH}}}</style></head><body class="{"sol" if sol else ""}" data-cap="{22 if stream=='10MAG' else 999}"><div id="flow">'
           + body.replace('Show all working','<b style="color:#c00">Solutions</b>' if sol else 'Show all working') +
           """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false});
-document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const mm=v=>v*96/25.4;
+document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const CAP=+document.body.dataset.cap;const mm=v=>v*96/25.4;
 let sh,used=0,n=0;const newSheet=()=>{sh=document.createElement('div');sh.className='sheet';document.body.appendChild(sh);used=0;n++};newSheet();
 items.forEach((el,k)=>{const h=el.getBoundingClientRect().height+parseFloat(getComputedStyle(el).marginBottom||0);
  const keep=el.classList.contains('secthd')&&items[k+1]?items[k+1].getBoundingClientRect().height:0;
@@ -152,7 +154,7 @@ flow.remove();
 document.querySelectorAll('.sheet').forEach(x=>{const sa=[...x.querySelectorAll('.box.sa')];if(!sa.length)return;
  const kids=[...x.children];const last=kids[kids.length-1];const free=x.getBoundingClientRect().bottom-mm(12+6)-last.getBoundingClientRect().bottom;
  if(free<=0)return;const tm=sa.reduce((a,b)=>a+ +b.dataset.m,0);
- sa.forEach(b=>{const bd=b.querySelector('.bd');bd.style.minHeight=(bd.getBoundingClientRect().height+free*(+b.dataset.m)/tm)+'px'})});
+ const hs=sa.map(b=>b.querySelector('.bd').getBoundingClientRect().height);sa.forEach((b,i)=>{b.querySelector('.bd').style.minHeight=(hs[i]+Math.min(free*(+b.dataset.m)/tm,mm(CAP*(+b.dataset.m))))+'px'})});
 document.querySelectorAll('.sheet').forEach((x,k,a)=>{const p=document.createElement('div');p.className='pno';p.textContent='Page '+(k+1)+' of '+a.length;x.appendChild(p)});document.body.dataset.ready=1})</script></body></html>""")
         p=os.path.join(ROOT,'assessments',name+'.html');open(p,'w').write(html);print(p,f'{len(A)} MC + {len(B)} SA = {tot} marks')
 
