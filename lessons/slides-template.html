@@ -24,7 +24,11 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 .part:first-child{border-left:0}
 .part .lab{font-weight:bold;margin-right:12px}
 .part .qq{white-space:nowrap;overflow:hidden}.part .katex,.part .katex-html{white-space:nowrap}
-.part .work{flex:1}
+.part .work{flex:1;padding-top:14px}
+/* solutions: red, revealed one line per click, going down the column; final answer bold */
+.st{color:#d00000;white-space:nowrap;overflow:hidden;margin:0 0 12px;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .35s}
+.st.show{opacity:1;transform:none}
+.st.final{font-weight:bold}
 .foot{display:flex;justify-content:space-between;font-size:15px;color:#444;margin-top:10px}
 .nav{position:fixed;top:6px;right:14px;color:#aaa;font:13px system-ui}
 </style></head><body>
@@ -35,9 +39,9 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
   <div class="bar"><span class="tag">Example 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
   <p class="q">Simplify by collecting like terms.</p>
   <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-    <div class="part"><div class="qq"><span class="lab">a</span>$7a + 3a$</div><div class="work"></div></div>
-    <div class="part"><div class="qq"><span class="lab">b</span>$3a^2b - 2a^2b$</div><div class="work"></div></div>
-    <div class="part"><div class="qq"><span class="lab">c</span>$5xy + 2xy^2 - 2xy + 3y^2x$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">a</span>$7a + 3a$</div><div class="work"><div class="st final">$= \boldsymbol{10a}$</div></div></div>
+    <div class="part"><div class="qq"><span class="lab">b</span>$3a^2b - 2a^2b$</div><div class="work"><div class="st final">$= \boldsymbol{a^2b}$</div></div></div>
+    <div class="part"><div class="qq"><span class="lab">c</span>$5xy + 2xy^2 - 2xy + 3y^2x$</div><div class="work"><div class="st final">$= \boldsymbol{3xy + 5xy^2}$</div></div></div>
   </div>
   <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 (p. 6)</span><span class="pg"></span></div>
 </section>
@@ -47,15 +51,15 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
   <div class="bar"><span class="tag">You try 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
   <p class="q">Simplify by collecting like terms.</p>
   <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-    <div class="part"><div class="qq"><span class="lab">a</span>$4a + 13a$</div><div class="work"></div></div>
-    <div class="part"><div class="qq"><span class="lab">b</span>$5ab^2 - 2ab^2$</div><div class="work"></div></div>
-    <div class="part"><div class="qq"><span class="lab">c</span>$3xy + 4x^2y - xy + 2yx^2$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">a</span>$4a + 13a$</div><div class="work"><div class="st final">$\boldsymbol{17a}$</div></div></div>
+    <div class="part"><div class="qq"><span class="lab">b</span>$5ab^2 - 2ab^2$</div><div class="work"><div class="st final">$\boldsymbol{3ab^2}$</div></div></div>
+    <div class="part"><div class="qq"><span class="lab">c</span>$3xy + 4x^2y - xy + 2yx^2$</div><div class="work"><div class="st final">$\boldsymbol{2xy + 6x^2y}$</div></div></div>
   </div>
-  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6)</span><span class="pg"></span></div>
+  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6); answers p. 956</span><span class="pg"></span></div>
 </section>
 
 </div>
-<div class="nav">← → or click to move · F for full screen</div>
+<div class="nav">→ / click: next line of working, then next slide · ← back · F full screen</div>
 <script>
 renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
 const S=[...document.querySelectorAll('.slide')];let i=0;
@@ -64,8 +68,11 @@ const show=k=>{i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList
 const fit=()=>{const z=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('stage').style.transform=`translate(-50%,-50%) scale(${z})`};
 addEventListener('resize',fit);fit();show(0);
 // shrink any part that is too wide for its column so maths never wraps
-const shrink=()=>{S.forEach(s=>{s.classList.add('on');s.querySelectorAll('.qq').forEach(q=>{let f=30;q.style.fontSize=f+'px';while(q.scrollWidth>q.clientWidth+1&&f>16){f--;q.style.fontSize=f+'px'}});s.classList.remove('on')});show(i)};
+const shrink=()=>{S.forEach(s=>{s.classList.add('on');s.querySelectorAll('.qq,.st').forEach(q=>{let f=30;q.style.fontSize=f+'px';q.style.display='block';while(q.scrollWidth>q.clientWidth+1&&f>16){f--;q.style.fontSize=f+'px'}});s.classList.remove('on')});show(i)};
 document.fonts.ready.then(shrink);addEventListener('load',shrink);
-addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(i+1);if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);if(e.key==='f'||e.key==='F')document.documentElement.requestFullscreen?.()});
-addEventListener('click',e=>show(e.clientX>innerWidth/2?i+1:i-1));
+const steps=()=>[...S[i].querySelectorAll('.st')];
+const fwd=()=>{const n=steps().find(x=>!x.classList.contains('show'));n?n.classList.add('show'):show(i+1)};
+const back=()=>{const sh=steps().filter(x=>x.classList.contains('show'));sh.length?sh.pop().classList.remove('show'):show(i-1)};
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))fwd();if(['ArrowLeft','PageUp'].includes(e.key))back();if(e.key==='f'||e.key==='F')document.documentElement.requestFullscreen?.()});
+addEventListener('click',e=>e.clientX>innerWidth/2?fwd():back());
 </script></body></html>
