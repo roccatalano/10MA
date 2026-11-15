@@ -2,7 +2,7 @@
 
 Owner: Rocco (teacher). Explain in plain words, ask before anything destructive, no jargon without a one-line explanation.
 
-**New chat? Read `PLANNER.md` next, then `docs/HANDOVER.md`** (latest state, decisions, open items). **Building slides? Also read `docs/SLIDES-HANDOFF.md`. Building CFATs? Read `docs/CFAT-HANDOFF.md`.**
+**New chat? Read `PLANNER.md` next, then `docs/HANDOVER.md`** (latest state, decisions, open items). **Building slides? Also read `docs/SLIDES-HANDOFF.md`. Building CFATs? Read `docs/CFAT-HANDOFF.md` (and `docs/CFAT-CH9-HANDOFF.md` for Univariate Statistics).**
 
 ## What this repo is
 The Year 10 Maths course planner for two linked streams:

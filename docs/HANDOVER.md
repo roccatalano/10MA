@@ -112,3 +112,4 @@
 - Worksheets show as A4 sheets on screen (same pagination as the CFATs); PDF = the same sheets.
 - Histogram parts get a blank grid, box-plot parts a blank number line, two-way-table parts a blank table.
 - Next for this unit: Rocco sets lesson count + Lesson planning → workbook, CFAT blocks/CFATs, slides (see `docs/WORKSHEETS-CH9-HANDOFF.md`).
+- 16 Nov: 10MAG Univariate Statistics unit workbook built (25 pp., linked). Next: CFATs, see `docs/CFAT-CH9-HANDOFF.md`.

@@ -8,8 +8,8 @@ Written 16 Nov 2026. Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, then th
 
 ## The job (in order)
 1. **DONE 16 Nov:** Guided worksheets 9A–9E → `lessons/C10-9X worksheet.html` + `.pdf`, flat copy to G: `01 Lesson materials`.
-2. Unit workbook (`tools/worksheets/workbook.py "10MAG|Univariate Statistics"`) once Lesson planning exists.
-3. CFAT blocks 9A–9E + CFATs (see `docs/CFAT-HANDOFF.md`; CFAT groupings come from Lesson planning).
+2. **DONE 16 Nov:** Unit workbook (`tools/worksheets/workbook.py "10MAG|Univariate Statistics"`), 25 pages, linked in materials.
+3. CFAT blocks 9A–9E + CFATs: see **`docs/CFAT-CH9-HANDOFF.md`**.
 4. Slide deck (see `docs/SLIDES-HANDOFF.md`).
 
 ## Worksheet format (match the Chapter 1 worksheets exactly, e.g. `lessons/C10-1A worksheet.html`)
