@@ -7,140 +7,242 @@
 <style>
 :root{--bg:#f6f5f1;--card:#fff;--ink:#1f1e1c;--muted:#6b6a65;--line:#e2e0d8;--accent:#2f5fd0;
 --lesson:#eef3fd;--lesson-i:#1d4596;--prac:#e6f5ee;--prac-i:#0f6e56;--sac:#fcebeb;--sac-i:#a32d2d;
---review:#faeeda;--review-i:#854f0b;--other:#f1efe8;--other-i:#5f5e5a}
+--review:#faeeda;--review-i:#854f0b;--other:#f1efe8;--other-i:#5f5e5a;--g11:#6b3fa0;--g11b:#f2ecfa}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
-header{background:var(--card);border-bottom:1px solid var(--line);padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:5}
-header h1{font-size:17px;font-weight:600;margin:0 12px 0 0}
-.tabs button{font:inherit;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 12px;cursor:pointer}
-.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.tabs button:disabled{opacity:.45;cursor:default}
-main{max-width:1200px;margin:0 auto;padding:16px 20px 80px}
-.note{color:var(--muted);font-size:13px;margin:4px 0 14px}
-/* chapter card */
-.chap{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--lesson-i);border-radius:14px;padding:16px 18px;margin-bottom:18px}
-.chap-h{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;cursor:pointer}
-.chap-h h2{margin:0;font-size:19px}
-.chap-h .meta{color:var(--muted);font-size:12px;margin-top:3px}
-.chap-body{margin-top:14px}
-.chap-ov{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;background:#fbfaf6;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px}
-.chap-ov h3,.detail h3{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 6px}
-.chap-ov ul{margin:0;padding-left:0;list-style:none;line-height:1.5}
-.code{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600}
-/* subchapter grid */
-.subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
-.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c,var(--lesson-i));border-radius:10px;padding:9px 11px;cursor:pointer;min-height:84px;display:flex;flex-direction:column;gap:5px}
-.card:hover{border-color:var(--muted);border-left-color:var(--c,var(--lesson-i))}
-.card.open{outline:2px solid var(--accent)}
-.card .top{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}
-.card .ttl{font-weight:500;line-height:1.3}
-.card .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto}
-.tag{font-size:11px;padding:1px 7px;border-radius:6px;background:var(--b,var(--other));color:var(--tc,var(--other-i))}
-.tag.t10a{--b:var(--sac);--tc:var(--sac-i);font-weight:600}
-.tag.tcons{--b:var(--review);--tc:var(--review-i)}
-.tag.tidx{--b:var(--lesson);--tc:var(--lesson-i)}
-.card.is10a{--c:var(--sac-i)}
-/* detail */
-.detail{grid-column:1/-1;background:var(--card);border:1px solid var(--accent);border-radius:12px;padding:16px 18px}
-.detail h2{font-size:17px;margin:0}
-.detail .sub{color:var(--muted);font-size:12px;margin:3px 0 12px}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:14px;height:100vh;display:flex;flex-direction:column}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:10px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+header h1{font-size:17px;font-weight:600;margin:0 8px 0 0}
+header .save{margin-left:auto;display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}
+button,select,input{font:inherit}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:5px 11px;cursor:pointer;font-size:13px}
+.btn:hover{border-color:var(--muted)}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cols{flex:1;display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:14px;padding:14px 16px;min-height:0}
+.col{display:flex;flex-direction:column;min-height:0;background:#efede6;border-radius:14px;border:1px solid var(--line)}
+.colh{padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.colh h2{margin:0;font-size:15px}.colh span{color:var(--muted);font-size:12px}
+.colb{overflow:auto;padding:10px;flex:1}
+.chap{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--bk);border-radius:12px;margin-bottom:9px}
+.chap.C10{--bk:var(--lesson-i)}.chap.G11{--bk:var(--g11)}
+.chap-h{padding:9px 11px;display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.chap-h .caret{color:var(--muted);width:12px;transition:transform .15s}
+.chap.open .caret{transform:rotate(90deg)}
+.chap-h .t{flex:1}.chap-h b{font-size:14px}
+.chap-h .m{color:var(--muted);font-size:11px;margin-top:2px}
+.chap-b{padding:0 11px 11px;display:none}.chap.open .chap-b{display:block}
+.mini{border:1px solid var(--line);border-radius:9px;margin-bottom:7px;background:#fbfaf6}
+.mini>summary{cursor:pointer;padding:6px 10px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;list-style:none}
+.mini>summary::-webkit-details-marker{display:none}
+.mini>summary::before{content:'▸ '}.mini[open]>summary::before{content:'▾ '}
+.mini ul{margin:0;padding:0 10px 8px 10px;list-style:none;font-size:12.5px;line-height:1.45}
+.mini li{margin-bottom:3px}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;font-weight:600}
+.sc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--bk);border-radius:8px;padding:6px 9px;margin-bottom:5px;cursor:grab;display:flex;gap:8px;align-items:center}
+.sc:hover{border-color:var(--muted);border-left-color:var(--bk)}
+.sc.is10a{border-left-color:var(--sac-i)}
+.sc .id{font-weight:700;font-size:12px;min-width:30px}
+.sc .tt{flex:1;line-height:1.25;font-size:13px}
+.sc .used{font-size:10.5px;color:var(--prac-i);font-weight:600}
+.tag{font-size:10.5px;padding:1px 6px;border-radius:6px;background:var(--b,var(--other));color:var(--tc,var(--other-i));white-space:nowrap}
+.t10a{--b:var(--sac);--tc:var(--sac-i);font-weight:600}.tcons{--b:var(--review);--tc:var(--review-i)}.tfull{--b:var(--prac);--tc:var(--prac-i)}.text{--b:var(--g11b);--tc:var(--g11)}
+.dragall{font-size:11px;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:2px 7px;cursor:grab;white-space:nowrap}
+.unit{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;border-top:4px solid var(--ink)}
+.unit.over{outline:2px dashed var(--accent);background:#f4f7ff}
+.uh{padding:9px 11px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.uh .num{font-weight:700;color:var(--muted)}
+.uh input.name{flex:1;min-width:150px;border:1px solid transparent;border-radius:6px;padding:3px 6px;font-weight:600;font-size:14px}
+.uh input.name:hover,.uh input.name:focus{border-color:var(--line)}
+.uh select{border:1px solid var(--line);border-radius:6px;padding:2px 4px;font-size:12px}
+.stream{font-size:11px;border:1px solid var(--line);border-radius:12px;padding:2px 8px;cursor:pointer;background:#fff;color:var(--muted)}
+.stream.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ub{padding:0 11px 10px}
+.drop{border:1.5px dashed var(--line);border-radius:8px;padding:8px;text-align:center;color:var(--muted);font-size:12px;margin-top:4px}
+.ui{display:flex;align-items:center;gap:7px;padding:4px 6px;border-radius:6px;border-left:4px solid var(--bk);background:#fbfaf6;margin-bottom:3px;font-size:13px;cursor:grab}
+.ui.C10{--bk:var(--lesson-i)}.ui.G11{--bk:var(--g11)}
+.ui .id{font-weight:700;font-size:12px;min-width:56px}.ui .tt{flex:1;line-height:1.2;cursor:pointer}
+.ui input{width:44px;border:1px solid var(--line);border-radius:5px;padding:1px 4px;text-align:center}
+.x{border:0;background:none;cursor:pointer;color:var(--muted);font-size:15px;padding:0 3px}
+.x:hover{color:var(--sac-i)}
+.utot{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);padding:6px 2px 2px}
+.utot b{color:var(--ink)}
+.uinfo{margin-top:6px}
+.modal{position:fixed;inset:0;background:rgba(30,30,28,.35);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:auto;z-index:20}
+.modal.on{display:flex}
+.detail{background:var(--card);border-radius:14px;max-width:1000px;width:100%;padding:18px 20px;position:relative}
+.detail h2{font-size:18px;margin:0 70px 0 0}.detail .sub{color:var(--muted);font-size:12px;margin:3px 0 12px}
+.detail .close{position:absolute;top:12px;right:14px}
 .flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.sec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fdfcf9}
-.sec.wide{grid-column:1/-1}
+.sec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fdfcf9}.sec.wide{grid-column:1/-1}
+.sec h3{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 8px;display:flex;align-items:center}
 .sec .step{display:inline-block;font-size:11px;font-weight:600;color:#fff;background:var(--ink);border-radius:5px;padding:1px 6px;margin-right:6px}
-.sec h3{display:flex;align-items:center;margin-bottom:8px}
-.sec ul,.sec ol{margin:0;padding-left:18px;line-height:1.5}
-.sec li{margin-bottom:3px}
-.src{color:var(--muted);font-size:12px}
-.loc{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--other);border-radius:4px;padding:0 4px}
+.sec ul{margin:0;padding-left:18px;line-height:1.5}.sec li{margin-bottom:3px}
+.src{color:var(--muted);font-size:12px}.loc{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--other);border-radius:4px;padding:0 4px}
 .slot{font-size:11px;font-weight:600;color:var(--lesson-i)}
 .vocab{display:flex;flex-wrap:wrap;gap:6px}.vocab span{border:1px solid var(--line);border-radius:14px;padding:2px 10px;background:#fff}
-a{color:var(--accent)}
 .empty{color:var(--muted);font-style:italic}
-.ex{columns:2;column-gap:20px}
-@media(max-width:800px){.flow,.chap-ov{grid-template-columns:1fr}.ex{columns:1}}
+a{color:var(--accent)}
+@media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
   <h1>10MA Course Planner</h1>
-  <div class="tabs">
-    <button class="on">Library · C10</button>
-    <button disabled title="Not indexed yet">Library · G11</button>
-    <button disabled title="Coming next">10MAG plan</button>
-    <button disabled title="Coming next">10MAA plan</button>
-  </div>
+  <span class="src">Drag a subchapter (or a whole chapter with ⠿ all) into a unit. Click a subchapter for its lesson plan.</span>
+  <div class="save"><span id="saved"></span>
+    <button class="btn" id="exp" title="Download units.json so it can be committed to the repo">Export units</button>
+    <button class="btn" id="imp">Import</button><input type="file" id="impf" accept=".json" hidden>
+    <button class="btn" id="reset" title="Throw away your local changes and load the repo version">Reset</button></div>
 </header>
-<main>
-  <p class="note">Test run: Chapter 1 of Cambridge Essential Mathematics 10 &amp; 10A (3rd ed). Click the chapter to open it, then a subchapter for its lesson plan. Page numbers are printed (book) pages unless marked PDF.</p>
-  <div id="lib">Loading…</div>
-</main>
+<div class="cols">
+  <section class="col"><div class="colh"><h2>Year 10 textbook</h2><span>Cambridge 10 &amp; 10A</span></div><div class="colb" id="c10"></div></section>
+  <section class="col"><div class="colh"><h2>Year 11 textbook</h2><span>Cambridge General U1&amp;2</span></div><div class="colb" id="g11"></div></section>
+  <section class="col"><div class="colh"><h2>Planned units</h2><span id="ustat"></span></div>
+    <div class="colb"><div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
+      <button class="btn dark" id="addu">+ Add unit</button>
+      <span class="src">Show:</span><select id="filt" class="btn"><option value="">Both streams</option><option>10MAG</option><option>10MAA</option></select></div>
+      <div id="units"></div></div></section>
+</div>
+<div class="modal" id="modal"><div class="detail" id="detail"></div></div>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const SEC={building_understanding:'Building understanding',fluency:'Fluency',problem_solving:'Problem-solving',reasoning:'Reasoning',enrichment:'Enrichment'};
-let DATA,openSub=null;
-fetch('../library/C10.json').then(r=>r.json()).then(d=>{DATA=d;render()}).catch(e=>{document.getElementById('lib').textContent='Could not load library/C10.json: '+e});
+const KEY='10ma-units-v1', STREAMS=['10MAG','10MAA'], ASSESS=['','CAT','Topic test','CFATs only','Extension','Exam revision'];
+const SECN={building_understanding:'Building understanding',fluency:'Fluency',problem_solving:'Problem-solving',reasoning:'Reasoning',enrichment:'Enrichment'};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
+let LIB={},IDX={},UNITS=null,openChaps=new Set(JSON.parse(store.get('10ma-open')||'[]')),openUnits=new Set(),filt='';
 
-function render(){
-  const el=document.getElementById('lib');
-  el.innerHTML=DATA.chapters.map(ch=>chapter(ch)).join('');
-  el.querySelectorAll('.chap-h').forEach(h=>h.onclick=()=>{h.parentNode.classList.toggle('shut');const b=h.parentNode.querySelector('.chap-body');b.hidden=!b.hidden});
-  el.querySelectorAll('.card').forEach(c=>c.onclick=()=>{openSub=openSub===c.dataset.id?null:c.dataset.id;render()});
+Promise.all(['../library/C10.json','../library/G11.json','../courses/units.json'].map(u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null)))
+.then(([c10,g11,units])=>{
+  LIB={C10:c10,G11:g11};
+  for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
+  const local=store.get(KEY);
+  UNITS=local?JSON.parse(local):(units||{units:[]});
+  setSaved(local?'Saved in this browser':'Loaded from repo');
+  renderLib();renderUnits();
+});
+
+function save(){const ok=store.set(KEY,JSON.stringify(UNITS));setSaved(ok?'Saved in this browser · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'Could not save in this browser: export to keep changes');renderUnits();renderLib()}
+function setSaved(t){document.getElementById('saved').textContent=t}
+function usedIn(id){const r=[];UNITS.units.forEach((u,i)=>{if(u.items.some(x=>x.id===id))r.push(i+1)});return r}
+
+function renderLib(){
+  for(const [b,el] of [['C10','c10'],['G11','g11']]){
+    const L=LIB[b],box=document.getElementById(el),top=box.scrollTop;
+    if(!L){box.innerHTML='<p class="empty">Not loaded</p>';continue}
+    box.innerHTML=L.chapters.map(ch=>chapterCard(ch,b)).join('');box.scrollTop=top;
+  }
+  document.querySelectorAll('.chap-h').forEach(h=>h.onclick=e=>{if(e.target.closest('.dragall'))return;const id=h.parentNode.dataset.id;openChaps.has(id)?openChaps.delete(id):openChaps.add(id);store.set('10ma-open',JSON.stringify([...openChaps]));h.parentNode.classList.toggle('open')});
+  document.querySelectorAll('.sc').forEach(c=>{c.onclick=()=>showDetail(c.dataset.id);c.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({ids:[c.dataset.id]}))});
+  document.querySelectorAll('.dragall').forEach(c=>c.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({ids:c.dataset.ids.split(',')})));
 }
-function chapter(ch){
-  const s=ch.subchapters, n10a=s.filter(x=>x.tenA).length;
-  const codes=ch.vc2_codes.map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span>':c.level==='9'?'<span class="tag">Level 9 review</span>':''} ${esc(c.text)}</li>`).join('');
-  const res=ch.chapter_resources.map(r=>`<li>${esc(r.name)} <span class="src">p. ${r.printed_page}</span></li>`).join('');
-  let grid='';
-  s.forEach((x,i)=>{
-    grid+=card(x);
-    // put the detail panel after the row containing the open card: simplest = right after the card
-    if(openSub===x.id) grid+=detail(x);
+function chapterCard(ch,b){
+  const s=ch.subchapters,n10=s.filter(x=>x.tenA).length,id=ch.id||`${b}-Ch${ch.chapter}`;
+  const vc=(ch.vc2_codes||[]).length?`<details class="mini"><summary>Victorian Curriculum 2.0 (${ch.vc2_codes.length})</summary><ul>${ch.vc2_codes.map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">L9 review</span> ':''}${esc(c.text)}</li>`).join('')}</ul></details>`:'';
+  const rs=(ch.chapter_resources||[]).length?`<details class="mini"><summary>Chapter resources (${ch.chapter_resources.length})</summary><ul>${ch.chapter_resources.map(r=>`<li>${esc(r.name)} <span class="src">p. ${r.printed_page}</span></li>`).join('')}</ul></details>`:'';
+  const pg=s.length?`pp. ${s[0].printed_page}–${s[s.length-1].printed_end}`:'';
+  return `<div class="chap ${b} ${openChaps.has(id)?'open':''}" data-id="${id}">
+   <div class="chap-h"><span class="caret">▸</span><div class="t"><b>${ch.chapter} · ${esc(ch.title)}</b>
+   <div class="m">${s.length} subchapters${n10?` · ${n10} ${n10===1?'is':'are'} 10A`:''} · ${pg} ${ch.status==='full'?'· <span class="tag tfull">full detail</span>':''}</div></div>
+   <span class="dragall" draggable="true" data-ids="${s.map(x=>x.id).join(',')}" title="Drag the whole chapter into a unit">⠿ all</span></div>
+   <div class="chap-b">${vc}${rs}${s.map(subCard).join('')}</div></div>`;
+}
+function subCard(x){
+  const u=usedIn(x.id);
+  return `<div class="sc ${x.tenA?'is10a':''}" draggable="true" data-id="${x.id}" style="--bk:${x.book==='G11'?'var(--g11)':'var(--lesson-i)'}">
+   <span class="id">${x.sub}</span><span class="tt">${esc(x.title)}</span>
+   ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.consolidating?'<span class="tag tcons">Cons.</span>':''}${x.extension?'<span class="tag text">Ext.</span>':''}
+   ${u.length?`<span class="used" title="Used in unit ${u.join(', ')}">U${u.join(',')}</span>`:''}</div>`;
+}
+
+function renderUnits(){
+  const box=document.getElementById('units');
+  const tot=UNITS.units.reduce((a,u)=>a+u.items.reduce((b,i)=>b+(+i.lessons||0),0),0);
+  document.getElementById('ustat').textContent=`${UNITS.units.length} units · ${tot} lessons`;
+  box.innerHTML=UNITS.units.map((u,i)=>unitCard(u,i)).join('')||'<p class="empty">No units yet: add one, then drag subchapters in.</p>';
+  box.querySelectorAll('.unit').forEach(el=>{
+    const i=+el.dataset.i,u=UNITS.units[i];
+    el.ondragover=e=>{e.preventDefault();el.classList.add('over')};
+    el.ondragleave=e=>{if(!el.contains(e.relatedTarget))el.classList.remove('over')};
+    el.ondrop=e=>{e.preventDefault();el.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+      if(d.from!=null){if(d.from===i)return;const it=UNITS.units[d.from].items.splice(d.idx,1)[0];if(!u.items.some(x=>x.id===it.id))u.items.push(it)}
+      else d.ids.forEach(id=>{if(!u.items.some(x=>x.id===id))u.items.push({id,lessons:1})});
+      save()};
+    el.querySelector('.name').onchange=e=>{u.name=e.target.value;save()};
+    el.querySelector('.assess').onchange=e=>{u.assessment=e.target.value;save()};
+    el.querySelector('.note').onchange=e=>{u.note=e.target.value;save()};
+    el.querySelectorAll('.stream').forEach(b=>b.onclick=()=>{const s=b.dataset.s;u.streams=u.streams.includes(s)?u.streams.filter(x=>x!==s):[...u.streams,s];save()});
+    el.querySelector('.del').onclick=()=>{if(confirm(`Delete unit "${u.name}"? Its subchapters go back to the library.`)){UNITS.units.splice(i,1);openUnits.clear();save()}};
+    el.querySelector('.up').onclick=()=>{if(i>0){[UNITS.units[i-1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i-1]];openUnits.clear();save()}};
+    el.querySelector('.dn').onclick=()=>{if(i<UNITS.units.length-1){[UNITS.units[i+1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i+1]];openUnits.clear();save()}};
+    el.querySelector('.tog').onclick=e=>{e.preventDefault();openUnits.has(i)?openUnits.delete(i):openUnits.add(i);renderUnits()};
+    el.querySelectorAll('.ui').forEach(r=>{const k=+r.dataset.k;
+      r.querySelector('input').onchange=e=>{u.items[k].lessons=Math.max(0,+e.target.value||0);save()};
+      r.querySelector('.x').onclick=()=>{u.items.splice(k,1);save()};
+      r.querySelector('.tt').onclick=()=>showDetail(u.items[k].id);
+      r.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({from:i,idx:k}));
+      r.ondrop=e=>{let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+        if(d.from===i){e.preventDefault();e.stopPropagation();el.classList.remove('over');const it=u.items.splice(d.idx,1)[0];u.items.splice(k,0,it);save()}};
+    });
   });
-  return `<section class="chap">
-   <div class="chap-h"><div><h2>Chapter ${ch.chapter} · ${esc(ch.title)}</h2>
-   <div class="meta">${esc(ch.id)} · ${s.length} subchapters (${n10a} ${n10a===1?"is":"are"} 10A) · pp. ${s[0].printed_page}–${s[s.length-1].printed_end}</div></div>
-   <span class="tag tidx">indexed</span></div>
-   <div class="chap-body">
-    <div class="chap-ov"><div><h3>Victorian Curriculum 2.0</h3><ul>${codes}</ul></div>
-    <div><h3>Chapter resources</h3><ul>${res}</ul></div></div>
-    <div class="subs">${grid}</div>
-   </div></section>`;
 }
-function card(x){
-  return `<div class="card ${x.tenA?'is10a':''} ${openSub===x.id?'open':''}" data-id="${x.id}">
-   <div class="top"><b>${x.sub}</b><span>pp. ${x.printed_page}–${x.printed_end}</span></div>
-   <div class="ttl">${esc(x.title)}</div>
-   <div class="tags">${x.tenA?'<span class="tag t10a">10A</span>':''}${x.consolidating?'<span class="tag tcons">Consolidating</span>':''}
-   <span class="tag">${x.examples.length} examples</span><span class="tag">${x.success_criteria.length} skills</span></div></div>`;
-}
-function detail(x){
-  const li=a=>a.length?'<ul>'+a.join('')+'</ul>':'<p class="empty">None yet</p>';
-  const S=(n,t,body,wide)=>`<div class="sec ${wide?'wide':''}"><h3><span class="step">${n}</span>${t}</h3>${body}</div>`;
-  const vc=li(x.vc2.map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">Level 9 review</span> ':''}${esc(c.text)}</li>`));
-  const apk=li(x.apk.map(a=>`<li><b>${esc(a.book)}</b> ${esc(a.skill)}<br><span class="src">e.g. <span class="loc">${esc(a.question_locator)}</span> · ${esc(a.src)} #${a.n} (${a.sub}), PDF p. ${a.pdf_page}</span></li>`));
-  const dn=li(x.do_now.map(d=>`<li><span class="slot">${esc(d.slot)}</span> · ${esc(d.sub)} — ${esc(d.src)} Q${d.q} <span class="src">(${d.printed_page?'p. '+d.printed_page:'PDF p. '+d.pdf_page})${d.note?' · '+esc(d.note):''}</span></li>`));
-  const lis=li(x.learning_intentions.map(t=>`<li>${esc(t)}</li>`));
-  const ex=li(x.examples.map(e=>`<li><b>Example ${e.n}</b> ${esc(e.title)}${e.now_you_try?' <span class="tag tidx">+ Now you try</span>':''}</li>`)).replace('<ul>','<ul class="ex">');
-  const exr=li(x.exercise.map(e=>`<li><b>${SEC[e.section]||e.section}</b>${e.title?' · '+esc(e.title):''} Q${esc(e.q)}${e.pathways?` <span class="src">(pathways: ${e.pathways.map(esc).join(' | ')})</span>`:''}</li>`));
-  const exit=li(x.exit_tasks.map(e=>`<li>☐ ${esc(e.skill)}<br><span class="src">e.g. <span class="loc">${esc(e.question_locator)}</span> · checklist #${e.n}, p. ${e.printed_page}</span></li>`));
-  const sc=li(x.success_criteria.map(s=>`<li>☐ ${esc(s.text)}</li>`));
-  const voc=x.key_vocab.length?`<div class="vocab">${x.key_vocab.map(v=>`<span>${esc(v)}</span>`).join('')}</div><p class="src">${esc(x.key_vocab_note)}</p>`:'<p class="empty">None found</p>';
-  const vid=x.videos.length?li(x.videos.map(v=>`<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></li>`)):'<p class="empty">None found yet: add one</p>';
-  return `<div class="detail"><h2>${x.sub} ${esc(x.title)} ${x.tenA?'<span class="tag t10a">10A</span>':''}</h2>
-   <div class="sub">${x.id} · Cambridge 10 &amp; 10A pp. ${x.printed_page}–${x.printed_end} (PDF ${x.pdf_page}–${x.pdf_end}) · status: ${x.status}</div>
-   <div class="flow">
-    ${S(1,'Learning intentions',lis)}
-    ${S(2,'Victorian Curriculum 2.0',vc)}
-    ${S(3,'Do Now (retrieval)',dn)}
-    ${S(4,'APK (priming: Year 7 → 8 → 9)',apk)}
-    ${S(5,'Key vocabulary',voc)}
-    ${S(6,'Self-study videos',vid)}
-    ${S(7,'Worked examples → Now you try',ex)}
-    ${S(8,'Exercise '+x.sub,exr)}
-    ${S(9,'Exit tasks (skills checklist questions)',exit,true)}
-    ${S(10,'Success criteria (end-of-lesson skills checklist)',sc,true)}
+function unitCard(u,i){
+  if(filt&&!u.streams.includes(filt))return '';
+  const items=u.items.map(x=>({...x,s:IDX[x.id]}));
+  const L=items.reduce((a,x)=>a+(+x.lessons||0),0), n10=items.filter(x=>x.s&&x.s.tenA).length;
+  const books=[...new Set(items.map(x=>x.id.split('-')[0]))];
+  const open=openUnits.has(i);
+  const codes=new Map(), chs=new Map();
+  items.forEach(x=>{if(!x.s)return;(x.s.vc2||[]).forEach(c=>codes.set(c.code,c));const k=x.s.book+' Ch'+x.s.chapter;chs.set(k,(chs.get(k)||0)+1)});
+  const info=open?`<div class="uinfo">
+   <details class="mini" open><summary>Unit summary</summary><ul>
+    <li><b>${items.length}</b> subchapters · <b>${L}</b> lessons · ${n10} are 10A</li>
+    <li>From: ${[...chs].map(([k,n])=>`${k} (${n})`).join(', ')||'nothing yet'}</li>
+    <li>Books: ${books.map(b=>b==='C10'?'Cambridge 10 &amp; 10A':'Cambridge General U1&amp;2').join(', ')||'none'}</li>
+    <li>Streams: ${u.streams.join(' + ')||'<i>none set</i>'} · Assessment: ${esc(u.assessment||'not set')}</li>
+    <li><input class="note" placeholder="Notes for this unit…" value="${esc(u.note||'')}" style="width:100%;border:1px solid var(--line);border-radius:6px;padding:3px 6px"></li></ul></details>
+   ${codes.size?`<details class="mini"><summary>VC2 covered (${codes.size}, from fully-detailed subchapters)</summary><ul>${[...codes.values()].map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${esc(c.text)}</li>`).join('')}</ul></details>`:''}
+  </div>`:`<input class="note" type="hidden" value="${esc(u.note||'')}">`;
+  return `<div class="unit" data-i="${i}">
+   <div class="uh"><span class="num">U${i+1}</span><input class="name" value="${esc(u.name)}">
+    ${STREAMS.map(s=>`<span class="stream ${u.streams.includes(s)?'on':''}" data-s="${s}">${s}</span>`).join('')}
+    <select class="assess">${ASSESS.map(a=>`<option ${a===(u.assessment||'')?'selected':''} value="${a}">${a||'Assessment…'}</option>`).join('')}</select>
+    <button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete unit">✕</button></div>
+   <div class="ub">
+    ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]}" draggable="true" data-k="${k}"><span class="id">${x.id}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><input type="number" min="0" value="${x.lessons}" title="Lessons planned"><span class="src">les.</span><button class="x" title="Remove">✕</button></div>`).join('')}
+    <div class="drop">Drop subchapters here</div>
+    <div class="utot"><span><b>${L}</b> lessons</span><span><b>${items.length}</b> subchapters</span>${n10?`<span><b>${n10}</b> 10A</span>`:''}<a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>
+    ${info}
    </div></div>`;
+}
+document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',streams:[...STREAMS],assessment:'',items:[]});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
+document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
+document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
+document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
+document.getElementById('impf').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{UNITS=JSON.parse(t);save()}catch(_){alert('That file is not a units.json')}})};
+document.getElementById('reset').onclick=()=>{if(confirm('Throw away the changes saved in this browser and load the repo version?')){try{localStorage.removeItem(KEY)}catch(_){}location.reload()}};
+
+const modal=document.getElementById('modal');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('on')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('on')});
+function showDetail(id){
+  const x=IDX[id];if(!x)return;
+  const li=a=>a&&a.length?'<ul>'+a.join('')+'</ul>':'<p class="empty">Not filled yet</p>';
+  const S=(n,t,body,wide)=>`<div class="sec ${wide?'wide':''}"><h3><span class="step">${n}</span>${t}</h3>${body}</div>`;
+  const full=x.status==='indexed'||x.status==='full', u=usedIn(id);
+  let h=`<button class="btn close" onclick="modal.classList.remove('on')">Close</button>
+   <h2>${x.sub} ${esc(x.title)} ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.extension?'<span class="tag text">Extension</span>':''}</h2>
+   <div class="sub">${x.id} · ${x.book==='C10'?'Cambridge 10 &amp; 10A':'Cambridge General U1&amp;2'} pp. ${x.printed_page}–${x.printed_end} (PDF ${x.pdf_page}–${x.pdf_end})${u.length?` · in unit ${u.map(n=>'U'+n).join(', ')}`:''}${full?'':' · <b>basic index only</b>: the lesson-plan fields get filled when this chapter is done'}</div><div class="flow">`;
+  h+=S(1,'Learning intentions',li((x.learning_intentions||[]).map(t=>`<li>${esc(t)}</li>`)));
+  h+=S(2,'Victorian Curriculum 2.0',li((x.vc2||[]).map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">L9 review</span> ':''}${esc(c.text)}</li>`)));
+  h+=S(3,'Do Now (retrieval)',li((x.do_now||[]).map(d=>`<li><span class="slot">${esc(d.slot)}</span> · ${esc(d.sub)}: ${esc(d.src)} Q${d.q} <span class="src">(${d.printed_page?'p. '+d.printed_page:'PDF p. '+d.pdf_page})${d.note?' · '+esc(d.note):''}</span></li>`)));
+  h+=S(4,'APK (priming: Year 7 → 8 → 9)',li((x.apk||[]).map(a=>`<li><b>${esc(a.book)}</b> ${esc(a.skill)}<br><span class="src">e.g. <span class="loc">${esc(a.question_locator)}</span> · ${esc(a.src)} #${a.n} (${a.sub}), PDF p. ${a.pdf_page}</span></li>`)));
+  h+=S(5,'Key vocabulary',(x.key_vocab||[]).length?`<div class="vocab">${x.key_vocab.map(v=>`<span>${esc(v)}</span>`).join('')}</div><p class="src">${esc(x.key_vocab_note)}</p>`:'<p class="empty">Not filled yet</p>');
+  h+=S(6,'Self-study videos',li((x.videos||[]).map(v=>`<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></li>`)));
+  h+=S(7,'Worked examples → Now you try',li((x.examples||[]).map(e=>`<li><b>Example ${e.n}</b> ${esc(e.title)}${e.now_you_try?' <span class="tag tfull">+ Now you try</span>':''}</li>`)));
+  h+=S(8,'Exercise '+x.sub,li((x.exercise||[]).map(e=>`<li><b>${SECN[e.section]||e.section}</b>${e.title?' · '+esc(e.title):''} Q${esc(e.q)}${e.pathways?` <span class="src">(pathways: ${e.pathways.map(esc).join(' | ')})</span>`:''}</li>`)));
+  h+=S(9,'Exit tasks (skills checklist questions)',li((x.exit_tasks||[]).map(e=>`<li>☐ ${esc(e.skill)}<br><span class="src">e.g. <span class="loc">${esc(e.question_locator)}</span> · checklist #${e.n}, p. ${e.printed_page}</span></li>`)),true);
+  h+=S(10,'Success criteria (end-of-lesson skills checklist)',li((x.success_criteria||[]).map(s=>`<li>☐ ${esc(s.text)}</li>`)),true);
+  document.getElementById('detail').innerHTML=h+'</div>';
+  modal.classList.add('on');
 }
 </script>
 </body>

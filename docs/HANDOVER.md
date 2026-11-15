@@ -19,4 +19,5 @@
   - Exit tasks: C10 checklist e.g. questions (students tick each skill).
 - Question text from pdftotext is a LOCATOR only (fractions garble): extract verbatim on first use.
 - Indexed (not yet in library): all 114 C10 subchapters at basic level (tools/parse.py), Y7–Y10 checklists.
+- 15 Nov later: 3-column planner + draggable units (courses/units.json). All C10 + G11 subchapters loaded at basic level.
 - Open: Rocco to review the test run; MC4 assumed 1D (check); 1J has no PQ/MC item so its Do Now uses review SA Q15.
