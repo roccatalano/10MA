@@ -3,7 +3,6 @@
  "units": [
   {
    "name": "Algebra & Linear Relations",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -45,13 +44,13 @@
       {
        "id": "C10-1L"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Data Analysis",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -99,13 +98,13 @@
       {
        "id": "G11-7E"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Indices, Logs, Exponentials & Surds",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -159,13 +158,13 @@
       {
        "id": "C10-4D"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Sequences & Finance",
-   "assessment": "Topic test",
    "note": "",
    "versions": {
     "10MAA": {
@@ -216,13 +215,13 @@
       {
        "id": "G11-3I"
       }
-     ]
+     ],
+     "assessment": "Topic test"
     }
    }
   },
   {
    "name": "Trigonometry & Introduction to the Unit Circle",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -261,13 +260,13 @@
       {
        "id": "C10-6K"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Quadratics & Parabolas",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -333,13 +332,13 @@
       {
        "id": "C10-7J"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Matrices & Networks",
-   "assessment": "CAT",
    "note": "",
    "versions": {
     "10MAA": {
@@ -396,13 +395,13 @@
       {
        "id": "G11-8H"
       }
-     ]
+     ],
+     "assessment": "CAT"
     }
    }
   },
   {
    "name": "Probability",
-   "assessment": "Topic test",
    "note": "",
    "versions": {
     "10MAA": {
@@ -441,13 +440,13 @@
       {
        "id": "C10-8K"
       }
-     ]
+     ],
+     "assessment": "Topic test"
     }
    }
   },
   {
    "name": "Functions & Polynomials",
-   "assessment": "Extension",
    "note": "",
    "versions": {
     "10MAA": {
@@ -486,7 +485,8 @@
       {
        "id": "C10-10K"
       }
-     ]
+     ],
+     "assessment": "Extension"
     }
    }
   }

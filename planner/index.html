@@ -70,7 +70,7 @@ button,select,input{font:inherit}
 .ver{border:1px solid var(--line);border-radius:9px;padding:6px;background:#fdfcf9;min-width:0}
 .ver.over{outline:2px dashed var(--accent);background:#f4f7ff}
 .ver.off{display:flex;align-items:center;justify-content:center;border-style:dashed;background:none;min-height:60px}
-.vh{display:flex;align-items:center;gap:6px;margin-bottom:5px}.vh b{font-size:12px;flex:1}
+.vh{display:flex;align-items:center;gap:6px;margin-bottom:5px;flex-wrap:wrap}.vh select{border:1px solid var(--line);border-radius:6px;padding:1px 3px;font-size:11.5px}.vh b{font-size:12px;flex:1}
 .vfoot{font-size:11px;color:var(--muted);padding:4px 2px 0}
 .ui.only{background:#fff7e0}
 .ver .ui{font-size:12px;gap:5px;padding:3px 5px}.ver .ui .id{min-width:auto;font-size:11px}
@@ -192,6 +192,7 @@ function subCard(x){
 function migrate(D){
   (D.units||[]).forEach(u=>{
     if(!u.versions){u.versions={};(u.streams||STREAMS).forEach(s=>u.versions[s]={lessons:u.lessons??null,items:(u.items||[]).map(x=>({id:x.id}))});delete u.streams;delete u.items;delete u.lessons}
+    if('assessment' in u){STREAMS.forEach(s=>{const v=u.versions[s];if(v&&v.assessment===undefined)v.assessment=u.assessment||''});delete u.assessment}
   });return D;
 }
 function usedIn(id){const r=[];UNITS.units.forEach((u,i)=>STREAMS.forEach(s=>{const v=u.versions[s];if(v&&v.items.some(x=>x.id===id))r.push(`U${i+1}${s==='10MAG'?'G':'A'}`)}));return r}
@@ -203,13 +204,12 @@ function renderUnits(){
   box.querySelectorAll('.unit').forEach(el=>{
     const i=+el.dataset.i,u=UNITS.units[i];
     el.querySelector('.name').onchange=e=>{u.name=e.target.value;save()};
-    el.querySelector('.assess').onchange=e=>{u.assessment=e.target.value;save()};
     const n=el.querySelector('.note');if(n)n.onchange=e=>{u.note=e.target.value;save()};
     el.querySelector('.del').onclick=()=>{if(confirm(`Delete unit "${u.name}"? Its subchapters go back to the library.`)){UNITS.units.splice(i,1);openUnits.clear();save()}};
     el.querySelector('.up').onclick=()=>{if(i>0){[UNITS.units[i-1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i-1]];openUnits.clear();save()}};
     el.querySelector('.dn').onclick=()=>{if(i<UNITS.units.length-1){[UNITS.units[i+1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i+1]];openUnits.clear();save()}};
     el.querySelector('.tog').onclick=e=>{e.preventDefault();openUnits.has(i)?openUnits.delete(i):openUnits.add(i);renderUnits()};
-    el.querySelectorAll('.addv').forEach(b=>b.onclick=()=>{u.versions[b.dataset.s]={lessons:null,items:[]};save()});
+    el.querySelectorAll('.addv').forEach(b=>b.onclick=()=>{u.versions[b.dataset.s]={lessons:null,assessment:'',items:[]};save()});
     el.querySelectorAll('.ver:not(.off)').forEach(V=>{
       const s=V.dataset.s,v=u.versions[s],other=STREAMS.find(x=>x!==s);
       V.ondragover=e=>{e.preventDefault();V.classList.add('over')};
@@ -220,6 +220,7 @@ function renderUnits(){
           if(!(e.ctrlKey||e.metaKey||e.altKey)&&!(d.from===i))src.items.splice(d.idx,1); }
         else d.ids.forEach(id=>{if(!v.items.some(x=>x.id===id))v.items.push({id})});
         save()};
+      V.querySelector('.assess').onchange=e=>{v.assessment=e.target.value;save()};
       V.querySelector('.les').onchange=e=>{v.lessons=e.target.value===''?null:Math.max(0,+e.target.value||0);save()};
       V.querySelector('.offv').onclick=()=>{if(confirm(`Remove the ${s} version of "${u.name}"?`)){delete u.versions[s];save()}};
       const cp=V.querySelector('.copyv');if(cp)cp.onclick=()=>{const o=u.versions[other];if(!o)return;v.items.forEach(x=>{if(!o.items.some(y=>y.id===x.id))o.items.push({id:x.id})});save()};
@@ -240,7 +241,7 @@ function verCol(u,i,s){
   const items=v.items.map(x=>({...x,s:IDX[x.id]}));
   const L=+v.lessons||0;
   return `<div class="ver" data-s="${s}">
-   <div class="vh"><b>${s}</b><label class="lesbox" title="Number of 79-minute lessons for the ${s} version"><input class="les" type="number" min="0" value="${v.lessons??''}" placeholder="?"> lessons</label>
+   <div class="vh"><b>${s}</b><select class="assess" title="${s} assessment for this unit">${ASSESS.map(x=>`<option ${x===(v.assessment||'')?'selected':''} value="${x}">${x||'Assessment…'}</option>`).join('')}</select><label class="lesbox" title="Number of 79-minute lessons for the ${s} version"><input class="les" type="number" min="0" value="${v.lessons??''}" placeholder="?"> lessons</label>
     ${u.versions[other]?`<button class="x copyv" title="Copy these subchapters to the ${other} version">⇄</button>`:''}<button class="x offv" title="Remove the ${s} version">✕</button></div>
    ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]} ${u.versions[other]&&!ids.has(x.id)?'only':''}" draggable="true" data-k="${k}" title="${u.versions[other]&&!ids.has(x.id)?s+' only':''}"><span class="id">${x.id.replace(/^C10-|^G11-/,m=>m==='G11-'?'Y11 ':'')}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><button class="x" title="Remove">✕</button></div>`).join('')}
    <div class="drop">Drop here</div>
@@ -256,22 +257,20 @@ function unitCard(u,i){
   const onlyA=a&&g?a.items.filter(x=>!g.items.some(y=>y.id===x.id)).length:0, onlyG=a&&g?g.items.filter(x=>!a.items.some(y=>y.id===x.id)).length:0;
   const info=open?`<div class="uinfo">
    <details class="mini" open><summary>Unit summary</summary><ul>
-    ${STREAMS.map(s=>u.versions[s]?`<li><b>${s}</b>: ${u.versions[s].lessons??'?'} × 79-min lessons · ${u.versions[s].items.length} subchapters · ${u.versions[s].items.filter(x=>IDX[x.id]&&IDX[x.id].tenA).length} are 10A</li>`:`<li><b>${s}</b>: does not do this unit</li>`).join('')}
+    ${STREAMS.map(s=>u.versions[s]?`<li><b>${s}</b>: ${u.versions[s].lessons??'?'} × 79-min lessons · ${esc(u.versions[s].assessment||'no assessment set')} · ${u.versions[s].items.length} subchapters · ${u.versions[s].items.filter(x=>IDX[x.id]&&IDX[x.id].tenA).length} are 10A</li>`:`<li><b>${s}</b>: does not do this unit</li>`).join('')}
     ${g&&a?`<li>Shared: ${a.items.length-onlyA} · 10MAA only: ${onlyA} · 10MAG only: ${onlyG}</li>`:''}
     <li>From: ${[...chs].map(([k,n])=>`${k} (${n})`).join(', ')||'nothing yet'}</li>
-    <li>Assessment: ${esc(u.assessment||'not set')}</li>
     <li><input class="note" placeholder="Notes for this unit…" value="${esc(u.note||'')}" style="width:100%;border:1px solid var(--line);border-radius:6px;padding:3px 6px"></li></ul></details>
    ${codes.size?`<details class="mini"><summary>VC2 covered (${codes.size}, from fully-detailed subchapters)</summary><ul>${[...codes.values()].map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${esc(c.text)}</li>`).join('')}</ul></details>`:''}
   </div>`:'';
   const cols=filt?verCol(u,i,filt):STREAMS.map(s=>verCol(u,i,s)).join('');
   return `<div class="unit" data-i="${i}">
    <div class="uh"><span class="num">U${i+1}</span><input class="name" value="${esc(u.name)}">
-    <select class="assess">${ASSESS.map(x=>`<option ${x===(u.assessment||'')?'selected':''} value="${x}">${x||'Assessment…'}</option>`).join('')}</select>
     <button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete unit">✕</button></div>
    <div class="ub"><div class="vers ${filt?'one':''}">${cols}</div>
     <div class="utot"><a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>${info}</div></div>`;
 }
-document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',assessment:'',note:'',versions:{'10MAG':{lessons:null,items:[]},'10MAA':{lessons:null,items:[]}}});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
+document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',assessment:'',note:'',versions:{'10MAG':{lessons:null,assessment:'',items:[]},'10MAA':{lessons:null,assessment:'',items:[]}}});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
 document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
