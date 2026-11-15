@@ -26,3 +26,11 @@
 - **Claude: the page commits to main too.** Always `git pull` before editing/pushing, and never overwrite `courses/units.json` without pulling first.
 - Seeded from the 10MAA 2027 folder names (whole chapters, 10MAA only) — Rocco to edit.
 - Page layout: 3 columns: Year 10 textbook (C10) | Year 11 textbook (G11) | Planned units.
+
+## 2027 tab (built 15 Nov)
+- Tabs at the top: **Unit planning** (the 3-column page) | **2027**.
+- Dates: `courses/years/2027.json` (Vic gov term dates, public holidays in term: Labour Day 8 Mar, King's Birthday 14 Jun, Melbourne Cup 2 Nov; 4 sessions a day, 3 on Wednesdays, 79 min).
+- Timetable: `courses/timetable.json` = `{classes:[{id,teacher,stream}], stepup:{start,end}|null, days_off:{date:reason}, slots:{classId:{date:[session numbers]}}}`. Saved to GitHub by the same Save button as the units.
+- Classes: Ms Chan, Mr Amon, Mr Lloyd, Mr Catalano (10MAG); Mr Catalano (10MAA). Pick one (◀ ▶ / arrow keys), click sessions to give it lessons; "→ term / → year" copies a week's pattern forward. "All classes" shows everyone, red outline = same teacher twice in a session.
+- Lessons are numbered in date order (Step Up week first) and laid onto that stream's units in order using each unit's lesson count; a unit with no lesson count is skipped.
+- Step Up week defaults to 30 Nov–4 Dec 2026 (a guess; editable on the tab).

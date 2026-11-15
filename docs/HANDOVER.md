@@ -51,3 +51,7 @@
 - No video yet: 2G, 4G, 4H. Videos are from Class Mathematics VIC Y11 General; Rocco to vet.
 - Next: Rocco groups lessons → then fill Do Now slots (C10 from progress quiz/review; G11 from do_now_pool).
 - **Correction (Rocco):** G11 cards use the **VCE Mathematics Study Design 2023** (02 Sources/2023MathematicsSD.docx), not VC2. Each G11 card has `study_design` = General Maths U1&2 content dot points (`GM-U1-AoS2-c8` etc.) + Outcome 1 key knowledge (`kk`), mapped by Claude (`tools/sd.py`, `tools/sd_map.py`). Recurrence/explicit-rule formulas didn't survive the docx text extract; those dot points say so.
+
+## 15 Nov 2026 (late) — 2027 tab
+- Added the 2027 tab (see PLANNER.md): term calendar, 4 sessions/day (3 Wed), 5 classes, Step Up week from 2026, timetable saved to `courses/timetable.json`.
+- Open: real timetables (not out yet); Step Up dates (guessed 30 Nov–4 Dec 2026); pupil-free days (mark by clicking a date); fortnightly timetable not supported yet (copy is week-by-week); Step Up lessons currently count as the first unit lessons; 10MAG unit 1 has no lesson count so it is skipped.

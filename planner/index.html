@@ -94,6 +94,50 @@ button,select,input{font:inherit}
 .slot{font-size:11px;font-weight:600;color:var(--lesson-i)}
 .vocab{display:flex;flex-wrap:wrap;gap:6px}.vocab span{border:1px solid var(--line);border-radius:14px;padding:2px 10px;background:#fff}
 .empty{color:var(--muted);font-style:italic}
+.tabs{display:flex;gap:4px;background:var(--other);border-radius:10px;padding:3px}
+.tabs button{border:0;background:none;padding:5px 14px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--muted)}
+.tabs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+body.y27 .cols,body.y27 #hint{display:none}body:not(.y27) #year{display:none}
+#year{flex:1;overflow:auto;padding:14px 16px}
+.ybar{position:sticky;top:-14px;z-index:5;background:var(--bg);padding:6px 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cls{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:13px}
+.cls.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cls i{font-style:normal;font-size:10.5px;font-weight:700;margin-left:4px;padding:0 5px;border-radius:5px;background:#e3f1ea;color:#2f7d5b}
+.cls i.A{background:var(--sac);color:var(--sac-i)}.cls.on i{background:rgba(255,255,255,.2);color:#fff}
+.ysum{font-size:12px;color:var(--muted);margin:0 0 10px}.ysum b{color:var(--ink)}
+.blk{border-radius:14px;margin-bottom:12px;border:1px solid var(--line);background:#efede6}
+.blk>summary{list-style:none;cursor:pointer;padding:8px 14px;display:flex;gap:10px;align-items:baseline;color:var(--muted);font-size:13px}
+.blk>summary::-webkit-details-marker{display:none}
+.blk>summary::before{content:'▸';width:12px}.blk[open]>summary::before{content:'▾'}
+.blk.term{background:var(--card);border:2px solid var(--ink)}
+.blk.term>summary{background:var(--ink);color:#fff;border-radius:11px 11px 0 0;padding:11px 16px;font-size:16px}
+.blk.term:not([open])>summary{border-radius:11px}
+.blk.term>summary b{font-size:18px}.blk.term>summary span{opacity:.75;font-size:13px}
+.blk.su{border:2px solid #2f7d5b}.blk.su>summary{background:#2f7d5b;color:#fff;border-radius:11px 11px 0 0;font-size:15px;padding:10px 16px}
+.blk.su:not([open])>summary{border-radius:11px}
+.blkb{padding:10px 12px}
+.wk{display:grid;grid-template-columns:62px repeat(5,minmax(0,1fr)) 34px 34px;gap:6px;margin-bottom:6px}
+.wkl{font-size:11px;color:var(--muted);padding-top:6px;line-height:1.3}.wkl b{display:block;color:var(--ink);font-size:13px}
+.wkl button{margin-top:4px;font-size:10.5px;padding:1px 5px;border:1px solid var(--line);border-radius:5px;background:#fff;cursor:pointer;color:var(--muted);display:block;width:100%}
+.wkl button:hover{color:var(--ink);border-color:var(--muted)}
+.day{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:5px 6px;min-width:0;min-height:40px}
+.day.we{background:#e9e7df;border-style:dashed;padding:4px 2px;text-align:center;font-size:10px;color:var(--muted)}
+.day.off{background:repeating-linear-gradient(45deg,#f3f1ea,#f3f1ea 6px,#ebe9e1 6px,#ebe9e1 12px)}
+.day.hol{background:#f3f1ea;color:var(--muted)}
+.day.out{visibility:hidden}
+.dh{font-size:11.5px;font-weight:600;display:flex;justify-content:space-between;gap:4px;cursor:pointer;margin-bottom:3px}
+.dh span{color:var(--muted);font-weight:400}.dh .why{color:var(--sac-i);font-weight:600}
+.ses{display:flex;gap:4px;align-items:center;border-top:1px solid var(--line);padding:3px 0;min-height:24px;font-size:11.5px}
+.ses .p{font-size:10px;color:var(--muted);width:12px;flex:none}
+.ses.click{cursor:pointer;border-radius:5px}.ses.click:hover{background:#f4f7ff}
+.les{flex:1;min-width:0;border-radius:5px;padding:2px 5px;line-height:1.2;background:#e3f1ea;color:#1d5a40;overflow:hidden}
+.les.A{background:var(--sac);color:var(--sac-i)}.les.none{background:var(--other);color:var(--muted)}
+.les small{display:block;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ses .add{color:#c9c6bb;font-size:12px}
+.chip{font-size:10px;padding:1px 5px;border-radius:5px;background:#e3f1ea;color:#1d5a40;white-space:nowrap}.chip.A{background:var(--sac);color:var(--sac-i)}
+.chip.clash{outline:2px solid #d33}
+.holgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:4px}
+.holgrid .day{min-height:0;font-size:11px;padding:3px 5px}
 a{color:var(--accent)}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
 </style>
@@ -101,7 +145,8 @@ a{color:var(--accent)}
 <body>
 <header>
   <h1>10MA Course Planner</h1>
-  <span class="src">Drag a subchapter (or a whole chapter with ⠿ all) into a unit. Click a subchapter for its lesson plan.</span>
+  <div class="tabs"><button data-t="units" class="on">Unit planning</button><button data-t="y27">2027</button></div>
+  <span class="src" id="hint">Drag a subchapter (or a whole chapter with ⠿ all) into a unit. Click a subchapter for its lesson plan.</span>
   <div class="save"><span id="saved"></span>
     <button class="btn dark" id="gh" title="Commit the unit plan to github.com/roccatalano/10MA">Save to GitHub</button>
     <button class="btn" id="ghkey" title="Set the GitHub access key this browser uses to save">🔑</button>
@@ -117,6 +162,7 @@ a{color:var(--accent)}
       <span class="src">Show:</span><select id="filt" class="btn"><option value="">Both streams</option><option>10MAG</option><option>10MAA</option></select></div>
       <div id="units"></div></div></section>
 </div>
+<div id="year"></div>
 <div class="modal" id="modal"><div class="detail" id="detail"></div></div>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -125,42 +171,52 @@ const SECN={building_understanding:'Building understanding',fluency:'Fluency',pr
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
 let LIB={},IDX={},UNITS=null,openChaps=new Set(JSON.parse(store.get('10ma-open')||'[]')),openUnits=new Set(),filt='';
 
-const REPO='roccatalano/10MA',FILE='courses/units.json',API=`https://api.github.com/repos/${REPO}/contents/${FILE}`;
-let dirty=false;
+const REPO='roccatalano/10MA',FILE='courses/units.json',TTFILE='courses/timetable.json',TTKEY='10ma-tt-v1';
+const apiOf=f=>`https://api.github.com/repos/${REPO}/contents/${f}`;
+let dirty=false,ttDirty=false,Y=null,TT=null;
 const b64e=s=>btoa(unescape(encodeURIComponent(s))), b64d=s=>decodeURIComponent(escape(atob(s.replace(/\n/g,''))));
-async function loadRepoUnits(){
+async function loadRepo(file,fallback){
   const tok=store.get('10ma-gh');
-  if(tok){try{const r=await fetch(API+'?ref=main&t='+Date.now(),{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});if(r.ok){const j=await r.json();return JSON.parse(b64d(j.content))}}catch(e){}}
-  try{const r=await fetch('../'+FILE+'?t='+Date.now());if(r.ok)return r.json()}catch(e){}
-  return {units:[]};
+  if(tok){try{const r=await fetch(apiOf(file)+'?ref=main&t='+Date.now(),{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});if(r.ok){const j=await r.json();return JSON.parse(b64d(j.content))}}catch(e){}}
+  try{const r=await fetch('../'+file+'?t='+Date.now());if(r.ok)return r.json()}catch(e){}
+  return fallback;
 }
-Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepoUnits()])
-.then(([c10,g11,units])=>{
-  LIB={C10:c10,G11:g11};
+Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
+  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}})])
+.then(([c10,g11,units,yr,tt])=>{
+  LIB={C10:c10,G11:g11};Y=yr;
   for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
   const local=store.get(KEY);
   UNITS=migrate(local?JSON.parse(local):units);dirty=!!local;
+  const lt=store.get(TTKEY);TT=lt?JSON.parse(lt):tt;ttDirty=!!lt;
+  TT.slots=TT.slots||{};TT.days_off=TT.days_off||{};
   status();renderLib();renderUnits();
+  if(store.get('10ma-tab')==='y27')setTab('y27');
 });
-function status(msg){const tok=store.get('10ma-gh');
-  setSaved(msg||(dirty?'Unsaved changes (kept in this browser)':(tok?'All saved to GitHub':'Up to date with GitHub')));
-  const b=document.getElementById('gh');b.disabled=!dirty;b.style.opacity=dirty?1:.45;}
+function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty;
+  setSaved(msg||(d?'Unsaved changes (kept in this browser)':(tok?'All saved to GitHub':'Up to date with GitHub')));
+  const b=document.getElementById('gh');b.disabled=!d;b.style.opacity=d?1:.45;}
+async function putGH(file,data,msg,H){
+  let sha;const g=await fetch(apiOf(file)+'?ref=main&t='+Date.now(),{headers:H});if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error('GitHub said '+g.status+(g.status===401?' (key wrong or expired)':''));
+  const body={message:msg,content:b64e(JSON.stringify(data,null,1)+'\n'),branch:'main'};if(sha)body.sha=sha;
+  const p=await fetch(apiOf(file),{method:'PUT',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!p.ok){const j=await p.json().catch(()=>({}));throw new Error('GitHub said '+p.status+': '+(j.message||''))}
+}
 async function saveGH(){
   let tok=store.get('10ma-gh');if(!tok){askKey();tok=store.get('10ma-gh');if(!tok)return}
   status('Saving to GitHub…');
   const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
   try{
-    let sha;const g=await fetch(API+'?ref=main&t='+Date.now(),{headers:H});if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error('GitHub said '+g.status+(g.status===401?' (key wrong or expired)':''));
-    const body={message:'Update unit plan from planner page',content:b64e(JSON.stringify(UNITS,null,1)+'\n'),branch:'main'};if(sha)body.sha=sha;
-    const p=await fetch(API,{method:'PUT',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(!p.ok){const j=await p.json().catch(()=>({}));throw new Error('GitHub said '+p.status+': '+(j.message||''))}
-    try{localStorage.removeItem(KEY)}catch(_){}dirty=false;status('Saved to GitHub · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+    if(dirty){await putGH(FILE,UNITS,'Update unit plan from planner page',H);try{localStorage.removeItem(KEY)}catch(_){}dirty=false}
+    if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY)}catch(_){}ttDirty=false}
+    status('Saved to GitHub · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
   }catch(e){status('Not saved: '+e.message);alert('Could not save to GitHub.\n\n'+e.message+'\n\nYour changes are still kept in this browser.')}
 }
 function askKey(){const cur=store.get('10ma-gh');const k=prompt('Paste your GitHub access key (fine-grained token with Contents: read and write on roccatalano/10MA).\nIt is kept only in this browser. Leave blank to remove it.',cur?'(key saved — paste a new one to replace)':'');
   if(k===null||k.startsWith('(key saved'))return;if(k.trim())store.set('10ma-gh',k.trim());else{try{localStorage.removeItem('10ma-gh')}catch(_){}}status()}
 document.getElementById('gh').onclick=saveGH;document.getElementById('ghkey').onclick=askKey;
-function save(){store.set(KEY,JSON.stringify(UNITS));dirty=true;status();renderUnits();renderLib()}
+function save(){store.set(KEY,JSON.stringify(UNITS));dirty=true;status();renderUnits();renderLib();if(document.body.classList.contains('y27'))renderYear()}
+function saveTT(){store.set(TTKEY,JSON.stringify(TT));ttDirty=true;status();renderYear()}
 function setSaved(t){document.getElementById('saved').textContent=t}
 
 function renderLib(){
@@ -267,7 +323,104 @@ document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
 document.getElementById('impf').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{UNITS=migrate(JSON.parse(t));save()}catch(_){alert('That file is not a units.json')}})};
-document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY)}catch(_){}location.reload()}};
+document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY)}catch(_){}location.reload()}};
+
+/* ---------- 2027 tab: calendar + class timetables ---------- */
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const D=s=>{const[a,b,c]=s.split('-').map(Number);return new Date(Date.UTC(a,b-1,c))};
+const iso=d=>d.toISOString().slice(0,10);
+const add=(s,n)=>{const d=D(s);d.setUTCDate(d.getUTCDate()+n);return iso(d)};
+const dow=s=>D(s).getUTCDay();
+const nice=s=>{const d=D(s);return `${DOW[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const short=s=>{const d=D(s);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const mondayOf=s=>add(s,-((dow(s)+6)%7));
+let cls=store.get('10ma-cls')||'',openBlk=new Set(JSON.parse(store.get('10ma-blk')||'null')||['su','t1','t2','t3','t4']);
+function setTab(t){document.body.classList.toggle('y27',t==='y27');document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));store.set('10ma-tab',t);if(t==='y27')renderYear()}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.t));
+const SU=()=>TT.stepup||Y.stepup;
+const PH=()=>Object.fromEntries(Y.public_holidays.map(h=>[h.date,h.name]));
+function rangeOf(s){const su=SU();if(s>=su.start&&s<=su.end)return'su';for(const t of Y.terms)if(s>=t.start&&s<=t.end)return't'+t.n;return null}
+function isSchool(s){const w=dow(s);return w>0&&w<6&&rangeOf(s)&&!PH()[s]&&!TT.days_off[s]}
+const nSess=s=>dow(s)===3?Y.sessions.wednesday:Y.sessions.default;
+const clsName=c=>`${c.teacher} ${c.stream}`;
+const shortName=c=>c.teacher.replace(/^(Ms|Mr|Mrs|Dr)\.? /,'')+(TT.classes.filter(x=>x.teacher===c.teacher).length>1?' '+SH[c.stream]:'');
+function slotsOf(cid,d){return (TT.slots[cid]||{})[d]||[]}
+function allSchoolDays(){const out=[],su=SU();for(let s=su.start;s<=su.end;s=add(s,1))if(isSchool(s))out.push(s);
+  for(const t of Y.terms)for(let s=t.start;s<=t.end;s=add(s,1))if(isSchool(s))out.push(s);return out}
+function lessonMap(){ // `${cid}|${date}|${p}` -> lesson info, numbered in date order, mapped onto that stream's units
+  const M={},days=allSchoolDays();
+  for(const c of TT.classes){
+    const us=UNITS.units.filter(u=>u.stream===c.stream);let n=0;
+    for(const d of days)for(const p of slotsOf(c.id,d)){if(p>nSess(d))continue;n++;
+      let k=n,info={n,unit:null};
+      for(let i=0;i<us.length;i++){const L=+us[i].lessons||0;if(k<=L){info={n,unit:SH[c.stream]+(i+1),name:us[i].name,l:k,L};break}k-=L}
+      M[`${c.id}|${d}|${p}`]=info}
+    M[c.id+'|total']=n;M[c.id+'|planned']=us.reduce((a,u)=>a+(+u.lessons||0),0);
+  }
+  return M}
+function renderYear(){
+  if(!Y||!TT)return;
+  const box=document.getElementById('year'),top=box.scrollTop,M=lessonMap(),ph=PH(),cur=TT.classes.find(c=>c.id===cls);
+  if(cls&&!cur)cls='';
+  let h=`<div class="ybar"><button class="btn cyc" data-d="-1" title="Previous class (← key)">◀</button>
+    <button class="cls ${cls?'':'on'}" data-c="">All classes</button>
+    ${TT.classes.map(c=>`<button class="cls ${c.id===cls?'on':''}" data-c="${c.id}">${esc(c.teacher)}<i class="${SH[c.stream]}">${c.stream}</i></button>`).join('')}
+    <button class="btn cyc" data-d="1" title="Next class (→ key)">▶</button></div>`;
+  if(cur){const tot=M[cur.id+'|total'],pl=M[cur.id+'|planned'],per={};
+    allSchoolDays().forEach(d=>{const r=rangeOf(d);per[r]=(per[r]||0)+slotsOf(cur.id,d).filter(p=>p<=nSess(d)).length});
+    h+=`<p class="ysum"><b>${esc(clsName(cur))}</b>: click a session to give this class a lesson then; click again to clear. <b>${tot}</b> lessons timetabled (${['su','t1','t2','t3','t4'].map(r=>`${r==='su'?'Step Up':'T'+r[1]} ${per[r]||0}`).join(' · ')}) vs <b>${pl}</b> planned in the ${cur.stream} units${tot>pl?` · <b style="color:var(--sac-i)">${tot-pl} lessons have no unit yet</b>`:tot<pl?` · <b style="color:var(--sac-i)">${pl-tot} unit lessons don't fit</b>`:''}. Lessons are numbered in date order and laid onto the ${cur.stream} units in their order on the Unit planning tab.</p>`}
+  else h+=`<p class="ysum">Everyone's lessons together. Pick a class to fill in its timetable (◀ ▶ or the arrow keys cycle through them). ${TT.classes.map(c=>`<b>${esc(shortName(c))}</b> ${M[c.id+'|total']}/${M[c.id+'|planned']}`).join(' · ')} lessons timetabled/planned. Click a date to mark a day with no classes (pupil-free, camp…).</p>`;
+  const su=SU();
+  const blocks=[{k:'su',cls:'su',title:'Step Up week',sub:`${nice(su.start)} – ${nice(su.end)} 2026 · <input type="date" class="sud" data-k="start" value="${su.start}"> to <input type="date" class="sud" data-k="end" value="${su.end}">`,start:su.start,end:su.end,school:true}];
+  let prev='2027-01-01';
+  Y.terms.forEach((t,i)=>{
+    blocks.push({k:'h'+t.n,cls:'hol',title:i?`Holidays after Term ${i}`:'Summer holidays',sub:`${nice(prev)} – ${nice(add(t.start,-1))}${t.note?' · '+esc(t.note):''}`,start:prev,end:add(t.start,-1)});
+    const wks=Math.ceil(((D(t.end)-D(mondayOf(t.start)))/864e5+1)/7);
+    blocks.push({k:'t'+t.n,cls:'term',title:`Term ${t.n}`,sub:`${nice(t.start)} – ${nice(t.end)} · ${wks} weeks`,start:t.start,end:t.end,school:true});
+    prev=add(t.end,1)});
+  blocks.push({k:'h5',cls:'hol',title:'Summer holidays',sub:`${nice(prev)} – 31 Dec`,start:prev,end:'2027-12-31'});
+  for(const b of blocks){
+    h+=`<details class="blk ${b.cls}" data-k="${b.k}" ${openBlk.has(b.k)?'open':''}><summary><b>${b.title}</b><span>${b.sub}</span></summary><div class="blkb">`;
+    if(!b.school){h+='<div class="holgrid">';for(let s=b.start;s<=b.end;s=add(s,1))h+=`<div class="day hol" title="${esc(ph[s]||'')}">${nice(s)}${ph[s]?'<br><b>'+esc(ph[s])+'</b>':''}</div>`;h+='</div>'}
+    else{let w=0;for(let m=mondayOf(b.start);m<=b.end;m=add(m,7)){w++;
+      h+=`<div class="wk"><div class="wkl"><b>${b.k==='su'?'Step Up':'Week '+w}</b>${short(m)}${cur&&b.k!=='su'?`<button class="cp" data-m="${m}" data-s="${b.k}" title="Copy this week's ${esc(clsName(cur))} sessions to every later week of this term">→ term</button><button class="cp" data-m="${m}" data-s="year" title="Copy this week's ${esc(clsName(cur))} sessions to every later week of the year">→ year</button>`:''}</div>`;
+      for(let i=0;i<7;i++){const s=add(m,i);
+        if(s<b.start||s>b.end){h+=`<div class="day ${i>4?'we':''} out"></div>`;continue}
+        if(i>4){h+=`<div class="day we">${DOW[dow(s)]}<br>${D(s).getUTCDate()}</div>`;continue}
+        const why=ph[s]||TT.days_off[s];
+        h+=`<div class="day ${why?'off':''}"><div class="dh" data-d="${s}" title="${ph[s]?'Public holiday':'Click to mark this day as having no classes'}">${nice(s)}${why?`<span class="why">${esc(why)}</span>`:''}</div>`;
+        if(!why)for(let p=1;p<=nSess(s);p++){
+          if(cur){const on=slotsOf(cur.id,s).includes(p),L=M[`${cur.id}|${s}|${p}`];
+            h+=`<div class="ses click" data-d="${s}" data-p="${p}"><span class="p">${p}</span>${on?(L.unit?`<span class="les ${SH[cur.stream]}" title="${esc(L.name)}"><b>${L.unit}</b> L${L.l}/${L.L} <small>${esc(L.name)}</small></span>`:`<span class="les none">Lesson ${L.n} <small>no unit yet</small></span>`):'<span class="add">+</span>'}</div>`}
+          else{const here=TT.classes.filter(c=>slotsOf(c.id,s).includes(p)),tc={};here.forEach(c=>tc[c.teacher]=(tc[c.teacher]||0)+1);
+            h+=`<div class="ses"><span class="p">${p}</span><span style="display:flex;flex-wrap:wrap;gap:2px">${here.map(c=>{const L=M[`${c.id}|${s}|${p}`];return `<span class="chip ${SH[c.stream]} ${tc[c.teacher]>1?'clash':''}" title="${esc(clsName(c))}${tc[c.teacher]>1?' · CLASH: same teacher twice':''} · ${L.unit?`${L.unit} lesson ${L.l}/${L.L} ${esc(L.name)}`:'lesson '+L.n+', no unit yet'}">${esc(shortName(c))} ${L.unit?L.unit+'·'+L.l:'#'+L.n}</span>`}).join('')}</span></div>`}}
+        h+='</div>'}
+      h+='</div>'}}
+    h+='</div></details>'}
+  box.innerHTML=h;box.scrollTop=top;
+  box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>pickCls(b.dataset.c));
+  box.querySelectorAll('.cyc').forEach(b=>b.onclick=()=>cycle(+b.dataset.d));
+  box.querySelectorAll('details.blk').forEach(d=>d.ontoggle=()=>{d.open?openBlk.add(d.dataset.k):openBlk.delete(d.dataset.k);store.set('10ma-blk',JSON.stringify([...openBlk]))});
+  box.querySelectorAll('.sud').forEach(i=>{i.onclick=e=>e.stopPropagation();i.onchange=()=>{const v=i.value;if(!v)return;TT.stepup={...SU(),[i.dataset.k]:v};saveTT()}});
+  box.querySelectorAll('.ses.click').forEach(el=>el.onclick=()=>{const d=el.dataset.d,p=+el.dataset.p,S=TT.slots[cls]=TT.slots[cls]||{};
+    const a=new Set(S[d]||[]);a.has(p)?a.delete(p):a.add(p);if(a.size)S[d]=[...a].sort();else delete S[d];saveTT()});
+  box.querySelectorAll('.dh').forEach(el=>el.onclick=()=>{const d=el.dataset.d;if(PH()[d])return;
+    const r=prompt(`${nice(d)}: no classes this day? Type a reason (e.g. Pupil-free day, Camp). Leave blank to make it a normal day.`,TT.days_off[d]||'');
+    if(r===null)return;if(r.trim())TT.days_off[d]=r.trim();else delete TT.days_off[d];saveTT()});
+  box.querySelectorAll('.cp').forEach(b=>b.onclick=()=>copyWeek(b.dataset.m,b.dataset.s));
+}
+function pickCls(c){cls=c;store.set('10ma-cls',c);renderYear()}
+function cycle(d){const ids=['',...TT.classes.map(c=>c.id)];pickCls(ids[(ids.indexOf(cls)+d+ids.length)%ids.length])}
+document.addEventListener('keydown',e=>{if(!document.body.classList.contains('y27')||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||modal.classList.contains('on'))return;
+  if(e.key==='ArrowLeft')cycle(-1);if(e.key==='ArrowRight')cycle(1)});
+function copyWeek(m,scope){
+  const c=TT.classes.find(x=>x.id===cls);if(!c)return;
+  const end=scope==='year'?Y.terms[Y.terms.length-1].end:scope==='su'?SU().end:Y.terms.find(t=>'t'+t.n===scope).end;
+  if(!confirm(`Copy ${c.teacher}'s ${c.stream} sessions from the week of ${nice(m)} to every later week ${scope==='year'?'of the year':'of this term'}?\nThose weeks' sessions for this class get replaced. Holidays and days with no classes are skipped.`))return;
+  const S=TT.slots[cls]=TT.slots[cls]||{};
+  for(let w=add(m,7);w<=end;w=add(w,7))for(let i=0;i<5;i++){const t=add(w,i);if(t>end||!rangeOf(t)||rangeOf(t)==='su'&&scope!=='su')continue;
+    const src=(S[add(m,i)]||[]).filter(p=>p<=nSess(t));if(src.length)S[t]=[...src];else delete S[t]}
+  saveTT()}
 
 const modal=document.getElementById('modal');
 modal.onclick=e=>{if(e.target===modal)modal.classList.remove('on')};

@@ -1,0 +1,13 @@
+{
+ "note": "Which sessions each class has on each day. Edited on the 2027 tab of the planner page.",
+ "classes": [
+  {"id": "chan-G", "teacher": "Ms Chan", "stream": "10MAG"},
+  {"id": "amon-G", "teacher": "Mr Amon", "stream": "10MAG"},
+  {"id": "lloyd-G", "teacher": "Mr Lloyd", "stream": "10MAG"},
+  {"id": "catalano-G", "teacher": "Mr Catalano", "stream": "10MAG"},
+  {"id": "catalano-A", "teacher": "Mr Catalano", "stream": "10MAA"}
+ ],
+ "stepup": null,
+ "days_off": {},
+ "slots": {}
+}
