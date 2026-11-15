@@ -1,0 +1,55 @@
+{
+ "card": "C10-9C",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can interpret a two-way table.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "mc",
+     "marks": 1,
+     "q": "The values of $x$ and $y$ in the two-way table are:<table style=\"border-collapse:collapse;font-size:10pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">A</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">not A</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>B</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">5</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">9</td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>not B</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">8</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">$y$</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">$x$</td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\">25</td></tr></table>",
+     "options": [
+      "$x = 12$, $y = 8$",
+      "$x = 12$, $y = 11$",
+      "$x = 16$, $y = 4$",
+      "$x = 10$, $y = 1$",
+      "$x = 14$, $y = 6$"
+     ],
+     "answer": "A",
+     "sol": [
+      "B and A: $9 - 5 = 4$, so $x = 4 + 8 = 12$",
+      "not B total $= 25 - 9 = 16$, so $y = 16 - 8 = 8$ (A)"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 9 review, multiple-choice Q2 (p. 713)",
+     "vc2": "VC2M10ST05"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "skill": "I can construct a two-way table.",
+   "items": [
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 2,
+     "q": "In a room there are $60$ children, each of whom is either left-handed or right-handed. There are $30$ right-handed boys, and $11$ left-handed children. There are $25$ girls among the $60$ children. Complete a two-way table to find how many left-handed girls are in the room.",
+     "sol": [
+      "<table style=\"border-collapse:collapse;font-size:10pt;color:#d00000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Left-handed</th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Right-handed</th><th style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>Boys</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">5</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">30</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">35</td></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>Girls</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">6</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">19</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">25</td></tr><tr><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">11</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">49</td><td style=\"border:1px solid #d00000;padding:.6mm 2.4mm;text-align:center\">60</td></tr></table>",
+      "There are $6$ left-handed girls."
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 11C Q18 (p. 590)",
+     "vc2": "VC2M10ST05",
+     "blank": "<table style=\"border-collapse:collapse;font-size:11pt;color:#000;margin:1.2mm 0\"><tr><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\"></th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Left-handed</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Right-handed</th><th style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center;background:#eee;font-size:9pt\">Total</th></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Boys</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Girls</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr><tr><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"><b>Total</b></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td><td style=\"border:1px solid #000;padding:.6mm 2.4mm;text-align:center\"></td></tr></table>"
+    }
+   ]
+  }
+ ]
+}

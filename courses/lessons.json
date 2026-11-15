@@ -2488,6 +2488,20 @@
     "kind": "workbook",
     "title": "Unit workbook",
     "pdf": "lessons/10MAG Univariate Statistics - Unit workbook.pdf"
+   },
+   {
+    "kind": "cfat",
+    "n": 1,
+    "title": "CFAT 1",
+    "html": "assessments/CFAT 1.9.1 - 10MAG - 9A-9C.html",
+    "solutions": "assessments/CFAT 1.9.1 - 10MAG - 9A-9C - Solutions.html"
+   },
+   {
+    "kind": "cfat",
+    "n": 2,
+    "title": "CFAT 2",
+    "html": "assessments/CFAT 1.9.2 - 10MAG - 9D-9E.html",
+    "solutions": "assessments/CFAT 1.9.2 - 10MAG - 9D-9E - Solutions.html"
    }
   ]
  }

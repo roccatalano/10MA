@@ -32,3 +32,8 @@ Written 16 Nov 2026. Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, **`docs
 ## Ask Rocco
 - (Settled 16 Nov) CFAT code = unit.chapter.CFAT, so these are **CFAT 1.9.1** and **1.9.2**; `paper.py` does this automatically.
 - Calculators allowed? (Still open from the Algebra CFATs.)
+
+## DONE 16 Nov
+- Blocks `tools/cfat/C10-9A…9E.json` written by `tools/cfat/gen_ch9.py` (L1 Cambridge 9 Ch 9 review; L2 Oxford 10 Ch 10 review / Ex 10A, 10B, Ex 11C Q18). Spare MCs (`fill`): Oxford review MC1 (9D), Cambridge 9 review MC10 (9E).
+- **CFAT 1.9.1** (9A–9C, /9) and **CFAT 1.9.2** (9D–9E, /11), 2 pages each, student + solutions; G: `03 Assessments`; linked in materials.
+- `paper.py` additions: item field `blank` = its own answer space (histogram grid + blank table, box-plot number line, blank two-way table); the solution figure replaces it on the solutions copy. Question text is now a `<div class="q">` so tables can sit inside it.

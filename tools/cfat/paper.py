@@ -36,6 +36,7 @@ svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans>div{margin:.3mm 0}.ans svg.fig{height:30mm;width:auto;max-width:100%;display:block;margin:2mm auto 0}.ans svg.fig[viewBox^="0 -6"]{height:15mm}.q svg.fig{height:14mm;width:auto}
 .brk{break-before:page}.eqs{margin:1.5mm 0 1.5mm 6mm;line-height:1.7}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;padding:0!important}.skl{flex:1;display:flex;flex-direction:column;padding:2mm 3mm;border-right:1.2px solid #000}.skr{flex:1;display:flex;align-items:center;justify-content:center;padding:2mm}.skr>div{width:100%}.skr svg{width:100%;height:auto;max-height:var(--gh,66mm);display:block;margin:0 auto}.skr .ans svg.fig{margin:0 auto!important;height:auto}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
 .pg{margin-top:2mm}.pg svg{display:block;height:62mm;width:auto;max-width:100%;margin:0 auto}.pg .ans svg.fig{height:62mm;width:auto;margin:0 auto}.sol .pg .stu{display:none}body:not(.sol) .pg .ans{display:none}
+body:not(.sol) .blk+.ans{display:none}.ans.arow{display:flex;gap:5mm;align-items:center;flex-wrap:wrap}.sol .ans.arow svg{margin:0}.blk{margin:1mm 0}.blk svg{display:block;margin:1mm auto;max-width:100%;height:auto}.sol .ans svg{display:block;margin:1mm auto;max-width:100%;height:auto}.qf{display:block;margin:1.5mm auto;max-width:100%;height:auto}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
@@ -86,7 +87,7 @@ def build(stream,n,unit):
     def mcbox(it):
         it=dict(it,q=eqlines(it['q']))
         o=''.join(f'<div class="{"ok" if "ABCDE"[k]==it["answer"] else ""}"><b>{"ABCDE"[k]}.</b><span>{x}</span></div>' for k,x in enumerate(it['options']))
-        return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc">{o}</div>{cite(it)}</div></div>'
+        return f'<div class="box">{hd(it)}<div class="bd"><div class="q">{it["q"]}</div><div class="mc">{o}</div>{cite(it)}</div></div>'
     def blank(v):
         v=re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*(#d00000|#f4b6b6)[^>]*/?>(</text>)?','',v)
         return re.sub(r'<text[^>]*fill="#d00000"[^<]*</text>','',v)
@@ -102,22 +103,26 @@ def build(stream,n,unit):
         return f'<svg class="g10" viewBox="-4 -8 132 136">{"".join(o)}</svg>'
     def sabox(it):
         it=dict(it,q=eqlines(it['q']))
+        if it.get('blank'):   # item supplies its own blank answer space (grid / number line / table); its solution figure shows on the solutions copy
+            return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:12mm"><div class="q">{it["q"]}</div>'
+                    f'<div class="stu blk">{it["blank"]}</div>{ans(it).replace(chr(34)+"ans"+chr(34),chr(34)+"ans arow"+chr(34),1) if any(str(x).startswith("<table") for x in it["sol"]) else ans(it)}<div class="blank"></div>{cite(it)}</div></div>')
         figs=[x for x in it['sol'] if x.startswith('<svg')]
         nl=figs and 'viewBox="0 -6' in figs[-1]
         h=12
         if figs and not nl:
             txt=dict(it,sol=[x for x in it['sol'] if not x.startswith('<svg')])
-            return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd skb" style="min-height:{h}mm"><div class="skl"><p class="q">{it["q"]}</p>{ans(txt)}<div class="blank"></div>{cite(it)}</div>'
+            return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd skb" style="min-height:{h}mm"><div class="skl"><div class="q">{it["q"]}</div>{ans(txt)}<div class="blank"></div>{cite(it)}</div>'
                     f'<div class="skr"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div></div></div>')
         if nl: it=dict(it,q=it['q']+'<div class="stu">'+re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*#d00000[^>]*/?>(</text>)?','',figs[-1]).replace('class="fig"','class="fig ax nl"')+'</div>')
-        return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
+        return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><div class="q">{it["q"]}</div>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def pbox(it):
         # sketch question in a side-by-side pair: question on top, big grid underneath
         it=dict(it,q=eqlines(it['q']))
         figs=[x for x in it['sol'] if x.startswith('<svg')];txt=dict(it,sol=[x for x in it['sol'] if not x.startswith('<svg')])
-        return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:12mm"><p class="q">{it["q"]}</p>{ans(txt)}<div class="blank"></div>'
+        return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:12mm"><div class="q">{it["q"]}</div>{ans(txt)}<div class="blank"></div>'
                 f'<div class="pg"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div>{cite(it)}</div></div>')
     def isk(it):
+        if it.get('blank'):return False
         f=[x for x in it['sol'] if str(x).startswith('<svg')];return bool(f) and 'viewBox="0 -6' not in f[-1]
     AUTO_PAIR=stream=='10MAG'   # 10MAG: adjacent sketch questions go side by side with big grids underneath
     def sarows():
@@ -128,8 +133,10 @@ def build(stream,n,unit):
             else: out.append(f'<div class="sarow">{sabox(B[k])}</div>');k+=1
         return ''.join(out)
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
-    title={'10MAA':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
-           '10MAG':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'}}.get(stream,{}).get(n,unit)
+    TITLES={('10MAA','Algebra and Linear Relations'):{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
+            ('10MAG','Algebra and Linear Relations'):{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'},
+            ('10MAG','Univariate Statistics'):{1:'Types of data, data displays and two-way tables',2:'Summary statistics and box plots'}}
+    title=TITLES.get((stream,unit),{}).get(n,unit)
     # CFAT code = unit.chapter.cfat (unit = position in the stream's unit list on the planner; chapter = textbook chapter)
     us=[u for u in json.load(open(os.path.join(ROOT,'courses/units.json')))['units'] if u['stream']==stream]
     ui=next(k for k,u in enumerate(us,1) if u['name']==unit);ch=re.match(r'\d+',cards[0].split('-')[1]).group(0);code=f'{ui}.{ch}.{n}'

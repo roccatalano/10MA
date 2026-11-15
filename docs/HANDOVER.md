@@ -114,3 +114,4 @@
 - Next for this unit: Rocco sets lesson count + Lesson planning → workbook, CFAT blocks/CFATs, slides (see `docs/WORKSHEETS-CH9-HANDOFF.md`).
 - 16 Nov: 10MAG Univariate Statistics unit workbook built (25 pp., linked). Next: CFATs, see `docs/CFAT-CH9-HANDOFF.md`.
 - 16 Nov: CFAT code is now **unit.chapter.CFAT number** (unit = position in that stream's unit list). Existing CFATs renamed only (content untouched): 10MAA 1.1.1–1.1.4, 10MAG 3.1.1–3.1.5. `paper.py` skips the one-equation-per-line rule for 10MAA so a rebuild matches what was published.
+- 16 Nov: 10MAG Univariate Statistics CFATs 1.9.1 and 1.9.2 built (see `docs/CFAT-CH9-HANDOFF.md`).
