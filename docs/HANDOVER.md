@@ -61,3 +61,9 @@
 - Next once groupings are agreed: fill Do Now slots per lesson (C10 progress quiz/review; G11 do_now_pool).
 - CFAT sequence added for every unit (46 CFATs: 10MAG 16, 10MAA 30 — see lessons.json `cfats`). Rocco to review. Sequences and Recursion (10MAG) has none (no subchapters yet).
 - Rebuilt same night: **1 CFAT = 1 week = 3 × 79-min lessons** (Rocco: classes get 3 lessons a week). 10MAG 20 weeks, 10MAA 34 weeks; + Review + Assessment per unit. Practice lessons fill short weeks.
+
+## 15 Nov 2026 (late) — Ch1 worksheets moved + APK fixed
+- Rocco's Ch1 worksheet HTMLs (old 10MAA 2027 'Lesson Handouts' folder = archive) copied to `01 Lesson materials` as `C10-1A worksheet.html/.pdf` … `C10-1L`.
+- Their "Activating prior knowledge" used the same subchapter's Building understanding Qs; replaced with the library's APK picks (Y7/8/9 chapter checklist skill + e.g. question), cropped as images from the Y7–9 PDFs (verbatim, diagrams included) and cited with printed pages. 1E's missing citation fixed. No Do Now on worksheets (it goes on the slides, lesson-dependent).
+- Not regenerated: solutions copies and the Unit Workbook PDF. 1D, 1G, 1H, 1I, 1K grew by one page.
+- Decided: one HTML slide deck per unit (sections per subchapter, exit-task slides from the subchapter checklist at the end of each section), built from shared subchapter source so 10MAG/10MAA share slides. Worksheets stay per subchapter → later one unit booklet. A buffer lesson per unit for catch-up.
