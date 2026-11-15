@@ -174,8 +174,9 @@ def page(sub,d,R):
         hs=e['h'] if isinstance(e['h'],list) else [e['h']]*max(1,len(e['parts']))
         def col(q,parts):
             s=f'<p class="q">{R(q)}</p>'
-            if not parts:return s+f'<div style="min-height:{hs[0]}mm"></div>'
-            return s+''.join(f'<div class="ytp" style="min-height:{hs[k]}mm"><b>{"abcdef"[k]}</b><div><div>{R(p)}</div></div></div>' for k,p in enumerate(parts))
+            if not parts:return s+f'<div style="height:{hs[0]}mm"></div>'
+            sp=lambda k,p:hs[k] if ('<svg' in p or '<table' in p) else max(hs[k],12)   # working space BELOW the question text
+            return s+''.join(f'<div class="ytp"><b>{"abcdef"[k]}</b><div><div>{R(p)}</div><div style="height:{sp(k,p)}mm"></div></div></div>' for k,p in enumerate(parts))
         fs='11.0pt' if len(e['t'])<36 else '9.5pt'
         if e.get('split'):   # long parts: Example on top, You try below (each full width)
             o.append(f'<div class="box"><div class="hd">Example {e["n"]} · {e["t"]}<span></span></div><div class="bd">{col(e["q"],e["parts"])}</div></div>')
