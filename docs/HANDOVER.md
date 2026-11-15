@@ -125,3 +125,4 @@
   - Workbook: `python3 tools/worksheets/workbook_m.py "Univariate Statistics" "<Freefall folder>" /tmp/out` (refuses to write inside the repo) → cover + worksheet + Freefall sheets per lesson (each sheet once), 50 pp. FF8 Teacher Edition = notes, worksheet, answers: only notes + worksheets are taken.
   - On G:: worksheets + workbook in `01 Lesson materials`, CFAT M PDFs in `03 Assessments`. Planner links in `courses/modified.json` → `materials`.
   - Next: Rocco reviews; then the same recipe for G3 Algebra (Freefall gaps 1I, 1J, 1L to decide first).
+- 16 Nov: **docs/MODIFIED-HANDOFF.md** = plan + recipe for the whole 10MAG Modified curriculum (start there). workbook_m.py: CFAT week codes now use the unit's chapter (was hard-coded 9).

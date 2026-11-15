@@ -22,7 +22,7 @@ for l in plan:
 for k,l in enumerate(plan,1):
     if l['kind']!='teach':continue
     week=next((i+1 for i,c in enumerate(cf) if any(x['id'] in [y['id'] for y in c['items']] for x in l['items'])),None)
-    if week!=last:last=week;rows+=f'<tr class="cf"><td colspan="3">CFAT {num[1:]}.9.{week}M · Week {week}</td></tr>'
+    if week!=last:last=week;ch=''.join(c for c in IDX[cf[week-1]['items'][0]['id']]['sub'] if c.isdigit());rows+=f'<tr class="cf"><td colspan="3">CFAT {num[1:]}.{ch}.{week}M · Week {week}</td></tr>'
     for x in l['items']:
         sub=IDX[x['id']]['sub'];seen[x['id']]=seen.get(x['id'],0)+1
         ws=f'{ROOT}/lessons/C10-{sub} modified worksheet'+(f' (part {seen[x["id"]]})' if cnt[x['id']]>1 else '')+'.pdf'
