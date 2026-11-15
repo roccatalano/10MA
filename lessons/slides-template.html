@@ -36,9 +36,71 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
 .st.final{font-weight:bold}
 .foot{display:flex;justify-content:space-between;font-size:15px;color:#444;margin-top:10px}
 .nav{position:fixed;top:6px;right:14px;color:#aaa;font:13px system-ui}
+
+/* ---- shared column layouts ---- */
+.cols{flex:1;display:grid;border:1.5px solid #000;min-height:0;margin-top:16px}
+.col{border-left:1.5px solid #000;padding:12px 16px;min-width:0;display:flex;flex-direction:column;font-size:20px;line-height:1.35;overflow:hidden}
+.col.sm{font-size:16.5px;line-height:1.3}.col.sm li{margin-bottom:4px}
+.col:first-child{border-left:0}
+.col h2{font-size:15px;text-transform:uppercase;letter-spacing:.5px;margin:-12px -16px 10px;padding:5px 16px;background:#eee;border-bottom:1.5px solid #000}
+.col ul,.col ol{margin:0;padding-left:22px}.col li{margin-bottom:7px}
+.col .katex{font-size:1.05em}
+/* section title */
+.slide.title{justify-content:center;align-items:flex-start;padding:0 90px}
+.slide.title .code{font-size:120px;font-weight:bold;line-height:1}
+.slide.title h1{font-size:60px;margin:6px 0 26px}
+.slide.title .unit{font-size:28px;border-top:3px solid #000;padding-top:14px;min-width:60%}
+.slide.title .pp{font-size:18px;color:#444;margin-top:8px}
+/* question columns with a small skill line on top (APK, exit tasks) */
+.part .skill{font-size:15px;color:#333;margin-bottom:8px;line-height:1.3;white-space:normal}
+.part .qtxt{font-size:22px;line-height:1.4;white-space:normal}
+.part .qtxt .katex,.part .qtxt .katex-html{white-space:normal}
+.slide.ex4 .q{flex:none}
+.slide.ex4 .part .st{font-size:24px}
+.slide.ex4 .part .work{padding-top:10px}
+/* coursework table */
+.cw{width:100%;border-collapse:collapse;font-size:24px;margin-top:18px}
+.cw th,.cw td{border:1.5px solid #000;padding:12px 16px;text-align:left;vertical-align:middle}
+.cw thead th{background:#eee;font-size:16px;text-transform:uppercase;letter-spacing:.4px}
+.cw tbody th{width:28%}.cw tbody th span{display:block;font-size:15px;font-weight:normal;color:#333}
+.note{font-size:17px;margin-top:12px;color:#222}
+.seq li.on{font-weight:bold}
+.kt td{padding:4px 10px 4px 0;vertical-align:top}.kt td:first-child{font-weight:bold;white-space:nowrap}
 </style></head><body>
 <div class="stage" id="stage">
-
+<!-- SECTION TITLE -->
+<section class="slide title"><div class="code">1A</div><h1>Review of algebra</h1><div class="unit">Algebra and Linear Relations</div><div class="pp">Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed · pp. 4–10</div><span class="pg" style="display:none"></span></section>
+<!-- LEARNING INTENTIONS | SUCCESS CRITERIA | LESSON SEQUENCE -->
+<section class="slide"><div class="bar"><span class="tag">1A</span><h1>Learning intentions</h1><span class="sub">1A Review of algebra</span></div>
+<div class="cols" style="grid-template-columns:1.05fr 1fr .95fr">
+<div class="col"><h2>Learning intentions</h2><ul><li>To review the key words of algebra: term, coefficient, expression, equation</li><li>To review how to combine like terms under addition and subtraction</li><li>To review how to multiply and divide algebraic terms and apply the distributive law to expand brackets</li><li>To review how to factorise an expression using the highest common factor</li><li>To be able to substitute values for pronumerals and evaluate expressions</li></ul></div>
+<div class="col"><h2>Success criteria</h2><ul style="list-style:none;padding-left:0"><li>☐ I can simplify expressions using the four operations $+, -, \times, \div$.</li><li>☐ I can expand brackets using the distributive law.</li><li>☐ I can factorise simple algebraic expressions with a common factor.</li><li>☐ I can substitute numbers for pronumerals and evaluate.</li></ul></div>
+<div class="col"><h2>Lesson sequence</h2><ol class="seq"><li>Do Now</li><li>Activating prior knowledge</li><li>Key ideas and formulas</li><li>Example 1 · You try 1 — Collecting like terms</li><li>Example 2 · You try 2 — Multiplying and dividing expressions</li><li>Example 3 · You try 3 — Expanding brackets</li><li>Example 4 · You try 4 — Factorising simple algebraic expressions</li><li>Example 5 · You try 5 — Evaluating expressions</li><li>Exit tasks</li><li>Coursework</li></ol></div>
+</div><div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Learning intentions (p. 4); success criteria = Chapter 1 checklist items 1–4 (p. 88)</span><span class="pg"></span></div></section>
+<!-- ACTIVATING PRIOR KNOWLEDGE (reveals like a worked example) -->
+<section class="slide ex4"><div class="bar"><span class="tag">APK</span><h1>Activating prior knowledge</h1><span class="sub">1A Review of algebra</span></div>
+<p class="q" style="margin:18px 4px 12px">Answer each question.</p>
+<div class="parts" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="part"><div class="skill">Year 7 · I can simplify expressions involving multiplication.</div><div class="qtxt"><b>1.</b> Simplify $4a \times 2b \times 3c$, giving your final answer without multiplication signs.</div><div class="work"><div class="st final">$= \boldsymbol{24abc}$</div></div></div><div class="part"><div class="skill">Year 8 · I can simplify expressions by combining like terms.</div><div class="qtxt"><b>2.</b> Simplify $5ac + 3b - 2ca + 4b - 5b$.</div><div class="work"><div class="st final">$= \boldsymbol{3ac + 2b}$</div></div></div><div class="part"><div class="skill">Year 8 · I can factorise expressions by taking out the highest common factor.</div><div class="qtxt"><b>3.</b> Factorise $12a + 18ab$.</div><div class="work"><div class="st final">$= \boldsymbol{6a(2 + 3b)}$</div></div></div><div class="part"><div class="skill">Year 9 · I can substitute values into expressions and evaluate.</div><div class="qtxt"><b>4.</b> Evaluate $a^2 + 3(ab - c)$ if $a = -2$, $b = 3$ and $c = -8$.</div><div class="work"><div class="st">$= (-2)^2 + 3\big((-2)(3) - (-8)\big)$</div><div class="st">$= 4 + 3(2)$</div><div class="st final">$= \boldsymbol{10}$</div></div></div></div>
+<div class="foot"><span>Cambridge Essential Mathematics 3rd Ed: Year 7 Ch4 checklist item 11 (p. 278); Year 8 Ch5 checklist items 6, 15 (p. 400); Year 9 Ch2 checklist item 2 (p. 162). Working by teacher.</span><span class="pg"></span></div></section>
+<!-- KEY IDEAS | KEY FORMULAS -->
+<section class="slide"><div class="bar"><span class="tag">1A</span><h1>Key ideas</h1><span class="sub">1A Review of algebra</span></div>
+<div class="cols" style="grid-template-columns:1fr 1fr">
+<div class="col sm"><h2>Key ideas</h2><ul>
+<li><b>term:</b> numbers and pronumerals connected by multiplication and division, e.g. $5x,\ 7x^2y,\ \dfrac{2a}{3},\ 7$ (a constant term)</li>
+<li><b>coefficient:</b> $-3$ is the coefficient of $x^2$ in $7 - 3x^2$; $1$ is the coefficient of $y$ in $y + 7x$.</li>
+<li><b>expression:</b> a term or terms connected by addition and subtraction, e.g. $7x,\ 3x + 2xy,\ \dfrac{x + 3}{2},\ \sqrt{2a^2 - b}$</li>
+<li><b>equation:</b> mathematical statements that include an equals sign, e.g. $x = 5,\ 7x - 1 = 2,\ x^2 + 2x = -4$</li>
+<li>Expressions can be <b>evaluated</b> by substituting a value for each pronumeral (variable). Order of operations are followed.</li>
+<li><b>Like terms</b> have the same pronumeral part and, using addition and subtraction, can be collected to form a single term.</li>
+<li>The <b>distributive law</b> is used to expand brackets.</li>
+<li><b>Factorisation</b> involves writing expressions as a product of factors. Many expressions can be factorised by taking out the highest common factor (HCF).</li></ul></div>
+<div class="col sm"><h2>Key formulas</h2><table class="kt">
+<tr><td>Like terms</td><td>$3x - 7x + x = -3x$<br>$6a^2b - ba^2 = 5a^2b$ &nbsp; (note $a^2b = ba^2$)</td></tr>
+<tr><td>$\times$ and $\div$</td><td>$7 \times x \div y = \dfrac{7x}{y}$ &emsp; $-6a^2b \div (ab) = \dfrac{-6a^2b}{ab} = -6a$</td></tr>
+<tr><td>Distributive law</td><td>$a(b + c) = ab + ac$ &nbsp; e.g. $2(x + 7) = 2x + 14$<br>$a(b - c) = ab - ac$ &nbsp; e.g. $-x(3 - x) = -3x + x^2$</td></tr>
+<tr><td>Factorising (HCF)</td><td>$3x - 12 = 3(x - 4)$<br>$9x^2y - 6xy + 3x = 3x(3xy - 2y + 1)$</td></tr>
+<tr><td>Properties</td><td>commutative $ab = ba$, $a + b = b + a$<br>associative $a \times (b \times c) = (a \times b) \times c$<br>identity $a \times 1 = a$, $a + 0 = a$ &emsp; inverse $a \times \dfrac{1}{a} = 1$, $a + (-a) = 0$</td></tr>
+</table></div></div><div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Key ideas (pp. 4–5)</span><span class="pg"></span></div></section>
 <!-- WORKED EXAMPLE -->
 <section class="slide ex" data-id="C10-1A-ex1">
   <div class="bar"><span class="tag">Example 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
@@ -63,6 +125,19 @@ html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sa
   <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6); working follows Example 1, answers checked against p. 956; key idea p. 5</span><span class="pg"></span></div>
 </section>
 
+<!-- EXIT TASKS (reveal like a worked example) -->
+<section class="slide ex4"><div class="bar"><span class="tag">Exit</span><h1>Exit tasks</h1><span class="sub">1A Review of algebra</span></div>
+<p class="q" style="margin:18px 4px 12px">Tick each skill in your checklist when you can do it.</p>
+<div class="parts" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="part"><div class="skill">I can simplify expressions using the four operations $+, -, \times, \div$.</div><div class="qtxt"><b>1.</b> Simplify $3x \times 2y - 4x^2y + 2xy + 3x^2y$.</div><div class="work"><div class="st">$= 6xy - 4x^2y + 2xy + 3x^2y$</div><div class="st final">$= \boldsymbol{8xy - x^2y}$</div></div></div><div class="part"><div class="skill">I can expand brackets using the distributive law.</div><div class="qtxt"><b>2.</b> Expand and simplify $-4y(2y + 3)$.</div><div class="work"><div class="st final">$= \boldsymbol{-8y^2 - 12y}$</div></div></div><div class="part"><div class="skill">I can factorise simple algebraic expressions with a common factor.</div><div class="qtxt"><b>3.</b> Factorise $6x^2 - 15x$.</div><div class="work"><div class="st final">$= \boldsymbol{3x(2x - 5)}$</div></div></div><div class="part"><div class="skill">I can substitute numbers for pronumerals and evaluate.</div><div class="qtxt"><b>4.</b> Given $a = -3$ and $b = 4$, evaluate $ab + a^2$.</div><div class="work"><div class="st">$= (-3)(4) + (-3)^2$</div><div class="st">$= -12 + 9$</div><div class="st final">$= \boldsymbol{-3}$</div></div></div></div>
+<div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, Chapter 1 checklist items 1–4 (p. 88). Working by teacher.</span><span class="pg"></span></div></section>
+<!-- COURSEWORK (last slide of the subchapter) -->
+<section class="slide"><div class="bar"><span class="tag">1A</span><h1>Coursework · Exercise 1A (pp. 8–10)</h1><span class="sub">1A Review of algebra</span></div>
+<table class="cw"><thead><tr><th>Option</th><th>Fluency</th><th>Problem-solving</th><th>Reasoning</th><th>Enrichment</th></tr></thead><tbody>
+<tr><th>Good<span>Minimum for your coursework tick</span></th><td>Q1–6(½)</td><td>Q7</td><td>Q9</td><td>–</td></tr>
+<tr><th>Better<span>The standard for doing well on assessments</span></th><td>Q1–6(½)</td><td>Q7, 8</td><td>Q9, 10</td><td>–</td></tr>
+<tr><th>Best<span>The full challenge</span></th><td>Q1–6(⅓)</td><td>Q8</td><td>Q10, 11</td><td>Q12</td></tr></tbody></table>
+<p class="note"><b>(½)</b> = every second part (a, c, e, …) · <b>(⅓)</b> = every third part (a, d, g, …). Your teacher will tell you which row to do. Tick it off on your worksheet.</p>
+<div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, Exercise 1A pathways (Foundation / Standard / Advanced)</span><span class="pg"></span></div></section>
 </div>
 <div class="nav">→ / click: next line of working, then next slide · ← back · F full screen</div>
 <script>
