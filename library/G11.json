@@ -5,7 +5,8 @@
   "pdf_offset": 13,
   "sources": {
    "E11": "2020-edrolo-units-1-2.pdf (Edrolo VCE General Maths Units 1&2, 2nd ed 2020; old study design)"
-  }
+  },
+  "curriculum": "VCE Mathematics Study Design 2023–2027 — General Mathematics Units 1 & 2 (not VC2)"
  },
  "chapters": [
   {
@@ -15,7 +16,6 @@
    "title": "Review of percentages and ratios",
    "status": "basic",
    "pdf_page": 14,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 1",
@@ -258,8 +258,17 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-kk6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-1B",
@@ -420,8 +429,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c8",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "percentage increase and decrease, mark-ups and discounts, and calculating GST in various financial contexts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-1C",
@@ -574,8 +600,17 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c8",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "percentage increase and decrease, mark-ups and discounts, and calculating GST in various financial contexts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-1D",
@@ -713,8 +748,17 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-kk6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-1E",
@@ -802,8 +846,17 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-kk6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-1F",
@@ -891,9 +944,29 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c10",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "the unitary method and its use in making comparisons and solving practical problems involving percentages and finance",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
    ]
   },
   {
@@ -903,7 +976,6 @@
    "title": "Investigating and comparing data distributions",
    "status": "basic",
    "pdf_page": 47,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 2",
@@ -1254,8 +1326,33 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c1",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "types of data, including categorical (nominal or ordinal) or numerical (discrete or continuous, interval, ratio)",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-c2",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "display and description of categorical data distributions of one or more groups using frequency tables and bar charts, and the mode and its interpretation",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk1",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "types of data, including categorical (nominal or ordinal) or numerical (discrete and continuous)",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2B",
@@ -1355,8 +1452,17 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c2",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "display and description of categorical data distributions of one or more groups using frequency tables and bar charts, and the mode and its interpretation",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2C",
@@ -1553,8 +1659,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c3",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "display and description of numerical data distributions using histograms, stem plots and dot plots and choosing between plots according to context and purpose",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk2",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the concept of a data distribution and its display using a statistical plot",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2D",
@@ -1810,8 +1933,33 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c3",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "display and description of numerical data distributions using histograms, stem plots and dot plots and choosing between plots according to context and purpose",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-c6",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "consideration of a range of distributions (symmetrical, asymmetrical), their summary statistics and the percentage of data lying within several standard deviations of the mean",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk2",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the concept of a data distribution and its display using a statistical plot",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2E",
@@ -2006,8 +2154,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c4",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "summarising numerical data distributions, including use of and calculation of the sample summary statistics, median, range, and interquartile range (IQR) or mean and standard deviation",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk4",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "mean $\\overline{x\\ }$and sample standard deviation $s = \\sqrt{\\frac{\\sum_{}^{}{(x - \\overline{x})}^{2}}{n - 1}}$",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2F",
@@ -2216,8 +2381,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c4",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "summarising numerical data distributions, including use of and calculation of the sample summary statistics, median, range, and interquartile range (IQR) or mean and standard deviation",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk4",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "mean $\\overline{x\\ }$and sample standard deviation $s = \\sqrt{\\frac{\\sum_{}^{}{(x - \\overline{x})}^{2}}{n - 1}}$",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2G",
@@ -2311,8 +2493,17 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c6",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "consideration of a range of distributions (symmetrical, asymmetrical), their summary statistics and the percentage of data lying within several standard deviations of the mean",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2H",
@@ -2537,8 +2728,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c5",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "the five-number summary and the boxplot as its graphical representation and display, including the use of the lower fence (Q1 – 1.5 × IQR) and upper fence (Q3 + 1.5 × IQR) to identify possible outliers",
+       "topic": "Investigating and comparing data distributions"
+      },
+      {
+       "id": "GM-U1-AoS1-kk3",
+       "unit": 1,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the five-number summary and possible outliers",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-2I",
@@ -2660,9 +2868,21 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS1-c7",
+       "unit": 1,
+       "aos": 1,
+       "kind": "content",
+       "text": "use of back-to-back stem plots or parallel boxplots, as appropriate, to compare the distributions of a single numerical variable across two or more groups in terms of centre (median) and spread (IQR and range), and the interpretation of any differences observed in the context of the data.",
+       "topic": "Investigating and comparing data distributions"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Investigating and comparing data distributions"
    ]
   },
   {
@@ -2672,7 +2892,6 @@
    "title": "Sequences and finance",
    "status": "basic",
    "pdf_page": 145,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 3",
@@ -2853,8 +3072,33 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c1",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "the concept of an arithmetic or geometric sequence as a function with the set of non-negative integers as its domain",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-c2",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "tabular and graphical display of sequences, investigation of their behaviour (increasing, decreasing, constant, oscillating, limiting values)",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk1",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the concept of an arithmetic or geometric sequence as a function and its recursive specification",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3B",
@@ -2970,8 +3214,33 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c3",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and d are constants, to generate the values of an arithmetic sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk1",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the concept of an arithmetic or geometric sequence as a function and its recursive specification",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk2",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of a first-order linear recurrence relation to generate the values of an arithmetic or geometric sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3C",
@@ -3175,8 +3444,33 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c1",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "the concept of an arithmetic or geometric sequence as a function with the set of non-negative integers as its domain",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-c7",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "generation of the explicit rule,[formula not in the text extract — see Study Design], of an arithmetic or geometric sequence, its use and evaluation, including various practical and financial contexts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk3",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the explicit rule, u_(n), of an arithmetic or geometric sequence and its evaluation",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3D",
@@ -3331,8 +3625,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c3",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and d are constants, to generate the values of an arithmetic sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk2",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of a first-order linear recurrence relation to generate the values of an arithmetic or geometric sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3E",
@@ -3562,8 +3873,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c4",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and d are constants, to model and analyse practical situations involving discrete linear growth or decay such as a simple interest loan or investment, the depreciating value of an asset using the unit cost or flat-rate method",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk4",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of a first-order linear recurrence relations of the form u₀ = a, u_(n + 1) = u_(n) + d where a and d are constants to model linear growth and decay, including the rule for evaluating the value after n periods of linear growth or decay in financial contexts, simple interest investments and loans, flat rate and unit cost depreciation of an asset over time, including the rule for the future value of the asset after n depreciation periods",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3F",
@@ -3720,8 +4048,33 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c1",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "the concept of an arithmetic or geometric sequence as a function with the set of non-negative integers as its domain",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-c7",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "generation of the explicit rule,[formula not in the text extract — see Study Design], of an arithmetic or geometric sequence, its use and evaluation, including various practical and financial contexts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk3",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the explicit rule, u_(n), of an arithmetic or geometric sequence and its evaluation",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3G",
@@ -3863,8 +4216,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c5",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design]where a and R are constants, to generate the values of a geometric sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk2",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of a first-order linear recurrence relation to generate the values of an arithmetic or geometric sequence",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3H",
@@ -4094,8 +4464,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and R are constants, to model growth and decay and analyse practical situations involving geometric sequences such as the reducing height of a bouncing ball, reducing balance depreciation, compound interest loans or investments",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk5",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of first-order linear recurrence relations of the form [formula not in the text extract — see Study Design]where a and R are constants to model compound interest investments and loans, reducing balance depreciation of an asset over time, including the rule for the future value of the asset after n depreciation periods, compound interest investments and debts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-3I",
@@ -4334,9 +4721,37 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS2-c6",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and R are constants, to model growth and decay and analyse practical situations involving geometric sequences such as the reducing height of a bouncing ball, reducing balance depreciation, compound interest loans or investments",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-c7",
+       "unit": 1,
+       "aos": 2,
+       "kind": "content",
+       "text": "generation of the explicit rule,[formula not in the text extract — see Study Design], of an arithmetic or geometric sequence, its use and evaluation, including various practical and financial contexts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      },
+      {
+       "id": "GM-U1-AoS2-kk5",
+       "unit": 1,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the use of first-order linear recurrence relations of the form [formula not in the text extract — see Study Design]where a and R are constants to model compound interest investments and loans, reducing balance depreciation of an asset over time, including the rule for the future value of the asset after n depreciation periods, compound interest investments and debts",
+       "topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
    ]
   },
   {
@@ -4346,7 +4761,6 @@
    "title": "Matrices",
    "status": "basic",
    "pdf_page": 231,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 4",
@@ -4496,8 +4910,41 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c1",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "use of matrices to store and display information that can be presented in a rectangular array of rows and columns such as databases and links in social networks and road networks",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-c2",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "types of matrices (row, column, square, zero and identity) and the order of a matrix",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk1",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "the concept of a matrix and its use to store, display and manipulate information",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk2",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "types of matrices (row, column, square, zero, identity) and the order of a matrix",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4B",
@@ -4607,8 +5054,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "matrix addition, subtraction, multiplication by a scalar, and matrix multiplication including determining the power of a square matrix using technology as applicable",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "matrix arithmetic: the definition of addition, subtraction, multiplication by a scalar, multiplication, the power of a square matrix, and the conditions for their use",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4C",
@@ -4724,8 +5188,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "matrix addition, subtraction, multiplication by a scalar, and matrix multiplication including determining the power of a square matrix using technology as applicable",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "matrix arithmetic: the definition of addition, subtraction, multiplication by a scalar, multiplication, the power of a square matrix, and the conditions for their use",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4D",
@@ -4979,8 +5460,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "matrix addition, subtraction, multiplication by a scalar, and matrix multiplication including determining the power of a square matrix using technology as applicable",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk3",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "matrix arithmetic: the definition of addition, subtraction, multiplication by a scalar, multiplication, the power of a square matrix, and the conditions for their use",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4E",
@@ -5109,8 +5607,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c5",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "inverse matrices and their applications including solving a system of simultaneous linear equations",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk4",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "determinant and inverse of a matrix",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4F",
@@ -5217,8 +5732,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c4",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "use of matrices, including matrix products and powers of matrices, to model and solve problems, for example costing or pricing problems, and squaring a matrix to determine the number of ways pairs of people in a network can communicate with each other via a third person",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk5",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "simple communication matrices and their application",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4G",
@@ -5314,8 +5846,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c6",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "introduction to transition matrices (assuming the next state only relies on the current state), working with iterations of simple models linked to, for example, population growth or decay, including informal consideration of long run trends and steady state.",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk6",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "regular transition matrices and their identification",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4H",
@@ -5416,8 +5965,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c6",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "introduction to transition matrices (assuming the next state only relies on the current state), working with iterations of simple models linked to, for example, population growth or decay, including informal consideration of long run trends and steady state.",
+       "topic": "Matrices"
+      },
+      {
+       "id": "GM-U1-AoS4-kk6",
+       "unit": 1,
+       "aos": 4,
+       "kind": "key knowledge",
+       "text": "regular transition matrices and their identification",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-4I",
@@ -5597,9 +6163,21 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U1-AoS4-c4",
+       "unit": 1,
+       "aos": 4,
+       "kind": "content",
+       "text": "use of matrices, including matrix products and powers of matrices, to model and solve problems, for example costing or pricing problems, and squaring a matrix to determine the number of ways pairs of people in a network can communicate with each other via a third person",
+       "topic": "Matrices"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Matrices"
    ]
   },
   {
@@ -5846,7 +6424,6 @@
    "title": "Investigating relationships between two numerical variables",
    "status": "basic",
    "pdf_page": 413,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 7",
@@ -5997,8 +6574,33 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS1-c1",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "response and explanatory variables",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-c2",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "scatterplots and their use in identifying and qualitatively describing the association between two numerical variables in terms of direction, form and strength",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk1",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "response and explanatory variables and their role in modelling associations between two numerical variables",
+       "topic": "Investigating relationships between two numerical variables"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-7B",
@@ -6144,8 +6746,41 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS1-c2",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "scatterplots and their use in identifying and qualitatively describing the association between two numerical variables in terms of direction, form and strength",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-c3",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "informal interpretation of association and causation",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk2",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "scatterplots and their use in identifying and describing the association between two numerical variables",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk3",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the concepts of association and causation",
+       "topic": "Investigating relationships between two numerical variables"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-7C",
@@ -6319,8 +6954,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS1-c2",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "scatterplots and their use in identifying and qualitatively describing the association between two numerical variables in terms of direction, form and strength",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk2",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "scatterplots and their use in identifying and describing the association between two numerical variables",
+       "topic": "Investigating relationships between two numerical variables"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-7D",
@@ -6552,8 +7204,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS1-c4",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "use of a line of good fit by eye to make predictions, including the issues of interpolation and extrapolation",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk4",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the equation of a line of good fit",
+       "topic": "Investigating relationships between two numerical variables"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-7E",
@@ -6692,9 +7361,37 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS1-c4",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "use of a line of good fit by eye to make predictions, including the issues of interpolation and extrapolation",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-c5",
+       "unit": 2,
+       "aos": 1,
+       "kind": "content",
+       "text": "interpretation of a line of good fit, its intercept and slope in the context of the data.",
+       "topic": "Investigating relationships between two numerical variables"
+      },
+      {
+       "id": "GM-U2-AoS1-kk4",
+       "unit": 2,
+       "aos": 1,
+       "kind": "key knowledge",
+       "text": "the equation of a line of good fit",
+       "topic": "Investigating relationships between two numerical variables"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Investigating relationships between two numerical variables"
    ]
   },
   {
@@ -6704,7 +7401,6 @@
    "title": "Graphs and networks",
    "status": "basic",
    "pdf_page": 480,
-   "vc2_codes": [],
    "chapter_resources": [
     {
      "name": "Review of Chapter 8",
@@ -6901,8 +7597,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "introduction to the notations, conventions and representations of types and properties of graphs, including edge, loop, vertex, the degree of a vertex, isomorphic and connected graphs and the adjacency matrix",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8B",
@@ -7068,8 +7781,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "introduction to the notations, conventions and representations of types and properties of graphs, including edge, loop, vertex, the degree of a vertex, isomorphic and connected graphs and the adjacency matrix",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8C",
@@ -7258,8 +7988,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c2",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "description of graphs in terms of faces (regions), vertices and edges and the application of Euler’s formula for planar graphs",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8D",
@@ -7404,8 +8151,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c3",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "connected graphs: walks, trails, paths, cycles and circuits with practical applications",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8E",
@@ -7519,8 +8283,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c3",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "connected graphs: walks, trails, paths, cycles and circuits with practical applications",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8F",
@@ -7636,8 +8417,25 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c3",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "connected graphs: walks, trails, paths, cycles and circuits with practical applications",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk1",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8G",
@@ -7763,8 +8561,25 @@
      ],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c4",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "weighted graphs and networks, and an introduction to the shortest path problem (solution by inspection only) and its practical application",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk2",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "weighted graphs and networks, and the shortest path problem",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     },
     {
      "id": "G11-8H",
@@ -7911,9 +8726,29 @@
      "do_now_pool": [],
      "do_now": [],
      "do_now_note": "use do_now_pool (Edrolo VCAA questions on this subchapter) for the lesson AFTER this one; slots wait for lesson groupings",
-     "vc2": [],
-     "vc2_note": "VCE unit (no VC2 codes)"
+     "study_design": [
+      {
+       "id": "GM-U2-AoS2-c5",
+       "unit": 2,
+       "aos": 2,
+       "kind": "content",
+       "text": "trees and minimum spanning trees, greedy algorithms and their use to solve practical problems.",
+       "topic": "Graphs and networks"
+      },
+      {
+       "id": "GM-U2-AoS2-kk3",
+       "unit": 2,
+       "aos": 2,
+       "kind": "key knowledge",
+       "text": "trees, minimum spanning trees and the concept of a greedy algorithm",
+       "topic": "Graphs and networks"
+      }
+     ],
+     "study_design_note": "VCE Mathematics Study Design 2023–2027 (2023MathematicsSD.docx), General Mathematics Units 1 & 2: topic content dot points (c) and Outcome 1 key knowledge (kk). Mapped by Claude."
     }
+   ],
+   "study_design_topic": [
+    "Graphs and networks"
    ]
   },
   {

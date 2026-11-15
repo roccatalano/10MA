@@ -1,0 +1,698 @@
+{
+"GM-U1-AoS1-c1": {
+"id": "GM-U1-AoS1-c1",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "types of data, including categorical (nominal or ordinal) or numerical (discrete or continuous, interval, ratio)",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c2": {
+"id": "GM-U1-AoS1-c2",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "display and description of categorical data distributions of one or more groups using frequency tables and bar charts, and the mode and its interpretation",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c3": {
+"id": "GM-U1-AoS1-c3",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "display and description of numerical data distributions using histograms, stem plots and dot plots and choosing between plots according to context and purpose",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c4": {
+"id": "GM-U1-AoS1-c4",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "summarising numerical data distributions, including use of and calculation of the sample summary statistics, median, range, and interquartile range (IQR) or mean and standard deviation",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c5": {
+"id": "GM-U1-AoS1-c5",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "the five-number summary and the boxplot as its graphical representation and display, including the use of the lower fence (Q1 – 1.5 × IQR) and upper fence (Q3 + 1.5 × IQR) to identify possible outliers",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c6": {
+"id": "GM-U1-AoS1-c6",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "consideration of a range of distributions (symmetrical, asymmetrical), their summary statistics and the percentage of data lying within several standard deviations of the mean",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-c7": {
+"id": "GM-U1-AoS1-c7",
+"unit": 1,
+"aos": 1,
+"kind": "content",
+"text": "use of back-to-back stem plots or parallel boxplots, as appropriate, to compare the distributions of a single numerical variable across two or more groups in terms of centre (median) and spread (IQR and range), and the interpretation of any differences observed in the context of the data.",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS2-c1": {
+"id": "GM-U1-AoS2-c1",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "the concept of an arithmetic or geometric sequence as a function with the set of non-negative integers as its domain",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c2": {
+"id": "GM-U1-AoS2-c2",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "tabular and graphical display of sequences, investigation of their behaviour (increasing, decreasing, constant, oscillating, limiting values)",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c3": {
+"id": "GM-U1-AoS2-c3",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and d are constants, to generate the values of an arithmetic sequence",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c4": {
+"id": "GM-U1-AoS2-c4",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and d are constants, to model and analyse practical situations involving discrete linear growth or decay such as a simple interest loan or investment, the depreciating value of an asset using the unit cost or flat-rate method",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c5": {
+"id": "GM-U1-AoS2-c5",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design]where a and R are constants, to generate the values of a geometric sequence",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c6": {
+"id": "GM-U1-AoS2-c6",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "use of a first-order linear recurrence relation of the form [formula not in the text extract — see Study Design] where a and R are constants, to model growth and decay and analyse practical situations involving geometric sequences such as the reducing height of a bouncing ball, reducing balance depreciation, compound interest loans or investments",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c7": {
+"id": "GM-U1-AoS2-c7",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "generation of the explicit rule,[formula not in the text extract — see Study Design], of an arithmetic or geometric sequence, its use and evaluation, including various practical and financial contexts",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c8": {
+"id": "GM-U1-AoS2-c8",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "percentage increase and decrease, mark-ups and discounts, and calculating GST in various financial contexts",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c9": {
+"id": "GM-U1-AoS2-c9",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "determining the impact of inflation on costs and the spending power of money over time",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c10": {
+"id": "GM-U1-AoS2-c10",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "the unitary method and its use in making comparisons and solving practical problems involving percentages and finance",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-c11": {
+"id": "GM-U1-AoS2-c11",
+"unit": 1,
+"aos": 2,
+"kind": "content",
+"text": "comparison of purchase options including cash, credit and debit cards, personal loans, buy now and pay later schemes.",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS3-c1": {
+"id": "GM-U1-AoS3-c1",
+"unit": 1,
+"aos": 3,
+"kind": "content",
+"text": "the linear function y = a + bx, its graph, and interpretation of the parameters, a and b in terms of initial value and constant rate of change respectively",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-c2": {
+"id": "GM-U1-AoS3-c2",
+"unit": 1,
+"aos": 3,
+"kind": "content",
+"text": "graphing linear relations Ax + By = C and equivalent forms",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-c3": {
+"id": "GM-U1-AoS3-c3",
+"unit": 1,
+"aos": 3,
+"kind": "content",
+"text": "formulation and analysis of linear models from worded descriptions or relevant data (including simultaneous linear equations in two variables) and their application to solve practical problems including domain of interpretation",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-c4": {
+"id": "GM-U1-AoS3-c4",
+"unit": 1,
+"aos": 3,
+"kind": "content",
+"text": "piecewise linear (line segment, step) graphs and their application to modelling practical situations, including tax scales and charges and payment.",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS4-c1": {
+"id": "GM-U1-AoS4-c1",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "use of matrices to store and display information that can be presented in a rectangular array of rows and columns such as databases and links in social networks and road networks",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-c2": {
+"id": "GM-U1-AoS4-c2",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "types of matrices (row, column, square, zero and identity) and the order of a matrix",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-c3": {
+"id": "GM-U1-AoS4-c3",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "matrix addition, subtraction, multiplication by a scalar, and matrix multiplication including determining the power of a square matrix using technology as applicable",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-c4": {
+"id": "GM-U1-AoS4-c4",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "use of matrices, including matrix products and powers of matrices, to model and solve problems, for example costing or pricing problems, and squaring a matrix to determine the number of ways pairs of people in a network can communicate with each other via a third person",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-c5": {
+"id": "GM-U1-AoS4-c5",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "inverse matrices and their applications including solving a system of simultaneous linear equations",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-c6": {
+"id": "GM-U1-AoS4-c6",
+"unit": 1,
+"aos": 4,
+"kind": "content",
+"text": "introduction to transition matrices (assuming the next state only relies on the current state), working with iterations of simple models linked to, for example, population growth or decay, including informal consideration of long run trends and steady state.",
+"topic": "Matrices"
+},
+"GM-U1-AoS1-kk1": {
+"id": "GM-U1-AoS1-kk1",
+"unit": 1,
+"aos": 1,
+"kind": "key knowledge",
+"text": "types of data, including categorical (nominal or ordinal) or numerical (discrete and continuous)",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-kk2": {
+"id": "GM-U1-AoS1-kk2",
+"unit": 1,
+"aos": 1,
+"kind": "key knowledge",
+"text": "the concept of a data distribution and its display using a statistical plot",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-kk3": {
+"id": "GM-U1-AoS1-kk3",
+"unit": 1,
+"aos": 1,
+"kind": "key knowledge",
+"text": "the five-number summary and possible outliers",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS1-kk4": {
+"id": "GM-U1-AoS1-kk4",
+"unit": 1,
+"aos": 1,
+"kind": "key knowledge",
+"text": "mean $\\overline{x\\ }$and sample standard deviation $s = \\sqrt{\\frac{\\sum_{}^{}{(x - \\overline{x})}^{2}}{n - 1}}$",
+"topic": "Investigating and comparing data distributions"
+},
+"GM-U1-AoS2-kk1": {
+"id": "GM-U1-AoS2-kk1",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the concept of an arithmetic or geometric sequence as a function and its recursive specification",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-kk2": {
+"id": "GM-U1-AoS2-kk2",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the use of a first-order linear recurrence relation to generate the values of an arithmetic or geometric sequence",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-kk3": {
+"id": "GM-U1-AoS2-kk3",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the explicit rule, u_(n), of an arithmetic or geometric sequence and its evaluation",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-kk4": {
+"id": "GM-U1-AoS2-kk4",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the use of a first-order linear recurrence relations of the form u₀ = a, u_(n + 1) = u_(n) + d where a and d are constants to model linear growth and decay, including the rule for evaluating the value after n periods of linear growth or decay in financial contexts, simple interest investments and loans, flat rate and unit cost depreciation of an asset over time, including the rule for the future value of the asset after n depreciation periods",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-kk5": {
+"id": "GM-U1-AoS2-kk5",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the use of first-order linear recurrence relations of the form [formula not in the text extract — see Study Design]where a and R are constants to model compound interest investments and loans, reducing balance depreciation of an asset over time, including the rule for the future value of the asset after n depreciation periods, compound interest investments and debts",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS2-kk6": {
+"id": "GM-U1-AoS2-kk6",
+"unit": 1,
+"aos": 2,
+"kind": "key knowledge",
+"text": "concepts of ratio, proportion, percentage, percentage change and rate, and unitary method",
+"topic": "Arithmetic and geometric sequences, first-order linear recurrence relations and financial mathematics"
+},
+"GM-U1-AoS3-kk1": {
+"id": "GM-U1-AoS3-kk1",
+"unit": 1,
+"aos": 3,
+"kind": "key knowledge",
+"text": "the properties of linear functions and their graphs",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-kk2": {
+"id": "GM-U1-AoS3-kk2",
+"unit": 1,
+"aos": 3,
+"kind": "key knowledge",
+"text": "the concept of a linear model and its properties, and simultaneous linear equations and their solutions",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-kk3": {
+"id": "GM-U1-AoS3-kk3",
+"unit": 1,
+"aos": 3,
+"kind": "key knowledge",
+"text": "the forms, rules, graphical images and tables for linear relations and equations",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS3-kk4": {
+"id": "GM-U1-AoS3-kk4",
+"unit": 1,
+"aos": 3,
+"kind": "key knowledge",
+"text": "situations that can be modelled by piecewise linear graphs",
+"topic": "Linear functions, graphs, equations and models"
+},
+"GM-U1-AoS4-kk1": {
+"id": "GM-U1-AoS4-kk1",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "the concept of a matrix and its use to store, display and manipulate information",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-kk2": {
+"id": "GM-U1-AoS4-kk2",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "types of matrices (row, column, square, zero, identity) and the order of a matrix",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-kk3": {
+"id": "GM-U1-AoS4-kk3",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "matrix arithmetic: the definition of addition, subtraction, multiplication by a scalar, multiplication, the power of a square matrix, and the conditions for their use",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-kk4": {
+"id": "GM-U1-AoS4-kk4",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "determinant and inverse of a matrix",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-kk5": {
+"id": "GM-U1-AoS4-kk5",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "simple communication matrices and their application",
+"topic": "Matrices"
+},
+"GM-U1-AoS4-kk6": {
+"id": "GM-U1-AoS4-kk6",
+"unit": 1,
+"aos": 4,
+"kind": "key knowledge",
+"text": "regular transition matrices and their identification",
+"topic": "Matrices"
+},
+"GM-U2-AoS1-c1": {
+"id": "GM-U2-AoS1-c1",
+"unit": 2,
+"aos": 1,
+"kind": "content",
+"text": "response and explanatory variables",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-c2": {
+"id": "GM-U2-AoS1-c2",
+"unit": 2,
+"aos": 1,
+"kind": "content",
+"text": "scatterplots and their use in identifying and qualitatively describing the association between two numerical variables in terms of direction, form and strength",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-c3": {
+"id": "GM-U2-AoS1-c3",
+"unit": 2,
+"aos": 1,
+"kind": "content",
+"text": "informal interpretation of association and causation",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-c4": {
+"id": "GM-U2-AoS1-c4",
+"unit": 2,
+"aos": 1,
+"kind": "content",
+"text": "use of a line of good fit by eye to make predictions, including the issues of interpolation and extrapolation",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-c5": {
+"id": "GM-U2-AoS1-c5",
+"unit": 2,
+"aos": 1,
+"kind": "content",
+"text": "interpretation of a line of good fit, its intercept and slope in the context of the data.",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS2-c1": {
+"id": "GM-U2-AoS2-c1",
+"unit": 2,
+"aos": 2,
+"kind": "content",
+"text": "introduction to the notations, conventions and representations of types and properties of graphs, including edge, loop, vertex, the degree of a vertex, isomorphic and connected graphs and the adjacency matrix",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-c2": {
+"id": "GM-U2-AoS2-c2",
+"unit": 2,
+"aos": 2,
+"kind": "content",
+"text": "description of graphs in terms of faces (regions), vertices and edges and the application of Euler’s formula for planar graphs",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-c3": {
+"id": "GM-U2-AoS2-c3",
+"unit": 2,
+"aos": 2,
+"kind": "content",
+"text": "connected graphs: walks, trails, paths, cycles and circuits with practical applications",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-c4": {
+"id": "GM-U2-AoS2-c4",
+"unit": 2,
+"aos": 2,
+"kind": "content",
+"text": "weighted graphs and networks, and an introduction to the shortest path problem (solution by inspection only) and its practical application",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-c5": {
+"id": "GM-U2-AoS2-c5",
+"unit": 2,
+"aos": 2,
+"kind": "content",
+"text": "trees and minimum spanning trees, greedy algorithms and their use to solve practical problems.",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS3-c1": {
+"id": "GM-U2-AoS3-c1",
+"unit": 2,
+"aos": 3,
+"kind": "content",
+"text": "numerical, graphical and algebraic approaches to direct and inverse variation",
+"topic": "Variation"
+},
+"GM-U2-AoS3-c2": {
+"id": "GM-U2-AoS3-c2",
+"unit": 2,
+"aos": 3,
+"kind": "content",
+"text": "transformation of data to linearity to establish relationships between variables, for example y and x², y and $\\frac{1}{x}$ , and y and log₁₀(x)",
+"topic": "Variation"
+},
+"GM-U2-AoS3-c3": {
+"id": "GM-U2-AoS3-c3",
+"unit": 2,
+"aos": 3,
+"kind": "content",
+"text": "modelling of given non-linear data using the relationships y = kx² + c, $y = \\frac{k}{x\\ }\\ ,\\ $where k > 0, and",
+"topic": "Variation"
+},
+"GM-U2-AoS4-c1": {
+"id": "GM-U2-AoS4-c1",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "units of measurement of length, angle, area, volume and capacity",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c2": {
+"id": "GM-U2-AoS4-c2",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "exact and approximate answers, scientific notation, significant figures and rounding",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c3": {
+"id": "GM-U2-AoS4-c3",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "similar shapes including the conditions for similarity",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c4": {
+"id": "GM-U2-AoS4-c4",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "perimeter and areas of triangles, quadrilaterals, circles including arcs and sectors and composite shapes, and practical applications",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c5": {
+"id": "GM-U2-AoS4-c5",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "volumes and surface areas of solids (spheres, cylinders, pyramids and prisms and composite objects) and practical applications, including simple applications of Pythagoras’ theorem in three dimensions",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c6": {
+"id": "GM-U2-AoS4-c6",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "the use of trigonometric ratios and Pythagoras’ theorem to solve practical problems involving a right-angled triangle in two dimensions, including the use of angles of elevation and depression",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c7": {
+"id": "GM-U2-AoS4-c7",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "the use of the sine rule, including the ambiguous case, the cosine rule, as a generalisation of Pythagoras’ theorem, and their application to solving practical problems involving non-right-angled triangles, including three-figure (true) bearings in navigation",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-c8": {
+"id": "GM-U2-AoS4-c8",
+"unit": 2,
+"aos": 4,
+"kind": "content",
+"text": "similar objects and the application of linear scale factor k > 0 to scale lengths, surface areas and volumes with practical applications.",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS1-kk1": {
+"id": "GM-U2-AoS1-kk1",
+"unit": 2,
+"aos": 1,
+"kind": "key knowledge",
+"text": "response and explanatory variables and their role in modelling associations between two numerical variables",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-kk2": {
+"id": "GM-U2-AoS1-kk2",
+"unit": 2,
+"aos": 1,
+"kind": "key knowledge",
+"text": "scatterplots and their use in identifying and describing the association between two numerical variables",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-kk3": {
+"id": "GM-U2-AoS1-kk3",
+"unit": 2,
+"aos": 1,
+"kind": "key knowledge",
+"text": "the concepts of association and causation",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS1-kk4": {
+"id": "GM-U2-AoS1-kk4",
+"unit": 2,
+"aos": 1,
+"kind": "key knowledge",
+"text": "the equation of a line of good fit",
+"topic": "Investigating relationships between two numerical variables"
+},
+"GM-U2-AoS2-kk1": {
+"id": "GM-U2-AoS2-kk1",
+"unit": 2,
+"aos": 2,
+"kind": "key knowledge",
+"text": "the language, properties and types of graphs, including edge, face, loop, vertex, the degree of a vertex, isomorphic and connected graphs, and the adjacency matrix, Euler’s formula for planar graphs, and walks, trails, paths, circuits, bridges and cycles in the context of traversing a graph",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-kk2": {
+"id": "GM-U2-AoS2-kk2",
+"unit": 2,
+"aos": 2,
+"kind": "key knowledge",
+"text": "weighted graphs and networks, and the shortest path problem",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS2-kk3": {
+"id": "GM-U2-AoS2-kk3",
+"unit": 2,
+"aos": 2,
+"kind": "key knowledge",
+"text": "trees, minimum spanning trees and the concept of a greedy algorithm",
+"topic": "Graphs and networks"
+},
+"GM-U2-AoS3-kk1": {
+"id": "GM-U2-AoS3-kk1",
+"unit": 2,
+"aos": 3,
+"kind": "key knowledge",
+"text": "the concepts of direct and inverse variation",
+"topic": "Variation"
+},
+"GM-U2-AoS3-kk2": {
+"id": "GM-U2-AoS3-kk2",
+"unit": 2,
+"aos": 3,
+"kind": "key knowledge",
+"text": "the methods of transforming data",
+"topic": "Variation"
+},
+"GM-U2-AoS3-kk3": {
+"id": "GM-U2-AoS3-kk3",
+"unit": 2,
+"aos": 3,
+"kind": "key knowledge",
+"text": "orders of magnitude, units of measure that range over multiple orders of magnitude, and the concept of a logarithmic (base 10) scale",
+"topic": "Variation"
+},
+"GM-U2-AoS4-kk1": {
+"id": "GM-U2-AoS4-kk1",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "the measures of length, area, volume and capacity and their units of measurement",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk2": {
+"id": "GM-U2-AoS4-kk2",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "Pythagoras’ theorem and the trigonometric ratios (sine, cosine and tangent) and their application including angles of elevation and depression and three figure bearings",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk3": {
+"id": "GM-U2-AoS4-kk3",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "the definition of sine and cosine for angles up to 180°",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk4": {
+"id": "GM-U2-AoS4-kk4",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "the sine rule (including the ambiguous case) and the cosine rule",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk5": {
+"id": "GM-U2-AoS4-kk5",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "the perimeter and areas of triangles (using several methods based on information available), quadrilaterals, circles and composite shapes, including arcs",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk6": {
+"id": "GM-U2-AoS4-kk6",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "formulas for the volumes and surface areas of solids (spheres, cylinders, pyramids, prisms) and their application to composite objects",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk7": {
+"id": "GM-U2-AoS4-kk7",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "similarity and scaling, and the linear scale factor k and its extension to areas and volumes",
+"topic": "Space, measurement and applications of trigonometry"
+},
+"GM-U2-AoS4-kk8": {
+"id": "GM-U2-AoS4-kk8",
+"unit": 2,
+"aos": 4,
+"kind": "key knowledge",
+"text": "scientific notation, exact and approximate answers, significant figures and rounding",
+"topic": "Space, measurement and applications of trigonometry"
+}
+}
