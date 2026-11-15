@@ -83,3 +83,13 @@
 - Next: lock template → build the 10MAA A1 deck (all 1A–1L examples + You trys), then Do Now / exit-task slides.
 - Template deck now has every subchapter slide type, in teaching order: Section title (subchapter + unit name) → LI | Success criteria | Lesson sequence → APK (reveal, like examples; Y7–9 checklist items, working by teacher) → Key ideas | Key formulas → Example/You try pairs → Exit tasks (subchapter checklist items, reveal) → Coursework (last). Do Now = printed half-page sheet; deck has one "Do Now: complete the sheet in front of you" slide at the start of each lesson. Coursework slide: only Good keeps its sub-text.
 - **Next session: build the Chapter 1 unit slide decks → read `docs/SLIDES-HANDOFF.md`.**
+
+## 15 Nov 2026 (late) — 10MAA Chapter 1 slide deck
+- Built `lessons/10MAA Algebra and Linear Relations - Slides.html` (161 slides, Lesson planning order, 1L after 1H). Also copied to G: `01 Lesson materials`. Linked in Unit materials (planner shows **Slides Open ↗**).
+- Source: `tools/slides/` (see README). `ch1_data.py` holds every subchapter's content once; both streams build from it.
+- Worked examples = book SOLUTION lines; You try = teacher working in the same steps, answers checked against pp. 956–969. APK + exit-task working by teacher. Graphs/number lines redrawn as SVG (solutions red, question graphs black).
+- Do Now slide at the start of each lesson; split subchapter 1F gets a second Do Now ("Lesson 6 · 1F continued") halfway through its examples. Review and CAT = title slides.
+- Template fixes (Rocco): page numbers show just the number; LI slide spaced to fill; footer pinned to the bottom (coursework slide).
+- Extras: type a slide number + Enter to jump; Home/End; URL keeps the slide number.
+- Exit/APK slides with a diagram show 2 questions per slide (so 1E exit tasks = 3 slides, some APKs = 2 slides).
+- Next: Rocco checks the 10MAA deck → then `python3 tools/slides/build.py "10MAG|Algebra and Linear Relations"`, add its materials entry, copy to G:.
