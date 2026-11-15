@@ -733,7 +733,7 @@ function splitUnit(g){const [a,c,b,d]=splitLessons(g),k=ukey(g.u),ap=MOD.approve
   return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${umatSolid(g)}${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
    <div class="pcol"><div class="pcolh">10MAG assessments</div>${c.join('')||'<div class="empty">No assessments yet</div>'}</div>
    <div class="pcol modcol"><div class="pcolh">Modified lessons</div>
-   <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div><span class="nolink">Modified workbook: ${((MOD.materials||{})[k]||{}).workbook?'built, on G: in 01 Lesson materials (Freefall: not online)':ap?'approved, ready to build (G: only)':'built once the mapping is approved'}</span></div>
+   <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div>${((MOD.materials||{})[k]||{}).workbook_url?`<a href="${esc(MOD.materials[k].workbook_url)}" target="_blank" rel="noopener">Modified workbook ↗</a>`:`<span class="nolink">Modified workbook: ${ap?'approved, ready to build':'built once the mapping is approved'}</span>`}${(MOD.g_folders||{}).lesson_materials?`<a href="${esc(MOD.g_folders.lesson_materials)}" target="_blank" rel="noopener">G: Lesson materials ↗</a><a href="${esc(MOD.g_folders.assessments)}" target="_blank" rel="noopener">G: Assessments ↗</a>`:''}</div>
    <label><input type="checkbox" class="mapp" data-k="${esc(k)}" ${ap?'checked':''}> Freefall mapping approved</label></div>${b.join('')}</div>
    <div class="pcol modcol"><div class="pcolh">Modified assessments</div>${d.join('')||'<div class="empty">No assessments yet</div>'}</div></div>`}
 

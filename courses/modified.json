@@ -162,7 +162,12 @@
     "4": "lessons/C10-9E modified worksheet (part 1).html",
     "5": "lessons/C10-9E modified worksheet (part 2).html"
    },
-   "workbook": "G: 01 Lesson materials / 10MAG Modified Univariate Statistics - Unit workbook.pdf (Freefall: G: only)"
+   "workbook": "G: 01 Lesson materials / 10MAG Modified Univariate Statistics - Unit workbook.pdf (Freefall: G: only)",
+   "workbook_url": "https://drive.google.com/file/d/1tm3OscYIYqqEzlmUkJp7mW8RkGEkVH2E/view"
   }
+ },
+ "g_folders": {
+  "lesson_materials": "https://drive.google.com/drive/folders/11KwOTtrBGBXJh-GCPPORWs-ed8A7L8JV",
+  "assessments": "https://drive.google.com/drive/folders/1IrQAGrs35sOzjBMEs25T2_vmU-yb_FNu"
  }
 }
