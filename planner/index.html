@@ -189,6 +189,7 @@ const SECN={building_understanding:'Building understanding',fluency:'Fluency',pr
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
 let LIB={},IDX={},UNITS=null,openChaps=new Set(JSON.parse(store.get('10ma-open')||'[]')),openUnits=new Set(),filt='';
 
+const BUST=Date.now().toString(36); // always fetch the latest materials
 const LKEY='10ma-lessons-v1',LFILE='courses/lessons.json';
 const REPO='roccatalano/10MA',FILE='courses/units.json',TTFILE='courses/timetable.json',TTKEY='10ma-tt-v1';
 const apiOf=f=>`https://api.github.com/repos/${REPO}/contents/${f}`;
@@ -467,8 +468,8 @@ function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(
   const ws=order.map(id=>IDX[id]).filter(s=>s&&(s.materials||[]).length);
   return `<div class="umat"><b class="cft" style="width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Unit materials</b>
    <span>Slides: <span class="empty">not made yet</span></span>
-   ${M.map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}" download>PDF ⬇</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
-   ${ws.length?`<span style="width:100%">Worksheets: ${ws.map(s=>`<a class="pill" href="../${encodeURI(s.materials[0].html)}" target="_blank" rel="noopener" title="${esc(s.title)}">${s.book==='G11'?'Y11 ':''}${s.sub} ↗</a>`).join(' ')}</span>`:''}</div>`}
+   ${M.map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
+   ${ws.length?`<span style="width:100%">Worksheets: ${ws.map(s=>`<a class="pill" href="../${encodeURI(s.materials[0].html)}?v=${BUST}" target="_blank" rel="noopener" title="${esc(s.title)}">${s.book==='G11'?'Y11 ':''}${s.sub} ↗</a>`).join(' ')}</span>`:''}</div>`}
 function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream);
@@ -537,7 +538,7 @@ function showDetail(id){
   let h=`<button class="btn close" onclick="modal.classList.remove('on')">Close</button>
    <h2>${x.sub} ${esc(x.title)} ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.extension?'<span class="tag text">Extension</span>':''}</h2>
    <div class="sub">${x.id} · ${x.book==='C10'?'Cambridge 10 &amp; 10A':'Cambridge General U1&amp;2'} pp. ${x.printed_page}–${x.printed_end} (PDF ${x.pdf_page}–${x.pdf_end})${u.length?` · in ${u.join(', ')}`:''}${full?'':' · <b>basic index only</b>: the lesson-plan fields get filled when this chapter is done'}</div><div class="flow">`;
-  if((x.materials||[]).length)h+=`<div class="sec wide mats"><h3>Lesson materials</h3>${x.materials.map(m=>`<b>${esc(m.title)}</b> ${m.html?`<a class="btn" href="../${encodeURI(m.html)}" target="_blank" rel="noopener">Open ↗</a> `:''}${m.pdf?`<a class="btn" href="../${encodeURI(m.pdf)}" download>PDF ⬇</a>`:''}`).join(' &nbsp; ')}</div>`;
+  if((x.materials||[]).length)h+=`<div class="sec wide mats"><h3>Lesson materials</h3>${x.materials.map(m=>`<b>${esc(m.title)}</b> ${m.html?`<a class="btn" href="../${encodeURI(m.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a> `:''}${m.pdf?`<a class="btn" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}`).join(' &nbsp; ')}</div>`;
   h+=S(1,'Learning intentions',li((x.learning_intentions||[]).map(t=>`<li>${esc(t)}</li>`)));
   if(x.book==='G11')h+=S(2,'VCE Study Design (General Maths U1&amp;2)',li((x.study_design||[]).map(c=>`<li><span class="code">${c.id.replace('GM-','')}</span> <span class="tag">${c.kind==='content'?'content':'key knowledge'}</span> ${esc(c.text)}<br><span class="src">Unit ${c.unit} · ${esc(c.topic)}</span></li>`)));else
   h+=S(2,'Victorian Curriculum 2.0',li((x.vc2||[]).map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">L9 review</span> ':''}${esc(c.text)}</li>`)));
