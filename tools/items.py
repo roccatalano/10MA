@@ -1,11 +1,11 @@
 import re,json,sys
 def pages(fn): return open(fn).read().split('\f')
-LAB=re.compile(r'^\s*(\d{1,2}[A-N](?:[/,–-]\s*\d{0,2}[A-N])*)\s*$')
+LAB=re.compile(r"^\s*(\d{1,2}[A-N](?:[/,–-]\s*\d{0,2}[A-N])*)(?:\s{3,}10A)?\s*$")
 def clean(s): return re.sub(r'\s+',' ',s.replace('​','')).strip()
 def checklist(P):
   out=[];k=0
   while k<len(P):
-    if 'Chapter checklist with success criteria' in P[k] and 'I can' in P[k]:
+    if re.search(r'Chapter checklist (with|and) success criteria',P[k]) and 'I can' in P[k]:
       j=k;buf=[]
       while j<len(P) and ('I can' in P[j]) and (j==k or 'Short-answer questions' not in P[j].split('I can')[0]):
         buf.append((j+1,P[j]));j+=1
@@ -14,12 +14,15 @@ def checklist(P):
       for pg,p in buf:
         L=p.splitlines()
         for i,l in enumerate(L):
-          m=re.match(r'^\s*(\d{1,2})\.\s+(I can .*)$',l)
+          m=re.match(r'^\s*(?:(\d{1,2}[A-N])\s+)?(\d{1,2})\.\s+(I can .*)$',l)
           if m:
-            cur=dict(n=int(m.group(1)),text=clean(re.split(r'\s{4,}',m.group(2))[0]),sub=None,eg='',pdf_page=pg);out.append(cur);continue
+            cur=dict(tenA=False,n=int(m.group(2)),text=clean(re.split(r'\s{4,}',m.group(3))[0]),sub=m.group(1),eg='',pdf_page=pg);out.append(cur);continue
           if cur and cur['sub'] is None:
-            m=LAB.match(l)
-            if m: cur['sub']=m.group(1).replace(' ',''); continue
+            m=LAB.match(l) or re.match(r'^\s{4,20}(\d{1,2}[A-N](?:[/,–-]\s*\d{0,2}[A-N])*)(?=\s{3,}|\s*$)',l)
+            if m:
+              cur['sub']=m.group(1).replace(' ','')
+              if l.rstrip().endswith('10A'): cur['tenA']=True
+              continue
           if cur and 'e.g.' in l and not cur['eg']: cur['eg']=clean(l.split('e.g.',1)[1])
       k=j
     else: k+=1

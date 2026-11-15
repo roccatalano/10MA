@@ -1,0 +1,434 @@
+{
+"2A": [
+"Complementary",
+"Supplementary",
+"Revolution",
+"Vertically opposite angles",
+"parallel linesAlternate angles",
+"Corresponding angles",
+"Cointerior angles",
+"Quadrilaterals",
+"Section 2C",
+"Parallelograms",
+"Rectangles",
+"Rhombuses",
+"Squares",
+"Kites",
+"Trapeziums",
+"Polygons",
+"Regular polygons",
+"exterior angle",
+"exterior angle theorem"
+],
+"2B": [
+"congruent",
+"congruence"
+],
+"2C": [
+"Parallelogram",
+"Rhombus",
+"Rectangle",
+"Square"
+],
+"2D": [
+"Similar figures",
+"Scalefactor"
+],
+"2E": [
+"similar",
+"similarity"
+],
+"2F": [
+"subtended",
+"Chord",
+"theorem 1",
+"theorem 2",
+"theorem 3",
+"theorem 4"
+],
+"2G": [
+"Circle",
+"theorem 1"
+],
+"2H": [
+"Circle",
+"theorem 3",
+"cyclic quadrilateral",
+"theorem 4"
+],
+"2I": [
+"tangent",
+"point of contact",
+"secant",
+"Alternate segment theorem"
+],
+"2J": [],
+"2K": [
+"network",
+"graph",
+"vertices",
+"nodes",
+"edges",
+"degree",
+"walk"
+],
+"2L": [
+"Isomorphic graphs",
+"A planar graph",
+"face",
+"Euler’s formula"
+],
+"2M": [
+"walk",
+"trail",
+"circuit",
+"path",
+"cycle",
+"Eulerian trail",
+"Eulerian circuit"
+],
+"2N": [
+"weighted graph"
+],
+"3A": [],
+"3B": [],
+"3C": [
+"scientific notation",
+"Significant figures",
+"Exp"
+],
+"3D": [],
+"3E": [
+"exponential equation"
+],
+"3F": [
+"exponential relations",
+"asymptote",
+"exponential"
+],
+"3G": [
+"Per annum",
+"growth",
+"decay",
+"exponential formula"
+],
+"3H": [
+"Compound interest"
+],
+"3I": [
+"logarithm"
+],
+"3J": [
+"Logarithmic scales",
+"order of magnitude"
+],
+"3K": [],
+"3L": [],
+"4A": [
+"real",
+"rational numbers",
+"terminating",
+"recurring decimal",
+"irrational numbers",
+"infinite non-recurring decimal",
+"Surds"
+],
+"4B": [
+"Like surds"
+],
+"4C": [],
+"4D": [
+"Rationalising a denominator"
+],
+"4E": [
+"Perimeter",
+"circumference",
+"sector"
+],
+"4F": [
+"Pythagoras’ theorem"
+],
+"4G": [],
+"4H": [
+"limits of accuracy"
+],
+"4I": [
+"surface area",
+"net",
+"cylinder",
+"Composite solids"
+],
+"4J": [
+"cone",
+"apex",
+"pyramid"
+],
+"4K": [
+"volume",
+"capacity"
+],
+"4L": [],
+"4M": [
+"sphere"
+],
+"5A": [
+"Like terms",
+"distributive law",
+"Perfect squares",
+"Difference of two squares"
+],
+"5B": [
+"Factorise",
+"common factors",
+"difference of two squares",
+"grouping"
+],
+"5C": [
+"algebraic fractions",
+"reciprocal"
+],
+"5D": [
+"Monic quadratics"
+],
+"5E": [
+"non-monic"
+],
+"5F": [
+"complete the square"
+],
+"5G": [
+"Quadratic equations",
+"Null Factor Law"
+],
+"5H": [],
+"5I": [],
+"5J": [
+"quadratic formula",
+"discriminant"
+],
+"6A": [
+"hypotenuse"
+],
+"6B": [
+"Inverse trigonometric functions"
+],
+"6C": [
+"angle of elevation",
+"angle of depression"
+],
+"6D": [
+"True bearings"
+],
+"6E": [],
+"6F": [
+"sine rule",
+"ambiguous case"
+],
+"6G": [
+"cosine rule",
+"Section 6I"
+],
+"6H": [],
+"6I": [
+"reference angle"
+],
+"6J": [
+"Amplitude",
+"period",
+"Symmetry"
+],
+"6K": [],
+"7A": [
+"parabola"
+],
+"7B": [
+"dilates",
+"upright",
+"inverted",
+"translates",
+"turning point form"
+],
+"7C": [],
+"7D": [
+"completing the square"
+],
+"7E": [
+"quadratic formula",
+"axis of symmetry",
+"discriminant"
+],
+"7F": [],
+"7G": [
+"secant",
+"tangent"
+],
+"7H": [
+"rate of change",
+"Speed",
+"Journey AJourney BJourney CJourney D"
+],
+"7I": [
+"average rate of change",
+"instantaneous rate of change"
+],
+"7J": [
+"directly proportional"
+],
+"8A": [
+"trial",
+"sample space",
+"outcome",
+"event",
+"Equally likely outcomes",
+"chance",
+"equally likely",
+"Experimental probability",
+"long run proportion"
+],
+"8B": [
+"set",
+"sample space",
+"universal set",
+"Venn diagram",
+"null",
+"empty set",
+"intersection",
+"union",
+"mutually exclusive",
+"complement",
+"only"
+],
+"8C": [
+"addition rule"
+],
+"8D": [
+"conditional probability"
+],
+"8E": [
+"two-step experiments",
+"replacement",
+"without replacement"
+],
+"8F": [
+"Tree diagrams"
+],
+"8G": [
+"independent",
+"with replacement",
+"without replacement"
+],
+"8H": [
+"addition principle",
+"multiplication principle",
+"n factorial"
+],
+"8I": [
+"arrangement"
+],
+"8J": [
+"selection"
+],
+"8K": [],
+"9A": [
+"Surveys",
+"population",
+"sample",
+"Statistical data"
+],
+"9B": [
+"statistical data",
+"Dot plot",
+"Stem-and-leaf plot",
+"Column graph",
+"Histograms",
+"mean",
+"median",
+"mode",
+"symmetrical",
+"skewed"
+],
+"9C": [
+"two-way table"
+],
+"9D": [
+"Five-figure summary",
+"Minimum value",
+"Lower quartile",
+"Median",
+"Upper quartile",
+"Maximum value"
+],
+"9E": [
+"box plot",
+"outlier",
+"Parallel box plots"
+],
+"9F": [
+"standard deviation",
+"sample standard deviation",
+"population standard deviation",
+"mean absolute deviation"
+],
+"9G": [
+"Cumulative frequency",
+"percentile"
+],
+"9H": [
+"Time-series data",
+"independent",
+"dependent",
+"linear"
+],
+"9I": [
+"Bivariate data",
+"scatter plot",
+"outlier"
+],
+"9J": [
+"line of best fit",
+"trend line",
+"interpolation",
+"extrapolation"
+],
+"10A": [
+"relation",
+"function"
+],
+"10B": [
+"polynomial",
+"coefficients",
+"constant term",
+"leading term",
+"degree",
+"constant",
+"linear",
+"quadratic",
+"cubic",
+"quartic",
+"of degree",
+"Function notation"
+],
+"10C": [],
+"10D": [],
+"10E": [
+"Remainder theorem",
+"Factor theorem"
+],
+"10F": [
+"polynomial equation"
+],
+"10G": [
+"point of inflection"
+],
+"10H": [],
+"10I": [],
+"10J": [
+"asymptote",
+"rectangular hyperbola"
+],
+"10K": [
+"circle",
+"exponential",
+"hyperbola"
+]
+}

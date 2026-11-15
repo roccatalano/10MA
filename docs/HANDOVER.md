@@ -33,3 +33,12 @@
 4. Year tab: lay units against 2027 term dates (needs Rocco's term-dates file).
 5. Then lesson materials per the 12MAG model: guided slides, guided worksheet + solutions, bound reference entry.
 **Gaps seen in units.json (15 Nov):** 10MAG 'Sequences and Recursion' has 12 lessons but no subchapters; 9C is in two 10MAG units; most 10MAA units have no lesson count yet.
+
+## 15 Nov 2026 (night) — lesson-plan fields for every C10 subchapter in a unit
+- Rocco: Ch1 test-run method is fine as is. Scope = only subchapters placed in units (not the whole book).
+- Filled 60 C10 cards (2K–2N, 3A–3F, 3I–3L, 4A–4G, 4I, 4K, 5A–5J, 6A–6H, 7A–7F, 8A–8D, 8F, 9A–9E, 9H–9J): VC2, success criteria, exit tasks, key vocab, videos, APK (Y7→9), Example→Now you try flags. Same sources and method as Ch1.
+- **Do Now left empty on purpose** (`do_now_note: waiting for lesson groupings`): its slots are "last lesson / earlier this chapter", so it can only be filled once Rocco groups subchapters into lessons.
+- No video found yet: 2N, 3L (the Class Mathematics page for it holds polynomial content), 6E, 9H. All videos still need Rocco to vet; 5C link pattern not checked (site blocked).
+- Scripts + parsed checklists now saved in `tools/` and `tools/data/` (see tools/README.md), so nothing needs re-extracting.
+- Checklist parser fixes: 10A-tagged labels, label on the same line as the item, "checklist and success criteria" heading (C9 Ch7–8 were missing).
+- Next: G11 units (Ch 1, 2, 3, 4, 7, 8) need proper indexing first (LIs, examples, chapter review), then the same fields; G11 has no "I can" checklist, so success criteria/exit tasks need another source (chapter review or Edrolo) — Rocco to choose. Then Do Now once lessons are grouped.

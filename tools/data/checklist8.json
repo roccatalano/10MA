@@ -1,0 +1,1749 @@
+[
+{
+"tenA": false,
+"n": 1,
+"text": "I can use mental addition and subtraction techniques effectively.",
+"sub": "1A",
+"eg": "Evaluate 347 − 39 and 125 + 127 mentally.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can use the addition and subtraction algorithms with whole numbers.",
+"sub": "1A",
+"eg": "Find 938 + 217 and 141 − 86 by first aligning the digits vertically.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can use mental multiplication and division techniques effectively.",
+"sub": "1B",
+"eg": "Find 5 × 160 and 464 ÷ 8 mentally.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can use multiplication and division algorithms with whole numbers.",
+"sub": "1B",
+"eg": "Use an algorithm to evaluate 412 × 25 and 938 ÷ 13.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find the lowest common multiple (LCM) and highest common factor (HCF) of two whole",
+"sub": "1C",
+"eg": "Find the LCM of 6 and 8, and find the HCF of 36 and 48.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can find the square and cube of whole numbers.",
+"sub": "1C",
+"eg": "Find 62 and 23.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can find the square root and cube root of certain small whole numbers.",
+"sub": "1C",
+"eg": "Find √81 and √64 .",
+"pdf_page": 78,
+"chapter": 1,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can write a number as the product of prime factors using a factor tree.",
+"sub": "1D",
+"eg": "Write 540 as a product of prime factors.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can use divisibility tests to determine if a number is divisible by 2, 3, 4, 5, 6, 8 and/or 9.",
+"sub": "1D",
+"eg": "Decide whether 627 is divisible by 2, 3, 4, 5, 6, 8 or 9.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can find the lowest common multiple (LCM) and highest common factor (HCF) of two whole",
+"sub": "1D",
+"eg": "Find the LCM and HCF of 105 and 90, using prime factorisation.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can add and subtract positive integers.",
+"sub": "1E",
+"eg": "Evaluate − 5 + 2 and − 2 − 3.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can add and subtract negative integers.",
+"sub": "1F",
+"eg": "Evaluate − 3 + (− 5) and − 11 − (− 6).",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can find the product and quotient of integers.",
+"sub": "1G",
+"eg": "Evaluate 3 × (− 7) and − 121 ÷ (− 11).",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can combine multiplication and division, working from left to right.",
+"sub": "1G",
+"eg": "Evaluate − 2 × 9 ÷ (− 3) × (− 5).",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can use order of operations to evaluate numerical expressions.",
+"sub": "1H",
+"eg": "Evaluate − 21 ÷ (5 − (− 2)).",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can substitute integers in to evaluate algebraic expressions.",
+"sub": "1H",
+"eg": "Evaluate a 2 − b3 with a = − 2 and b = − 3.",
+"pdf_page": 78,
+"chapter": 1
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can find angles at a point using complementary, supplementary or vertically opposite angles.",
+"sub": "2A",
+"eg": "Determine the value of the pronumerals in this diagram.",
+"pdf_page": 146,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can find angles using parallel lines and explain my answers using correct terminology.",
+"sub": "2B",
+"eg": "Find the value of the pronumerals in this diagram, giving reasons.",
+"pdf_page": 146,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can find unknown angles in a triangle using the angle sum.",
+"sub": "2C",
+"eg": "Find the value of a in this triangle.",
+"pdf_page": 146,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can use the exterior angle theorem.",
+"sub": "2C",
+"eg": "Find the value of a in this diagram.",
+"pdf_page": 146,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find unknown angles in a quadrilateral.",
+"sub": "2D",
+"eg": "Find the value of the pronumerals in these quadrilaterals.",
+"pdf_page": 147,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can find the angle sum of a polygon and use it to find unknown angles.",
+"sub": "2E",
+"eg": "Find the angle sum of a pentagon and use it to find the value of a in this diagram.",
+"pdf_page": 147,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can find the size of each interior angle in a regular polygon.",
+"sub": "2E",
+"eg": "Find the size of an interior angle in a regular octagon.",
+"pdf_page": 147,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can classify solids by their number of faces and by their appropriate name.",
+"sub": "2F",
+"eg": "Explain why this solid is a heptahedron and state its name (using a name like",
+"pdf_page": 147,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can use Euler’s rule.",
+"sub": "2F",
+"eg": "Use Euler’s rule to find the number of faces on a polyhedron that has 10 edges and 6",
+"pdf_page": 147,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can use grid spaces to describe a position in 3D space.",
+"sub": "2G",
+"eg": "Using the given coordinate system, give the coordinates of the red cube.",
+"pdf_page": 148,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can describe a point in three-dimensional space using an (x, y, z) coordinate system.",
+"sub": "2G",
+"eg": "What are the coordinates of the points A, B, C and P?",
+"pdf_page": 148,
+"chapter": 2
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can generate equivalent fractions.",
+"sub": "3A",
+"eg": "Rewrite _",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can convert a fraction to simplest form.",
+"sub": "3A",
+"eg": "Write the fraction _8 in its simplest form.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can add and subtract fractions, including mixed numerals.",
+"sub": "3B",
+"eg": "Simplify _ 3 and 3_ 5 + 2_3.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can multiply fractions, including mixed numerals.",
+"sub": "3B",
+"eg": "Simplify _ 3 and 3_ 1 × 2_",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can divide fractions, including mixed numerals.",
+"sub": "3B",
+"eg": "Simplify _ 3 and 2_1 ÷ 1_",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can add and subtract negative fractions.",
+"sub": "3C",
+"eg": "Simplify _",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can multiply and divide negative fractions.",
+"sub": "3C",
+"eg": "Simplify − _ 1 ÷ 3.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can compare decimals.",
+"sub": "3D",
+"eg": "Compare the decimals 57.89342 and 57.89631 and place the correct",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can convert decimals to fractions.",
+"sub": "3D",
+"eg": "Convert 5.12 to a fraction in its simplest form.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can convert simple fractions to decimals.",
+"sub": "3D",
+"eg": "Convert _9 to a decimal.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can add and subtract decimals.",
+"sub": "3E",
+"eg": "Calculate 9.7 − 2.86.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can multiply and divide decimals by powers of 10.",
+"sub": "3E",
+"eg": "Calculate 9.753 ÷ 100 and 27.58 × 10000.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can multiply decimals.",
+"sub": "3E",
+"eg": "Calculate 4.13 × 9.6.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can divide decimals.",
+"sub": "3E",
+"eg": "Calculate 64.137 ÷ 0.03.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can convert fractions to a terminating or recurring decimal.",
+"sub": "3F",
+"eg": "Write _ 5 as a recurring decimal.",
+"pdf_page": 239,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can round terminating decimals.",
+"sub": "3F",
+"eg": "Round 4.86195082 to four decimal places.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can round recurring decimals.",
+"sub": "3F",
+"eg": "Write _",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can convert percentages to fractions or mixed numerals.",
+"sub": "3G",
+"eg": "Convert 160% to a mixed numeral in its simplest form.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can convert percentages to decimals.",
+"sub": "3G",
+"eg": "Convert 13.45% to a decimal.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 20,
+"text": "I can convert fractions or mixed numerals to percentages.",
+"sub": "3G",
+"eg": "Convert _7 to a percentage.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 21,
+"text": "I can convert decimals to percentages.",
+"sub": "3G",
+"eg": "Convert 0.458 to a percentage.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 22,
+"text": "I can express one quantity as a percentage of another, converting units if required.",
+"sub": "3H",
+"eg": "Express 34 out of 40 as a percentage, and 60 cents as a percentage of $5.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 23,
+"text": "I can find a certain percentage of a quantity.",
+"sub": "3H",
+"eg": "Find 155% of 60.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 24,
+"text": "I can find the result when a value is increased by a percentage.",
+"sub": "3I",
+"eg": "Find the new value of a $160 item that is marked up by 40%.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 25,
+"text": "I can find the result when a value is decreased by a percentage.",
+"sub": "3I",
+"eg": "Find the cost of a $860 television that has been discounted by 25%.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 26,
+"text": "I can calculate the percentage change when prices are increased or decreased.",
+"sub": "3J",
+"eg": "Calculate the percentage loss when $60 becomes $48.",
+"pdf_page": 240,
+"chapter": 3
+},
+{
+"tenA": false,
+"n": 27,
+"text": "I can use the unitary method to find the full amount.",
+"sub": "3K",
+"eg": "If 8% of an amount is $48, what is the full amount of money?",
+"pdf_page": 240,
+"chapter": 3,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 28,
+"text": "I can use the unitary method to find a new percentage.",
+"sub": "3K",
+"eg": "If 11% of the food bill was $77, how much is 25% of the food bill?",
+"pdf_page": 240,
+"chapter": 3,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 29,
+"text": "I can use the unitary method to find the original price.",
+"sub": "3K",
+"eg": "A pair of shoes has been discounted by 20%. If the sale price was $120, what was",
+"pdf_page": 240,
+"chapter": 3,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can convert length measurements.",
+"sub": "4A",
+"eg": "Convert 5.2 cm to mm, and 85 000 cm to km.",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can find the perimeter of a shape.",
+"sub": "4A",
+"eg": "Find the perimeter of this shape.",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can find unknown side lengths in a shape given the perimeter.",
+"sub": "4A",
+"eg": "Find the value of x given that this triangle’s perimeter is 19 cm.",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can find the circumference of a circle using a calculator.",
+"sub": "4B",
+"eg": "Find the circumference of this circle to two decimal places,",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find the circumference of a circle without a calculator, using an approximation of 𝝅.",
+"sub": "4B",
+"eg": "Find the circumference of circle with a diameter of 10 metres using the approximation",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can convert units of area.",
+"sub": "4C",
+"eg": "Convert 0.248 m2 to cm2.",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can find the area of simple shapes",
+"sub": "4C",
+"eg": "Find the area of these shapes.",
+"pdf_page": 346,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can find the area of composite shapes.",
+"sub": "4C",
+"eg": "Find the area of this composite shape using addition",
+"pdf_page": 346,
+"chapter": 4,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can find the area of rhombuses and kites.",
+"sub": "4D",
+"eg": "Find the area of this shape.",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can find the area of trapeziums.",
+"sub": "4D",
+"eg": "Find the area of this shape.",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can find the area of circles using a calculator.",
+"sub": "4E",
+"eg": "Find the area of a circle that has a radius of 2 cm, correct to two decimal places.",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can find the approximate area of circles without a calculator.",
+"sub": "4E",
+"eg": "Find the area of a circle that has a radius of 7 m, using the approximate value of π = _",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can find the area of semicircles and quadrants.",
+"sub": "4E",
+"eg": "Find the area of this semicircle, correct to two decimal places.",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can find the area of sectors.",
+"sub": "4F",
+"eg": "Find the area of this sector, correct to two decimal places.",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can find the area of composite shapes",
+"sub": "4F",
+"eg": "Find the area of this composite shape, correct",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can find the surface area of a prism.",
+"sub": "4G",
+"eg": "Find the surface area of this prism. 10 cm",
+"pdf_page": 347,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can find the volume of a rectangular prism.",
+"sub": "4H",
+"eg": "Find the volume of this rectangular prism.",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can find the capacity of a rectangular prism.",
+"sub": "4H",
+"eg": "Find the capacity, in litres, for a container that is a rectangular prism 20 cm long,",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can find the volume of a prism.",
+"sub": "4I",
+"eg": "Find the volume of this prism.",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 20,
+"text": "I can find the volume of a cylinder.",
+"sub": "4I",
+"eg": "Find the volume of this cylinder, rounding to two",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 21,
+"text": "I can convert between different units of time.",
+"sub": "4J",
+"eg": "Convert 3 days to minutes.",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 22,
+"text": "I can convert between 24-hour time and a.m./p.m.",
+"sub": "4J",
+"eg": "Write 4:30 p.m. in 24-hour time and 1945 hours in a.m./p.m.",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 23,
+"text": "I can use time zones.",
+"sub": "4J",
+"eg": "Use a world time zone map to find the time in London when it is 9:35 a.m. in",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 24,
+"text": "I can decide if three numbers form a Pythagorean triple.",
+"sub": "4K",
+"eg": "Decide if 6, 8, 10 is a Pythagorean triple.",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 25,
+"text": "I can classify a triangle as right-angled, acute or obtuse.",
+"sub": "4K",
+"eg": "A triangle has side lengths 4 m, 7 m and 9 m. Decide if it is right-angled, acute or",
+"pdf_page": 348,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 26,
+"text": "I can find the length of the hypotenuse of a right-angled",
+"sub": "4L",
+"eg": "Find the length of c correct to two decimal places. 9",
+"pdf_page": 349,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 27,
+"text": "I can identify the diagonal of a rectangle as the",
+"sub": "4L",
+"eg": "Find the length of this diagonal brace, to the nearest",
+"pdf_page": 349,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 28,
+"text": "I can find the length of a shorter side in a right-angled triangle.",
+"sub": "4M",
+"eg": "Find the value of a.",
+"pdf_page": 349,
+"chapter": 4
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can state coefficients of pronumerals.",
+"sub": "5A",
+"eg": "In the expression 4a + b − 12c + 5, state the coefficients of a, b, c and d.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can create expressions from descriptions.",
+"sub": "5A",
+"eg": "Write an expression for ‘The sum of a and b is doubled’.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can substitute values into expressions.",
+"sub": "5B",
+"eg": "Substitute x = 3 and y = 6 to evaluate the expression 5x2 + 2y + x.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can decide if expressions are equivalent.",
+"sub": "5B",
+"eg": "Decide if x − 3 and 3 − x are equivalent.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can decide if two terms are like terms.",
+"sub": "5C",
+"eg": "Decide if 3ab2 and 7a2b are like terms.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can simplify expressions by combining like terms.",
+"sub": "5C",
+"eg": "Simplify 5ac + 3b − 2ca + 4b − 5b.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can multiply terms and simplify the result.",
+"sub": "5D",
+"eg": "Simplify 7a × 2bc × 3d and 3xy × 5xz.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can divide terms and simplify the result.",
+"sub": "5D",
+"eg": "Simplify _ .",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can convert an algebraic fraction to an equivalent expression with a different",
+"sub": "5E",
+"eg": "Convert _",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can add and subtract algebraic fractions and simplify the result.",
+"sub": "5E",
+"eg": "Simplify _ 2a and _a − _",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can multiply and divide algebraic fractions and simplify the result.",
+"sub": "5F",
+"eg": "Simplify _ and _ .",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can expand brackets using the distributive law.",
+"sub": "5G",
+"eg": "Expand 3(2x + 5) and 4x(2 − y).",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can expand brackets and combine like terms to simplify.",
+"sub": "5G",
+"eg": "Simplify 12xy + 7x(2 − y).",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can find the highest common factor (HCF) of algebraic terms.",
+"sub": "5H",
+"eg": "Find the HCF of 18a and 24ab.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can factorise expressions by taking out the highest common factor.",
+"sub": "5H",
+"eg": "Factorise 12a + 18ab.",
+"pdf_page": 420,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can write an expression to model a practical situation.",
+"sub": "5I",
+"eg": "Write an expression to model the total cost, in dollars, of hiring a plumber for n hours",
+"pdf_page": 421,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can multiply powers and use the index law for multiplication.",
+"sub": "5J",
+"eg": "Simplify a 5 × a × a 3.",
+"pdf_page": 421,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can divide powers and use the index law for division.",
+"sub": "5J",
+"eg": "Simplify _",
+"pdf_page": 421,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can simplify expressions in which the index is zero.",
+"sub": "5K",
+"eg": "Simplify 4x 0 × 8x y 0.",
+"pdf_page": 421,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 20,
+"text": "I can simplify expressions involving products and powers that are in the base.",
+"sub": "5K",
+"eg": "Simplify (u 2)4 × (7u 3)2.",
+"pdf_page": 421,
+"chapter": 5
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can produce a ratio that is equivalent to a given ratio.",
+"sub": "6A",
+"eg": "State the missing number in the equivalence 30 : 15 = ? : 5.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can simplify ratios involving whole numbers.",
+"sub": "6A",
+"eg": "Simplify 450 : 200.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can simplify ratios involving fractions.",
+"sub": "6A",
+"eg": "Simplify 2_ 1.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can write simplified ratios involving quantities by first converting units.",
+"sub": "6A",
+"eg": "Write the relationship ‘25 minutes to 2 hours’ as a ratio by first changing the",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find an unknown quantity using a ratio.",
+"sub": "6B",
+"eg": "Find the amount of water to combine with 10 cups of rice if rice and water are",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can divide a quantity in a ratio with two or three terms.",
+"sub": "6B",
+"eg": "Divide 54 m in a ratio of 4 : 5 and divide $300 in the ratio of 2 : 1 : 3.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can convert from scale distance to actual distance using a scale.",
+"sub": "6C",
+"eg": "A map has a scale of 1 : 20 000. Find the actual distance for a scale distance of 5 mm.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can convert from actual distance to scale distance using a scale.",
+"sub": "6C",
+"eg": "A model boat has a scale of 1 : 500. Find the scaled length for an actual length of",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can determine the scale factor.",
+"sub": "6C",
+"eg": "Determine the scale factor if an actual length of 0.1 mm is represented by 3 cm on a",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can write simplified rates.",
+"sub": "6D",
+"eg": "Express $28 for 4 kilograms as a simplified rate.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can find average rates.",
+"sub": "6D",
+"eg": "Tom was 120 cm tall when he turned 10 years old, and 185 cm when he turned 20",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can solve rate problems.",
+"sub": "6E",
+"eg": "Rachael can type at 74 words/minute. How many words can she type in 15 minutes?",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can find an average speed.",
+"sub": "6F",
+"eg": "Find the average speed in km / h of a runner who travels 3 km in 15 minutes.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can find the distance travelled.",
+"sub": "6F",
+"eg": "Find the distance travelled by a truck travelling for 15 hours at an average speed of",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can find the time taken to travel a given distance at a given speed.",
+"sub": "6F",
+"eg": "Find the time taken for a hiker walking at 4 km / h to travel 15 km.",
+"pdf_page": 490,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can convert units of speed.",
+"sub": "6F",
+"eg": "Convert 72 km / h to m/s.",
+"pdf_page": 491,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can solve ratio problems using the unitary method.",
+"sub": "6G",
+"eg": "The ratio of apples to oranges is 3 : 5. If there are 18 apples, how many oranges are",
+"pdf_page": 491,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can solve rate problems using the unitary method.",
+"sub": "6G",
+"eg": "A truck uses 4 L of petrol to travel 36 km. How far will it travel using 70 L?",
+"pdf_page": 491,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can convert units for rates using the unitary method.",
+"sub": "6G",
+"eg": "Melissa works at the local supermarket and earns $57.60 for a 4 hour shift. How",
+"pdf_page": 491,
+"chapter": 6
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can classify equations as true or false.",
+"sub": "7A",
+"eg": "State whether the equation x + 20 = 3 × x is true or false if x = 10.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can write an equation from a description.",
+"sub": "7A",
+"eg": "Write an equation for the following scenario: The number k is doubled, then three is added",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can find equivalent equations.",
+"sub": "7B",
+"eg": "Show the result of adding 3 to both sides of the equation 5a − 3 = 12.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can solve simple equations algebraically and check my solution.",
+"sub": "7B",
+"eg": "Solve 2u + 7 = 17 algebraically and check the solution by substitution.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can solve equations involving algebraic fractions.",
+"sub": "7C",
+"eg": "Solve _ = 3 and 7 − _",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can solve equations with pronumerals on both sides.",
+"sub": "7D",
+"eg": "Solve 6x + 4 = 22 − 3x algebraically.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can solve equations with brackets by expanding and collecting like terms.",
+"sub": "7E",
+"eg": "Solve 4(2x − 5) + 3x = 57.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can solve a simple quadratic equation.",
+"sub": "7F",
+"eg": "Solve x 2 = 9 and 3x2 = 21 (to two decimal places).",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can state the number of solutions to a simple quadratic equation.",
+"sub": "7F",
+"eg": "State the number of solutions for x in the following equations: x 2 = 0, x 2 = − 3 and x 2 = 16.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can apply a formula to find unknown values.",
+"sub": "7G",
+"eg": "Apply the formula for a rectangle’s perimeter, P = 2l + 2w, to find the value of l when P = 40",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can solve problems using equations.",
+"sub": "7H",
+"eg": "The weight of 6 identical books is 1.2 kg. Set up and solve an equation to find the weight of",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can solve harder problems using equations.",
+"sub": "7H",
+"eg": "Purchasing 5 apples and a $2.40 mango costs the same as purchasing 7 apples and a",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can represent an inequality on a number line.",
+"sub": "7I",
+"eg": "Represent 1 < x ⩽ 5 on a number line.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can use inequalities to describe real-life situations.",
+"sub": "7I",
+"eg": "Fred is shorter than 160 cm. Describe this as an inequality, using x to stand for",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can solve inequalities algebraically.",
+"sub": "7J",
+"eg": "Solve 15 − 2x > 1 algebraically.",
+"pdf_page": 559,
+"chapter": 7
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can interpret data presented",
+"sub": "8A",
+"eg": "State the difference between",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can interpret tallies.",
+"sub": "8B",
+"eg": "Write the frequency for each colour car based on the tally below.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can construct a tally and frequency table from a set of data.",
+"sub": "8B",
+"eg": "Put the following data into a frequency table: 1, 4, 1, 4, 1, 2, 3, 4, 6, 1, 5, 1, 2, 1.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can construct a graph from a frequency",
+"sub": "8C",
+"eg": "Represent the table at right as a frequency 0 3",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find the mean and mode for a set of numerical data.",
+"sub": "8D",
+"eg": "Find the mean and mode for the set of numbers: 10, 2, 15, 1, 15, 5, 11, 19, 4, 8.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can find the median for a set of numerical data with an odd or even number of values.",
+"sub": "8D",
+"eg": "Find the median of 16, 18, 1, 13, 14, 2, 11 and of the set 7, 9, 12, 3, 15, 10, 19, 3, 19, 1.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can find the range of a set of numerical data.",
+"sub": "8E",
+"eg": "Find the range of 1, 5, 2, 3, 8, 12, 4.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can find the interquartile range for a set of numerical data with an odd or even number",
+"sub": "8E",
+"eg": "Find the IQR of 1, 15, 8, 2, 13, 10, 4, 14.",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can interpret survey results.",
+"sub": "8F",
+"eg": "A survey is conducted and the results",
+"pdf_page": 651,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can decide whether a method of data collection is likely to lead to biased samples.",
+"sub": "8F",
+"eg": "In conducting a survey to determine how many children adults generally have, explain why",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can find the probability of a simple event.",
+"sub": "8G",
+"eg": "The letters of the word PRINCE are written out on cards and one is chosen at random. Find",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can use a table to find probabilities in two-step experiments.",
+"sub": "8H",
+"eg": "A spinner with the numbers 1, 2, and 3 is spun, and then a card is chosen at random from",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can use a tree diagram to find probabilities in multi-step experiments.",
+"sub": "8I",
+"eg": "Three fair coins are flipped. Use a tree diagram to find the probability that exactly two of the",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can construct a Venn diagram from a situation.",
+"sub": "8J",
+"eg": "Of 50 people it was found that 20 people liked both coffee and tea, 15 liked coffee but not",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can construct a two-way table from a situation.",
+"sub": "8J",
+"eg": "Of 50 people it was found that 20 people liked both coffee and tea, 15 liked coffee but not tea",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can use a two-way table to calculate probabilities.",
+"sub": "8J",
+"eg": "The eating and sleeping preferences of zoo animals are shown below. Find the probability",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can find the experimental probability of an event.",
+"sub": "8K",
+"eg": "Red, white and orange marbles are in a jar. Repeatedly, a marble is taken out, its colour",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can find the expected number of times an event will occur.",
+"sub": "8K",
+"eg": "If the probability of selecting an orange marble is _",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can design and run a simulation.",
+"sub": "8K",
+"eg": "A tennis player has a 1 in 2 chance of getting his first serve in. If it goes in he has a 1 in 6",
+"pdf_page": 652,
+"chapter": 8
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can plot points at a given location.",
+"sub": "9A",
+"eg": "Draw a number plane extending from − 4 to 4 on both axes then plot and label the",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 2,
+"text": "I can create a table of values for a rule.",
+"sub": "9B",
+"eg": "For the rule y = 2x − 1 construct a table using values of x between − 3 and 3.",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can draw a graph of a rule.",
+"sub": "9B",
+"eg": "Draw a graph of y = 2x − 1 using values of x between − 3 and 3.",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can decide whether a point lies on the graph of a given rule.",
+"sub": "9B",
+"eg": "Decide if the (1, 3) and (− 2, − 4) lie on the graph of y = 3x.",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find the rule from a table of values.",
+"sub": "9C",
+"eg": "Find the rule for this table of values.",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can find the rule from a graph where coordinates",
+"sub": "9C",
+"eg": "Find the rule for this graph by first constructing 3",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can use a linear graph to solve an equation.",
+"sub": "9D",
+"eg": "Use a graph of y = 2x + 1 to solve the equation 2x + 1 = 5.",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can use the point of intersection of two",
+"sub": "9D",
+"eg": "Use the graphs of y = 4 − x and 6",
+"pdf_page": 745,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can find the rule for horizontal and vertical lines.",
+"sub": "9E",
+"eg": "Find the rule for this vertical line.",
+"pdf_page": 746,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can sketch a region using horizontal or vertical lines.",
+"sub": "9E",
+"eg": "Sketch the region y < 4.",
+"pdf_page": 746,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can use graphs to solve a linear",
+"sub": "9E",
+"eg": "Use the given graph to solve 5",
+"pdf_page": 746,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can find the x-intercept and y-intercept for the graph of a rule.",
+"sub": "9F",
+"eg": "Find the x-intercept and y-intercept for the graph of y = − 2x + 1.",
+"pdf_page": 746,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can sketch the graph of a rule by finding the axes intercepts.",
+"sub": "9F",
+"eg": "Find the x- and y-intercepts and then sketch the graph of the rule y = 2x − 8.",
+"pdf_page": 746,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can decide if a gradient is positive,",
+"sub": "9F",
+"eg": "",
+"pdf_page": 746,
+"chapter": 9,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can calculate the gradient of a line.",
+"sub": "9G",
+"eg": "Find the gradient of this line.",
+"pdf_page": 747,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can state the gradient and y-intercept from a rule.",
+"sub": "9H",
+"eg": "Write down the gradient and y-intercept of the rule y = _",
+"pdf_page": 747,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can find the rule from a graph.",
+"sub": "9H",
+"eg": "Find the rule for this graph by first finding the values",
+"pdf_page": 747,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 18,
+"text": "I can apply linear graphs to model real-world situations.",
+"sub": "9I",
+"eg": "The volume of water in a dish is 300 mL initially and decreases by 50 mL per hour for",
+"pdf_page": 747,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 19,
+"text": "I can plot a non-linear relationship.",
+"sub": "9J",
+"eg": "Plot points to draw the graph of y = x 2 − 2 using a table.",
+"pdf_page": 747,
+"chapter": 9
+},
+{
+"tenA": false,
+"n": 1,
+"text": "I can draw reflected images.",
+"sub": "10A",
+"eg": "Copy the diagram and draw the reflected image over the",
+"pdf_page": 830,
+"chapter": 10,
+"sub_inferred": true
+},
+{
+"tenA": true,
+"n": 2,
+"text": "I can state the coordinates of an image point that has been reflected in a horizontal or",
+"sub": "10A",
+"eg": "Consider the point B(2, 3). State the image B ′ after it is reflected in the x-axis.",
+"pdf_page": 830,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 3,
+"text": "I can find a translation vector given a source and image point.",
+"sub": "10B",
+"eg": "State the translation vector that moves the point A(− 1, 3) to A′(2, 0).",
+"pdf_page": 830,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 4,
+"text": "I can draw the result of a translation.",
+"sub": "10B",
+"eg": "Draw the image of the triangle ABC after a",
+"pdf_page": 830,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 5,
+"text": "I can find the order of rotational symmetry of a shape.",
+"sub": "10C",
+"eg": "Find the order of rotational symmetry for this shape.",
+"pdf_page": 830,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 6,
+"text": "I can draw a rotated image.",
+"sub": "10C",
+"eg": "Rotate this shape 90° clockwise about the point C.",
+"pdf_page": 830,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 7,
+"text": "I can name corresponding pairs in",
+"sub": "10D",
+"eg": "These two quadrilaterals are",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 8,
+"text": "I can decide on an appropriate test",
+"sub": "10E",
+"eg": "Which test (SSS, SAS, AAS or",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 9,
+"text": "I can construct a triangle from a description and decide if it is unique.",
+"sub": "10E",
+"eg": "Use a ruler and a pair of compasses to construct a triangle ∆ABC with",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 10,
+"text": "I can tessellate a basic shape.",
+"sub": "10F",
+"eg": "Use the ‘plus sign’ shape on the right to",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 11,
+"text": "I can name a tessellation.",
+"sub": "10F",
+"eg": "By considering any vertex,",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 12,
+"text": "I can prove facts about quadrilaterals using congruent triangles.",
+"sub": "10G",
+"eg": "Prove that the diagonals of a parallelogram bisect each other (that is, cut each other",
+"pdf_page": 831,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 13,
+"text": "I can identify corresponding features",
+"sub": "10G",
+"eg": "These figures are similar. List the a° 50°",
+"pdf_page": 832,
+"chapter": 10,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 14,
+"text": "I can find the scale factors and",
+"sub": "10H",
+"eg": "These figures are similar. State 2 cm C",
+"pdf_page": 832,
+"chapter": 10
+},
+{
+"tenA": false,
+"n": 15,
+"text": "I can decide if",
+"sub": "10H",
+"eg": "Decide if these",
+"pdf_page": 832,
+"chapter": 10,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 16,
+"text": "I can decide if triangles are",
+"sub": "10H",
+"eg": "Decide, with reasons, whether",
+"pdf_page": 832,
+"chapter": 10,
+"sub_inferred": true
+},
+{
+"tenA": false,
+"n": 17,
+"text": "I can find missing lengths in",
+"sub": "10I",
+"eg": "Given that these triangles",
+"pdf_page": 832,
+"chapter": 10
+}
+]
