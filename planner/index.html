@@ -121,7 +121,7 @@ function detail(x){
   const apk=li(x.apk.map(a=>`<li><b>${esc(a.book)}</b> ${esc(a.skill)}<br><span class="src">e.g. <span class="loc">${esc(a.question_locator)}</span> · ${esc(a.src)} #${a.n} (${a.sub}), PDF p. ${a.pdf_page}</span></li>`));
   const dn=li(x.do_now.map(d=>`<li><span class="slot">${esc(d.slot)}</span> · ${esc(d.sub)} — ${esc(d.src)} Q${d.q} <span class="src">(${d.printed_page?'p. '+d.printed_page:'PDF p. '+d.pdf_page})${d.note?' · '+esc(d.note):''}</span></li>`));
   const lis=li(x.learning_intentions.map(t=>`<li>${esc(t)}</li>`));
-  const ex=li(x.examples.map(e=>`<li><b>Example ${e.n}</b> ${esc(e.title)}</li>`)).replace('<ul>','<ul class="ex">');
+  const ex=li(x.examples.map(e=>`<li><b>Example ${e.n}</b> ${esc(e.title)}${e.now_you_try?' <span class="tag tidx">+ Now you try</span>':''}</li>`)).replace('<ul>','<ul class="ex">');
   const exr=li(x.exercise.map(e=>`<li><b>${SEC[e.section]||e.section}</b>${e.title?' · '+esc(e.title):''} Q${esc(e.q)}${e.pathways?` <span class="src">(pathways: ${e.pathways.map(esc).join(' | ')})</span>`:''}</li>`));
   const exit=li(x.exit_tasks.map(e=>`<li>☐ ${esc(e.skill)}<br><span class="src">e.g. <span class="loc">${esc(e.question_locator)}</span> · checklist #${e.n}, p. ${e.printed_page}</span></li>`));
   const sc=li(x.success_criteria.map(s=>`<li>☐ ${esc(s.text)}</li>`));
@@ -136,7 +136,7 @@ function detail(x){
     ${S(4,'APK (priming: Year 7 → 8 → 9)',apk)}
     ${S(5,'Key vocabulary',voc)}
     ${S(6,'Self-study videos',vid)}
-    ${S(7,'Worked examples',ex)}
+    ${S(7,'Worked examples → Now you try',ex)}
     ${S(8,'Exercise '+x.sub,exr)}
     ${S(9,'Exit tasks (skills checklist questions)',exit,true)}
     ${S(10,'Success criteria (end-of-lesson skills checklist)',sc,true)}

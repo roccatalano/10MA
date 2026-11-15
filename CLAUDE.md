@@ -30,7 +30,8 @@ Design: a **subchapter library** (one card per subchapter in both books) and **c
 2. **Card IDs are permanent:** `C10-1A`, `G11-2B`. Never renumber; everything else references them.
 3. **Index now, fill on first use:** library cards start at index level; extract verbatim content the first time a lesson uses the card, and save it so it is never re-extracted.
 4. **Every lesson gets:** guided slides, guided worksheet (questions only, active engagement) + solutions copy, bound reference (log book) entry (notes, definitions, formulas, cited example). Old per-subchapter all-in-one handouts are discontinued.
-5. Finished materials go in `lessons/` here and flat into `01 Lesson materials` on G:.
+5. **Example → You try pairs:** every Cambridge Worked Example is followed by its own 'Now you try' (same skill, new numbers). Lessons use them as pairs: teacher models the Example, students do its Now you try. Card field: `examples[].now_you_try`.
+6. Finished materials go in `lessons/` here and flat into `01 Lesson materials` on G:.
 
 ## Not to touch
 `roccatalano/12MAG` and `roccatalano/teaching-dashboard-2027` — don't change unless Rocco asks.

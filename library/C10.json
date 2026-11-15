@@ -168,23 +168,28 @@
      "examples": [
       {
        "n": 1,
-       "title": "Collecting like terms"
+       "title": "Collecting like terms",
+       "now_you_try": true
       },
       {
        "n": 2,
-       "title": "Multiplying and dividing expressions"
+       "title": "Multiplying and dividing expressions",
+       "now_you_try": true
       },
       {
        "n": 3,
-       "title": "Expanding brackets"
+       "title": "Expanding brackets",
+       "now_you_try": true
       },
       {
        "n": 4,
-       "title": "Factorising simple algebraic expressions"
+       "title": "Factorising simple algebraic expressions",
+       "now_you_try": true
       },
       {
        "n": 5,
-       "title": "Evaluating expressions"
+       "title": "Evaluating expressions",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -405,15 +410,18 @@
      "examples": [
       {
        "n": 6,
-       "title": "Solving linear equations"
+       "title": "Solving linear equations",
+       "now_you_try": true
       },
       {
        "n": 7,
-       "title": "Solving equations involving fractions"
+       "title": "Solving equations involving fractions",
+       "now_you_try": true
       },
       {
        "n": 8,
-       "title": "Solving equations by combining simple algebraic fractions"
+       "title": "Solving equations by combining simple algebraic fractions",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -604,11 +612,13 @@
      "examples": [
       {
        "n": 9,
-       "title": "Writing inequalities from number lines"
+       "title": "Writing inequalities from number lines",
+       "now_you_try": true
       },
       {
        "n": 10,
-       "title": "Solving linear inequalities"
+       "title": "Solving linear inequalities",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -779,11 +789,13 @@
      "examples": [
       {
        "n": 11,
-       "title": "Adding and subtracting algebraic fractions"
+       "title": "Adding and subtracting algebraic fractions",
+       "now_you_try": true
       },
       {
        "n": 12,
-       "title": "Solving more complex equations involving algebraic fractions"
+       "title": "Solving more complex equations involving algebraic fractions",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -970,19 +982,23 @@
      "examples": [
       {
        "n": 13,
-       "title": "Deciding if a point is on a line"
+       "title": "Deciding if a point is on a line",
+       "now_you_try": true
       },
       {
        "n": 14,
-       "title": "Sketching linear graphs using the gradient–intercept method"
+       "title": "Sketching linear graphs using the gradient–intercept method",
+       "now_you_try": true
       },
       {
        "n": 15,
-       "title": "Sketching linear graphs using the x- and y-intercepts"
+       "title": "Sketching linear graphs using the x- and y-intercepts",
+       "now_you_try": true
       },
       {
        "n": 16,
-       "title": "Sketching lines with one intercept"
+       "title": "Sketching lines with one intercept",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -1200,15 +1216,18 @@
      "examples": [
       {
        "n": 17,
-       "title": "Finding the gradient of a line joining two points"
+       "title": "Finding the gradient of a line joining two points",
+       "now_you_try": true
       },
       {
        "n": 18,
-       "title": "Finding the equation of a line given the y-intercept and a point"
+       "title": "Finding the equation of a line given the y-intercept and a point",
+       "now_you_try": true
       },
       {
        "n": 19,
-       "title": "Finding the equation of a line given two points"
+       "title": "Finding the equation of a line given two points",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -1394,15 +1413,18 @@
      "examples": [
       {
        "n": 20,
-       "title": "Finding the distance between two points"
+       "title": "Finding the distance between two points",
+       "now_you_try": true
       },
       {
        "n": 21,
-       "title": "Finding the midpoint of a line segment joining two points"
+       "title": "Finding the midpoint of a line segment joining two points",
+       "now_you_try": true
       },
       {
        "n": 22,
-       "title": "Using a given distance to find coordinates"
+       "title": "Using a given distance to find coordinates",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -1587,11 +1609,13 @@
      "examples": [
       {
        "n": 23,
-       "title": "Deciding if lines are parallel or perpendicular"
+       "title": "Deciding if lines are parallel or perpendicular",
+       "now_you_try": true
       },
       {
        "n": 24,
-       "title": "Finding the equation of a parallel or perpendicular line"
+       "title": "Finding the equation of a parallel or perpendicular line",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -1775,11 +1799,13 @@
      "examples": [
       {
        "n": 25,
-       "title": "Solving simultaneous equations using substitution"
+       "title": "Solving simultaneous equations using substitution",
+       "now_you_try": true
       },
       {
        "n": 26,
-       "title": "Solving simultaneously with both equations in the form"
+       "title": "Solving simultaneously with both equations in the form",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -1935,11 +1961,13 @@
      "examples": [
       {
        "n": 27,
-       "title": "Using the elimination method with a matching pair of terms"
+       "title": "Using the elimination method with a matching pair of terms",
+       "now_you_try": true
       },
       {
        "n": 28,
-       "title": "Using the elimination method to solve simultaneous equations"
+       "title": "Using the elimination method to solve simultaneous equations",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -2111,11 +2139,13 @@
      "examples": [
       {
        "n": 29,
-       "title": "Setting up and solving simultaneous equations"
+       "title": "Setting up and solving simultaneous equations",
+       "now_you_try": true
       },
       {
        "n": 30,
-       "title": "Solving further applications of simultaneous equations involving two variables"
+       "title": "Solving further applications of simultaneous equations involving two variables",
+       "now_you_try": true
       }
      ],
      "exercise": [
@@ -2279,11 +2309,13 @@
      "examples": [
       {
        "n": 31,
-       "title": "Sketching regions on the Cartesian plane"
+       "title": "Sketching regions on the Cartesian plane",
+       "now_you_try": true
       },
       {
        "n": 32,
-       "title": "Finding the intersecting region"
+       "title": "Finding the intersecting region",
+       "now_you_try": true
       }
      ],
      "exercise": [
