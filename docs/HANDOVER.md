@@ -59,3 +59,4 @@
 ## 15 Nov 2026 (late) — Lesson planning tab
 - Added the Lesson planning tab + `courses/lessons.json` with Claude's suggested grouping (see PLANNER.md). Rocco to review/edit and press "Use N" to push lesson counts to the units.
 - Next once groupings are agreed: fill Do Now slots per lesson (C10 progress quiz/review; G11 do_now_pool).
+- CFAT sequence added for every unit (46 CFATs: 10MAG 16, 10MAA 30 — see lessons.json `cfats`). Rocco to review. Sequences and Recursion (10MAG) has none (no subchapters yet).

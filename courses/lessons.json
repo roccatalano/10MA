@@ -1,5 +1,5 @@
 {
- "note": "Lesson groupings per unit, keyed 'stream|unit name'. Suggested by Claude 15 Nov 2026: 10MAG slow pace (most subchapters over 2 lessons), 10MAA standard pace. Edit on the Lesson planning tab.",
+ "note": "Lesson groupings per unit, keyed 'stream|unit name'. Suggested by Claude 15 Nov 2026: 10MAG slow pace (most subchapters over 2 lessons), 10MAA standard pace. Edit on the Lesson planning tab. cfats = CFAT groupings per unit (same key), suggested by Claude 15 Nov.",
  "plans": {
   "10MAG|Univariate Statistics": [
    {
@@ -1864,6 +1864,694 @@
    {
     "kind": "assess",
     "items": [],
+    "note": ""
+   }
+  ]
+ },
+ "cfats": {
+  "10MAG|Univariate Statistics": [
+   {
+    "items": [
+     {
+      "id": "C10-9A"
+     },
+     {
+      "id": "C10-9B"
+     },
+     {
+      "id": "C10-9C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-9D"
+     },
+     {
+      "id": "C10-9E"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Algebra and Linear Relations": [
+   {
+    "items": [
+     {
+      "id": "C10-1A"
+     },
+     {
+      "id": "C10-1B"
+     },
+     {
+      "id": "C10-1C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-1E"
+     },
+     {
+      "id": "C10-1F"
+     },
+     {
+      "id": "C10-1G"
+     },
+     {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-1I"
+     },
+     {
+      "id": "C10-1J"
+     },
+     {
+      "id": "C10-1K"
+     },
+     {
+      "id": "C10-1L"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Quadratics and Parabolas": [
+   {
+    "items": [
+     {
+      "id": "C10-5A"
+     },
+     {
+      "id": "C10-5B"
+     },
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Bivariate Data": [
+   {
+    "items": [
+     {
+      "id": "C10-9C"
+     },
+     {
+      "id": "C10-9H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-9I"
+     },
+     {
+      "id": "C10-9J"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Trigonometry and Measurement": [
+   {
+    "items": [
+     {
+      "id": "C10-4E"
+     },
+     {
+      "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-4G"
+     },
+     {
+      "id": "C10-4I"
+     },
+     {
+      "id": "C10-4K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-6A"
+     },
+     {
+      "id": "C10-6B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-6C"
+     },
+     {
+      "id": "C10-6D"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Networks": [
+   {
+    "items": [
+     {
+      "id": "C10-2K"
+     },
+     {
+      "id": "C10-2L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-2M"
+     },
+     {
+      "id": "C10-2N"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAG|Probability": [
+   {
+    "items": [
+     {
+      "id": "C10-8A"
+     },
+     {
+      "id": "C10-8B"
+     },
+     {
+      "id": "C10-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-8D"
+     },
+     {
+      "id": "C10-8F"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Algebra and Linear Relations": [
+   {
+    "items": [
+     {
+      "id": "C10-1A"
+     },
+     {
+      "id": "C10-1B"
+     },
+     {
+      "id": "C10-1C"
+     },
+     {
+      "id": "C10-1D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-1E"
+     },
+     {
+      "id": "C10-1F"
+     },
+     {
+      "id": "C10-1G"
+     },
+     {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-1I"
+     },
+     {
+      "id": "C10-1J"
+     },
+     {
+      "id": "C10-1K"
+     },
+     {
+      "id": "C10-1L"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Data Analysis": [
+   {
+    "items": [
+     {
+      "id": "G11-2A"
+     },
+     {
+      "id": "G11-2B"
+     },
+     {
+      "id": "G11-2C"
+     },
+     {
+      "id": "G11-2D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-2E"
+     },
+     {
+      "id": "G11-2F"
+     },
+     {
+      "id": "G11-2G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-2H"
+     },
+     {
+      "id": "G11-2I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-7A"
+     },
+     {
+      "id": "G11-7B"
+     },
+     {
+      "id": "G11-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-7D"
+     },
+     {
+      "id": "G11-7E"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Indices, Logs, Exponentials and Surds": [
+   {
+    "items": [
+     {
+      "id": "C10-3A"
+     },
+     {
+      "id": "C10-3B"
+     },
+     {
+      "id": "C10-3C"
+     },
+     {
+      "id": "C10-3D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-3E"
+     },
+     {
+      "id": "C10-3F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-3I"
+     },
+     {
+      "id": "C10-3J"
+     },
+     {
+      "id": "C10-3K"
+     },
+     {
+      "id": "C10-3L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-4A"
+     },
+     {
+      "id": "C10-4B"
+     },
+     {
+      "id": "C10-4C"
+     },
+     {
+      "id": "C10-4D"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Sequences and Finance": [
+   {
+    "items": [
+     {
+      "id": "G11-1A"
+     },
+     {
+      "id": "G11-1B"
+     },
+     {
+      "id": "G11-1C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-1D"
+     },
+     {
+      "id": "G11-1E"
+     },
+     {
+      "id": "G11-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-3A"
+     },
+     {
+      "id": "G11-3B"
+     },
+     {
+      "id": "G11-3C"
+     },
+     {
+      "id": "G11-3D"
+     },
+     {
+      "id": "G11-3E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-3F"
+     },
+     {
+      "id": "G11-3G"
+     },
+     {
+      "id": "G11-3H"
+     },
+     {
+      "id": "G11-3I"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Trigonometry and Measurement": [
+   {
+    "items": [
+     {
+      "id": "C10-4F"
+     },
+     {
+      "id": "C10-6A"
+     },
+     {
+      "id": "C10-6B"
+     },
+     {
+      "id": "C10-6C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-6E"
+     },
+     {
+      "id": "C10-6F"
+     },
+     {
+      "id": "C10-6G"
+     },
+     {
+      "id": "C10-6H"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Quadratics and Parabolas": [
+   {
+    "items": [
+     {
+      "id": "C10-5A"
+     },
+     {
+      "id": "C10-5B"
+     },
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-5D"
+     },
+     {
+      "id": "C10-5E"
+     },
+     {
+      "id": "C10-5F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-5G"
+     },
+     {
+      "id": "C10-5H"
+     },
+     {
+      "id": "C10-5I"
+     },
+     {
+      "id": "C10-5J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-7A"
+     },
+     {
+      "id": "C10-7B"
+     },
+     {
+      "id": "C10-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-7D"
+     },
+     {
+      "id": "C10-7E"
+     },
+     {
+      "id": "C10-7F"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Matrices and Networks": [
+   {
+    "items": [
+     {
+      "id": "G11-4A"
+     },
+     {
+      "id": "G11-4B"
+     },
+     {
+      "id": "G11-4C"
+     },
+     {
+      "id": "G11-4D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-4E"
+     },
+     {
+      "id": "G11-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-4G"
+     },
+     {
+      "id": "G11-4H"
+     },
+     {
+      "id": "G11-4I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-8A"
+     },
+     {
+      "id": "G11-8B"
+     },
+     {
+      "id": "G11-8C"
+     },
+     {
+      "id": "G11-8D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "G11-8E"
+     },
+     {
+      "id": "G11-8F"
+     },
+     {
+      "id": "G11-8G"
+     },
+     {
+      "id": "G11-8H"
+     }
+    ],
+    "note": ""
+   }
+  ],
+  "10MAA|Probability": [
+   {
+    "items": [
+     {
+      "id": "C10-8A"
+     },
+     {
+      "id": "C10-8B"
+     },
+     {
+      "id": "C10-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
+     {
+      "id": "C10-8D"
+     },
+     {
+      "id": "C10-8F"
+     }
+    ],
     "note": ""
    }
   ]

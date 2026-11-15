@@ -109,6 +109,12 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 .lc.G11{border-left-color:var(--g11)}.lc .tt{cursor:pointer}.lc .tt:hover{text-decoration:underline}.lc i{font-style:normal;font-size:10.5px;background:var(--review);color:var(--review-i);border-radius:5px;padding:0 5px}
 .lnote{border:1px solid transparent;border-radius:5px;padding:2px 5px;font-size:12px;color:var(--muted);min-width:120px;flex:1;background:transparent}.lnote:hover,.lnote:focus{border-color:var(--line);background:#fff}
 .lbtn{flex:none;white-space:nowrap}.loose{margin-top:8px;padding:8px;border:1.5px dashed var(--sac-i);border-radius:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12px}
+.cfs{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin-bottom:8px;padding:8px;background:#f5f0fb;border-radius:9px}.cft{width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--g11)}
+.cf{background:#fff;border:1px solid #d9cdee;border-radius:8px;padding:5px 7px;display:flex;flex-direction:column;gap:3px;min-width:170px;max-width:300px;flex:1}.cf.over{outline:2px dashed var(--accent)}
+.cf.new{justify-content:center;color:var(--muted);font-size:12px;border-style:dashed;flex:0 0 170px}.cfn{font-weight:700;font-size:12.5px;color:var(--g11);display:flex;gap:2px;align-items:center}.cfn button:first-of-type{margin-left:auto}
+.cc{font-size:11.5px;line-height:1.25;cursor:grab;display:flex;gap:4px;align-items:baseline}.cc .x{font-size:12px;margin-left:auto}.cfmiss{width:100%;font-size:12px;color:var(--sac-i);font-weight:600}
+.cmark{margin:2px 0 4px 42px;padding:4px 10px;border-radius:6px;background:var(--g11b);color:var(--g11);font-size:12px;border-left:4px solid var(--g11)}
+.lc em{font-style:normal;font-size:10px;font-weight:700;color:var(--g11);background:var(--g11b);border-radius:4px;padding:0 4px}
 #year{flex:1;overflow:auto;padding:14px 16px}
 .ybar{position:sticky;top:-14px;z-index:5;background:var(--bg);padding:6px 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .cls{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:13px}
@@ -448,7 +454,14 @@ function planOf(u){ // stored plan, with subchapters no longer in the unit dropp
   if(!p)return u.items.map(x=>({kind:'teach',items:[{id:x.id}],note:''})).concat([{kind:'review',items:[],note:''},{kind:'assess',items:[],note:''}]);
   return p.map(l=>({...l,items:l.items.filter(x=>ids.has(x.id))}));
 }
+function cfatsOf(u){const ids=new Set(u.items.map(x=>x.id));return ((LP.cfats||{})[ukey(u)]||[]).map(c=>({...c,items:c.items.filter(x=>ids.has(x.id))}))}
+function setCfats(u,c){LP.cfats=LP.cfats||{};LP.cfats[ukey(u)]=c;store.set(LKEY,JSON.stringify(LP));lpDirty=true;status();renderLessons()}
+function cfatAfter(u,p){ // lesson index after which each CFAT sits = last lesson containing any of its subchapters
+  return cfatsOf(u).map(c=>{let at=-1;p.forEach((l,k)=>{if(l.items.some(x=>c.items.some(y=>y.id===x.id)))at=k});return at})}
 function setPlan(u,p){LP.plans[ukey(u)]=p;store.set(LKEY,JSON.stringify(LP));lpDirty=true;status();renderLessons()}
+function cfStrip(u,cf,cfIn){const miss=u.items.filter(x=>!cfIn[x.id]);
+  return `<div class="cfs"><b class="cft">CFATs</b>${cf.map((c,ci)=>`<div class="cf" data-ci="${ci}"><span class="cfn">CFAT ${ci+1}<button class="x cup" title="Move earlier">↑</button><button class="x cdel" title="Delete this CFAT">✕</button></span>${c.items.map(x=>`<span class="cc" draggable="true" data-id="${x.id}"><b>${x.id.startsWith('G11')?'Y11 ':''}${IDX[x.id]?.sub||x.id}</b> ${esc(IDX[x.id]?.title||'')}<button class="x">✕</button></span>`).join('')||'<span class="empty">drop subchapters</span>'}</div>`).join('')}
+   <div class="cf new" data-ci="-1">+ drop a subchapter here for a new CFAT</div>${miss.length?`<div class="cfmiss">Not in a CFAT: ${miss.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:''}</div>`}
 function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream);
@@ -457,16 +470,18 @@ function renderLessons(){
   h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
     p.forEach(l=>l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
     const loose=u.items.filter(x=>!cnt[x.id]),nt=p.filter(l=>l.kind==='teach').length;
+    const cf=cfatsOf(u),cfAt=cfatAfter(u,p),cfIn={};cf.forEach((c,ci)=>c.items.forEach(x=>cfIn[x.id]=ci+1));
+    const cmark=k=>cf.map((c,ci)=>cfAt[ci]===k?`<div class="cmark">▣ <b>CFAT ${ci+1}</b> after this lesson: ${c.items.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:'').join('');
     let b='';if(open){let n=0;
-      b=p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
+      b=cfStrip(u,cf,cfIn)+p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
         <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];seen[x.id]=(seen[x.id]||0)+1;
-          return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
+          return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}${cfIn[x.id]?`<em title="Assessed in CFAT ${cfIn[x.id]}">C${cfIn[x.id]}</em>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
          <input class="lnote" placeholder="note…" value="${esc(l.note||'')}"></div>
-        <span class="lbtn"><button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete lesson">✕</button></span></div>`}).join('');
+        <span class="lbtn"><button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete lesson">✕</button></span></div>`+cmark(k)}).join('');
       b+=(loose.length?`<div class="loose"><b>Not in a lesson yet:</b> ${loose.map(x=>`<span class="lc ${x.id.split('-')[0]}" draggable="true" data-id="${x.id}"><b>${IDX[x.id]?.sub||x.id}</b> <span class="tt">${esc(IDX[x.id]?.title||'')}</span></span>`).join('')}</div>`:'')
        +`<div class="urow" style="margin-top:8px"><button class="btn addl" data-kind="teach">+ Lesson</button><button class="btn addl" data-kind="review">+ Review</button><button class="btn addl" data-kind="assess">+ Assessment</button>${LP.plans[ukey(u)]?'<button class="btn rst" title="Go back to one lesson per subchapter">Reset</button>':''}</div>`}
     return `<div class="unit lu ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}"><div class="uh lh"><span class="num">${SH[u.stream]}${numOf(u)}</span><b style="flex:1">${esc(u.name)}</b>
-      <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
+      <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters · ${cf.length} CFATs${u.items.some(x=>!cfIn[x.id])?` · <b style="color:var(--sac-i)">${u.items.filter(x=>!cfIn[x.id]).length} not in a CFAT</b>`:''}${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
       ${(+u.lessons||0)!==p.length?`<button class="btn uset" title="Set this unit's lesson count on the Unit planning tab to ${p.length}">Use ${p.length}</button>`:''}<span class="caret">${open?'▾':'▸'}</span></div>${open?`<div class="ub">${b}</div>`:''}</div>`}).join('')||'<p class="empty">No units for this stream yet</p>';
   box.innerHTML=h;box.scrollTop=top;
   box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>{lstream=b.dataset.s;store.set('10ma-lstream',lstream);renderLessons()});
@@ -480,11 +495,22 @@ function renderLessons(){
       c.querySelector('.tt').onclick=()=>showDetail(c.dataset.id||planOf(u)[+c.dataset.k].items[+c.dataset.j].id);
       const sp=c.querySelector('.sp');if(sp)sp.onclick=()=>{const p=P(),k=+c.dataset.k,x=p[k].items[+c.dataset.j];p.splice(k+1,0,{kind:'teach',items:[{id:x.id}],note:''});setPlan(u,p)};
       const rm=c.querySelector('.rm');if(rm)rm.onclick=()=>{const p=P();p[+c.dataset.k].items.splice(+c.dataset.j,1);setPlan(u,p)}});
+    const C=()=>JSON.parse(JSON.stringify(cfatsOf(u)));
+    el.querySelectorAll('.cf').forEach(box=>{const ci=+box.dataset.ci;
+      box.ondragover=e=>{e.preventDefault();box.classList.add('over')};box.ondragleave=()=>box.classList.remove('over');
+      box.ondrop=e=>{e.preventDefault();e.stopPropagation();box.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+        if(d.u!==+el.dataset.i)return;const id=d.id||d.cid||planOf(u)[+d.k].items[+d.j].id,c=C();c.forEach(g=>g.items=g.items.filter(x=>x.id!==id));
+        if(ci<0)c.push({items:[{id}],note:''});else c[ci].items.push({id});setCfats(u,c.filter(g=>g.items.length||g===c[ci]))};
+      if(ci<0)return;
+      box.querySelector('.cdel').onclick=()=>{const c=C();c.splice(ci,1);setCfats(u,c)};
+      box.querySelector('.cup').onclick=()=>{if(!ci)return;const c=C();[c[ci-1],c[ci]]=[c[ci],c[ci-1]];setCfats(u,c)};
+      box.querySelectorAll('.cc').forEach(cc=>{cc.ondragstart=e=>{e.stopPropagation();e.dataTransfer.setData('text/plain',JSON.stringify({u:+el.dataset.i,cid:cc.dataset.id}))};
+        cc.querySelector('.x').onclick=()=>{const c=C();c[ci].items=c[ci].items.filter(x=>x.id!==cc.dataset.id);setCfats(u,c)}})});
     el.querySelectorAll('.lrow').forEach(row=>{const k=+row.dataset.k;
       row.ondragover=e=>{e.preventDefault();row.classList.add('over')};row.ondragleave=()=>row.classList.remove('over');
       row.ondrop=e=>{e.preventDefault();row.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
         if(d.u!==+el.dataset.i)return;const p=P();let it;
-        if(d.id)it={id:d.id};else{if(+d.k===k)return;it=p[+d.k].items.splice(+d.j,1)[0]}
+        if(d.cid)return;if(d.id)it={id:d.id};else{if(+d.k===k)return;it=p[+d.k].items.splice(+d.j,1)[0]}
         p[k].items.push(it);setPlan(u,p)};
       row.querySelector('.lnote').onchange=e=>{const p=P();p[k].note=e.target.value;setPlan(u,p)};
       row.querySelector('.up').onclick=()=>{if(!k)return;const p=P();[p[k-1],p[k]]=[p[k],p[k-1]];setPlan(u,p)};
