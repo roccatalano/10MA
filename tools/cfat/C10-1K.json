@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -47,6 +48,32 @@
       "Selling 15 cards recovers the \\$90 spent (break even)."
      ],
      "src": "Oxford Maths 10 VC (2022), Exercise 4F Q13d (p. 204); adapted: parts a, b given in the stem",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Mila plants $820$ hectares of potatoes and corn. To maximise his profit he plants $140$ hectares more of potatoes than of corn. How many hectares of each does he plant?",
+     "sol": [
+      "$p + c = 820$, $p = c + 140$",
+      "$2c + 140 = 820$, $c = 340$",
+      "$p = 480$: $480$ ha potatoes, $340$ ha corn"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2K Q2 (p. 153)",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Mal bought three bottles of milk and four bags of chips for a total of \\$17. At the same shop, Barbara bought one bottle of milk and five bags of chips for \\$13. Find how much each bottle of milk and each bag of chips cost.",
+     "sol": [
+      "$3m + 4c = 17$, $m + 5c = 13$",
+      "$m = 13 - 5c$: $39 - 15c + 4c = 17$, $c = 2$",
+      "$m = 3$: milk \\$3, chips \\$2"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2K Q3 (p. 154); adapted: steps a–d left out",
      "vc2": "VC2M10A04"
     }
    ]

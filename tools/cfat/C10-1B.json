@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -48,6 +49,19 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q1a (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve the following equation. Check your solution using substitution.<br>$7s + 7 = 3s + 19$",
+     "sol": [
+      "$4s + 7 = 19$",
+      "$4s = 12$",
+      "$s = 3$ (check: $28 = 28$)"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 7D Q2a (p. 499); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A03"
     }
    ]
   },
@@ -114,6 +128,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q2 (p. 207)",
      "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve the following equation algebraically.<br>$\\dfrac{2l}{5} = 8$",
+     "sol": [
+      "$2l = 40$",
+      "$l = 20$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 7C Q2a (p. 493); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A03"
     }
    ]
   },
@@ -165,6 +191,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Exercise 4A Q9b (p. 162); adapted: stem reworded for a single part",
      "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Simplify the following sum.<br>$\\dfrac{a}{2} + \\dfrac{a}{3}$",
+     "sol": [
+      "$= \\dfrac{3a}{6} + \\dfrac{2a}{6}$",
+      "$= \\dfrac{5a}{6}$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 5E Q4e (p. 358); adapted: stem reworded for a single part (Year 8 adds algebraic fractions but does not solve equations with them)",
+     "vc2": "VC2M10A03"
     }
    ]
   }

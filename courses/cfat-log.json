@@ -13,6 +13,41 @@
     {
       "date": "2026-11-16",
       "stream": "10MAG",
+      "unit": "Algebra and Linear Relations",
+      "decision": "10MAG Modified G3 built (Rocco to review). Lessons → Year 8/9 sources: L1 1A ← Y8 5B Ex3, 5C Ex6, 5G Ex12, 5H Ex15 · L2 1B ← Y8 7D Ex7, 7E Ex8 (a, c), 7C Ex6 (a–c) · L3 1C ← Y8 7I Ex15–16, 7J Ex17 · L4 1E ← Y8 9B Ex3, 9F Ex11–12 · L5 1F pt1 ← Y9 4F Ex10, Ex12a, 4D Ex8 · L6 1F pt2 ← Y9 4G Ex13–14 · L7 1G ← Y9 4H Ex15–16 · L8 1H pt1 ← Y9 4F Ex11, 4I Ex17 · L9 1H pt2 ← Y9 4I Ex18 · L10 1I pt1 ← Y9 4K Ex20–21 · L11 1I pt2 ← Y9 2I Ex21 (a, b) · L12 1J ← Y9 2J Ex22, Ex23a · L13 1K ← Y9 2K Ex24–25 · L14 1L pt1 ← Y8 9E Ex8–9 · L15 1L pt2 ← Y8 9E Ex10.",
+      "by": "Claude"
+    },
+    {
+      "date": "2026-11-16",
+      "stream": "10MAG",
+      "unit": "Algebra and Linear Relations",
+      "decision": "Year 9 used (skill first taught in Year 9): gradient–intercept form, gradient between two points, equation of a line, midpoint/length, parallel/perpendicular (Y9 4D–4I), simultaneous equations (Y9 2I–2K, 4K).",
+      "by": "Claude"
+    },
+    {
+      "date": "2026-11-16",
+      "stream": "10MAG",
+      "unit": "Algebra and Linear Relations",
+      "decision": "No-Freefall lessons (1I, 1J, 1L): a Practice box on the modified worksheet with Cambridge 9 Ex 4K/2I/2J and Cambridge 8 Ex 9E questions, verbatim + cited, one part each (adapted).",
+      "by": "Claude"
+    },
+    {
+      "date": "2026-11-16",
+      "stream": "10MAG",
+      "unit": "Algebra and Linear Relations",
+      "decision": "CFAT 3.1.1M–3.1.5M (L0): one item per skill, two per skill in 3.1.4M/3.1.5M. Closest-skill substitutes: 1B skill 3 = Y8 5E add algebraic fractions (Year 8 doesn't solve such equations); 1F skill 2 = Y9 4G gradient + point; 1G skill 3 = Y9 4H missing endpoint from midpoint; 1H skill 1 = Y9 4I perpendicular gradient. 1L skill 2 (two inequalities) has no Y7–9 source: uses the 10MAG L1 item.",
+      "by": "Claude"
+    },
+    {
+      "date": "2026-11-16",
+      "stream": "10MAG",
+      "unit": "",
+      "decision": "Workbook builder fix: Freefall 8 answer pages are now found by colour (notes = yellow; answers = the white page right after a white worksheet). The old every-other-page rule let two answer pages into G3 (2-Step Equations sheet 2, Further Finding Equation). G1 workbook still 50 pages; Rocco may want to re-check the G1 workbook on G:.",
+      "by": "Claude"
+    },
+    {
+      "date": "2026-11-16",
+      "stream": "10MAG",
       "unit": "Univariate Statistics",
       "decision": "G1 10MAG Modified pilot reviewed: copy its choices as is for every other unit.",
       "by": "Rocco"

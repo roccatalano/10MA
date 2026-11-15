@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -53,6 +54,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q5c (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A08"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Represent the following inequality on a number line.<br>$-2 < x \\leqslant 6$",
+     "sol": [
+      "Open circle at $-2$, closed circle at $6$, line between"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 7I Q4c (p. 525); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A03",
+     "blank": "<svg viewBox=\"-2 8 152 46\" style=\"width:95mm;max-width:100%;display:block;margin:1mm 0\"><line x1=\"2\" y1=\"40\" x2=\"112\" y2=\"40\" stroke=\"#000\" stroke-width=\"1\"/><path d=\"M114 40 l-5 -2.5 v5z\"/><path d=\"M0 40 l5 -2.5 v5z\"/><line x1=\"10.0\" y1=\"38\" x2=\"10.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"10.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">-3</text><line x1=\"19.0\" y1=\"38\" x2=\"19.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"19.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">-2</text><line x1=\"28.0\" y1=\"38\" x2=\"28.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"28.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">-1</text><line x1=\"37.0\" y1=\"38\" x2=\"37.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"37.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">0</text><line x1=\"46.0\" y1=\"38\" x2=\"46.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"46.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">1</text><line x1=\"55.0\" y1=\"38\" x2=\"55.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"55.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">2</text><line x1=\"64.0\" y1=\"38\" x2=\"64.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"64.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">3</text><line x1=\"73.0\" y1=\"38\" x2=\"73.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"73.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">4</text><line x1=\"82.0\" y1=\"38\" x2=\"82.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"82.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">5</text><line x1=\"91.0\" y1=\"38\" x2=\"91.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"91.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">6</text><line x1=\"100.0\" y1=\"38\" x2=\"100.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"100.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">7</text></svg>"
     }
    ]
   },
@@ -106,6 +119,19 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q6b (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A08"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve the following inequality and graph the solution on a number line.<br>$4l + 9 \\geqslant 21$",
+     "sol": [
+      "$4l \\geqslant 12$",
+      "$l \\geqslant 3$ (closed circle at $3$, arrow right)"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 7J Q2b (p. 530); adapted: stem reworded for a single part, ‘graph the solution on a number line’ added",
+     "vc2": "VC2M9A03",
+     "blank": "<svg viewBox=\"-2 8 152 46\" style=\"width:95mm;max-width:100%;display:block;margin:1mm 0\"><line x1=\"2\" y1=\"40\" x2=\"112\" y2=\"40\" stroke=\"#000\" stroke-width=\"1\"/><path d=\"M114 40 l-5 -2.5 v5z\"/><path d=\"M0 40 l5 -2.5 v5z\"/><line x1=\"10.0\" y1=\"38\" x2=\"10.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"10.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">0</text><line x1=\"22.9\" y1=\"38\" x2=\"22.9\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"22.9\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">1</text><line x1=\"35.7\" y1=\"38\" x2=\"35.7\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"35.7\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">2</text><line x1=\"48.6\" y1=\"38\" x2=\"48.6\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"48.6\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">3</text><line x1=\"61.4\" y1=\"38\" x2=\"61.4\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"61.4\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">4</text><line x1=\"74.3\" y1=\"38\" x2=\"74.3\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"74.3\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">5</text><line x1=\"87.1\" y1=\"38\" x2=\"87.1\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"87.1\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">6</text><line x1=\"100.0\" y1=\"38\" x2=\"100.0\" y2=\"42\" stroke=\"#000\" stroke-width=\".8\"/><text x=\"100.0\" y=\"49\" font-size=\"6\" text-anchor=\"middle\">7</text></svg>"
     }
    ]
   }

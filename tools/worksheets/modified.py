@@ -18,6 +18,7 @@ def page(k,d,R):
     o.append('<div class="box "><div class="hd">Learning intentions<span></span></div><div class="bd"><ul>'+''.join(f'<li>{x}</li>' for x in d['li'])+'</ul></div></div>')
     o.append('<div class="box "><div class="hd">Key ideas<span></span></div><div class="bd"><ul class="ki">'+''.join(f'<li>{R(x)}</li>' for x in d['ki'])+'</ul></div></div>')
     for e in d['ex']:
+        if e.get('src_note'):e=dict(e,n=e['n']+f' <small>(adapted: {e["src_note"]})</small>')
         hs=e['h'] if isinstance(e['h'],list) else [e['h']]*max(1,len(e['parts']))
         def col(q,parts):
             s=f'<p class="q">{R(q)}</p>'
@@ -30,9 +31,12 @@ def page(k,d,R):
             fs='11.0pt' if len(e['t'])<30 else '9.5pt'
             o.append(f'<div class="pair"><div class="hd" style="font-size:{fs}">{e["n"]} · {e["t"]}</div><div class="hd" style="font-size:{fs}">You try</div>'
                      f'<div class="bd">{col(e["q"],e["parts"])}</div><div class="bd">{col(e["yq"],e["yparts"])}</div></div>')
+    if d.get('practice'):   # lessons with no Freefall sheet: Cambridge exercise questions, verbatim + cited (Rocco, 16 Nov)
+        pq=''.join(f'<div class="ytp" style="break-inside:avoid"><b>{i+1}</b><div><div>{R(q)}</div><div style="height:{h}mm"></div><p class="src" style="margin:0">{src}</p></div></div>' for i,(q,h,src) in enumerate(d['practice']))
+        o.append(f'<div class="box"><div class="hd">Practice<span>No Freefall sheet for this lesson</span></div><div class="bd">{pq}</div></div>')
     sc=''.join(f'<div class="sc"><div class="tick"></div><div><b>{t}</b></div></div>' for t in d['sc'])
-    o.append(f'<div class="box split"><div class="hd">Skills checklist<span>Tick when you can do it</span></div><div class="bd">{sc}'
-             f'<p class="src">Practice: your Freefall sheets for this lesson (in your modified unit workbook).</p><p class="src">{srcs}</p></div></div>')
+    o.append(f'<div class="box split"><div class="hd">Skills checklist<span>Tick when you can do it</span></div><div class="bd">{sc}'+
+             (f'<p class="src">Practice: the Practice questions above.</p>' if d.get('practice') and d.get('practice_only') else f'<p class="src">Practice: your Freefall sheets for this lesson (in your modified unit workbook).</p>')+f'<p class="src">{srcs}</p></div></div>')
     return ''.join(o)
 def main(W,keys=None):
     keys=keys or list(W)

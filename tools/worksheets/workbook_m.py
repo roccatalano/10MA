@@ -13,9 +13,21 @@ FF=json.load(open(f'{ROOT}/courses/freefall.json'));SH={s['id']:s for s in FF['s
 IDX={s['id']:s for ch in json.load(open(f'{ROOT}/library/C10.json'))['chapters'] for s in ch['subchapters']}
 key='10MAG|'+unit;us=[u for u in U['units'] if u['stream']=='10MAG'];num='G'+str(next(i for i,u in enumerate(us,1) if u['name']==unit))
 pages=lambda f:int(subprocess.run(['pdfinfo',f],capture_output=True,text=True).stdout.split('Pages:')[1].split()[0])
+def _yellow(book,p):
+    # FF8 notes pages have a yellow background; worksheets and answer pages are white
+    from PIL import Image;o=f'/tmp/ffchk_{p}';subprocess.run(['pdftoppm','-r','12','-png','-f',str(p),'-l',str(p),'-singlefile',book,o],capture_output=True)
+    im=Image.open(o+'.png').convert('RGB');w,h=im.size;r,g,b=im.getpixel((w//2,h-3));return b<200 and r>200 and g>200
 def ffpages(s):
-    r=range(s['start'],s['end']+1)
-    return [p for p in r if s['book']!='FF8' or (p-s['start'])==0 or (p-s['start'])%2==1]
+    r=list(range(s['start'],s['end']+1))
+    if s['book']!='FF8':return r
+    # FF8 = Teacher Edition: notes (yellow, 1-2 pages), worksheet (white), answers (white, straight after its worksheet), repeated.
+    # Keep yellow pages and the first white page of each run of white pages; drop the answer page that follows it.
+    out=[];prev_white=False
+    for p in r:
+        if _yellow(BOOK['FF8'],p):out.append(p);prev_white=False
+        elif not prev_white:out.append(p);prev_white=True
+        else:prev_white=False
+    return out
 plan=L['plans'][key];cf=L['cfats'][key];seen_ff=set();cnt={};seen={};parts=[];rows='';pno=2;last=None
 for l in plan:
     if l['kind']=='teach':[cnt.__setitem__(x['id'],cnt.get(x['id'],0)+1) for x in l['items']]

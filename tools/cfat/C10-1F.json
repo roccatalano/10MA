@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -60,6 +61,17 @@
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q11a (p. 322); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Find the gradient of the line joining $A(2, 3)$ and $B(3, 5)$.",
+     "sol": [
+      "$m = \\dfrac{5 - 3}{3 - 2} = 2$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4D Q2a (p. 270); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -118,6 +130,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q7 (p. 207)",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Find the equation of the line for which the gradient is $m = 3$ and one point is $(1, 8)$.",
+     "sol": [
+      "$8 = 3(1) + c$, $c = 5$",
+      "$y = 3x + 5$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4G Q2a (p. 288); adapted: stem reworded for a single part (Year 9 uses a point, not the y-intercept)",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -163,6 +187,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q11b (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "For the line connecting $(2, 6)$ and $(4, 10)$:<br><b>i</b>&nbsp; find the gradient &nbsp;&nbsp; <b>ii</b>&nbsp; find the equation.",
+     "sol": [
+      "i $m = \\dfrac{10 - 6}{4 - 2} = 2$",
+      "ii $6 = 2(2) + c$, $c = 2$: $y = 2x + 2$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4G Q4a (p. 288); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   }

@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -55,6 +56,18 @@
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q13b (p. 322); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "For the rule $y = 3x - 1$, decide if the given points lie on the graph.<br><b>i</b>&nbsp; $(1, 1)$ &nbsp;&nbsp; <b>ii</b>&nbsp; $(2, 5)$",
+     "sol": [
+      "i $3(1) - 1 = 2 \\ne 1$: no",
+      "ii $3(2) - 1 = 5$: yes"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 9B Q4b (p. 647); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -114,6 +127,17 @@
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q7d (p. 321); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "State the gradient and $y$-intercept coordinates for the graph of $y = 3x + 4$.",
+     "sol": [
+      "$m = 3$, $y$-intercept $(0, 4)$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4F Q1a (p. 280); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -157,6 +181,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q7c (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Find the gradient and $y$-intercept for $y = x - 2$ and sketch its graph.",
+     "sol": [
+      "$m = 1$, $y$-intercept $(0, -2)$",
+      "<svg class=\"fig\" width=\"218\" height=\"218\" viewBox=\"-15 -20 190 190\"><line x1=\"0\" y1=\"64.3\" x2=\"150.0\" y2=\"64.3\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M152.0 64.3L143.0 60.3L143.0 68.3z\" fill=\"#000\"/><path d=\"M-2.0 64.3L7.0 68.3L7.0 60.3z\" fill=\"#000\"/><line x1=\"64.3\" y1=\"0\" x2=\"64.3\" y2=\"150.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M64.3 -2.0L60.3 7.0L68.3 7.0z\" fill=\"#000\"/><path d=\"M64.3 152.0L68.3 143.0L60.3 143.0z\" fill=\"#000\"/><text x=\"160.0\" y=\"69.3\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">x</text><text x=\"72.3\" y=\"-6.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">y</text><text x=\"59.3\" y=\"80.3\" font-size=\"15\" text-anchor=\"end\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">O</text><line x1=\"25.7\" y1=\"145.8\" x2=\"145.8\" y2=\"25.7\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M148.6 22.8L139.4 26.4L145.1 32.0z\" fill=\"#d00000\"/><path d=\"M22.8 148.6L32.0 145.1L26.4 139.4z\" fill=\"#d00000\"/><circle cx=\"64.3\" cy=\"107.1\" r=\"4\" fill=\"#d00000\"/><text x=\"72.3\" y=\"122.1\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">(0, −2)</text><circle cx=\"107.1\" cy=\"64.3\" r=\"4\" fill=\"#d00000\"/><text x=\"111.1\" y=\"63.3\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">(2, 0)</text></svg>"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4F Q3a (p. 280); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -209,6 +245,18 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q8c (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "For the graph of the rule $y = 4x - 12$, find the $x$- and $y$-intercepts.",
+     "sol": [
+      "$y = 0$: $4x = 12$, $x = 3$: $(3, 0)$",
+      "$x = 0$: $y = -12$: $(0, -12)$"
+     ],
+     "src": "Cambridge Essential Mathematics 8 (3rd Ed), Exercise 9F Q2e (p. 684); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
     }
    ]
   },
@@ -247,6 +295,17 @@
       "<svg class=\"fig\" width=\"218\" height=\"167\" viewBox=\"-15 -20 190 145\"><line x1=\"0\" y1=\"45.0\" x2=\"150.0\" y2=\"45.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M152.0 45.0L143.0 41.0L143.0 49.0z\" fill=\"#000\"/><path d=\"M-2.0 45.0L7.0 49.0L7.0 41.0z\" fill=\"#000\"/><line x1=\"45.0\" y1=\"0\" x2=\"45.0\" y2=\"105.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M45.0 -2.0L41.0 7.0L49.0 7.0z\" fill=\"#000\"/><path d=\"M45.0 107.0L49.0 98.0L41.0 98.0z\" fill=\"#000\"/><text x=\"160.0\" y=\"50.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">x</text><text x=\"53.0\" y=\"-6.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">y</text><text x=\"40.0\" y=\"61.0\" font-size=\"15\" text-anchor=\"end\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">O</text><line x1=\"6.0\" y1=\"75.0\" x2=\"144.0\" y2=\"75.0\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M148.0 75.0L139.0 71.0L139.0 79.0z\" fill=\"#d00000\"/><path d=\"M2.0 75.0L11.0 79.0L11.0 71.0z\" fill=\"#d00000\"/><line x1=\"120.0\" y1=\"99.0\" x2=\"120.0\" y2=\"6.0\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M120.0 2.0L116.0 11.0L124.0 11.0z\" fill=\"#d00000\"/><path d=\"M120.0 103.0L124.0 94.0L116.0 94.0z\" fill=\"#d00000\"/><text x=\"60.0\" y=\"69.0\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">y = −2</text><text x=\"123.0\" y=\"15.0\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">x = 5</text></svg>"
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q4b, Q4d (p. 321); adapted: two parts on one set of axes",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Sketch the graph of the horizontal line $y = 4$.",
+     "sol": [
+      "<svg class=\"fig\" width=\"218\" height=\"218\" viewBox=\"-15 -20 190 190\"><line x1=\"0\" y1=\"125.0\" x2=\"150.0\" y2=\"125.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M152.0 125.0L143.0 121.0L143.0 129.0z\" fill=\"#000\"/><path d=\"M-2.0 125.0L7.0 129.0L7.0 121.0z\" fill=\"#000\"/><line x1=\"75.0\" y1=\"0\" x2=\"75.0\" y2=\"150.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M75.0 -2.0L71.0 7.0L79.0 7.0z\" fill=\"#000\"/><path d=\"M75.0 152.0L79.0 143.0L71.0 143.0z\" fill=\"#000\"/><text x=\"160.0\" y=\"130.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">x</text><text x=\"83.0\" y=\"-6.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">y</text><text x=\"70.0\" y=\"141.0\" font-size=\"15\" text-anchor=\"end\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">O</text><line x1=\"6.0\" y1=\"25.0\" x2=\"144.0\" y2=\"25.0\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M148.0 25.0L139.0 21.0L139.0 29.0z\" fill=\"#d00000\"/><path d=\"M2.0 25.0L11.0 29.0L11.0 21.0z\" fill=\"#d00000\"/><text x=\"105.0\" y=\"15.0\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">y = 4</text></svg>"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4C Q1c (p. 261); adapted: stem reworded for a single part",
      "vc2": "VC2M9A06"
     }
    ]
@@ -289,6 +348,17 @@
       "<svg class=\"fig\" width=\"218\" height=\"348\" viewBox=\"-15 -20 190 302\"><line x1=\"0\" y1=\"150.0\" x2=\"150.0\" y2=\"150.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M152.0 150.0L143.0 146.0L143.0 154.0z\" fill=\"#000\"/><path d=\"M-2.0 150.0L7.0 154.0L7.0 146.0z\" fill=\"#000\"/><line x1=\"75.0\" y1=\"0\" x2=\"75.0\" y2=\"262.5\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M75.0 -2.0L71.0 7.0L79.0 7.0z\" fill=\"#000\"/><path d=\"M75.0 264.5L79.0 255.5L71.0 255.5z\" fill=\"#000\"/><text x=\"160.0\" y=\"155.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">x</text><text x=\"83.0\" y=\"-6.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">y</text><text x=\"70.0\" y=\"166.0\" font-size=\"15\" text-anchor=\"end\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">O</text><line x1=\"39.4\" y1=\"256.8\" x2=\"123.1\" y2=\"5.7\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M124.4 1.9L117.7 9.2L125.3 11.7z\" fill=\"#d00000\"/><path d=\"M38.1 260.6L44.8 253.3L37.2 250.8z\" fill=\"#d00000\"/><line x1=\"2.7\" y1=\"5.4\" x2=\"128.6\" y2=\"257.1\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M130.4 260.7L129.9 250.9L122.8 254.5z\" fill=\"#d00000\"/><path d=\"M0.9 1.8L1.3 11.6L8.5 8.0z\" fill=\"#d00000\"/><circle cx=\"112.5\" cy=\"37.5\" r=\"4\" fill=\"#d00000\"/><text x=\"120.5\" y=\"46.5\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">(1, 3)</text><circle cx=\"112.5\" cy=\"225.0\" r=\"4\" fill=\"#d00000\"/><text x=\"120.5\" y=\"234.0\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">(1, −2)</text></svg>"
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q4e, Q4f (p. 321); adapted: two parts on one set of axes",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 1,
+     "q": "Sketch the graph of the linear relation $y = 2x$, which passes through the origin.",
+     "sol": [
+      "<svg class=\"fig\" width=\"218\" height=\"305\" viewBox=\"-15 -20 190 265\"><line x1=\"0\" y1=\"125.0\" x2=\"150.0\" y2=\"125.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M152.0 125.0L143.0 121.0L143.0 129.0z\" fill=\"#000\"/><path d=\"M-2.0 125.0L7.0 129.0L7.0 121.0z\" fill=\"#000\"/><line x1=\"75.0\" y1=\"0\" x2=\"75.0\" y2=\"225.0\" stroke=\"#000\" stroke-width=\"1.3\"/><path d=\"M75.0 -2.0L71.0 7.0L79.0 7.0z\" fill=\"#000\"/><path d=\"M75.0 227.0L79.0 218.0L71.0 218.0z\" fill=\"#000\"/><text x=\"160.0\" y=\"130.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">x</text><text x=\"83.0\" y=\"-6.0\" font-size=\"17\" text-anchor=\"start\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">y</text><text x=\"70.0\" y=\"141.0\" font-size=\"15\" text-anchor=\"end\" font-family=\"Times New Roman\" font-style=\"italic\" fill=\"#000\">O</text><line x1=\"27.7\" y1=\"219.6\" x2=\"134.8\" y2=\"5.4\" stroke=\"#d00000\" stroke-width=\"2.5\"/><path d=\"M136.6 1.8L129.0 8.0L136.2 11.6z\" fill=\"#d00000\"/><path d=\"M25.9 223.2L33.5 217.0L26.3 213.4z\" fill=\"#d00000\"/><circle cx=\"100.0\" cy=\"75.0\" r=\"4\" fill=\"#d00000\"/><text x=\"108.0\" y=\"80.0\" font-size=\"15\" text-anchor=\"start\" font-family=\"Times New Roman\" fill=\"#d00000\">(1, 2)</text></svg>"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 4C Q2a (p. 261); adapted: stem reworded for a single part",
      "vc2": "VC2M9A06"
     }
    ]

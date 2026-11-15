@@ -3,7 +3,8 @@
  "levels": {
   "L1": "Level 9 (review)",
   "L2": "Level 10",
-  "L3": "Level 10 extension / 10A"
+  "L3": "Level 10 extension / 10A",
+  "L0": "10MAG Modified (Year 8; Year 9 where first taught in Year 9)"
  },
  "skills": [
   {
@@ -53,6 +54,30 @@
      ],
      "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q16b (p. 208); adapted: stem reworded for a single part",
      "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve these simultaneous equations by first adding the equations.<br>$\\begin{aligned}4x + 3y = 5\\\\-4x - 5y = -3\\end{aligned}$",
+     "sol": [
+      "Add: $-2y = 2$, $y = -1$",
+      "$4x - 3 = 5$, $x = 2$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2J Q1c (p. 149); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve these simultaneous equations by first subtracting the equations.<br>$\\begin{aligned}2x + 7y = 9\\\\2x + 5y = 11\\end{aligned}$",
+     "sol": [
+      "Subtract: $2y = -2$, $y = -1$",
+      "$2x - 7 = 9$, $x = 8$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2J Q2b (p. 149); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
     }
    ]
   },
@@ -97,6 +122,32 @@
       "$12 - 5y = 7$, $y = 1$"
      ],
      "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q14f (p. 165); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve the following pair of simultaneous linear equations by using elimination.<br>$\\begin{aligned}-x + 4y = 2\\\\3x - 8y = -2\\end{aligned}$",
+     "sol": [
+      "$2 \\times [1]$: $-2x + 8y = 4$",
+      "Add: $x = 2$",
+      "$-2 + 4y = 2$, $y = 1$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2J Q3c (p. 149); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L0",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve the following pair of simultaneous linear equations by using elimination.<br>$\\begin{aligned}3x + 2y = 0\\\\4x + y = -5\\end{aligned}$",
+     "sol": [
+      "$2 \\times [2]$: $8x + 2y = -10$",
+      "Subtract: $5x = -10$, $x = -2$",
+      "$-8 + y = -5$, $y = 3$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Exercise 2J Q3d (p. 149); adapted: stem reworded for a single part",
      "vc2": "VC2M10A04"
     }
    ]

@@ -1,173 +1,221 @@
 {
- "note": "10MAG Modified: Freefall sheets per Year 10 subchapter (first draft by Claude 16 Nov 2026, Rocco to check on the planner). Empty list = no Freefall match yet: decide (closest sheets / Cambridge 7-8 / leave unmodified) and log it. status: draft | approved per unit.",
- "sheets": {
-  "C10-9A": [
-   "FF8 15-01"
-  ],
-  "C10-9B": [
-   "FF8 08-01",
-   "FF8 08-02",
-   "FF8 08-05",
-   "FF8 08-06",
-   "FF8 08-07",
-   "FF9 04-06"
-  ],
-  "C10-9C": [
-   "FF9 03-07"
-  ],
-  "C10-9D": [
-   "FF8 15-02",
-   "FF8 15-03",
-   "FF8 15-05",
-   "FF8 15-07",
-   "FF8 15-13"
-  ],
-  "C10-9E": [
-   "FF8 15-05",
-   "FF8 15-06"
-  ],
-  "C10-1A": [
-   "FF8 06-03",
-   "FF8 06-05",
-   "FF8 06-07",
-   "FF7 10-04"
-  ],
-  "C10-1B": [
-   "FF8 09-03",
-   "FF8 09-05",
-   "FF8 09-06"
-  ],
-  "C10-1C": [
-   "FF8 09-10",
-   "FF8 09-11"
-  ],
-  "C10-1E": [
-   "FF8 14-02",
-   "FF8 14-03",
-   "FF8 14-05"
-  ],
-  "C10-1F": [
-   "FF8 14-06",
-   "FF8 14-07"
-  ],
-  "C10-1G": [
-   "FF8 03-17",
-   "FF8 03-18"
-  ],
-  "C10-1H": [
-   "FF8 14-08"
-  ],
-  "C10-1I": [],
-  "C10-1J": [],
-  "C10-1K": [
-   "FF8 09-12"
-  ],
-  "C10-1L": [],
-  "C10-5A": [
-   "FF8 06-12",
-   "FF8 06-13"
-  ],
-  "C10-5B": [
-   "FF8 06-14"
-  ],
-  "C10-5C": [
-   "FF8 06-10",
-   "FF8 06-11"
-  ],
-  "C10-9H": [
-   "FF7 15-04"
-  ],
-  "C10-9I": [
-   "FF8 08-10",
-   "FF8 08-11"
-  ],
-  "C10-9J": [],
-  "C10-4E": [
-   "FF8 05-15",
-   "FF8 05-16",
-   "FF8 05-17"
-  ],
-  "C10-4F": [
-   "FF8 03-08",
-   "FF8 03-09",
-   "FF8 03-10",
-   "FF8 03-11",
-   "FF8 03-14"
-  ],
-  "C10-4G": [
-   "FF8 05-01",
-   "FF8 05-02",
-   "FF8 05-03",
-   "FF8 05-04",
-   "FF8 05-05",
-   "FF9 02-07"
-  ],
-  "C10-4I": [
-   "FF8 16-03",
-   "FF8 16-08",
-   "FF8 16-16"
-  ],
-  "C10-4K": [
-   "FF8 07-03",
-   "FF8 07-04",
-   "FF8 07-07"
-  ],
-  "C10-6A": [],
-  "C10-6B": [],
-  "C10-6C": [],
-  "C10-6D": [],
-  "C10-2K": [],
-  "C10-2L": [],
-  "C10-2M": [],
-  "C10-2N": [],
-  "C10-8A": [
-   "FF8 10-01",
-   "FF8 10-02"
-  ],
-  "C10-8B": [
-   "FF9 03-06",
-   "FF9 03-07"
-  ],
-  "C10-8C": [
-   "FF8 10-06"
-  ],
-  "C10-8D": [],
-  "C10-8F": [
-   "FF8 10-07"
-  ]
- },
- "approved": {
-  "10MAG|Univariate Statistics": "2026-11-16 (pilot)"
- },
- "notes": {},
- "materials": {
-  "10MAG|Univariate Statistics": {
-   "cfats": [
-    {
-     "n": 1,
-     "html": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C.html",
-     "solutions": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C - Solutions.html"
+  "note": "10MAG Modified: Freefall sheets per Year 10 subchapter (first draft by Claude 16 Nov 2026, Rocco to check on the planner). Empty list = no Freefall match yet: decide (closest sheets / Cambridge 7-8 / leave unmodified) and log it. status: draft | approved per unit.",
+  "sheets": {
+    "C10-9A": [
+      "FF8 15-01"
+    ],
+    "C10-9B": [
+      "FF8 08-01",
+      "FF8 08-02",
+      "FF8 08-05",
+      "FF8 08-06",
+      "FF8 08-07",
+      "FF9 04-06"
+    ],
+    "C10-9C": [
+      "FF9 03-07"
+    ],
+    "C10-9D": [
+      "FF8 15-02",
+      "FF8 15-03",
+      "FF8 15-05",
+      "FF8 15-07",
+      "FF8 15-13"
+    ],
+    "C10-9E": [
+      "FF8 15-05",
+      "FF8 15-06"
+    ],
+    "C10-1A": [
+      "FF8 06-03",
+      "FF8 06-05",
+      "FF8 06-07",
+      "FF7 10-04"
+    ],
+    "C10-1B": [
+      "FF8 09-03",
+      "FF8 09-05",
+      "FF8 09-06"
+    ],
+    "C10-1C": [
+      "FF8 09-10",
+      "FF8 09-11"
+    ],
+    "C10-1E": [
+      "FF8 14-02",
+      "FF8 14-03",
+      "FF8 14-05"
+    ],
+    "C10-1F": [
+      "FF8 14-06",
+      "FF8 14-07"
+    ],
+    "C10-1G": [
+      "FF8 03-17",
+      "FF8 03-18"
+    ],
+    "C10-1H": [
+      "FF8 14-08"
+    ],
+    "C10-1I": [],
+    "C10-1J": [],
+    "C10-1K": [
+      "FF8 09-12"
+    ],
+    "C10-1L": [],
+    "C10-5A": [
+      "FF8 06-12",
+      "FF8 06-13"
+    ],
+    "C10-5B": [
+      "FF8 06-14"
+    ],
+    "C10-5C": [
+      "FF8 06-10",
+      "FF8 06-11"
+    ],
+    "C10-9H": [
+      "FF7 15-04"
+    ],
+    "C10-9I": [
+      "FF8 08-10",
+      "FF8 08-11"
+    ],
+    "C10-9J": [],
+    "C10-4E": [
+      "FF8 05-15",
+      "FF8 05-16",
+      "FF8 05-17"
+    ],
+    "C10-4F": [
+      "FF8 03-08",
+      "FF8 03-09",
+      "FF8 03-10",
+      "FF8 03-11",
+      "FF8 03-14"
+    ],
+    "C10-4G": [
+      "FF8 05-01",
+      "FF8 05-02",
+      "FF8 05-03",
+      "FF8 05-04",
+      "FF8 05-05",
+      "FF9 02-07"
+    ],
+    "C10-4I": [
+      "FF8 16-03",
+      "FF8 16-08",
+      "FF8 16-16"
+    ],
+    "C10-4K": [
+      "FF8 07-03",
+      "FF8 07-04",
+      "FF8 07-07"
+    ],
+    "C10-6A": [],
+    "C10-6B": [],
+    "C10-6C": [],
+    "C10-6D": [],
+    "C10-2K": [],
+    "C10-2L": [],
+    "C10-2M": [],
+    "C10-2N": [],
+    "C10-8A": [
+      "FF8 10-01",
+      "FF8 10-02"
+    ],
+    "C10-8B": [
+      "FF9 03-06",
+      "FF9 03-07"
+    ],
+    "C10-8C": [
+      "FF8 10-06"
+    ],
+    "C10-8D": [],
+    "C10-8F": [
+      "FF8 10-07"
+    ]
+  },
+  "approved": {
+    "10MAG|Univariate Statistics": "2026-11-16 (pilot)"
+  },
+  "notes": {},
+  "materials": {
+    "10MAG|Univariate Statistics": {
+      "cfats": [
+        {
+          "n": 1,
+          "html": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C.html",
+          "solutions": "assessments/CFAT 1.9.1M - 10MAG Modified - 9A-9C - Solutions.html"
+        },
+        {
+          "n": 2,
+          "html": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E.html",
+          "solutions": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E - Solutions.html"
+        }
+      ],
+      "worksheets": {
+        "0": "lessons/C10-9A modified worksheet.html",
+        "1": "lessons/C10-9B modified worksheet.html",
+        "2": "lessons/C10-9C modified worksheet.html",
+        "3": "lessons/C10-9D modified worksheet.html",
+        "4": "lessons/C10-9E modified worksheet (part 1).html",
+        "5": "lessons/C10-9E modified worksheet (part 2).html"
+      },
+      "workbook": "G: 01 Lesson materials / 10MAG Modified Univariate Statistics - Unit workbook.pdf (Freefall: G: only)",
+      "workbook_url": "https://drive.google.com/file/d/1tm3OscYIYqqEzlmUkJp7mW8RkGEkVH2E/view"
     },
-    {
-     "n": 2,
-     "html": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E.html",
-     "solutions": "assessments/CFAT 1.9.2M - 10MAG Modified - 9D-9E - Solutions.html"
+    "10MAG|Algebra and Linear Relations": {
+      "cfats": [
+        {
+          "n": 1,
+          "html": "assessments/CFAT 3.1.1M - 10MAG Modified - 1A-1C.html",
+          "solutions": "assessments/CFAT 3.1.1M - 10MAG Modified - 1A-1C - Solutions.html"
+        },
+        {
+          "n": 2,
+          "html": "assessments/CFAT 3.1.2M - 10MAG Modified - 1E-1F.html",
+          "solutions": "assessments/CFAT 3.1.2M - 10MAG Modified - 1E-1F - Solutions.html"
+        },
+        {
+          "n": 3,
+          "html": "assessments/CFAT 3.1.3M - 10MAG Modified - 1G-1H.html",
+          "solutions": "assessments/CFAT 3.1.3M - 10MAG Modified - 1G-1H - Solutions.html"
+        },
+        {
+          "n": 4,
+          "html": "assessments/CFAT 3.1.4M - 10MAG Modified - 1I-1J.html",
+          "solutions": "assessments/CFAT 3.1.4M - 10MAG Modified - 1I-1J - Solutions.html"
+        },
+        {
+          "n": 5,
+          "html": "assessments/CFAT 3.1.5M - 10MAG Modified - 1K-1L.html",
+          "solutions": "assessments/CFAT 3.1.5M - 10MAG Modified - 1K-1L - Solutions.html"
+        }
+      ],
+      "worksheets": {
+        "0": "lessons/C10-1A modified worksheet.html",
+        "1": "lessons/C10-1B modified worksheet.html",
+        "2": "lessons/C10-1C modified worksheet.html",
+        "3": "lessons/C10-1E modified worksheet.html",
+        "4": "lessons/C10-1F modified worksheet (part 1).html",
+        "5": "lessons/C10-1F modified worksheet (part 2).html",
+        "6": "lessons/C10-1G modified worksheet.html",
+        "7": "lessons/C10-1H modified worksheet (part 1).html",
+        "8": "lessons/C10-1H modified worksheet (part 2).html",
+        "9": "lessons/C10-1I modified worksheet (part 1).html",
+        "10": "lessons/C10-1I modified worksheet (part 2).html",
+        "11": "lessons/C10-1J modified worksheet.html",
+        "12": "lessons/C10-1K modified worksheet.html",
+        "13": "lessons/C10-1L modified worksheet (part 1).html",
+        "14": "lessons/C10-1L modified worksheet (part 2).html"
+      },
+      "workbook": "G: 01 Lesson materials / 10MAG Modified Algebra and Linear Relations - Unit workbook.pdf (Freefall: G: only)",
+      "workbook_url": ""
     }
-   ],
-   "worksheets": {
-    "0": "lessons/C10-9A modified worksheet.html",
-    "1": "lessons/C10-9B modified worksheet.html",
-    "2": "lessons/C10-9C modified worksheet.html",
-    "3": "lessons/C10-9D modified worksheet.html",
-    "4": "lessons/C10-9E modified worksheet (part 1).html",
-    "5": "lessons/C10-9E modified worksheet (part 2).html"
-   },
-   "workbook": "G: 01 Lesson materials / 10MAG Modified Univariate Statistics - Unit workbook.pdf (Freefall: G: only)",
-   "workbook_url": "https://drive.google.com/file/d/1tm3OscYIYqqEzlmUkJp7mW8RkGEkVH2E/view"
+  },
+  "g_folders": {
+    "lesson_materials": "https://drive.google.com/drive/folders/11KwOTtrBGBXJh-GCPPORWs-ed8A7L8JV",
+    "assessments": "https://drive.google.com/drive/folders/1IrQAGrs35sOzjBMEs25T2_vmU-yb_FNu"
   }
- },
- "g_folders": {
-  "lesson_materials": "https://drive.google.com/drive/folders/11KwOTtrBGBXJh-GCPPORWs-ed8A7L8JV",
-  "assessments": "https://drive.google.com/drive/folders/1IrQAGrs35sOzjBMEs25T2_vmU-yb_FNu"
- }
 }
