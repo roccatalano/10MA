@@ -20,6 +20,7 @@ Design: a **subchapter library** (one card per subchapter in both books) and **c
 ## Sources (in 02 Sources)
 - `C10` = 10 10A\Cambridge\2024 - Essential Mathematics for the Victorian Curriculum 10 & 10A Third Edition.pdf
 - `G11` = 11MAG\Cambridge\2023-cambridge-units-1-2.pdf (solutions: 2023-cambridge-units-1-2-solutions.pdf)
+- `E11` = 11MAG\Edrolo\2023-edrolo-units-1-2.pdf — Edrolo General Maths U1&2; source of exam-style questions (VCAA reprints at the back of subchapters) for the G11-based units
 
 ## Rules (carried over from 12MAG; confirm or change with Rocco)
 1. **Never write questions.** Copy verbatim and cite. Adapt only when unavoidable and label it "adapted".
