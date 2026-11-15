@@ -1,0 +1,172 @@
+{
+ "card": "C10-1B",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can solve linear equations including with brackets and variables on both sides.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve $3(2x - 3) = 2$.",
+     "sol": [
+      "$6x - 9 = 2$",
+      "$6x = 11$",
+      "$x = \\dfrac{11}{6}$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q7b (p. 164); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A03"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve $7(x - 12) = -3(x - 2)$.",
+     "sol": [
+      "$7x - 84 = -3x + 6$",
+      "$10x = 90$",
+      "$x = 9$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4A Q6l (p. 162); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve $3 - 2(4 - 5x) = -20$. Leave your answer as a fraction where appropriate.",
+     "sol": [
+      "$3 - 8 + 10x = -20$",
+      "$10x = -15$",
+      "$x = -\\dfrac{3}{2}$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q1a (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A12"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "skill": "I can solve linear equations involving simple fractions.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "mc",
+     "marks": 1,
+     "q": "The solution to $\\dfrac{x}{3} - 1 = 4$ is:",
+     "options": [
+      "$x = 13$",
+      "$x = 7$",
+      "$x = 9$",
+      "$x = 15$",
+      "$x = \\dfrac{5}{3}$"
+     ],
+     "answer": "D",
+     "sol": [
+      "$\\dfrac{x}{3} = 5$",
+      "$x = 15$ (D)"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, multiple-choice Q3 (p. 165)",
+     "vc2": "VC2M9A03"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "q": "The solution to $\\dfrac{x - 4}{2} = -3$ is:",
+     "options": [
+      "$x = 2$",
+      "$x = -2$",
+      "$x = 10$",
+      "$x = -10$",
+      "$x = -14$"
+     ],
+     "answer": "B",
+     "sol": [
+      "$x - 4 = -6$",
+      "$x = -2$ (B)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q1 (p. 207)",
+     "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L3",
+     "type": "mc",
+     "marks": 1,
+     "q": "Which of these equations has the solution $x = -5$?",
+     "options": [
+      "$\\dfrac{12}{x} = -2.4$",
+      "$\\dfrac{2x + 3}{13} = 1$",
+      "$3x - 7 = 8$",
+      "$\\dfrac{3}{2 - x} = 1$",
+      "$3x + 1 = 8(x + 6)$"
+     ],
+     "answer": "A",
+     "sol": [
+      "$\\dfrac{12}{-5} = -2.4$ ✓",
+      "(A)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q2 (p. 207)",
+     "vc2": "VC2M10A12"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "skill": "I can add / subtract simple algebraic fractions to solve an equation.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "mc",
+     "marks": 1,
+     "q": "What does $\\dfrac{2x}{3} + \\dfrac{x}{4}$ equal?",
+     "options": [
+      "$\\dfrac{3x}{7}$",
+      "$\\dfrac{11x}{12}$",
+      "$\\dfrac{3x}{12}$",
+      "$\\dfrac{11x}{7}$",
+      "$\\dfrac{x^2}{6}$"
+     ],
+     "answer": "B",
+     "sol": [
+      "$= \\dfrac{8x}{12} + \\dfrac{3x}{12} = \\dfrac{11x}{12}$ (B)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 2 review, multiple-choice Q6 (p. 98)",
+     "vc2": "VC2M10A03"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve $\\dfrac{5x}{6} + \\dfrac{4x}{3} = \\dfrac{13}{2}$.",
+     "sol": [
+      "$\\dfrac{5x}{6} + \\dfrac{8x}{6} = \\dfrac{13x}{6}$",
+      "$\\dfrac{13x}{6} = \\dfrac{13}{2}$",
+      "$x = 3$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4A Q9a (p. 162); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A12"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve $\\dfrac{3x}{4} - \\dfrac{4x}{3} = \\dfrac{21}{12}$.",
+     "sol": [
+      "$\\dfrac{9x}{12} - \\dfrac{16x}{12} = -\\dfrac{7x}{12}$",
+      "$-\\dfrac{7x}{12} = \\dfrac{21}{12}$",
+      "$-7x = 21,\\ x = -3$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4A Q9b (p. 162); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A12"
+    }
+   ]
+  }
+ ]
+}
