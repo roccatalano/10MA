@@ -55,3 +55,7 @@
 ## 15 Nov 2026 (late) — 2027 tab
 - Added the 2027 tab (see PLANNER.md): term calendar, 4 sessions/day (3 Wed), 5 classes, Step Up week from 2026, timetable saved to `courses/timetable.json`.
 - Open: real timetables (not out yet); Step Up dates (guessed 30 Nov–4 Dec 2026); pupil-free days (mark by clicking a date); fortnightly timetable not supported yet (copy is week-by-week); Step Up lessons currently count as the first unit lessons; 10MAG unit 1 has no lesson count so it is skipped.
+
+## 15 Nov 2026 (late) — Lesson planning tab
+- Added the Lesson planning tab + `courses/lessons.json` with Claude's suggested grouping (see PLANNER.md). Rocco to review/edit and press "Use N" to push lesson counts to the units.
+- Next once groupings are agreed: fill Do Now slots per lesson (C10 progress quiz/review; G11 do_now_pool).

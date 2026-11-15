@@ -1,0 +1,1871 @@
+{
+ "note": "Lesson groupings per unit, keyed 'stream|unit name'. Suggested by Claude 15 Nov 2026: 10MAG slow pace (most subchapters over 2 lessons), 10MAA standard pace. Edit on the Lesson planning tab.",
+ "plans": {
+  "10MAG|Univariate Statistics": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Algebra and Linear Relations": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Quadratics and Parabolas": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Bivariate Data": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Trigonometry and Measurement": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Networks": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2M"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2M"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2N"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-2N"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAG|Probability": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Algebra and Linear Relations": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Data Analysis": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2A"
+     },
+     {
+      "id": "G11-2B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-2I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-7E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Indices, Logs, Exponentials and Surds": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-3L"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Sequences and Finance": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-1A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-1B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-1C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-1D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-1E"
+     },
+     {
+      "id": "G11-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-3I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Trigonometry and Measurement": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Quadratics and Parabolas": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-7F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Matrices and Networks": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4A"
+     },
+     {
+      "id": "G11-4B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4I"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8E"
+     },
+     {
+      "id": "G11-8F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-8H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ],
+  "10MAA|Probability": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8D"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
+    "kind": "assess",
+    "items": [],
+    "note": ""
+   }
+  ]
+ }
+}

@@ -97,7 +97,18 @@ button,select,input{font:inherit}
 .tabs{display:flex;gap:4px;background:var(--other);border-radius:10px;padding:3px}
 .tabs button{border:0;background:none;padding:5px 14px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--muted)}
 .tabs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
-body.y27 .cols,body.y27 #hint{display:none}body:not(.y27) #year{display:none}
+body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,body:not(.tab-les) #lessons{display:none}
+#lessons{flex:1;overflow:auto;padding:14px 16px}
+.lu .lh{cursor:pointer}.lu .caret{color:var(--muted)}
+.lrow{display:flex;gap:8px;align-items:flex-start;border-top:1px solid var(--line);padding:5px 2px}.lrow.over{background:#f4f7ff;outline:2px dashed var(--accent)}
+.lrow.review{background:#fdf7ec}.lrow.assess{background:#fcf1f1}
+.ln{font-weight:700;width:34px;flex:none;padding-top:3px}.lk{font-size:11px;color:var(--muted);width:78px;flex:none;padding-top:4px}
+.lrow.assess .lk{color:var(--sac-i);font-weight:600}.lrow.review .lk{color:var(--review-i);font-weight:600}
+.lch{flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center;min-width:0}
+.lc{display:inline-flex;align-items:center;gap:4px;border-left:4px solid var(--lesson-i);background:#fbfaf6;border-radius:6px;padding:2px 4px 2px 7px;font-size:12.5px;cursor:grab;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lc.G11{border-left-color:var(--g11)}.lc .tt{cursor:pointer}.lc .tt:hover{text-decoration:underline}.lc i{font-style:normal;font-size:10.5px;background:var(--review);color:var(--review-i);border-radius:5px;padding:0 5px}
+.lnote{border:1px solid transparent;border-radius:5px;padding:2px 5px;font-size:12px;color:var(--muted);min-width:120px;flex:1;background:transparent}.lnote:hover,.lnote:focus{border-color:var(--line);background:#fff}
+.lbtn{flex:none;white-space:nowrap}.loose{margin-top:8px;padding:8px;border:1.5px dashed var(--sac-i);border-radius:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12px}
 #year{flex:1;overflow:auto;padding:14px 16px}
 .ybar{position:sticky;top:-14px;z-index:5;background:var(--bg);padding:6px 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .cls{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:13px}
@@ -145,7 +156,7 @@ a{color:var(--accent)}
 <body>
 <header>
   <h1>10MA Course Planner</h1>
-  <div class="tabs"><button data-t="units" class="on">Unit planning</button><button data-t="y27">2027</button></div>
+  <div class="tabs"><button data-t="units" class="on">Unit planning</button><button data-t="les">Lesson planning</button><button data-t="y27">2027</button></div>
   <span class="src" id="hint">Drag a subchapter (or a whole chapter with ⠿ all) into a unit. Click a subchapter for its lesson plan.</span>
   <div class="save"><span id="saved"></span>
     <button class="btn dark" id="gh" title="Commit the unit plan to github.com/roccatalano/10MA">Save to GitHub</button>
@@ -162,7 +173,7 @@ a{color:var(--accent)}
       <span class="src">Show:</span><select id="filt" class="btn"><option value="">Both streams</option><option>10MAG</option><option>10MAA</option></select></div>
       <div id="units"></div></div></section>
 </div>
-<div id="year"></div>
+<div id="lessons"></div><div id="year"></div>
 <div class="modal" id="modal"><div class="detail" id="detail"></div></div>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -171,9 +182,10 @@ const SECN={building_understanding:'Building understanding',fluency:'Fluency',pr
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
 let LIB={},IDX={},UNITS=null,openChaps=new Set(JSON.parse(store.get('10ma-open')||'[]')),openUnits=new Set(),filt='';
 
+const LKEY='10ma-lessons-v1',LFILE='courses/lessons.json';
 const REPO='roccatalano/10MA',FILE='courses/units.json',TTFILE='courses/timetable.json',TTKEY='10ma-tt-v1';
 const apiOf=f=>`https://api.github.com/repos/${REPO}/contents/${f}`;
-let dirty=false,ttDirty=false,Y=null,TT=null;
+let dirty=false,ttDirty=false,Y=null,TT=null,LP=null,lpDirty=false;
 const b64e=s=>btoa(unescape(encodeURIComponent(s))), b64d=s=>decodeURIComponent(escape(atob(s.replace(/\n/g,''))));
 async function loadRepo(file,fallback){
   const tok=store.get('10ma-gh');
@@ -182,8 +194,9 @@ async function loadRepo(file,fallback){
   return fallback;
 }
 Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
-  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}})])
-.then(([c10,g11,units,yr,tt])=>{
+  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}})])
+.then(([c10,g11,units,yr,tt,lp])=>{
+  {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll}
   LIB={C10:c10,G11:g11};Y=yr;
   for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
   const local=store.get(KEY);
@@ -191,9 +204,9 @@ Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G1
   const lt=store.get(TTKEY);TT=lt?JSON.parse(lt):tt;ttDirty=!!lt;
   TT.slots=TT.slots||{};TT.days_off=TT.days_off||{};
   status();renderLib();renderUnits();
-  if(store.get('10ma-tab')==='y27')setTab('y27');
+  setTab(store.get('10ma-tab')||'units');
 });
-function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty;
+function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty||lpDirty;
   setSaved(msg||(d?'Unsaved changes (kept in this browser)':(tok?'All saved to GitHub':'Up to date with GitHub')));
   const b=document.getElementById('gh');b.disabled=!d;b.style.opacity=d?1:.45;}
 async function putGH(file,data,msg,H){
@@ -208,14 +221,15 @@ async function saveGH(){
   const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
   try{
     if(dirty){await putGH(FILE,UNITS,'Update unit plan from planner page',H);try{localStorage.removeItem(KEY)}catch(_){}dirty=false}
-    if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY)}catch(_){}ttDirty=false}
+    if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY)}catch(_){}ttDirty=false}
+    if(lpDirty){await putGH(LFILE,LP,'Update lesson groupings from planner page',H);try{localStorage.removeItem(LKEY)}catch(_){}lpDirty=false}
     status('Saved to GitHub · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
   }catch(e){status('Not saved: '+e.message);alert('Could not save to GitHub.\n\n'+e.message+'\n\nYour changes are still kept in this browser.')}
 }
 function askKey(){const cur=store.get('10ma-gh');const k=prompt('Paste your GitHub access key (fine-grained token with Contents: read and write on roccatalano/10MA).\nIt is kept only in this browser. Leave blank to remove it.',cur?'(key saved — paste a new one to replace)':'');
   if(k===null||k.startsWith('(key saved'))return;if(k.trim())store.set('10ma-gh',k.trim());else{try{localStorage.removeItem('10ma-gh')}catch(_){}}status()}
 document.getElementById('gh').onclick=saveGH;document.getElementById('ghkey').onclick=askKey;
-function save(){store.set(KEY,JSON.stringify(UNITS));dirty=true;status();renderUnits();renderLib();if(document.body.classList.contains('y27'))renderYear()}
+function save(){store.set(KEY,JSON.stringify(UNITS));dirty=true;status();renderUnits();renderLib();if(document.body.classList.contains('tab-y27'))renderYear();if(document.body.classList.contains('tab-les'))renderLessons()}
 function saveTT(){store.set(TTKEY,JSON.stringify(TT));ttDirty=true;status();renderYear()}
 function setSaved(t){document.getElementById('saved').textContent=t}
 
@@ -323,7 +337,7 @@ document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
 document.getElementById('impf').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{UNITS=migrate(JSON.parse(t));save()}catch(_){alert('That file is not a units.json')}})};
-document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY)}catch(_){}location.reload()}};
+document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units, lessons and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY)}catch(_){}location.reload()}};
 
 /* ---------- 2027 tab: calendar + class timetables ---------- */
 const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -335,7 +349,7 @@ const nice=s=>{const d=D(s);return `${DOW[d.getUTCDay()]} ${d.getUTCDate()} ${MO
 const short=s=>{const d=D(s);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
 const mondayOf=s=>add(s,-((dow(s)+6)%7));
 let cls=store.get('10ma-cls')||'',openBlk=new Set(JSON.parse(store.get('10ma-blk')||'null')||['su','t1','t2','t3','t4']);
-function setTab(t){document.body.classList.toggle('y27',t==='y27');document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));store.set('10ma-tab',t);if(t==='y27')renderYear()}
+function setTab(t){['units','les','y27'].forEach(x=>document.body.classList.toggle('tab-'+x,x===t));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));store.set('10ma-tab',t);if(t==='y27')renderYear();if(t==='les')renderLessons()}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.t));
 const SU=()=>TT.stepup||Y.stepup;
 const PH=()=>Object.fromEntries(Y.public_holidays.map(h=>[h.date,h.name]));
@@ -414,7 +428,7 @@ function renderYear(){
 }
 function pickCls(c){cls=c;store.set('10ma-cls',c);renderYear()}
 function cycle(d){const ids=['',...new Set(TT.classes.map(c=>c.teacher))];pickCls(ids[(ids.indexOf(cls)+d+ids.length)%ids.length])}
-document.addEventListener('keydown',e=>{if(!document.body.classList.contains('y27')||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||modal.classList.contains('on'))return;
+document.addEventListener('keydown',e=>{if(!document.body.classList.contains('tab-y27')||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||modal.classList.contains('on'))return;
   if(e.key==='ArrowLeft')cycle(-1);if(e.key==='ArrowRight')cycle(1)});
 function copyWeek(m,scope){
   const mine=TT.classes.filter(x=>x.teacher===cls);if(!mine.length)return;
@@ -424,6 +438,60 @@ function copyWeek(m,scope){
   for(let w=add(m,7);w<=end;w=add(w,7))for(let i=0;i<5;i++){const t=add(w,i);if(t>end||!rangeOf(t)||rangeOf(t)==='su'&&scope!=='su')continue;
     const src=(S[add(m,i)]||[]).filter(p=>p<=nSess(t));if(src.length)S[t]=[...src];else delete S[t]}}
   saveTT()}
+
+/* ---------- Lesson planning tab: subchapters grouped into lessons per unit ---------- */
+const KIND={teach:'Lesson',review:'Review',assess:'Assessment'};
+let lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
+const ukey=u=>u.stream+'|'+u.name;
+function planOf(u){ // stored plan, with subchapters no longer in the unit dropped; default = 1 lesson each + review + assessment
+  const ids=new Set(u.items.map(x=>x.id));let p=LP.plans[ukey(u)];
+  if(!p)return u.items.map(x=>({kind:'teach',items:[{id:x.id}],note:''})).concat([{kind:'review',items:[],note:''},{kind:'assess',items:[],note:''}]);
+  return p.map(l=>({...l,items:l.items.filter(x=>ids.has(x.id))}));
+}
+function setPlan(u,p){LP.plans[ukey(u)]=p;store.set(LKEY,JSON.stringify(LP));lpDirty=true;status();renderLessons()}
+function renderLessons(){
+  if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
+  const us=UNITS.units.filter(u=>u.stream===lstream);
+  let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}
+   <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'Suggested pace: slow (most subchapters over 2 lessons).':'Suggested pace: standard (heavy subchapters split, light ones paired).'}</span></div>`;
+  h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
+    p.forEach(l=>l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
+    const loose=u.items.filter(x=>!cnt[x.id]),nt=p.filter(l=>l.kind==='teach').length;
+    let b='';if(open){let n=0;
+      b=p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
+        <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];seen[x.id]=(seen[x.id]||0)+1;
+          return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
+         <input class="lnote" placeholder="note…" value="${esc(l.note||'')}"></div>
+        <span class="lbtn"><button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete lesson">✕</button></span></div>`}).join('');
+      b+=(loose.length?`<div class="loose"><b>Not in a lesson yet:</b> ${loose.map(x=>`<span class="lc ${x.id.split('-')[0]}" draggable="true" data-id="${x.id}"><b>${IDX[x.id]?.sub||x.id}</b> <span class="tt">${esc(IDX[x.id]?.title||'')}</span></span>`).join('')}</div>`:'')
+       +`<div class="urow" style="margin-top:8px"><button class="btn addl" data-kind="teach">+ Lesson</button><button class="btn addl" data-kind="review">+ Review</button><button class="btn addl" data-kind="assess">+ Assessment</button>${LP.plans[ukey(u)]?'<button class="btn rst" title="Go back to one lesson per subchapter">Reset</button>':''}</div>`}
+    return `<div class="unit lu ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}"><div class="uh lh"><span class="num">${SH[u.stream]}${numOf(u)}</span><b style="flex:1">${esc(u.name)}</b>
+      <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
+      ${(+u.lessons||0)!==p.length?`<button class="btn uset" title="Set this unit's lesson count on the Unit planning tab to ${p.length}">Use ${p.length}</button>`:''}<span class="caret">${open?'▾':'▸'}</span></div>${open?`<div class="ub">${b}</div>`:''}</div>`}).join('')||'<p class="empty">No units for this stream yet</p>';
+  box.innerHTML=h;box.scrollTop=top;
+  box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>{lstream=b.dataset.s;store.set('10ma-lstream',lstream);renderLessons()});
+  box.querySelectorAll('.lu').forEach(el=>{const u=UNITS.units[+el.dataset.i],P=()=>JSON.parse(JSON.stringify(planOf(u)));
+    el.querySelector('.lh').onclick=e=>{if(e.target.closest('button'))return;const k=ukey(u);openL.has(k)?openL.delete(k):openL.add(k);store.set('10ma-lopen',JSON.stringify([...openL]));renderLessons()};
+    const us=el.querySelector('.uset');if(us)us.onclick=()=>{u.lessons=planOf(u).length;save();renderLessons()};
+    el.querySelectorAll('.addl').forEach(b=>b.onclick=()=>{const p=P();p.push({kind:b.dataset.kind,items:[],note:''});setPlan(u,p)});
+    const r=el.querySelector('.rst');if(r)r.onclick=()=>{if(confirm('Reset this unit to one lesson per subchapter?')){delete LP.plans[ukey(u)];setPlan(u,planOf(u))}};
+    el.querySelectorAll('.lc').forEach(c=>{
+      c.ondragstart=e=>{e.stopPropagation();e.dataTransfer.setData('text/plain',JSON.stringify({u:+el.dataset.i,k:c.dataset.k,j:c.dataset.j,id:c.dataset.id}))};
+      c.querySelector('.tt').onclick=()=>showDetail(c.dataset.id||planOf(u)[+c.dataset.k].items[+c.dataset.j].id);
+      const sp=c.querySelector('.sp');if(sp)sp.onclick=()=>{const p=P(),k=+c.dataset.k,x=p[k].items[+c.dataset.j];p.splice(k+1,0,{kind:'teach',items:[{id:x.id}],note:''});setPlan(u,p)};
+      const rm=c.querySelector('.rm');if(rm)rm.onclick=()=>{const p=P();p[+c.dataset.k].items.splice(+c.dataset.j,1);setPlan(u,p)}});
+    el.querySelectorAll('.lrow').forEach(row=>{const k=+row.dataset.k;
+      row.ondragover=e=>{e.preventDefault();row.classList.add('over')};row.ondragleave=()=>row.classList.remove('over');
+      row.ondrop=e=>{e.preventDefault();row.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+        if(d.u!==+el.dataset.i)return;const p=P();let it;
+        if(d.id)it={id:d.id};else{if(+d.k===k)return;it=p[+d.k].items.splice(+d.j,1)[0]}
+        p[k].items.push(it);setPlan(u,p)};
+      row.querySelector('.lnote').onchange=e=>{const p=P();p[k].note=e.target.value;setPlan(u,p)};
+      row.querySelector('.up').onclick=()=>{if(!k)return;const p=P();[p[k-1],p[k]]=[p[k],p[k-1]];setPlan(u,p)};
+      row.querySelector('.dn').onclick=()=>{const p=P();if(k>=p.length-1)return;[p[k+1],p[k]]=[p[k],p[k+1]];setPlan(u,p)};
+      row.querySelector('.del').onclick=()=>{const p=P();if(p[k].items.length&&!confirm('Delete this lesson? Its subchapters go back to "Not in a lesson yet" unless they are in another lesson.'))return;p.splice(k,1);setPlan(u,p)}});
+  });
+}
 
 const modal=document.getElementById('modal');
 modal.onclick=e=>{if(e.target===modal)modal.classList.remove('on')};

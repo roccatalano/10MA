@@ -34,3 +34,9 @@
 - Classes: Ms Chan, Mr Amon, Mr Lloyd (10MAG); Mr Catalano (10MAG + 10MAA, one merged view: clicking a session cycles 10MAG → 10MAA → empty). Pick a teacher (◀ ▶ / arrow keys), click sessions; "→ term / → year" copies a week forward (all that teacher's classes). "All classes" shows everyone, red outline = same teacher twice in a session.
 - Lessons are numbered in date order (Step Up week first) and laid onto that stream's units in order using each unit's lesson count; a unit with no lesson count is skipped.
 - Step Up week defaults to 30 Nov–4 Dec 2026 (a guess; editable on the tab).
+
+## Lesson planning tab (built 15 Nov)
+- Tabs: Unit planning | Lesson planning | 2027. Stream switch 10MAG / 10MAA; unit cards follow `courses/units.json` (order, names, subchapters).
+- `courses/lessons.json` = `{plans:{"<stream>|<unit name>":[{kind:'teach'|'review'|'assess', items:[{id}], note}]}}`. A subchapter in 2+ lessons = split ("1 of 2"); 2 ids in one lesson = combined. Subchapters removed from a unit drop out; new ones show under "Not in a lesson yet". A unit with no plan defaults to 1 lesson per subchapter + review + assessment. Renaming a unit loses its plan (key is the name).
+- "Use N" sets the unit's lesson count on Unit planning to the plan's length (feeds the 2027 tab).
+- Claude's first suggestion (15 Nov): 10MAG slow (most subchapters 2 lessons); 10MAA standard (1 each; heavy ones split, light pairs combined: G2A+2B, G1E+1F, G4A+4B, G8E+8F). Every unit ends Review + its assessment.
