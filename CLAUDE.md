@@ -17,10 +17,13 @@ Design: a **subchapter library** (one card per subchapter in both books) and **c
 - `02 Sources` = textbook PDFs + VC2 curriculum
 - `03 Assessments` = CFATs, CATs, topic tests, exams (shared by both streams)
 
-## Sources (in 02 Sources)
-- `C10` = 10 10A\Cambridge\2024 - Essential Mathematics for the Victorian Curriculum 10 & 10A Third Edition.pdf
-- `G11` = 11MAG\Cambridge\2023-cambridge-units-1-2.pdf (solutions: 2023-cambridge-units-1-2-solutions.pdf)
-- `E11` = 11MAG\Edrolo\2023-edrolo-units-1-2.pdf — Edrolo General Maths U1&2; source of exam-style questions (VCAA reprints at the back of subchapters) for the G11-based units
+## Sources (flat in 02 Sources)
+- `C10` = 2024 - Essential Mathematics for the Victorian Curriculum 10 & 10A Third Edition.pdf — main Year 10 book (both streams)
+- `G11` = 2023-cambridge-units-1-2.pdf (solutions: 2023-cambridge-units-1-2-solutions.pdf) — General Maths U1&2, for the accelerated 10MAA units
+- `E11` = Edrolo General Maths U1&2 — exam-style questions (VCAA reprints at the back of subchapters) for the G11-based units
+- `J10` = 2022-jacaranda-10-10a-maths-quest.pdf — extra questions to pull from
+- `O10` = 2022-oxford-10-10a-maths.pdf — extra questions to pull from
+- VC2 curriculum: not yet copied in
 
 ## Rules (carried over from 12MAG; confirm or change with Rocco)
 1. **Never write questions.** Copy verbatim and cite. Adapt only when unavoidable and label it "adapted".
