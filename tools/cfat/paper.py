@@ -75,6 +75,7 @@ def build(stream,n,unit):
     def cite(it): return f'<div class="cite">{it["src"]}</div>'
     REL=re.compile(r'(=|<|>|\\le|\\ge|\\leq|\\geq|\\leqslant|\\geqslant)')
     def eqlines(q):
+        if stream=='10MAA': return q   # Rocco: 10MAA papers stay as first built (16 Nov)
         # agreed rule: two equations/inequalities in a stem go one per line, labelled [1], [2]
         m=re.search(r'\$([^$]+)\$(?: \[1\])? and \$([^$]+)\$(?: \[2\])?',q)
         if not m or not (REL.search(m.group(1)) and REL.search(m.group(2))): return q
@@ -129,13 +130,16 @@ def build(stream,n,unit):
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
     title={'10MAA':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
            '10MAG':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'}}.get(stream,{}).get(n,unit)
-    body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
+    # CFAT code = unit.chapter.cfat (unit = position in the stream's unit list on the planner; chapter = textbook chapter)
+    us=[u for u in json.load(open(os.path.join(ROOT,'courses/units.json')))['units'] if u['stream']==stream]
+    ui=next(k for k,u in enumerate(us,1) if u['name']==unit);ch=re.match(r'\d+',cards[0].split('-')[1]).group(0);code=f'{ui}.{ch}.{n}'
+    body=(f'<div class="title"><div class="code">CFAT<br>{code}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           +(f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}' if A else '')
           +f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+sarows()
           )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
-    base=f'CFAT 1.{n} - {stream} - {subs[0]}-{subs[-1]}'
+    base=f'CFAT {code} - {stream} - {subs[0]}-{subs[-1]}'
     for sol in (False,True):
         name=base+(' - Solutions' if sol else '')
         html=(f'<!DOCTYPE html><html><head><meta charset="utf-8"><title>{name}</title>'

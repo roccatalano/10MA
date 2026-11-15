@@ -30,5 +30,5 @@ Written 16 Nov 2026. Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, **`docs
 4. **Deliver:** copy to G: `03 Assessments`, add `materials["10MAG|Univariate Statistics"]` cfat entries (`{kind:'cfat', n, title, html, solutions}`), push, update `docs/HANDOVER.md`.
 
 ## Ask Rocco
-- **CFAT code numbering** for this unit: the paper builder writes `CFAT 1.n` (Algebra was Chapter 1). Use `CFAT 9.1 / 9.2` (chapter number), `G1.1 / G1.2` (unit), or something else? `paper.py` currently hard-codes `1.{n}`.
+- (Settled 16 Nov) CFAT code = unit.chapter.CFAT, so these are **CFAT 1.9.1** and **1.9.2**; `paper.py` does this automatically.
 - Calculators allowed? (Still open from the Algebra CFATs.)

@@ -6,7 +6,7 @@ Written 15 Nov 2026 (late). Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, 
 - **Blocks** (one per subchapter, the question bank): `tools/cfat/C10-1A.json` … `C10-1L.json`. Each checklist skill has 3 questions: **L1** (Level 9 review, mostly Cambridge Y9), **L2** (Level 10, mostly Oxford), **L3** (extension / 10A). Every question verbatim + cited (`src`, `vc2`); "adapted" in `src` = stem reworded for a single part. Items with `"fill": true` are spare MCs, used only so a paper never has a lone multiple-choice question.
   - Preview of any block: `python3 tools/cfat/build.py C10-1A` → `lessons/C10-1A CFAT block - test build.html` (tabs only for streams that teach the subchapter).
   - `tools/cfat/gen_ch1b.py` wrote the 1E–1L blocks once; edit the JSON now, don't rerun it.
-- **Paper builder**: `python3 tools/cfat/paper.py <stream> <n>` → `assessments/CFAT 1.<n> - <stream> - <first>-<last>.html` + `- Solutions.html`. Subchapters come from `courses/lessons.json` → `cfats["<stream>|Algebra and Linear Relations"][n-1]`.
+- **Paper builder**: `python3 tools/cfat/paper.py <stream> <n> [unit]` → `assessments/CFAT <unit>.<chapter>.<n> - <stream> - <first>-<last>.html` (code = unit number in that stream . textbook chapter . CFAT number; Rocco 16 Nov) + `- Solutions.html`. Subchapters come from `courses/lessons.json` → `cfats["<stream>|Algebra and Linear Relations"][n-1]`.
 - **Done**: 10MAG CFATs 1.1–1.5 (16 Nov). 10MAA CFATs 1.1–1.4 (`assessments/`, G: `03 Assessments`, linked on the planner's CFAT strip via `materials[...]` entries `{kind:'cfat', n, html, solutions}`).
 
 ## Rules Rocco agreed (don't change without asking)
