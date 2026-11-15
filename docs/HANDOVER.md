@@ -21,3 +21,15 @@
 - Indexed (not yet in library): all 114 C10 subchapters at basic level (tools/parse.py), Y7–Y10 checklists.
 - 15 Nov later: 3-column planner + draggable units (courses/units.json). All C10 + G11 subchapters loaded at basic level.
 - Open: Rocco to review the test run; MC4 assumed 1D (check); 1J has no PQ/MC item so its Do Now uses review SA Q15.
+
+## 15 Nov 2026 (evening) — state at hand-off to the new Project
+**Built:** planner page https://roccatalano.github.io/10MA/ (3 columns: C10 library | G11 library | two unit lists 10MAG / 10MAA). Saves `courses/units.json` straight to GitHub (Rocco's browser has the key).
+**Library:** C10 all 10 chapters + Ch11 activities + semester reviews (basic); C10 Ch1 has FULL lesson-plan fields (the test run). G11 all chapters (basic: titles + pages only).
+**Units (Rocco's plan, 15 Nov):** see `courses/units.json` — always read it fresh (`git pull`), Rocco edits it on the page.
+**Open / next jobs (agreed order):**
+1. Rocco reviews the C10 Ch1 test run fields (LIs, success criteria, VC2 mapping, key vocab, videos, APK Y7→9, Do Now, exit tasks, Example→Now you try).
+2. Fill the same fields for every chapter used in a unit, one chapter at a time (tools/ has the scripts; Y7–10 checklists already parsed in the work notes — re-run tools/items.py).
+3. Index G11 properly (LIs, examples, exercises, chapter review / checklist) and add E11 (Edrolo) exam questions for G11-based units.
+4. Year tab: lay units against 2027 term dates (needs Rocco's term-dates file).
+5. Then lesson materials per the 12MAG model: guided slides, guided worksheet + solutions, bound reference entry.
+**Gaps seen in units.json (15 Nov):** 10MAG 'Sequences and Recursion' has 12 lessons but no subchapters; 9C is in two 10MAG units; most 10MAA units have no lesson count yet.
