@@ -104,4 +104,5 @@
 - `paper.py`: titles now per stream; empty Section A is dropped (CFAT 1.5 is all short answer, no MC in 1K/1L); two equations/inequalities joined by "and" in a stem now go one per line, labelled [1], [2].
 - 10MAA papers were NOT rebuilt with the one-per-line rule: doing so pushes all four onto 3 pages. Ask Rocco whether to trim them.
 - 10MAG CFATs: adjacent sketch questions sit side by side with 62 mm grids underneath (automatic for 10MAG in paper.py). Spare space per box is capped at 22 mm per mark, so boxes no longer stretch to fill a page (10MAA unchanged).
+- 1C.2 L2 swapped to Cambridge 10 Progress quiz Q4b (p. 45) "solve and graph on a number line", 2 marks; old Oxford item kept in `replaced`. CFAT 1.1 (10MAG) now /10.
 - Open: Rocco to check the 10MAG L1 questions suit the class (e.g. 1.3 Q4 find a missing coordinate from a length).
