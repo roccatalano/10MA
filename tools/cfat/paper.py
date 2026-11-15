@@ -6,9 +6,13 @@ import json,sys,os
 HERE=os.path.dirname(os.path.abspath(__file__));ROOT=os.path.join(HERE,'..','..')
 LEVELS={'10MAG':('L1','L2'),'10MAA':('L2','L3')}
 
-CSS="""@page{size:A4;margin:11mm 12mm 12mm 12mm}
-*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetica,sans-serif;font-size:9.8pt;line-height:1.28;color:#000;margin:0}
-@media screen{html{background:#8a8a8a}body{width:210mm;min-height:297mm;margin:8mm auto;padding:11mm 12mm 12mm;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.45)}}
+CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetica,sans-serif;font-size:9.8pt;line-height:1.28;color:#000;margin:0}
+.sheet>*:last-child{margin-bottom:0}
+@page{size:A4;margin:0}
+.sheet{width:210mm;height:297mm;padding:11mm 12mm 12mm;background:#fff;overflow:hidden;position:relative;break-after:page}
+.sheet:last-child{break-after:auto}.sheet .pno{position:absolute;bottom:6mm;left:0;right:0;text-align:center;font-size:8.5pt;color:#444}
+@media screen{html{background:#8a8a8a}.sheet{margin:8mm auto;box-shadow:0 2px 14px rgba(0,0,0,.45)}}
+#flow{width:186mm}
 .title{display:flex;align-items:center;gap:4mm;border:2px solid #000;padding:2mm 4mm;margin-bottom:2mm}
 .title .code{font-size:15pt;line-height:1.1;text-align:center;font-weight:bold;border-right:2px solid #000;padding-right:4mm}
 .title h1{font-size:16pt;margin:0;flex:1}.title h1 div{font-size:10pt;font-weight:normal;margin-top:1mm}
@@ -71,9 +75,7 @@ def build(stream,n,unit):
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}'
           f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>{rows(B,sabox)}'
-          '<table class="sk"><tr><th>Skill</th><th>I can…</th><th>Marks</th></tr>'
-          + ''.join(f'<tr><td>{t}</td><td style="text-align:left">{s}</td><td style="min-width:16mm;text-align:right">/{m}</td></tr>' for t,s,m in skills)
-          + f'<tr><th colspan="2" style="text-align:right">Total</th><th style="text-align:right">/{tot}</th></tr></table>')
+          )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
     base=f'CFAT 1.{n} - {stream} - {subs[0]}-{subs[-1]}'
     for sol in (False,True):
@@ -82,9 +84,15 @@ def build(stream,n,unit):
           '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
-          f'<style>{CSS}</style></head><body class="{"sol" if sol else ""}">'
+          f'<style>{CSS}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
           + body.replace('Show all working','Worked solutions' if sol else 'Show all working') +
-          "<script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});document.body.dataset.ready=1</script></body></html>")
+          """<script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const mm=v=>v*96/25.4;
+let sh,used=0,n=0;const newSheet=()=>{sh=document.createElement('div');sh.className='sheet';document.body.appendChild(sh);used=0;n++};newSheet();
+items.forEach((el,k)=>{const h=el.getBoundingClientRect().height+parseFloat(getComputedStyle(el).marginBottom||0);
+ const keep=el.classList.contains('secthd')&&items[k+1]?items[k+1].getBoundingClientRect().height:0;
+ if(used>0&&used+h+keep>mm(H))newSheet();sh.appendChild(el);used+=h});
+flow.remove();document.querySelectorAll('.sheet').forEach((x,k,a)=>{const p=document.createElement('div');p.className='pno';p.textContent='Page '+(k+1)+' of '+a.length;x.appendChild(p)});document.body.dataset.ready=1})</script></body></html>""")
         p=os.path.join(ROOT,'assessments',name+'.html');open(p,'w').write(html);print(p,f'{len(A)} MC + {len(B)} SA = {tot} marks')
 
 if __name__=='__main__':
