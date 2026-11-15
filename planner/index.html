@@ -360,15 +360,17 @@ function lessonMap(){ // `${cid}|${date}|${p}` -> lesson info, numbered in date 
   return M}
 function renderYear(){
   if(!Y||!TT)return;
-  const box=document.getElementById('year'),top=box.scrollTop,M=lessonMap(),ph=PH(),cur=TT.classes.find(c=>c.id===cls);
+  const box=document.getElementById('year'),top=box.scrollTop,M=lessonMap(),ph=PH();
+  const teachers=[...new Set(TT.classes.map(c=>c.teacher))],mine=TT.classes.filter(c=>c.teacher===cls),cur=mine[0];
   if(cls&&!cur)cls='';
   let h=`<div class="ybar"><button class="btn cyc" data-d="-1" title="Previous class (← key)">◀</button>
     <button class="cls ${cls?'':'on'}" data-c="">All classes</button>
-    ${TT.classes.map(c=>`<button class="cls ${c.id===cls?'on':''}" data-c="${c.id}">${esc(c.teacher)}<i class="${SH[c.stream]}">${c.stream}</i></button>`).join('')}
+    ${teachers.map(t=>`<button class="cls ${t===cls?'on':''}" data-c="${esc(t)}">${esc(t)}${TT.classes.filter(c=>c.teacher===t).map(c=>`<i class="${SH[c.stream]}">${c.stream}</i>`).join('')}</button>`).join('')}
     <button class="btn cyc" data-d="1" title="Next class (→ key)">▶</button></div>`;
-  if(cur){const tot=M[cur.id+'|total'],pl=M[cur.id+'|planned'],per={};
+  if(cur){h+=`<p class="ysum"><b>${esc(cls)}</b>: click a session to give a class a lesson then${mine.length>1?' (clicking cycles '+mine.map(c=>c.stream).join(' → ')+' → empty)':''}; click again to clear. Lessons are numbered in date order and laid onto the units in their order on the Unit planning tab.</p>`;
+   for(const cur of mine){const tot=M[cur.id+'|total'],pl=M[cur.id+'|planned'],per={};
     allSchoolDays().forEach(d=>{const r=rangeOf(d);per[r]=(per[r]||0)+slotsOf(cur.id,d).filter(p=>p<=nSess(d)).length});
-    h+=`<p class="ysum"><b>${esc(clsName(cur))}</b>: click a session to give this class a lesson then; click again to clear. <b>${tot}</b> lessons timetabled (${['su','t1','t2','t3','t4'].map(r=>`${r==='su'?'Step Up':'T'+r[1]} ${per[r]||0}`).join(' · ')}) vs <b>${pl}</b> planned in the ${cur.stream} units${tot>pl?` · <b style="color:var(--sac-i)">${tot-pl} lessons have no unit yet</b>`:tot<pl?` · <b style="color:var(--sac-i)">${pl-tot} unit lessons don't fit</b>`:''}. Lessons are numbered in date order and laid onto the ${cur.stream} units in their order on the Unit planning tab.</p>`}
+    h+=`<p class="ysum"><b>${cur.stream}</b>: <b>${tot}</b> lessons timetabled (${['su','t1','t2','t3','t4'].map(r=>`${r==='su'?'Step Up':'T'+r[1]} ${per[r]||0}`).join(' · ')}) vs <b>${pl}</b> planned in the ${cur.stream} units${tot>pl?` · <b style="color:var(--sac-i)">${tot-pl} lessons have no unit yet</b>`:tot<pl?` · <b style="color:var(--sac-i)">${pl-tot} unit lessons don't fit</b>`:''}.</p>`}}
   else h+=`<p class="ysum">Everyone's lessons together. Pick a class to fill in its timetable (◀ ▶ or the arrow keys cycle through them). ${TT.classes.map(c=>`<b>${esc(shortName(c))}</b> ${M[c.id+'|total']}/${M[c.id+'|planned']}`).join(' · ')} lessons timetabled/planned. Click a date to mark a day with no classes (pupil-free, camp…).</p>`;
   const su=SU();
   const blocks=[{k:'su',cls:'su',title:'Step Up week',sub:`${nice(su.start)} – ${nice(su.end)} 2026 · <input type="date" class="sud" data-k="start" value="${su.start}"> to <input type="date" class="sud" data-k="end" value="${su.end}">`,start:su.start,end:su.end,school:true}];
@@ -383,15 +385,15 @@ function renderYear(){
     h+=`<details class="blk ${b.cls}" data-k="${b.k}" ${openBlk.has(b.k)?'open':''}><summary><b>${b.title}</b><span>${b.sub}</span></summary><div class="blkb">`;
     if(!b.school){h+='<div class="holgrid">';for(let s=b.start;s<=b.end;s=add(s,1))h+=`<div class="day hol" title="${esc(ph[s]||'')}">${nice(s)}${ph[s]?'<br><b>'+esc(ph[s])+'</b>':''}</div>`;h+='</div>'}
     else{let w=0;for(let m=mondayOf(b.start);m<=b.end;m=add(m,7)){w++;
-      h+=`<div class="wk"><div class="wkl"><b>${b.k==='su'?'Step Up':'Week '+w}</b>${short(m)}${cur&&b.k!=='su'?`<button class="cp" data-m="${m}" data-s="${b.k}" title="Copy this week's ${esc(clsName(cur))} sessions to every later week of this term">→ term</button><button class="cp" data-m="${m}" data-s="year" title="Copy this week's ${esc(clsName(cur))} sessions to every later week of the year">→ year</button>`:''}</div>`;
+      h+=`<div class="wk"><div class="wkl"><b>${b.k==='su'?'Step Up':'Week '+w}</b>${short(m)}${cur&&b.k!=='su'?`<button class="cp" data-m="${m}" data-s="${b.k}" title="Copy this week's ${esc(cls)} sessions to every later week of this term">→ term</button><button class="cp" data-m="${m}" data-s="year" title="Copy this week's ${esc(cls)} sessions to every later week of the year">→ year</button>`:''}</div>`;
       for(let i=0;i<7;i++){const s=add(m,i);
         if(s<b.start||s>b.end){h+=`<div class="day ${i>4?'we':''} out"></div>`;continue}
         if(i>4){h+=`<div class="day we">${DOW[dow(s)]}<br>${D(s).getUTCDate()}</div>`;continue}
         const why=ph[s]||TT.days_off[s];
         h+=`<div class="day ${why?'off':''}"><div class="dh" data-d="${s}" title="${ph[s]?'Public holiday':'Click to mark this day as having no classes'}">${nice(s)}${why?`<span class="why">${esc(why)}</span>`:''}</div>`;
         if(!why)for(let p=1;p<=nSess(s);p++){
-          if(cur){const on=slotsOf(cur.id,s).includes(p),L=M[`${cur.id}|${s}|${p}`];
-            h+=`<div class="ses click" data-d="${s}" data-p="${p}"><span class="p">${p}</span>${on?(L.unit?`<span class="les ${SH[cur.stream]}" title="${esc(L.name)}"><b>${L.unit}</b> L${L.l}/${L.L} <small>${esc(L.name)}</small></span>`:`<span class="les none">Lesson ${L.n} <small>no unit yet</small></span>`):'<span class="add">+</span>'}</div>`}
+          if(cur){const cur=mine.find(c=>slotsOf(c.id,s).includes(p)),on=!!cur,L=on&&M[`${cur.id}|${s}|${p}`];
+            h+=`<div class="ses click" data-d="${s}" data-p="${p}"><span class="p">${p}</span>${on?(L.unit?`<span class="les ${SH[cur.stream]}" title="${esc(L.name)}"><b>${L.unit}</b> L${L.l}/${L.L} <small>${esc(L.name)}</small></span>`:`<span class="les none">${cur.stream} lesson ${L.n} <small>no unit yet</small></span>`):'<span class="add">+</span>'}</div>`}
           else{const here=TT.classes.filter(c=>slotsOf(c.id,s).includes(p)),tc={};here.forEach(c=>tc[c.teacher]=(tc[c.teacher]||0)+1);
             h+=`<div class="ses"><span class="p">${p}</span><span style="display:flex;flex-wrap:wrap;gap:2px">${here.map(c=>{const L=M[`${c.id}|${s}|${p}`];return `<span class="chip ${SH[c.stream]} ${tc[c.teacher]>1?'clash':''}" title="${esc(clsName(c))}${tc[c.teacher]>1?' · CLASH: same teacher twice':''} · ${L.unit?`${L.unit} lesson ${L.l}/${L.L} ${esc(L.name)}`:'lesson '+L.n+', no unit yet'}">${esc(shortName(c))} ${L.unit?L.unit+'·'+L.l:'#'+L.n}</span>`}).join('')}</span></div>`}}
         h+='</div>'}
@@ -402,24 +404,25 @@ function renderYear(){
   box.querySelectorAll('.cyc').forEach(b=>b.onclick=()=>cycle(+b.dataset.d));
   box.querySelectorAll('details.blk').forEach(d=>d.ontoggle=()=>{d.open?openBlk.add(d.dataset.k):openBlk.delete(d.dataset.k);store.set('10ma-blk',JSON.stringify([...openBlk]))});
   box.querySelectorAll('.sud').forEach(i=>{i.onclick=e=>e.stopPropagation();i.onchange=()=>{const v=i.value;if(!v)return;TT.stepup={...SU(),[i.dataset.k]:v};saveTT()}});
-  box.querySelectorAll('.ses.click').forEach(el=>el.onclick=()=>{const d=el.dataset.d,p=+el.dataset.p,S=TT.slots[cls]=TT.slots[cls]||{};
-    const a=new Set(S[d]||[]);a.has(p)?a.delete(p):a.add(p);if(a.size)S[d]=[...a].sort();else delete S[d];saveTT()});
+  box.querySelectorAll('.ses.click').forEach(el=>el.onclick=()=>{const d=el.dataset.d,p=+el.dataset.p;
+    const set=(c,on)=>{const S=TT.slots[c.id]=TT.slots[c.id]||{},a=new Set(S[d]||[]);on?a.add(p):a.delete(p);if(a.size)S[d]=[...a].sort();else delete S[d]};
+    const k=mine.findIndex(c=>slotsOf(c.id,d).includes(p));mine.forEach(c=>set(c,false));if(k+1<mine.length)set(mine[k+1],true);saveTT()});
   box.querySelectorAll('.dh').forEach(el=>el.onclick=()=>{const d=el.dataset.d;if(PH()[d])return;
     const r=prompt(`${nice(d)}: no classes this day? Type a reason (e.g. Pupil-free day, Camp). Leave blank to make it a normal day.`,TT.days_off[d]||'');
     if(r===null)return;if(r.trim())TT.days_off[d]=r.trim();else delete TT.days_off[d];saveTT()});
   box.querySelectorAll('.cp').forEach(b=>b.onclick=()=>copyWeek(b.dataset.m,b.dataset.s));
 }
 function pickCls(c){cls=c;store.set('10ma-cls',c);renderYear()}
-function cycle(d){const ids=['',...TT.classes.map(c=>c.id)];pickCls(ids[(ids.indexOf(cls)+d+ids.length)%ids.length])}
+function cycle(d){const ids=['',...new Set(TT.classes.map(c=>c.teacher))];pickCls(ids[(ids.indexOf(cls)+d+ids.length)%ids.length])}
 document.addEventListener('keydown',e=>{if(!document.body.classList.contains('y27')||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)||modal.classList.contains('on'))return;
   if(e.key==='ArrowLeft')cycle(-1);if(e.key==='ArrowRight')cycle(1)});
 function copyWeek(m,scope){
-  const c=TT.classes.find(x=>x.id===cls);if(!c)return;
+  const mine=TT.classes.filter(x=>x.teacher===cls);if(!mine.length)return;
   const end=scope==='year'?Y.terms[Y.terms.length-1].end:scope==='su'?SU().end:Y.terms.find(t=>'t'+t.n===scope).end;
-  if(!confirm(`Copy ${c.teacher}'s ${c.stream} sessions from the week of ${nice(m)} to every later week ${scope==='year'?'of the year':'of this term'}?\nThose weeks' sessions for this class get replaced. Holidays and days with no classes are skipped.`))return;
-  const S=TT.slots[cls]=TT.slots[cls]||{};
+  if(!confirm(`Copy ${cls}'s sessions from the week of ${nice(m)} to every later week ${scope==='year'?'of the year':'of this term'}?\nThose weeks' sessions for this class get replaced. Holidays and days with no classes are skipped.`))return;
+  for(const c of mine){const S=TT.slots[c.id]=TT.slots[c.id]||{};
   for(let w=add(m,7);w<=end;w=add(w,7))for(let i=0;i<5;i++){const t=add(w,i);if(t>end||!rangeOf(t)||rangeOf(t)==='su'&&scope!=='su')continue;
-    const src=(S[add(m,i)]||[]).filter(p=>p<=nSess(t));if(src.length)S[t]=[...src];else delete S[t]}
+    const src=(S[add(m,i)]||[]).filter(p=>p<=nSess(t));if(src.length)S[t]=[...src];else delete S[t]}}
   saveTT()}
 
 const modal=document.getElementById('modal');
