@@ -7,7 +7,7 @@ Written 15 Nov 2026 (late). Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, 
   - Preview of any block: `python3 tools/cfat/build.py C10-1A` → `lessons/C10-1A CFAT block - test build.html` (tabs only for streams that teach the subchapter).
   - `tools/cfat/gen_ch1b.py` wrote the 1E–1L blocks once; edit the JSON now, don't rerun it.
 - **Paper builder**: `python3 tools/cfat/paper.py <stream> <n>` → `assessments/CFAT 1.<n> - <stream> - <first>-<last>.html` + `- Solutions.html`. Subchapters come from `courses/lessons.json` → `cfats["<stream>|Algebra and Linear Relations"][n-1]`.
-- **Done**: 10MAA CFATs 1.1–1.4 (`assessments/`, G: `03 Assessments`, linked on the planner's CFAT strip via `materials[...]` entries `{kind:'cfat', n, html, solutions}`).
+- **Done**: 10MAG CFATs 1.1–1.5 (16 Nov). 10MAA CFATs 1.1–1.4 (`assessments/`, G: `03 Assessments`, linked on the planner's CFAT strip via `materials[...]` entries `{kind:'cfat', n, html, solutions}`).
 
 ## Rules Rocco agreed (don't change without asking)
 - 20-minute formative, **one double-sided A4 sheet max**, shown as A4 sheets on screen.

@@ -21,6 +21,7 @@ CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetic
 .title .who .scb{display:inline-block;border:1.5px solid #000;width:26mm;height:9mm;text-align:right;padding:1mm 2mm;font-size:12pt;font-weight:bold}
 .secthd{font-weight:bold;text-transform:uppercase;letter-spacing:.4px;font-size:10.5pt;margin:0 0 1.5mm;display:flex;justify-content:space-between}
 .secthd span{text-transform:none;letter-spacing:0;font-weight:normal;font-size:9.5pt}
+.eqs{display:block;margin:1mm 0 1mm 8mm}.eqs>span{display:block;margin:.6mm 0}
 .qgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5mm;margin-bottom:2.5mm}
 .box{border:1.2px solid #000;break-inside:avoid;display:flex;flex-direction:column}
 .box>.hd{font-weight:bold;font-size:10.5pt;text-transform:uppercase;letter-spacing:.4px;border-bottom:1.2px solid #000;padding:1mm 3mm;background:#eee;display:flex;justify-content:space-between;white-space:nowrap}
@@ -42,6 +43,7 @@ def card_tenA(lib,cid):
 
 def load(card): return json.loads(open(os.path.join(HERE,f'{card}.json')).read().replace('\\\\$','<span class=\\"nomath\\">$</span>'))
 
+import re
 def build(stream,n,unit):
     lp=json.load(open(os.path.join(ROOT,'courses/lessons.json')))
     cards=[x['id'] for x in lp['cfats'][f'{stream}|{unit}'][n-1]['items']]
@@ -70,10 +72,19 @@ def build(stream,n,unit):
         qn[0]+=1;return f'<div class="hd">Question {qn[0]} <span><span class="skill">{it["tag"]} · {it["level"]}</span> &nbsp; {it["marks"]} mark{"s" if it["marks"]>1 else ""}</span></div>'
     def ans(it): return '<div class="ans">'+''.join(f'<div>{x}</div>' for x in it['sol'])+'</div>'
     def cite(it): return f'<div class="cite">{it["src"]}</div>'
+    REL=re.compile(r'(=|<|>|\\le|\\ge|\\leq|\\geq|\\leqslant|\\geqslant)')
+    def eqlines(q):
+        # agreed rule: two equations/inequalities in a stem go one per line, labelled [1], [2]
+        m=re.search(r'\$([^$]+)\$(?: \[1\])? and \$([^$]+)\$(?: \[2\])?',q)
+        if not m or not (REL.search(m.group(1)) and REL.search(m.group(2))): return q
+        if all(re.fullmatch(r'\s*[a-z]\s*=\s*-?[\d.]+\s*',g) for g in m.groups()): return q   # substitution values, not equations
+        e=f'<span class="eqs"><span>${m.group(1)}$ &nbsp;[1]</span><span>${m.group(2)}$ &nbsp;[2]</span></span>'
+        rest=q[m.end():].lstrip(' ');rest=rest[1:] if rest.startswith('.') else rest
+        return q[:m.start()]+e+rest
     def mcbox(it):
+        it=dict(it,q=eqlines(it['q']))
         o=''.join(f'<div class="{"ok" if "ABCDE"[k]==it["answer"] else ""}"><b>{"ABCDE"[k]}.</b><span>{x}</span></div>' for k,x in enumerate(it['options']))
         return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc">{o}</div>{cite(it)}</div></div>'
-    import re
     def blank(v):
         v=re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*(#d00000|#f4b6b6)[^>]*/?>(</text>)?','',v)
         return re.sub(r'<text[^>]*fill="#d00000"[^<]*</text>','',v)
@@ -88,6 +99,7 @@ def build(stream,n,unit):
         o.append(f'<text x="{20*u+3}" y="{10*u+2}" font-size="6" font-style="italic" font-family="Times New Roman">x</text><text x="{10*u+2}" y="-2" font-size="6" font-style="italic" font-family="Times New Roman">y</text>')
         return f'<svg class="g10" viewBox="-4 -8 132 136">{"".join(o)}</svg>'
     def sabox(it):
+        it=dict(it,q=eqlines(it['q']))
         figs=[x for x in it['sol'] if x.startswith('<svg')]
         nl=figs and 'viewBox="0 -6' in figs[-1]
         h=12
@@ -98,11 +110,12 @@ def build(stream,n,unit):
         if nl: it=dict(it,q=it['q']+'<div class="stu">'+re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*#d00000[^>]*/?>(</text>)?','',figs[-1]).replace('class="fig"','class="fig ax nl"')+'</div>')
         return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
-    title={1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'}.get(n,unit)
+    title={'10MAA':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
+           '10MAG':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'}}.get(stream,{}).get(n,unit)
     body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
-          f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}'
-          f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+''.join(f'<div class="sarow">{sabox(x)}</div>' for x in B)
+          +(f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}' if A else '')
+          +f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+''.join(f'<div class="sarow">{sabox(x)}</div>' for x in B)
           )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
     base=f'CFAT 1.{n} - {stream} - {subs[0]}-{subs[-1]}'
