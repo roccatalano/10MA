@@ -717,7 +717,7 @@ function mdetail(l){const subs=[...new Set(l.items.map(x=>x.id))];
   ${subs.map(id=>{const s=IDX[id],L=(MOD.sheets[id]||[]);return `<h4 style="margin:6px 0 2px">${esc(s?.sub||id)} ${esc(s?.title||'')}</h4>
     <ul class="crl">${L.map((k,i)=>`<li>${FF[k]?ffLabel(FF[k]):esc(k)} <button class="x mrm" data-sub="${id}" data-i="${i}" title="Remove">✕</button></li>`).join('')||'<li class="empty">No Freefall match yet</li>'}</ul>
     <div class="dadd"><select class="madd" data-sub="${id}" style="flex:1;max-width:100%"><option value="">+ add a Freefall sheet…</option>${opts}</select></div>`}).join('')}
-  <p class="src">Freefall PDFs are licensed to the school: the modified workbook is built on G: only, never linked here.</p></div>`}
+  <p class="src">Freefall PDFs are licensed to the school: the modified workbook lives on G: (the link opens it in Google Drive for staff with access).</p></div>`}
 function splitLessons(g){const out=[[],[],[],[]];
   g.L.forEach(l=>{
     if(l.kind==='assess'){out[1].push(pcard(l));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
