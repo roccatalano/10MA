@@ -93,3 +93,8 @@
 - Extras: type a slide number + Enter to jump; Home/End; URL keeps the slide number.
 - Exit/APK slides with a diagram show 2 questions per slide (so 1E exit tasks = 3 slides, some APKs = 2 slides).
 - Next: Rocco checks the 10MAA deck → then `python3 tools/slides/build.py "10MAG|Algebra and Linear Relations"`, add its materials entry, copy to G:.
+
+## 15 Nov 2026 (late) — CFAT blocks + 10MAA CFATs
+- Subchapter CFAT blocks (L1/L2/L3 per checklist skill, verbatim + cited) for 1A–1L in `tools/cfat/`; paper builder `tools/cfat/paper.py`.
+- 10MAA CFATs 1.1–1.4 built with solutions, on G: `03 Assessments` and linked on the planner CFAT strip.
+- Next: 10MAG CFATs — see `docs/CFAT-HANDOFF.md`.
