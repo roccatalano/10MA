@@ -10771,6 +10771,103 @@
      "status": "basic"
     }
    ]
+  },
+  {
+   "id": "C10-Ch11",
+   "book": "C10",
+   "chapter": 11,
+   "title": "Algorithmic thinking",
+   "status": "basic",
+   "vc2_codes": [],
+   "chapter_resources": [],
+   "subchapters": [
+    {
+     "id": "C10-11A1",
+     "sub": "A1",
+     "title": "Activity 1: Using numerical methods to solve equations",
+     "pdf_page": 1133,
+     "pdf_end": 1139,
+     "printed_page": 1112,
+     "printed_end": 1118,
+     "tenA": false,
+     "consolidating": false,
+     "status": "basic",
+     "examples": [],
+     "exercise": [],
+     "learning_intentions": []
+    },
+    {
+     "id": "C10-11A2",
+     "sub": "A2",
+     "title": "Activity 2: Pythagorean triples",
+     "pdf_page": 1140,
+     "pdf_end": 1143,
+     "printed_page": 1119,
+     "printed_end": 1122,
+     "tenA": false,
+     "consolidating": false,
+     "status": "basic",
+     "examples": [],
+     "exercise": [],
+     "learning_intentions": []
+    },
+    {
+     "id": "C10-11A3",
+     "sub": "A3",
+     "title": "Activity 3: Using simulations to find probabilities",
+     "pdf_page": 1144,
+     "pdf_end": 1147,
+     "printed_page": 1123,
+     "printed_end": 1126,
+     "tenA": false,
+     "consolidating": false,
+     "status": "basic",
+     "examples": [],
+     "exercise": [],
+     "learning_intentions": []
+    }
+   ]
+  },
+  {
+   "id": "C10-SR",
+   "book": "C10",
+   "chapter": "SR",
+   "title": "Semester reviews",
+   "status": "basic",
+   "vc2_codes": [],
+   "chapter_resources": [],
+   "subchapters": [
+    {
+     "id": "C10-SR1",
+     "sub": "SR1",
+     "title": "Semester review 1 (Chapters 1–5)",
+     "pdf_page": 503,
+     "pdf_end": 512,
+     "printed_page": 482,
+     "printed_end": 491,
+     "tenA": false,
+     "consolidating": false,
+     "status": "basic",
+     "examples": [],
+     "exercise": [],
+     "learning_intentions": []
+    },
+    {
+     "id": "C10-SR2",
+     "sub": "SR2",
+     "title": "Semester review 2 (Chapters 6–10)",
+     "pdf_page": 962,
+     "pdf_end": 972,
+     "printed_page": 941,
+     "printed_end": 951,
+     "tenA": false,
+     "consolidating": false,
+     "status": "basic",
+     "examples": [],
+     "exercise": [],
+     "learning_intentions": []
+    }
+   ]
   }
  ]
 }
