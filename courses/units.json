@@ -1,48 +1,26 @@
 {
- "note": "Seeded 15 Nov 2026 from the 10MAA 2027 unit folder names (whole chapters). lessons = number of 79-min lessons for the unit (blank = not set). Edit on the planner page, then Export and commit.",
+ "note": "Seeded 15 Nov 2026 from the 10MAA 2027 unit folder names (whole chapters, 1 lesson each). Edit on the planner page, then Export and commit.",
  "units": [
   {
-   "name": "Algebra & Linear Relations",
-   "note": "",
+   "name": "Univariate Statistics",
    "versions": {
-    "10MAA": {
-     "lessons": null,
+    "10MAG": {
+     "lessons": 10,
      "items": [
       {
-       "id": "C10-1A"
+       "id": "C10-9A"
       },
       {
-       "id": "C10-1B"
+       "id": "C10-9B"
       },
       {
-       "id": "C10-1C"
+       "id": "C10-9C"
       },
       {
-       "id": "C10-1D"
+       "id": "C10-9D"
       },
       {
-       "id": "C10-1E"
-      },
-      {
-       "id": "C10-1F"
-      },
-      {
-       "id": "C10-1G"
-      },
-      {
-       "id": "C10-1H"
-      },
-      {
-       "id": "C10-1I"
-      },
-      {
-       "id": "C10-1J"
-      },
-      {
-       "id": "C10-1K"
-      },
-      {
-       "id": "C10-1L"
+       "id": "C10-9E"
       }
      ],
      "assessment": "CAT"
@@ -50,125 +28,16 @@
    }
   },
   {
-   "name": "Data Analysis",
-   "note": "",
+   "name": "Sequences and Recursion",
    "versions": {
-    "10MAA": {
-     "lessons": null,
-     "items": [
-      {
-       "id": "G11-2A"
-      },
-      {
-       "id": "G11-2B"
-      },
-      {
-       "id": "G11-2C"
-      },
-      {
-       "id": "G11-2D"
-      },
-      {
-       "id": "G11-2E"
-      },
-      {
-       "id": "G11-2F"
-      },
-      {
-       "id": "G11-2G"
-      },
-      {
-       "id": "G11-2H"
-      },
-      {
-       "id": "G11-2I"
-      },
-      {
-       "id": "G11-7A"
-      },
-      {
-       "id": "G11-7B"
-      },
-      {
-       "id": "G11-7C"
-      },
-      {
-       "id": "G11-7D"
-      },
-      {
-       "id": "G11-7E"
-      }
-     ],
+    "10MAG": {
+     "lessons": 12,
+     "items": [],
      "assessment": "CAT"
-    }
-   }
-  },
-  {
-   "name": "Indices, Logs, Exponentials & Surds",
-   "note": "",
-   "versions": {
+    },
     "10MAA": {
-     "lessons": null,
-     "items": [
-      {
-       "id": "C10-3A"
-      },
-      {
-       "id": "C10-3B"
-      },
-      {
-       "id": "C10-3C"
-      },
-      {
-       "id": "C10-3D"
-      },
-      {
-       "id": "C10-3E"
-      },
-      {
-       "id": "C10-3F"
-      },
-      {
-       "id": "C10-3G"
-      },
-      {
-       "id": "C10-3H"
-      },
-      {
-       "id": "C10-3I"
-      },
-      {
-       "id": "C10-3J"
-      },
-      {
-       "id": "C10-3K"
-      },
-      {
-       "id": "C10-3L"
-      },
-      {
-       "id": "C10-4A"
-      },
-      {
-       "id": "C10-4B"
-      },
-      {
-       "id": "C10-4C"
-      },
-      {
-       "id": "C10-4D"
-      }
-     ],
-     "assessment": "CAT"
-    }
-   }
-  },
-  {
-   "name": "Sequences & Finance",
-   "note": "",
-   "versions": {
-    "10MAA": {
-     "lessons": null,
+     "lessons": 9,
+     "assessment": "CAT",
      "items": [
       {
        "id": "G11-1A"
@@ -215,50 +84,90 @@
       {
        "id": "G11-3I"
       }
-     ],
-     "assessment": "Topic test"
+     ]
     }
    }
   },
   {
-   "name": "Trigonometry & Introduction to the Unit Circle",
-   "note": "",
+   "name": "Algebra and Linear Relations",
    "versions": {
-    "10MAA": {
-     "lessons": null,
+    "10MAG": {
+     "lessons": 12,
      "items": [
       {
-       "id": "C10-6A"
+       "id": "C10-1A"
       },
       {
-       "id": "C10-6B"
+       "id": "C10-1B"
       },
       {
-       "id": "C10-6C"
+       "id": "C10-1C"
       },
       {
-       "id": "C10-6D"
+       "id": "C10-1E"
       },
       {
-       "id": "C10-6E"
+       "id": "C10-1F"
       },
       {
-       "id": "C10-6F"
+       "id": "C10-1G"
       },
       {
-       "id": "C10-6G"
+       "id": "C10-1H"
       },
       {
-       "id": "C10-6H"
+       "id": "C10-1I"
       },
       {
-       "id": "C10-6I"
+       "id": "C10-1J"
       },
       {
-       "id": "C10-6J"
+       "id": "C10-1K"
       },
       {
-       "id": "C10-6K"
+       "id": "C10-1L"
+      }
+     ],
+     "assessment": "CAT"
+    },
+    "10MAA": {
+     "lessons": 10,
+     "items": [
+      {
+       "id": "C10-1A"
+      },
+      {
+       "id": "C10-1B"
+      },
+      {
+       "id": "C10-1C"
+      },
+      {
+       "id": "C10-1D"
+      },
+      {
+       "id": "C10-1E"
+      },
+      {
+       "id": "C10-1F"
+      },
+      {
+       "id": "C10-1G"
+      },
+      {
+       "id": "C10-1H"
+      },
+      {
+       "id": "C10-1I"
+      },
+      {
+       "id": "C10-1J"
+      },
+      {
+       "id": "C10-1K"
+      },
+      {
+       "id": "C10-1L"
       }
      ],
      "assessment": "CAT"
@@ -266,11 +175,26 @@
    }
   },
   {
-   "name": "Quadratics & Parabolas",
+   "name": "Quadratics and Parabolas",
    "note": "",
    "versions": {
+    "10MAG": {
+     "lessons": 3,
+     "items": [
+      {
+       "id": "C10-5A"
+      },
+      {
+       "id": "C10-5B"
+      },
+      {
+       "id": "C10-5C"
+      }
+     ],
+     "assessment": "Topic test"
+    },
     "10MAA": {
-     "lessons": null,
+     "lessons": 18,
      "items": [
       {
        "id": "C10-5A"
@@ -319,18 +243,6 @@
       },
       {
        "id": "C10-7F"
-      },
-      {
-       "id": "C10-7G"
-      },
-      {
-       "id": "C10-7H"
-      },
-      {
-       "id": "C10-7I"
-      },
-      {
-       "id": "C10-7J"
       }
      ],
      "assessment": "CAT"
@@ -338,155 +250,123 @@
    }
   },
   {
-   "name": "Matrices & Networks",
+   "name": "Bivariate Data",
+   "assessment": "",
    "note": "",
    "versions": {
-    "10MAA": {
-     "lessons": null,
+    "10MAG": {
+     "lessons": 4,
+     "assessment": "CAT",
      "items": [
       {
-       "id": "G11-4A"
+       "id": "C10-9C"
       },
       {
-       "id": "G11-4B"
+       "id": "C10-9H"
       },
       {
-       "id": "G11-4C"
+       "id": "C10-9I"
       },
       {
-       "id": "G11-4D"
-      },
-      {
-       "id": "G11-4E"
-      },
-      {
-       "id": "G11-4F"
-      },
-      {
-       "id": "G11-4G"
-      },
-      {
-       "id": "G11-4H"
-      },
-      {
-       "id": "G11-4I"
-      },
-      {
-       "id": "G11-8A"
-      },
-      {
-       "id": "G11-8B"
-      },
-      {
-       "id": "G11-8C"
-      },
-      {
-       "id": "G11-8D"
-      },
-      {
-       "id": "G11-8E"
-      },
-      {
-       "id": "G11-8F"
-      },
-      {
-       "id": "G11-8G"
-      },
-      {
-       "id": "G11-8H"
+       "id": "C10-9J"
       }
-     ],
-     "assessment": "CAT"
+     ]
     }
    }
   },
   {
-   "name": "Probability",
+   "name": "Trigonometry and Measurement",
+   "assessment": "",
    "note": "",
    "versions": {
-    "10MAA": {
-     "lessons": null,
+    "10MAG": {
+     "lessons": 15,
+     "assessment": "CAT",
      "items": [
       {
-       "id": "C10-8A"
+       "id": "C10-4E"
       },
       {
-       "id": "C10-8B"
+       "id": "C10-4F"
       },
       {
-       "id": "C10-8C"
+       "id": "C10-4G"
       },
       {
-       "id": "C10-8D"
+       "id": "C10-4I"
       },
       {
-       "id": "C10-8E"
+       "id": "C10-4K"
       },
       {
-       "id": "C10-8F"
+       "id": "C10-6A"
       },
       {
-       "id": "C10-8G"
+       "id": "C10-6B"
       },
       {
-       "id": "C10-8H"
+       "id": "C10-6C"
       },
       {
-       "id": "C10-8I"
-      },
-      {
-       "id": "C10-8J"
-      },
-      {
-       "id": "C10-8K"
+       "id": "C10-6D"
       }
-     ],
-     "assessment": "Topic test"
+     ]
+    },
+    "10MAA": {
+     "lessons": 12,
+     "assessment": "CAT",
+     "items": [
+      {
+       "id": "C10-4A"
+      },
+      {
+       "id": "C10-4B"
+      },
+      {
+       "id": "C10-4C"
+      },
+      {
+       "id": "C10-4D"
+      },
+      {
+       "id": "C10-6A"
+      },
+      {
+       "id": "C10-6B"
+      },
+      {
+       "id": "C10-6C"
+      },
+      {
+       "id": "C10-6E"
+      },
+      {
+       "id": "C10-6F"
+      },
+      {
+       "id": "C10-6G"
+      },
+      {
+       "id": "C10-6H"
+      }
+     ]
     }
    }
   },
   {
-   "name": "Functions & Polynomials",
+   "name": "Networks",
+   "assessment": "",
    "note": "",
    "versions": {
+    "10MAG": {
+     "lessons": 12,
+     "assessment": "CAT",
+     "items": []
+    },
     "10MAA": {
      "lessons": null,
-     "items": [
-      {
-       "id": "C10-10A"
-      },
-      {
-       "id": "C10-10B"
-      },
-      {
-       "id": "C10-10C"
-      },
-      {
-       "id": "C10-10D"
-      },
-      {
-       "id": "C10-10E"
-      },
-      {
-       "id": "C10-10F"
-      },
-      {
-       "id": "C10-10G"
-      },
-      {
-       "id": "C10-10H"
-      },
-      {
-       "id": "C10-10I"
-      },
-      {
-       "id": "C10-10J"
-      },
-      {
-       "id": "C10-10K"
-      }
-     ],
-     "assessment": "Extension"
+     "assessment": "",
+     "items": []
     }
    }
   }
