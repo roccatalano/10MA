@@ -1,5 +1,5 @@
 {
- "note": "Lesson groupings + CFATs per unit, keyed 'stream|unit name'. Rebuilt by Claude 15 Nov 2026: 1 CFAT = 1 week = 4 lessons (assumed until timetables are out); CFAT groupings chosen for similar content, then that week's lessons laid out under it. 10MAG 2-3 subchapters/week, 10MAA 3-4. kind practice = consolidation lesson. Edit on the Lesson planning tab.",
+ "note": "Lesson groupings + CFATs per unit, keyed 'stream|unit name'. Rebuilt by Claude 15 Nov 2026: 1 CFAT = 1 week = 3 x 79-min lessons; CFAT groupings chosen for similar content, then that week's lessons laid out under it. kind practice = consolidation lesson. Edit on the Lesson planning tab.",
  "plans": {
   "10MAG|Univariate Statistics": [
    {
@@ -24,25 +24,7 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-9B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-9C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-9D"
      }
     ],
     "note": ""
@@ -108,15 +90,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-1B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-1C"
      }
     ],
@@ -135,15 +108,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-1E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-1F"
      }
     ],
@@ -154,15 +118,6 @@
     "items": [
      {
       "id": "C10-1F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1G"
      }
     ],
     "note": ""
@@ -217,24 +172,6 @@
     "items": [
      {
       "id": "C10-1J"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1J"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1K"
      }
     ],
     "note": ""
@@ -315,6 +252,24 @@
     "note": ""
    },
    {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
     "kind": "review",
     "items": [],
     "note": ""
@@ -339,15 +294,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-9C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-9H"
      }
     ],
@@ -358,15 +304,6 @@
     "items": [
      {
       "id": "C10-9H"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-9I"
      }
     ],
     "note": ""
@@ -423,15 +360,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-4E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-4F"
      }
     ],
@@ -459,15 +387,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-4G"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-4I"
      }
     ],
@@ -478,15 +397,6 @@
     "items": [
      {
       "id": "C10-4I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-4K"
      }
     ],
     "note": ""
@@ -531,15 +441,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-6A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-6B"
      }
     ],
@@ -550,15 +451,6 @@
     "items": [
      {
       "id": "C10-6B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-6C"
      }
     ],
     "note": ""
@@ -615,15 +507,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-2K"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-2L"
      }
     ],
@@ -634,15 +517,6 @@
     "items": [
      {
       "id": "C10-2L"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-2M"
      }
     ],
     "note": ""
@@ -708,25 +582,7 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-8B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-8C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-8D"
      }
     ],
     "note": ""
@@ -775,13 +631,7 @@
     "items": [
      {
       "id": "C10-1A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-1B"
      }
@@ -828,6 +678,15 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-1F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-1G"
      }
     ],
@@ -838,6 +697,15 @@
     "items": [
      {
       "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1L"
      }
     ],
     "note": ""
@@ -865,15 +733,6 @@
     "items": [
      {
       "id": "C10-1K"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1L"
      }
     ],
     "note": ""
@@ -915,15 +774,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-2C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "G11-2D"
      }
     ],
@@ -934,15 +784,6 @@
     "items": [
      {
       "id": "G11-2E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "G11-2F"
      }
     ],
     "note": ""
@@ -993,18 +834,6 @@
     "note": ""
    },
    {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "G11-2H"
-     },
-     {
-      "id": "G11-2I"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
-   },
-   {
     "kind": "teach",
     "items": [
      {
@@ -1035,15 +864,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-7C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "G11-7D"
      }
     ],
@@ -1066,18 +886,6 @@
      }
     ],
     "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "G11-7D"
-     },
-     {
-      "id": "G11-7E"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "review",
@@ -1149,35 +957,8 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-3F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "C10-3E"
-     },
-     {
-      "id": "C10-3F"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-3I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-3J"
      }
@@ -1207,13 +988,7 @@
     "items": [
      {
       "id": "C10-4A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-4B"
      }
@@ -1272,15 +1047,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-1B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "G11-1C"
      }
     ],
@@ -1312,21 +1078,6 @@
      }
     ],
     "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "G11-1D"
-     },
-     {
-      "id": "G11-1E"
-     },
-     {
-      "id": "G11-1F"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "teach",
@@ -1404,7 +1155,7 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-3H"
+      "id": "G11-3G"
      }
     ],
     "note": ""
@@ -1494,42 +1245,24 @@
     "note": ""
    },
    {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-6F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-6F"
-     }
-    ],
-    "note": ""
-   },
-   {
     "kind": "practice",
     "items": [
+     {
+      "id": "C10-6C"
+     },
      {
       "id": "C10-6E"
-     },
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
+    "kind": "teach",
+    "items": [
      {
       "id": "C10-6F"
      }
     ],
-    "note": "Consolidation / catch-up on this week's work"
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-6G"
-     }
-    ],
     "note": ""
    },
    {
@@ -1549,18 +1282,6 @@
      }
     ],
     "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "C10-6G"
-     },
-     {
-      "id": "C10-6H"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "review",
@@ -1623,24 +1344,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-5E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-5F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-5F"
      }
     ],
@@ -1651,13 +1354,7 @@
     "items": [
      {
       "id": "C10-5G"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-5H"
      }
@@ -1687,15 +1384,6 @@
     "items": [
      {
       "id": "C10-7A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-7B"
      }
     ],
     "note": ""
@@ -1746,21 +1434,6 @@
     "note": ""
    },
    {
-    "kind": "practice",
-    "items": [
-     {
-      "id": "C10-7D"
-     },
-     {
-      "id": "C10-7E"
-     },
-     {
-      "id": "C10-7F"
-     }
-    ],
-    "note": "Consolidation / catch-up on this week's work"
-   },
-   {
     "kind": "review",
     "items": [],
     "note": ""
@@ -1806,24 +1479,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-4D"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "G11-4E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "G11-4E"
      }
     ],
@@ -1842,7 +1497,7 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-4F"
+      "id": "G11-4I"
      }
     ],
     "note": ""
@@ -1878,23 +1533,8 @@
     "kind": "teach",
     "items": [
      {
-      "id": "G11-4I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "G11-8A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "G11-8B"
      }
@@ -1950,15 +1590,6 @@
     "note": ""
    },
    {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "G11-8H"
-     }
-    ],
-    "note": ""
-   },
-   {
     "kind": "review",
     "items": [],
     "note": ""
@@ -1992,25 +1623,7 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-8B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-8C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-8D"
      }
     ],
     "note": ""
@@ -2150,7 +1763,12 @@
      },
      {
       "id": "C10-5B"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-5C"
      }
@@ -2312,12 +1930,20 @@
      },
      {
       "id": "C10-1F"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-1G"
      },
      {
       "id": "C10-1H"
+     },
+     {
+      "id": "C10-1L"
      }
     ],
     "note": ""
@@ -2332,9 +1958,6 @@
      },
      {
       "id": "C10-1K"
-     },
-     {
-      "id": "C10-1L"
      }
     ],
     "note": ""
@@ -2420,15 +2043,15 @@
      },
      {
       "id": "C10-3C"
-     },
-     {
-      "id": "C10-3D"
      }
     ],
     "note": ""
    },
    {
     "items": [
+     {
+      "id": "C10-3D"
+     },
      {
       "id": "C10-3E"
      },
@@ -2512,9 +2135,6 @@
      },
      {
       "id": "G11-3C"
-     },
-     {
-      "id": "G11-3D"
      }
     ],
     "note": ""
@@ -2522,8 +2142,16 @@
    {
     "items": [
      {
-      "id": "G11-3E"
+      "id": "G11-3D"
      },
+     {
+      "id": "G11-3E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "G11-3F"
      },
@@ -2556,26 +2184,26 @@
      },
      {
       "id": "C10-6B"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-6C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "items": [
-     {
-      "id": "C10-6E"
      },
      {
-      "id": "C10-6F"
+      "id": "C10-6E"
      }
     ],
     "note": ""
    },
    {
     "items": [
+     {
+      "id": "C10-6F"
+     },
      {
       "id": "C10-6G"
      },
@@ -2597,15 +2225,15 @@
      },
      {
       "id": "C10-5C"
-     },
-     {
-      "id": "C10-5D"
      }
     ],
     "note": ""
    },
    {
     "items": [
+     {
+      "id": "C10-5D"
+     },
      {
       "id": "C10-5E"
      },
@@ -2686,6 +2314,9 @@
      },
      {
       "id": "G11-4F"
+     },
+     {
+      "id": "G11-4I"
      }
     ],
     "note": ""
@@ -2697,9 +2328,6 @@
      },
      {
       "id": "G11-4H"
-     },
-     {
-      "id": "G11-4I"
      }
     ],
     "note": ""

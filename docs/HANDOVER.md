@@ -60,4 +60,4 @@
 - Added the Lesson planning tab + `courses/lessons.json` with Claude's suggested grouping (see PLANNER.md). Rocco to review/edit and press "Use N" to push lesson counts to the units.
 - Next once groupings are agreed: fill Do Now slots per lesson (C10 progress quiz/review; G11 do_now_pool).
 - CFAT sequence added for every unit (46 CFATs: 10MAG 16, 10MAA 30 — see lessons.json `cfats`). Rocco to review. Sequences and Recursion (10MAG) has none (no subchapters yet).
-- Rebuilt same night: **1 CFAT = 1 week = 4 lessons** (Rocco). 10MAG 2–3 subchapters/week (19 weeks), 10MAA 3–4 (32 weeks); + Review + Assessment per unit. Practice lessons fill short weeks. 4 lessons/week is an assumption until timetables are out.
+- Rebuilt same night: **1 CFAT = 1 week = 3 × 79-min lessons** (Rocco: classes get 3 lessons a week). 10MAG 20 weeks, 10MAA 34 weeks; + Review + Assessment per unit. Practice lessons fill short weeks.

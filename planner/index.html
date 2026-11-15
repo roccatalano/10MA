@@ -466,7 +466,7 @@ function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream);
   let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}
-   <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'1 CFAT = 1 week = 4 lessons (2–3 subchapters a week).':'1 CFAT = 1 week = 4 lessons (3–4 subchapters a week).'}</span></div>`;
+   <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'1 CFAT = 1 week = 3 lessons.':'1 CFAT = 1 week = 3 lessons.'}</span></div>`;
   h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
     p.forEach(l=>l.kind==='teach'&&l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
     const loose=u.items.filter(x=>!cnt[x.id]),nt=p.filter(l=>l.kind==='teach').length;
