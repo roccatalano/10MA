@@ -17,8 +17,12 @@
 3. Browse page
 4. Rocco picks units for each stream (start from the current 10MAA 2027 unit list)
 
-## Units (built 15 Nov)
-- `courses/units.json` = the saved unit plan: `{units:[{name, streams:[10MAG|10MAA], assessment, note, lessons (number of 79-min lessons for the whole unit), items:[{id}]}]}`. Units are shared across both streams; a unit's `streams` says who does it.
-- The planner page saves edits in the browser (localStorage = the browser's own storage, one computer only). To make changes permanent/shared: **Export units** → give the file to Claude → Claude commits it to `courses/units.json`. **Reset** throws away browser edits and reloads the repo version.
-- Seeded from the 10MAA 2027 folder names (whole chapters, 1 lesson each) — Rocco to edit.
-- Page layout: 3 columns: Year 10 textbook (C10) | Year 11 textbook (G11) | Planned units. Chapter cards hold nested VC2 + chapter-resources cards; click a subchapter for its lesson-plan fields.
+## Units (built 15 Nov, reworked same day)
+- `courses/units.json`: `{units:[{name, assessment, note, versions:{'10MAG':{lessons, items:[{id}]}, '10MAA':{...}}}]}`.
+  - A unit has a 10MAG version and/or a 10MAA version, side by side. Each version has its own subchapters and its own `lessons` (number of 79-min lessons). Lengths can differ.
+  - A missing version = that stream doesn't do the unit. Items only in one version are highlighted yellow; ⇄ copies a version's subchapters to the other.
+  - Library tags show use as U1G / U1A.
+- **Saving:** edits are kept in the browser as a draft until **Save to GitHub**, which commits `courses/units.json` straight to the repo (GitHub API, using an access key kept in that browser via the 🔑 button). **Discard changes** drops the draft. The live site updates about 1 minute after a save.
+- **Claude: the page commits to main too.** Always `git pull` before editing/pushing, and never overwrite `courses/units.json` without pulling first.
+- Seeded from the 10MAA 2027 folder names (whole chapters, 10MAA only) — Rocco to edit.
+- Page layout: 3 columns: Year 10 textbook (C10) | Year 11 textbook (G11) | Planned units.

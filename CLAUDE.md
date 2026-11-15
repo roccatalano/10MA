@@ -33,5 +33,8 @@ Design: a **subchapter library** (one card per subchapter in both books) and **c
 5. **Example → You try pairs:** every Cambridge Worked Example is followed by its own 'Now you try' (same skill, new numbers). Lessons use them as pairs: teacher models the Example, students do its Now you try. Card field: `examples[].now_you_try`.
 6. Finished materials go in `lessons/` here and flat into `01 Lesson materials` on G:.
 
+## Git
+The planner page saves `courses/units.json` straight to GitHub. Always `git pull` before you change or push anything.
+
 ## Not to touch
 `roccatalano/12MAG` and `roccatalano/teaching-dashboard-2027` — don't change unless Rocco asks.
