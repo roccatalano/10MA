@@ -2,12 +2,10 @@ r"""Add the 10MAG Modified level (L0 = Year 7-8, Year 9 for box plots) to the CF
 Run after gen_ch9.py:  python3 tools/cfat/gen_ch9m.py   (gen_ch9.py rewrites the blocks without L0, so always run both, in that order)
 Every question verbatim from the cited page; "adapted" in src = stem reworded / parts chosen so it stands alone (Rocco OK'd, 16 Nov).
 Questions are NOT the ones used on the modified worksheets (Examples / Now you try)."""
-import json,os
-HERE=os.path.dirname(os.path.abspath(__file__))
-src=open(os.path.join(HERE,'gen_ch9.py')).read();exec(src[:src.index('B={}')])   # helpers only: table, stemleaf, axis, boxplot, mc, sa, R
-C7='Cambridge Essential Mathematics 7 (3rd Ed)';C8='Cambridge Essential Mathematics 8 (3rd Ed)';C9='Cambridge Essential Mathematics 9 (3rd Ed)'
-PARTS='adapted: parts chosen'
-
+import os,sys
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+from modified_l0 import load_helpers,apply,C7,C8,C9,PARTS
+globals().update({k:v for k,v in load_helpers('gen_ch9.py').items() if not k.startswith('__')})
 def colgraph(labels,freqs,xlabel,ymax,step=2,blank=False,W=380,H=200,col=R):
     """frequency (column) graph, one column per class, labels under the columns"""
     n=len(labels);L,Rm,T,B=36,10,8,38;w=(W-L-Rm)/n;h=H-T-B;y=lambda f:T+h-f/ymax*h
@@ -69,9 +67,4 @@ L0[('9E',1)]=[sa('L0',4,'This box plot summarises the number of rabbits spotted 
   [r'$19$ values: min $= 2$, max $= 13$, $Q_2 = 8$ (the $10$th value)',r'$Q_1 = 4$ (middle of the lower $9$), $Q_3 = 11$ (middle of the upper $9$)',boxplot(0,14,1,2,(2,4,8,11,13))],
   f'{C9}, Exercise 9L Q3a (p. 700); adapted: parts i–vi combined into one stem','VC2M9ST02',blank=boxplot(0,14,1,2,(0,0,0,0,0),blank=True))]
 
-for sub in ['9A','9B','9C','9D','9E']:
-    p=os.path.join(HERE,f'C10-{sub}.json');b=json.load(open(p))
-    b['levels']['L0']='10MAG Modified (Year 7–8; Year 9 for box plots)'
-    for s in b['skills']:
-        s['items']=[x for x in s['items'] if x['level']!='L0']+L0.get((sub,s['n']),[])
-    json.dump(b,open(p,'w'),indent=1,ensure_ascii=False);print('L0 added',sub,sum(1 for s in b['skills'] for x in s['items'] if x['level']=='L0'))
+apply(L0,['9A','9B','9C','9D','9E'],'10MAG Modified (Year 7–8; Year 9 for box plots)')

@@ -29,15 +29,15 @@ Every 10MAG unit gets a **10MAG Modified** version at **Year 7–8 level** for s
 | Step | File | Notes |
 |---|---|---|
 | Freefall sheet → subchapter map | `courses/modified.json` → `sheets` | Draft for all 10MAG subchapters exists. Rocco edits it on the planner (click a Modified lesson: ✕ / add a sheet) and ticks **Freefall mapping approved** per unit (`approved`). |
-| Modified worksheets | `tools/worksheets/ch9m.py` (unit-specific content) | Per lesson: title box `9AM`, Learning intentions + Key ideas (verbatim from the Y7–9 subchapter), 2–3 Example → You try pairs (questions only), skills checklist ("I can…" from the Y7–9 chapter checklist, no e.g.), sources line. Output `lessons/C10-<sub> modified worksheet[ (part n)].html/.pdf`. Part n when a subchapter spans two lessons. |
-| Modified CFAT questions | `tools/cfat/gen_ch9m.py` | Adds level **L0** items to `tools/cfat/C10-<sub>.json`. **Run after `gen_ch9.py`**, because `gen_ch9.py` rewrites the blocks without L0. Skill `n` restarts at 1 in each subchapter's block (key L0 items by `(sub, n)`). One L0 question per skill; two per skill in short weeks (<6 skills). Must not reuse any worksheet question. |
+| Modified worksheets | `tools/worksheets/mod_<unit>.py` (content; G1 = `mod_statistics.py`) + shared `modified.py` (`main(W)`, `CL(year, ns, chapter)`) | Per lesson: title box `9AM`, Learning intentions + Key ideas (verbatim from the Y7–9 subchapter), 2–3 Example → You try pairs (questions only), skills checklist ("I can…" from the Y7–9 chapter checklist, no e.g.), sources line. Output `lessons/C10-<sub> modified worksheet[ (part n)].html/.pdf`. Part n when a subchapter spans two lessons. |
+| Modified CFAT questions | `tools/cfat/gen_ch<n>m.py` per chapter (G1 = `gen_ch9m.py`) + shared `modified_l0.py` (`load_helpers`, `apply`) | Adds level **L0** items to `tools/cfat/C10-<sub>.json`. **Run after `gen_ch9.py`**, because `gen_ch9.py` rewrites the blocks without L0. Skill `n` restarts at 1 in each subchapter's block (key L0 items by `(sub, n)`). One L0 question per skill; two per skill in short weeks (<6 skills). Must not reuse any worksheet question. |
 | Modified CFAT papers | `python3 tools/cfat/paper.py 10MAGM <n> "<unit>"` | Stream `10MAGM` reads 10MAG's CFAT groupings, uses only L0, codes `<unit>.<chapter>.<n>M`, title "10MAG Modified". 10MAG/10MAA papers are untouched. Print to PDF and check 2 pages. |
 | Modified workbook | `python3 tools/worksheets/workbook_m.py "<unit>" "<Freefall folder>" <out dir outside repo>` | Refuses to write inside the repo. Each Freefall sheet appears once per unit (first lesson that maps it). |
 | Deliver | `device_commit_files` | Worksheet PDFs + workbook → G: `01 Lesson materials`; CFAT M PDFs → G: `03 Assessments`. |
 | Link on planner | `courses/modified.json` → `materials["10MAG|<unit>"]` | `cfats` [{n, html, solutions}], `worksheets` {lesson index from 0: html path}, `workbook`, `workbook_url` (Drive URL: find it with the Google Drive connector, `title contains '...'`). The planner reads these automatically. |
 | Log + handover | `courses/cfat-log.json`, `docs/HANDOVER.md` | |
 
-**Next session should generalise first:** move the shared page/render code out of `ch9m.py` into `tools/worksheets/modified.py` and put each unit's content in its own file (e.g. `tools/worksheets/mod_algebra.py`); same for `gen_ch9m.py` → one L0 generator per chapter. Keep the G1 output identical (diff the HTML before/after).
+**Done 16 Nov (G1 rebuilds identically):** move the shared page/render code out of `ch9m.py` into `tools/worksheets/modified.py` and put each unit's content in its own file (e.g. `tools/worksheets/mod_algebra.py`); same for `gen_ch9m.py` → one L0 generator per chapter. Keep the G1 output identical (diff the HTML before/after).
 
 ## Units still to do (in 10MAG order) and a starting map
 Lesson groupings and CFAT weeks come from `courses/lessons.json` (`plans`, `cfats`), so re-read them; Rocco may have changed them. The Year 7–9 picks below are **suggestions** from the contents pages: confirm by reading each subchapter.
@@ -76,3 +76,9 @@ Avoid re-using a Year 7–9 Example in two units (e.g. Y8 8J is in G1, G5 and G8
 
 ## Kick-off prompt for a new session
 > Read CLAUDE.md, PLANNER.md, docs/HANDOVER.md and docs/MODIFIED-HANDOFF.md in roccatalano/10MA. Then plan and build the complete 10MAG Modified curriculum following MODIFIED-HANDOFF.md: generalise the G1 pilot code, ask me the open questions in one go, then do the units in the suggested order, sending me each unit as it's finished.
+
+## Rocco's answers (16 Nov, logged)
+- G1 pilot reviewed: copy as is.
+- No-Freefall lessons (1I, 1J, 1L, 8D, 6A–6D): practice = Cambridge 8/9 exercise questions, verbatim + cited, in the modified workbook.
+- G7 Networks: unmodified 10MAG materials + support; M CFATs use the easiest 10MAG items.
+- G2 and 9J: skipped for now.
