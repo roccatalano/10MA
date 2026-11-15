@@ -189,6 +189,7 @@ a{color:var(--accent)}
 .split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:10px;margin-bottom:16px;align-items:start}.modcol{background:#f0faf8;border-radius:10px;box-shadow:0 0 0 6px #f0faf8}#lessons.wide .cp{max-width:1500px}
 .t-mod{--c:#2f9e8f;--b:#e0f4f0}.card.gap{border-style:dashed;background:#fffaf0}.card.gap .tag{--b:var(--review);--c:var(--review-i)}
 @media(max-width:1100px){.split{grid-template-columns:1fr 1fr}}.split .card .ttl{font-size:13px}
+.umsolid{background:var(--lesson-i);color:#fff;border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:5px}.umsolid .ttl{font-weight:600}.umsolid a{color:#fff;text-decoration:none;font-size:12px;border:1px solid rgba(255,255,255,.55);border-radius:6px;padding:1px 8px;margin:0 4px 3px 0;display:inline-block;font-weight:600}.umsolid a:hover{background:rgba(255,255,255,.15)}.umsolid.mod{background:#1d7266}.umsolid label,.umsolid .nolink{font-size:12px}
 .vtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:6px}.vtog button{border:0;background:var(--card);padding:5px 14px;cursor:pointer;font-size:13px}.vtog button.on{background:var(--ink);color:#fff}
 @media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
@@ -716,18 +717,22 @@ function mdetail(l){const subs=[...new Set(l.items.map(x=>x.id))];
     <div class="dadd"><select class="madd" data-sub="${id}" style="flex:1;max-width:100%"><option value="">+ add a Freefall sheet…</option>${opts}</select></div>`}).join('')}
   <p class="src">Freefall PDFs are licensed to the school: the modified workbook is built on G: only, never linked here.</p></div>`}
 function splitLessons(g){const out=[[],[],[],[]];
-  g.L.forEach(l=>{out[0].push(pcard(l)+(lexpand||l.id===lopenId?pdetail(l):''));out[2].push(mcard(l)+((lexpand||'M:'+l.id===lopenId)&&(l.kind==='teach'||l.kind==='practice')?mdetail(l):''));
+  g.L.forEach(l=>{
+    if(l.kind==='assess'){out[1].push(pcard(l));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
+    out[0].push(pcard(l)+(lexpand||l.id===lopenId?pdetail(l):''));out[2].push(mcard(l)+((lexpand||'M:'+l.id===lopenId)&&(l.kind==='teach'||l.kind==='practice')?mdetail(l):''));
     l.cfs.forEach(ci=>{const c=g.cf[ci-1],M=((LP.materials||{})[ukey(g.u)]||[]).find(m=>m.kind==='cfat'&&m.n===ci),code=cfatCode(g.u,ci-1,c),rng=esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)));
       out[1].push(`<div class="card fa t-cfat"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${M?'Ready':'To build'}</span></span></div><div class="ttl">CFAT ${code} · ${rng}</div>${M?`<div><a href="../${encodeURI(M.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(M.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`);
       out[3].push(`<div class="card fa t-cfat mod"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">To plan</span></span></div><div class="ttl">CFAT ${code}M · ${rng}</div><div class="src">Same week and skills, Year 7–8 level</div></div>`)})});
   return out}
+function umatSolid(g){const M=(LP.materials||{})[ukey(g.u)]||[],sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat');
+  return `<div class="umsolid"><div class="ttl">Unit materials</div><div>${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}<a href="donow.html?s=${g.u.stream}&u=${g.U}" target="_blank" rel="noopener">Do Now sheets ↗</a></div></div>`}
 function splitUnit(g){const [a,c,b,d]=splitLessons(g),k=ukey(g.u),ap=MOD.approved[k];
-  return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
-   <div class="pcol"><div class="pcolh">10MAG CFATs</div>${c.join('')||'<div class="empty">No CFATs yet</div>'}${cfatCards({...g,cf:[]}).replace(/^<div class="empty">.*?<\/div>/,'')}</div>
-   <div class="pcol modcol"><div class="pcolh">Modified lessons</div>${b.join('')}</div>
-   <div class="pcol modcol"><div class="pcolh">Modified CFATs</div>${d.join('')}
-   <label class="src" style="display:block;margin:2px 0"><input type="checkbox" class="mapp" data-k="${esc(k)}" ${ap?'checked':''}> Freefall mapping approved</label>
-   <div class="card fa t-mod"><div class="ttl">Modified unit workbook</div><div class="src">${ap?'Approved: ready to build (G: 01 Lesson materials only)':'Built once the mapping is approved'}</div></div></div></div>`}
+  return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${umatSolid(g)}${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
+   <div class="pcol"><div class="pcolh">10MAG assessments</div>${c.join('')||'<div class="empty">No assessments yet</div>'}</div>
+   <div class="pcol modcol"><div class="pcolh">Modified lessons</div>
+   <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div><span class="nolink">Modified workbook: ${ap?'approved, ready to build (G: only)':'built once the mapping is approved'}</span></div>
+   <label><input type="checkbox" class="mapp" data-k="${esc(k)}" ${ap?'checked':''}> Freefall mapping approved</label></div>${b.join('')}</div>
+   <div class="pcol modcol"><div class="pcolh">Modified assessments</div>${d.join('')||'<div class="empty">No assessments yet</div>'}</div></div>`}
 
 const modal=document.getElementById('modal');
 modal.onclick=e=>{if(e.target===modal)modal.classList.remove('on')};
