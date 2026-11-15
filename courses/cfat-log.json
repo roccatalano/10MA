@@ -10,12 +10,57 @@
   "Multiple equations in a stem go one per line, labelled [1], [2]. No sources or skill tick table on the student copy."
  ],
  "decisions": [
-  {"date":"2026-11-16","stream":"10MAG","unit":"Univariate Statistics","decision":"CFAT 1.9.1 = 9A-9C, CFAT 1.9.2 = 9D-9E. L1 from Cambridge 9 Ch 9 (else Cambridge 8 Ch 8), L2 from Oxford 10 (else Jacaranda 10). L3 not used.","by":"Rocco"},
-  {"date":"2026-11-16","stream":"Both","unit":"","decision":"Rewording a stem so a single part stands alone, or adding an instruction such as 'graph the solution on a number line', is OK if labelled 'adapted' in the source.","by":"Rocco"},
-  {"date":"2026-11-16","stream":"Both","unit":"","decision":"CFAT code changed to unit.chapter.CFAT number. Existing CFATs renamed only: 10MAA 1.1.1-1.1.4, 10MAG 3.1.1-3.1.5.","by":"Rocco"},
-  {"date":"2026-11-15","stream":"10MAG","unit":"Algebra and Linear Relations","decision":"5 CFATs: 1A-1C, 1E-1F, 1G-1H, 1I-1J, 1K-1L (no 1D). Adjacent sketch questions sit side by side with smaller grids; spare space capped at 22 mm per mark.","by":"Rocco"},
-  {"date":"2026-11-15","stream":"10MAA","unit":"Algebra and Linear Relations","decision":"4 CFATs built: 1.1.1 = 1A-1D, 1.1.2 = 1E-1F, 1.1.3 = 1G-1L, 1.1.4 = 1I-1K (as named in the files).","by":"Claude"},
-  {"date":"2026-11-15","stream":"Both","unit":"","decision":"1 CFAT = 1 week = 3 lessons (classes get 3 lessons a week); CFAT groupings chosen for similar content.","by":"Rocco"}
+  {
+   "date": "2026-11-16",
+   "stream": "10MAG",
+   "unit": "",
+   "decision": "10MAG Modified: every 10MAG CFAT gets an M version (same week and skills, Year 7-8 level, code + M, e.g. 1.9.1M). Modified lessons/workbooks use Freefall 7/8/9 sheets mapped per subchapter (courses/modified.json), checked and approved per unit on the planner; workbooks built on G: only (Freefall licence). Gaps (trig, parabolas, networks, recursion, simultaneous eqns, conditional prob) decided unit by unit and logged here.",
+   "by": "Rocco"
+  },
+  {
+   "date": "2026-11-16",
+   "stream": "10MAG",
+   "unit": "Univariate Statistics",
+   "decision": "CFAT 1.9.1 = 9A-9C, CFAT 1.9.2 = 9D-9E. L1 from Cambridge 9 Ch 9 (else Cambridge 8 Ch 8), L2 from Oxford 10 (else Jacaranda 10). L3 not used.",
+   "by": "Rocco"
+  },
+  {
+   "date": "2026-11-16",
+   "stream": "Both",
+   "unit": "",
+   "decision": "Rewording a stem so a single part stands alone, or adding an instruction such as 'graph the solution on a number line', is OK if labelled 'adapted' in the source.",
+   "by": "Rocco"
+  },
+  {
+   "date": "2026-11-16",
+   "stream": "Both",
+   "unit": "",
+   "decision": "CFAT code changed to unit.chapter.CFAT number. Existing CFATs renamed only: 10MAA 1.1.1-1.1.4, 10MAG 3.1.1-3.1.5.",
+   "by": "Rocco"
+  },
+  {
+   "date": "2026-11-15",
+   "stream": "10MAG",
+   "unit": "Algebra and Linear Relations",
+   "decision": "5 CFATs: 1A-1C, 1E-1F, 1G-1H, 1I-1J, 1K-1L (no 1D). Adjacent sketch questions sit side by side with smaller grids; spare space capped at 22 mm per mark.",
+   "by": "Rocco"
+  },
+  {
+   "date": "2026-11-15",
+   "stream": "10MAA",
+   "unit": "Algebra and Linear Relations",
+   "decision": "4 CFATs built: 1.1.1 = 1A-1D, 1.1.2 = 1E-1F, 1.1.3 = 1G-1L, 1.1.4 = 1I-1K (as named in the files).",
+   "by": "Claude"
+  },
+  {
+   "date": "2026-11-15",
+   "stream": "Both",
+   "unit": "",
+   "decision": "1 CFAT = 1 week = 3 lessons (classes get 3 lessons a week); CFAT groupings chosen for similar content.",
+   "by": "Rocco"
+  }
  ],
- "open": ["Calculators allowed on CFATs? (bound reference too)"]
+ "open": [
+  "Calculators allowed on CFATs? (bound reference too)"
+ ]
 }
