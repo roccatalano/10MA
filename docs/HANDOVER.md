@@ -106,3 +106,8 @@
 - 10MAG CFATs: adjacent sketch questions sit side by side with 62 mm grids underneath (automatic for 10MAG in paper.py). Spare space per box is capped at 22 mm per mark, so boxes no longer stretch to fill a page (10MAA unchanged).
 - 1C.2 L2 (Oxford Ch 4 review Q6a): stem now adds "and graph the solution on a number line" (Rocco OK with adding wording like this).
 - Open: Rocco to check the 10MAG L1 questions suit the class (e.g. 1.3 Q4 find a missing coordinate from a length).
+
+## 16 Nov 2026 — 10MAG Unit 1 (Univariate Statistics) worksheets
+- Guided worksheets C10-9A…9E built (`tools/worksheets/ch9.py`, content verbatim + cited inside the script; CSS = `tools/worksheets/ws.css`, copied from the Ch1 worksheets). Linked on the library cards, on G: `01 Lesson materials`.
+- Histogram parts get a blank grid, box-plot parts a blank number line, two-way-table parts a blank table.
+- Next for this unit: Rocco sets lesson count + Lesson planning → workbook, CFAT blocks/CFATs, slides (see `docs/WORKSHEETS-CH9-HANDOFF.md`).

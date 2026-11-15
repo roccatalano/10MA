@@ -7,7 +7,7 @@ Written 16 Nov 2026. Read `CLAUDE.md`, `PLANNER.md`, `docs/HANDOVER.md`, then th
 - Library cards C10-9A…9E are indexed (LIs, examples, APK locators, exit tasks/checklist, coursework pathways). No materials yet. Unit has no lesson count on the planner yet (Rocco to set).
 
 ## The job (in order)
-1. **Guided worksheets 9A–9E** → `lessons/C10-9X worksheet.html` + `.pdf`, flat copy to G: `01 Lesson materials`.
+1. **DONE 16 Nov:** Guided worksheets 9A–9E → `lessons/C10-9X worksheet.html` + `.pdf`, flat copy to G: `01 Lesson materials`.
 2. Unit workbook (`tools/worksheets/workbook.py "10MAG|Univariate Statistics"`) once Lesson planning exists.
 3. CFAT blocks 9A–9E + CFATs (see `docs/CFAT-HANDOFF.md`; CFAT groupings come from Lesson planning).
 4. Slide deck (see `docs/SLIDES-HANDOFF.md`).

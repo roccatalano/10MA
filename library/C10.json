@@ -16019,7 +16019,15 @@
        "Enrichment": "12, 13"
       }
      },
-     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "9A worksheet",
+       "html": "lessons/C10-9A worksheet.html",
+       "pdf": "lessons/C10-9A worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-9B",
@@ -16205,7 +16213,15 @@
        "Enrichment": "14"
       }
      },
-     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "9B worksheet",
+       "html": "lessons/C10-9B worksheet.html",
+       "pdf": "lessons/C10-9B worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-9C",
@@ -16377,7 +16393,15 @@
        "Enrichment": "12"
       }
      },
-     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "9C worksheet",
+       "html": "lessons/C10-9C worksheet.html",
+       "pdf": "lessons/C10-9C worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-9D",
@@ -16554,7 +16578,15 @@
        "Enrichment": "13"
       }
      },
-     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "9D worksheet",
+       "html": "lessons/C10-9D worksheet.html",
+       "pdf": "lessons/C10-9D worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-9E",
@@ -16710,7 +16742,15 @@
        "Enrichment": "9"
       }
      },
-     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)"
+     "coursework_note": "Good / Better / Best = the book's Foundation / Standard / Advanced pathways (read off the exercise)",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "9E worksheet",
+       "html": "lessons/C10-9E worksheet.html",
+       "pdf": "lessons/C10-9E worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-9F",
