@@ -1,0 +1,170 @@
+{
+ "card": "C10-1F",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can find the gradient of a line joining two points.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "mc",
+     "marks": 1,
+     "q": "The gradient of the line joining the points $(1, -2)$ and $(5, 6)$ is:",
+     "options": [
+      "$2$",
+      "$1$",
+      "$3$",
+      "$-1$",
+      "$\\dfrac{1}{3}$"
+     ],
+     "answer": "A",
+     "sol": [
+      "$m = \\dfrac{6 - (-2)}{5 - 1} = \\dfrac{8}{4} = 2$ (A)"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, multiple-choice Q3 (p. 323)",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "q": "The gradient of the line passing through the points $(1, 8)$ and $(-3, -6)$ is:",
+     "options": [
+      "$1$",
+      "$-1$",
+      "$\\dfrac{2}{7}$",
+      "$\\dfrac{7}{2}$",
+      "$-\\dfrac{7}{2}$"
+     ],
+     "answer": "D",
+     "sol": [
+      "$m = \\dfrac{-6 - 8}{-3 - 1} = \\dfrac{-14}{-4} = \\dfrac{7}{2}$ (D)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q8 (p. 207)",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Find the missing coordinate, $n$, if the line joining $(-1, 3)$ and $(2, n)$ has gradient $2$.",
+     "sol": [
+      "$\\dfrac{n - 3}{2 - (-1)} = 2$",
+      "$n - 3 = 6$",
+      "$n = 9$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q11a (p. 322); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "skill": "I can find the equation of a line using a point and the $y$-intercept.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Give the equation of the straight line that has gradient $3$ and passes through the point $(0, 2)$.",
+     "sol": [
+      "$m = 3$, $c = 2$",
+      "$y = 3x + 2$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q8a (p. 321); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "q": "A straight line has a gradient of $-2$ and passes through the point $(0, 5)$. Its equation is:",
+     "options": [
+      "$2y = -2x + 10$",
+      "$y = -2x + 5$",
+      "$y = 5x - 2$",
+      "$y - 2x = 5$",
+      "$y = -2(x - 5)$"
+     ],
+     "answer": "B",
+     "sol": [
+      "$m = -2$, $c = 5$",
+      "$y = -2x + 5$ (B)"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, multiple-choice Q6 (p. 324)",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L3",
+     "type": "mc",
+     "marks": 1,
+     "q": "The equation for the linear graph with a gradient of $\\dfrac{3}{4}$ and a $y$-intercept of $\\dfrac{5}{8}$ is:",
+     "options": [
+      "$8x - 6y + 5 = 0$",
+      "$8y = 6x - 5$",
+      "$6x - 8y + 5 = 0$",
+      "$6y = 8x + 5$",
+      "$6x - 5y + 8 = 0$"
+     ],
+     "answer": "C",
+     "sol": [
+      "$y = \\dfrac{3}{4}x + \\dfrac{5}{8}$, $\\times 8$: $8y = 6x + 5$",
+      "$6x - 8y + 5 = 0$ (C)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q7 (p. 207)",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "skill": "I can find the equation of a line given two points.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Give the equation of the straight line that has gradient $\\dfrac{4}{3}$ and passes through the point $(6, 3)$.",
+     "sol": [
+      "$3 = \\dfrac{4}{3}(6) + c$",
+      "$3 = 8 + c$, $c = -5$",
+      "$y = \\dfrac{4}{3}x - 5$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q8c (p. 321); adapted: stem reworded for a single part",
+     "vc2": "VC2M9A06"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 1,
+     "q": "Find the equation of the line that passes through the points $(1, 3)$ and $(2, 4)$. Write your answer in the form $y = mx + c$.",
+     "sol": [
+      "$m = \\dfrac{4 - 3}{2 - 1} = 1$",
+      "$3 = 1 + c$, $c = 2$",
+      "$y = x + 2$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q11a (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Find the equation of the line that passes through the points $(-1, 5)$ and $(3, -7)$. Write your answer in the form $y = mx + c$.",
+     "sol": [
+      "$m = \\dfrac{-7 - 5}{3 - (-1)} = -3$",
+      "$5 = -3(-1) + c$, $c = 2$",
+      "$y = -3x + 2$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q11b (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  }
+ ]
+}

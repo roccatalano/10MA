@@ -32,7 +32,7 @@ CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetic
 .skill{font-size:8pt;color:#555;font-weight:normal}
 svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
-.ans>div{margin:.3mm 0}.ans svg.fig{height:14mm;width:auto}.q svg.fig{height:14mm;width:auto}
+.ans>div{margin:.3mm 0}.ans svg.fig{max-height:26mm;height:auto;width:auto;max-width:100%}.q svg.fig{height:14mm;width:auto}
 .brk{break-before:page}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
@@ -40,7 +40,7 @@ table.sk td:first-child{text-align:left}"""
 def card_tenA(lib,cid):
     return any(x['id']==cid and x.get('tenA') for c in lib['chapters'] for x in c.get('subchapters',[]))
 
-def load(card): return json.load(open(os.path.join(HERE,f'{card}.json')))
+def load(card): return json.loads(open(os.path.join(HERE,f'{card}.json')).read().replace('\\\\$','<span class=\\"nomath\\">$</span>'))
 
 def build(stream,n,unit):
     lp=json.load(open(os.path.join(ROOT,'courses/lessons.json')))
@@ -48,14 +48,16 @@ def build(stream,n,unit):
     lv=LEVELS[stream];subs=[c.split('-')[1] for c in cards]
     lib=json.load(open(os.path.join(ROOT,'library/C10.json')))
     A=[];B=[];skills=[]
+    nsk=sum(len(load(c)['skills']) for c in cards);FEW=nsk<6   # short week: test both of the stream's levels
     for c in cards:
         b=load(c);sub=c.split('-')[1]
         for s in b['skills']:
             tag=f'{sub}.{s["n"]}';skills.append([tag,s['skill'],0])
             # one question per skill: alternate the stream's two levels within a subchapter (10A subchapters take the harder level)
             want=lv[1] if (card_tenA(lib,c) or s['n']%2==0) else lv[0]
-            it=[x for x in s['items'] if x['level']==want][0]
-            it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
+            pick=[x for x in s['items'] if (x['level'] in lv if FEW else x['level']==want)]
+            for it in pick:
+                it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
     tot=sum(s[2] for s in skills);ma=sum(i['marks'] for i in A);mb=sum(i['marks'] for i in B)
     qn=[0]
     def hd(it):
@@ -69,7 +71,7 @@ def build(stream,n,unit):
         h=12
         return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
-    title={1:'Algebra review, equations &amp; inequalities'}.get(n,unit)
+    title={1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'}.get(n,unit)
     body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}'
@@ -85,7 +87,7 @@ def build(stream,n,unit):
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
           f'<style>{CSS}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
           + body.replace('Show all working','<b style="color:#c00">Solutions</b>' if sol else 'Show all working') +
-          """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+          """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false});
 document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const mm=v=>v*96/25.4;
 let sh,used=0,n=0;const newSheet=()=>{sh=document.createElement('div');sh.className='sheet';document.body.appendChild(sh);used=0;n++};newSheet();
 items.forEach((el,k)=>{const h=el.getBoundingClientRect().height+parseFloat(getComputedStyle(el).marginBottom||0);

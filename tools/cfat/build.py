@@ -80,7 +80,7 @@ table.blk .src{display:block;font-size:7.5pt;color:#555;margin-top:4px}table.blk
 
 def build(card):
     global SUB,TITLE
-    b=json.load(open(os.path.join(HERE,f'{card}.json')));SUB=card.split('-')[1]
+    b=json.loads(open(os.path.join(HERE,f'{card}.json')).read().replace('\\\\$','<span class=\\"nomath\\">$</span>'));SUB=card.split('-')[1]
     lib=json.load(open(os.path.join(ROOT,'library/C10.json')))
     TITLE=[x for c in lib['chapters'] for x in c.get('subchapters',[]) if x['id']==card][0]['title']
     plans=json.load(open(os.path.join(ROOT,'courses/lessons.json')))['plans']
@@ -93,7 +93,7 @@ def build(card):
       f'<style>{CSS}</style></head><body>'
       '<div class="bar"><button data-t="block" class="on">Block</button>'+''.join(f'<button data-t="{st}">{st} paper ({" + ".join(STREAMS[st])})</button>' for st in taught)+(f'<span style="opacity:.7">{SUB} is not taught in {", ".join(x for x in STREAMS if x not in taught)}</span>' if len(taught)<len(STREAMS) else '')+'<label><input type="checkbox" id="sol"> Show solutions + sources</label></div>'
       + grid(b) + ''.join(paper(b,st) for st in taught) +
-      """<script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+      """<script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false});
 const tab=t=>{document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.dataset.tab===t));document.querySelectorAll('.bar button').forEach(b=>b.classList.toggle('on',b.dataset.t===t))};
 document.querySelectorAll('.bar button').forEach(b=>b.onclick=()=>tab(b.dataset.t));tab(new URLSearchParams(location.search).get('t')||'block');
 const S=document.getElementById('sol');S.onchange=()=>document.body.classList.toggle('showsol',S.checked);if(new URLSearchParams(location.search).get('sol')){S.checked=true;S.onchange()}

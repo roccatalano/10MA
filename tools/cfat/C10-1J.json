@@ -1,0 +1,105 @@
+{
+ "card": "C10-1J",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can solve simultaneous equations by adding or subtracting them.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Solve $x + y = 15$ and $x - y = 7$ using the elimination method.",
+     "sol": [
+      "add: $2x = 22$, $x = 11$",
+      "$11 + y = 15$, $y = 4$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q14d (p. 165); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "q": "Consider the two equations: $2x - y + 3 = 0$ ① and $4x - y + 5 = 0$ ②. If equation ② is subtracted from equation ①, the resulting equation will be:",
+     "options": [
+      "$-2x - 2 = 0$",
+      "$-2x - 8 = 0$",
+      "$2x + 2 = 0$",
+      "$2x + 8 = 0$",
+      "$2x - 2 = 0$"
+     ],
+     "answer": "A",
+     "sol": [
+      "① − ②: $-2x - 2 = 0$ (A)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q15 (p. 207)",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Use the elimination method to solve $x + 5y = 13$ and $x + 2y = 4$.",
+     "sol": [
+      "subtract: $3y = 9$, $y = 3$",
+      "$x + 6 = 4$, $x = -2$",
+      "$x = -2$, $y = 3$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q16b (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "skill": "I can use the elimination method to solve simultaneous equations.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve $3x + 2y = -19$ and $4x - y = -7$ using the elimination method.",
+     "sol": [
+      "$\\times 2$: $8x - 2y = -14$",
+      "add: $11x = -33$, $x = -3$",
+      "$4(-3) - y = -7$, $y = -5$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q14e (p. 165); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 2,
+     "q": "Use the elimination method to solve $2x - y = 7$ and $3x + 5y = 4$.",
+     "sol": [
+      "$\\times 5$: $10x - 5y = 35$",
+      "add: $13x = 39$, $x = 3$",
+      "$6 - y = 7$, $y = -1$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q16c (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Solve $3x - 5y = 7$ and $5x + 2y = 22$ using the elimination method.",
+     "sol": [
+      "$\\times 2$: $6x - 10y = 14$; $\\times 5$: $25x + 10y = 110$",
+      "add: $31x = 124$, $x = 4$",
+      "$12 - 5y = 7$, $y = 1$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q14f (p. 165); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A04"
+    }
+   ]
+  }
+ ]
+}

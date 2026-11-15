@@ -1,0 +1,153 @@
+{
+ "card": "C10-1H",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can decide if lines are parallel, perpendicular or neither.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "mc",
+     "marks": 1,
+     "q": "The gradient of a line perpendicular to $y = 4x - 7$ would be:",
+     "options": [
+      "$\\dfrac{1}{4}$",
+      "$4$",
+      "$-4$",
+      "$-\\dfrac{1}{4}$",
+      "$-7$"
+     ],
+     "answer": "D",
+     "sol": [
+      "$m_2 = -\\dfrac{1}{4}$ (D)"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, multiple-choice Q9 (p. 324)",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L2",
+     "type": "mc",
+     "marks": 1,
+     "q": "A line parallel to the line $3x + 2y = 6$ would have a gradient of:",
+     "options": [
+      "$\\dfrac{2}{3}$",
+      "$-3$",
+      "$-\\dfrac{3}{2}$",
+      "$\\dfrac{3}{2}$",
+      "$-\\dfrac{2}{3}$"
+     ],
+     "answer": "C",
+     "sol": [
+      "$y = -\\dfrac{3}{2}x + 3$; parallel: same gradient (C)"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, multiple-choice Q10 (p. 207)",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Four points are plotted on a Cartesian plane: $A(-2, 1)$, $B(5, 4)$, $C(-6, -4)$ and $D(8, 2)$. Is line segment $AB$ parallel to line segment $CD$?",
+     "sol": [
+      "$m_{AB} = \\dfrac{4 - 1}{5 - (-2)} = \\dfrac{3}{7}$",
+      "$m_{CD} = \\dfrac{2 - (-4)}{8 - (-6)} = \\dfrac{6}{14} = \\dfrac{3}{7}$",
+      "Yes, equal gradients so $AB \\parallel CD$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4E Q19a (p. 196); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "skill": "I can find the equation of a parallel line.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Determine the linear equation that is parallel to the line $y = 2x - 1$ and passes through the point $(0, 4)$.",
+     "sol": [
+      "$m = 2$, $c = 4$",
+      "$y = 2x + 4$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q12a (p. 322); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 1,
+     "q": "Write an equation for a line that is parallel to the graph of $y = -4x + 5$; with $y$-intercept of $-3$.",
+     "sol": [
+      "$m = -4$, $c = -3$",
+      "$y = -4x - 3$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q12a (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Write an equation for a line that is parallel to the graph of $y = 3x + 2$ and passes through $(-3, -2)$.",
+     "sol": [
+      "$m = 3$",
+      "$-2 = 3(-3) + c$, $c = 7$",
+      "$y = 3x + 7$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q13b (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "skill": "I can find the equation of a perpendicular line.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 1,
+     "q": "Determine the linear equation that is perpendicular to the line $y = 2x + 3$ and passes through the point $(0, -1)$.",
+     "sol": [
+      "$m = -\\dfrac{1}{2}$, $c = -1$",
+      "$y = -\\dfrac{1}{2}x - 1$"
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 4 review, short answer Q12c (p. 322); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 1,
+     "q": "Write an equation for a line that is perpendicular to the graph of $y = 2x - 7$; with $y$-intercept of $-4$.",
+     "sol": [
+      "$m = -\\dfrac{1}{2}$, $c = -4$",
+      "$y = -\\dfrac{1}{2}x - 4$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q12b (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Write an equation for a line that is perpendicular to the graph of $y = 3x + 2$ and passes through $(3, 2)$.",
+     "sol": [
+      "$m = -\\dfrac{1}{3}$",
+      "$2 = -\\dfrac{1}{3}(3) + c$, $c = 3$",
+      "$y = -\\dfrac{1}{3}x + 3$"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Ch 4 review, short answer Q13a (p. 208); adapted: stem reworded for a single part",
+     "vc2": "VC2M10A06"
+    }
+   ]
+  }
+ ]
+}

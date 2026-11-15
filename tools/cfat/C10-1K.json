@@ -1,0 +1,55 @@
+{
+ "card": "C10-1K",
+ "levels": {
+  "L1": "Level 9 (review)",
+  "L2": "Level 10",
+  "L3": "Level 10 extension / 10A"
+ },
+ "skills": [
+  {
+   "n": 1,
+   "skill": "I can set up and solve simultaneous equations.",
+   "items": [
+    {
+     "level": "L1",
+     "type": "sa",
+     "marks": 2,
+     "q": "The sum of the ages of Billy and his sister is 32. If Billy is 8 years older than his sister, what are their ages?",
+     "sol": [
+      "$b + s = 32$, $b - s = 8$",
+      "$2b = 40$, $b = 20$, $s = 12$",
+      "Billy is 20, his sister is 12."
+     ],
+     "src": "Cambridge Essential Mathematics 9 (3rd Ed), Ch 2 review, short answer Q15 (p. 165)",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L2",
+     "type": "sa",
+     "marks": 2,
+     "q": "The perimeter around the top of a rectangular billiard table is 810 cm. The length is twice the width. Use $l$ and $w$ to write two linear equations, then solve them to find the dimensions of the top of the billiard table.",
+     "sol": [
+      "$2l + 2w = 810$, $l = 2w$",
+      "$6w = 810$, $w = 135$",
+      "$l = 270$ cm, $w = 135$ cm"
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4F Q14a–c (p. 204); adapted: three parts combined",
+     "vc2": "VC2M10A04"
+    },
+    {
+     "level": "L3",
+     "type": "sa",
+     "marks": 2,
+     "q": "Sophie has decided to make hand-painted cards. She invests \\$60 in a set of paintbrushes and enough paint to make 40 cards. The cost of each plain white card is \\$2 and she plans to sell the painted cards for \\$6 each. The cost is $a = 2n + 60$ and the money received is $a = 6n$. What are the coordinates of the point of intersection of the two graphs? What does this tell you?",
+     "sol": [
+      "$6n = 2n + 60$, $4n = 60$, $n = 15$",
+      "$a = 90$: $(15, 90)$",
+      "Selling 15 cards recovers the \\$90 spent (break even)."
+     ],
+     "src": "Oxford Maths 10 VC (2022), Exercise 4F Q13d (p. 204); adapted: parts a, b given in the stem",
+     "vc2": "VC2M10A04"
+    }
+   ]
+  }
+ ]
+}
