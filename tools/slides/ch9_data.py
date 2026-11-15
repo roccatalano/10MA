@@ -102,3 +102,99 @@ S['9B']=dict(
             w=[r'\text{Mean} = \dfrac{205}{12} \approx 17.1',r'\text{Median} = \dfrac{14 + 16}{2} = 15',r'*\text{Mode} = 11'])],
  learn=['hist','shape','stem'],
 )
+
+# ---------------------------------------------------------------- helpers for 9C–9E
+def tw(cols,rows,col='#000',bold_last=True,fs=15):
+    td=f'border:1.5px solid {col};padding:2px 8px;text-align:center'
+    h=''.join(f'<th style="{td};font-size:{fs-2}px;background:#f2f2f2">{x}</th>' for x in ['']+cols)
+    b=''.join('<tr>'+''.join(f'<td style="{td}{";text-align:left;font-weight:bold" if k==0 else ""}">{x}</td>' for k,x in enumerate(r))+'</tr>' for r in rows)
+    return f'<table style="border-collapse:collapse;color:{col};font-size:{fs}px;margin:4px 0">{"<tr>"+h+"</tr>"}{b}</table>'
+def boxplot(a,b,step,lab,five,out=(),label='',W=360,col=RED,box_y=26):
+    mn,q1,q2,q3,mx=five;n=round((b-a)/step);L=16;u=(W-2*L)/n;x=lambda v:L+(v-a)/step*u
+    o=[f'<line x1="4" y1="64" x2="{W-4}" y2="64" stroke="#000" stroke-width="1.4"/><path d="M{W-2} 64 l-7 -3.5 v7z"/><path d="M2 64 l7 -3.5 v7z"/>']
+    for k in range(n+1):
+        v=a+k*step;o.append(f'<line x1="{x(v):.1f}" y1="61" x2="{x(v):.1f}" y2="67" stroke="#000"/>')
+        if abs(((v-a)/lab)-round((v-a)/lab))<1e-6:o.append(f'<text x="{x(v):.1f}" y="80" font-size="12" text-anchor="middle">{v:g}</text>')
+    o.append(f'<line x1="{x(mn)}" y1="{box_y}" x2="{x(q1)}" y2="{box_y}" stroke="{col}" stroke-width="2"/><rect x="{x(q1)}" y="{box_y-14}" width="{x(q3)-x(q1)}" height="28" fill="{col}" fill-opacity=".12" stroke="{col}" stroke-width="2"/>'
+             f'<line x1="{x(q2)}" y1="{box_y-14}" x2="{x(q2)}" y2="{box_y+14}" stroke="{col}" stroke-width="2"/><line x1="{x(q3)}" y1="{box_y}" x2="{x(mx)}" y2="{box_y}" stroke="{col}" stroke-width="2"/>'
+             f'<line x1="{x(mn)}" y1="{box_y-7}" x2="{x(mn)}" y2="{box_y+7}" stroke="{col}" stroke-width="2"/><line x1="{x(mx)}" y1="{box_y-7}" x2="{x(mx)}" y2="{box_y+7}" stroke="{col}" stroke-width="2"/>')
+    for v in out:o.append(f'<circle cx="{x(v)}" cy="{box_y}" r="4.5" fill="{col}"/>')
+    if label:o.append(f'<text x="{W/2}" y="96" font-size="12" text-anchor="middle">{label}</text>')
+    return f'<svg class="fig" width="{W}" height="{100 if label else 86}" viewBox="0 0 {W} {100 if label else 86}">{"".join(o)}</svg>'
+LIK=['Strongly agree','Agree','Neutral','Disagree','Strongly disagree','Total']
+T5=tw(LIK,[['$40$ and over','2','7','10','5','0','24'],['Under $40$','0','1','6','12','7','26'],['Total','2','8','16','17','7','50']],fs=14)
+T5y=tw(LIK,[['Public','1','2','4','2','1','10'],['Private','0','2','6','1','1','10'],['Total','1','4','10','3','2','20']],fs=14)
+# ======================================================================== 9C
+KI_TW=r"A <b>two-way table</b> compares two related categorical variables. The entries are totalled both vertically and horizontally.<div class='kf'>% $= \dfrac{\text{frequency}}{\text{total}} \times 100$</div>"
+S['9C']=dict(
+ apk=[dict(q=r'Write the proportion <span class="nomath">$</span>40 out of <span class="nomath">$</span>200 as a fraction, a decimal and a percentage.',w=[r'\dfrac{40}{200} = \dfrac{1}{5}','= 0.2',r'= 20\%']),
+      dict(q=r'Of $50$ people it was found that $20$ people liked both coffee and tea, $15$ liked coffee but not tea and $10$ people liked tea but not coffee. Draw a two-way table of this situation.',
+           w=['!'+tw(['Tea','Not tea','Total'],[['Coffee','20','15','35'],['Not coffee','10','5','15'],['Total','30','20','50']],col=RED),'*!<span class="tx">Neither: $50 - 20 - 15 - 10 = 5$</span>']),
+      dict(q=r'On a particular day at a car service station, $20$ cars are serviced: $12$ cars need a wheel alignment, $10$ cars need their brake fluid replaced and $4$ require both. Illustrate the situation using a two-way table. Use the table to find how many cars require neither, and the probability that a randomly selected car needs only a wheel alignment.',
+           w=['!'+tw(['Brake fluid','No brake fluid','Total'],[['Wheel alignment','4','8','12'],['No wheel alignment','6','2','8'],['Total','10','10','20']],col=RED),'*!<span class="tx">Neither: $2$ cars &nbsp; Only wheel alignment: $\\dfrac{8}{20} = \\dfrac{2}{5}$</span>'])],
+ ex=[dict(n=5,page=783,kp='p. 781',instr='This two-way table summarises data collected from a survey using a 5-point Likert scale. The survey asked $50$ people if they are over or under the age of $40$ and to what degree they agree with the idea to reduce the driving blood alcohol limit from $0.05$ to $0.04$.'+T5,
+          yinstr='This two-way table summarises data collected from a survey using a 5-point Likert scale. The survey asked $20$ teachers if they thought there was enough time in the day to prepare for classes. Some teachers were from public schools and some were from private schools.'+T5y,ki=KI_TW,
+          parts=[('a','!State how many of the people surveyed: <b>i</b> were $40$ years of age or over <b>ii</b> strongly agree with the idea <b>iii</b> were $40$ years of age or over and responded Agree to the question <b>iv</b> were under $40$ and responded Disagree to the question.',[r'\text{i } 24',r'\text{ii } 2',r'\text{iii } 7',r'*\text{iv } 12']),
+                 ('b','!What percentage of the people surveyed: <b>i</b> were under $40$ years of age? <b>ii</b> were neutral to the idea? <b>iii</b> were under $40$ years of age and responded Strongly Disagree with the idea? <b>iv</b> were $40$ years of age or over and responded Neutral to the idea?',[r'\text{i } 52\%',r'\text{ii } 32\%',r'\text{iii } 14\%',r'*\text{iv } 20\%']),
+                 ('c','!Would you say that this data supports the notion that younger people would prefer a lower driving blood alcohol limit? Give a reason.',['*!<span class="tx">No. A greater proportion of the people under 40 disagree with the idea.</span>'])],
+          yt=[('a','!State how many of the teachers surveyed: <b>i</b> were from public schools <b>ii</b> responded Agree to the question <b>iii</b> were from public schools and responded Agree to the question <b>iv</b> were from private schools and responded Disagree to the question.',[r'\text{i } 10',r'\text{ii } 4',r'\text{iii } 2',r'*\text{iv } 1']),
+              ('b','!What percentage of the teachers surveyed: <b>i</b> were from private schools? <b>ii</b> were neutral to the question? <b>iii</b> were from private schools and responded Neutral to the question? <b>iv</b> were from public schools and responded Disagree to the question?',[r'\text{i } \tfrac{10}{20} \times 100 = 50\%',r'\text{ii } \tfrac{10}{20} \times 100 = 50\%',r'\text{iii } \tfrac{6}{20} \times 100 = 30\%',r'*\text{iv } \tfrac{2}{20} \times 100 = 10\%']),
+              ('c','!Would you say that this data supports the notion that teachers from public schools feel that there is enough time in the day to prepare for classes compared to private school teachers? Give a reason.',['*!<span class="tx">No. There is not a significant difference in the way teachers from the different types of schools responded to the question.</span>'])]),
+     dict(n=6,page=784,kp='p. 781',instr='A number of people were surveyed to see if they owned a beach house. They were also asked as to whether they were over $60$ years of age. $15$ of the $25$ people $60$ years of age and over said that they owned a beach house and $6$ of the $15$ people under $60$ years of age said that they owned a beach house.',
+          yinstr='A number of city and country dogs were checked to see if they were of pure or mixed breed. $18$ of the $30$ country dogs were of pure breed and $13$ of the $20$ city dogs were of mixed breed.',ki=KI_TW,
+          parts=[('a','!Represent this information in a two-way table.',['!'+tw(['Beach house','No beach house','Total'],[['$60$ and over','15','10','25'],['Under $60$','6','9','15'],['Total','21','19','40']],col=RED)]),
+                 ('b','!What fraction of the people surveyed: <b>i</b> were under $60$ years of age? <b>ii</b> were under $60$ years of age and owned a beach house?',[r'\text{i } \dfrac{15}{40} = \dfrac{3}{8}',r'*\text{ii } \dfrac{6}{40} = \dfrac{3}{20}']),
+                 ('c','!Would you say that this data supports the notion that older people are more likely to own a beach house? Give a reason.',['*!<span class="tx">Yes. A much larger proportion of the people over 60 years of age own a beach house.</span>'])],
+          yt=[('a','!Represent this information in a two-way table.',['!'+tw(['Pure','Mixed','Total'],[['Country','18','12','30'],['City','7','13','20'],['Total','25','25','50']],col=RED)]),
+              ('b','!What fraction of the dogs surveyed: <b>i</b> were from the city? <b>ii</b> were from the city and of pure breed?',[r'\text{i } \dfrac{20}{50} = \dfrac{2}{5}',r'*\text{ii } \dfrac{7}{50}']),
+              ('c','!Would you say that this data supports the notion that country dogs are more likely to be of mixed breed? Give a reason.',['*!<span class="tx">No. The proportion of mixed breed dogs is higher for the city.</span>'])])],
+ exit=[dict(q=r'This two-way table summarises data from a survey of $40$ people using a 5-point Likert scale. The survey asked if they live in Australia or live overseas and are visiting and to what degree they thought Australians were friendly.'+tw(LIK,[['Aus','2','4','6','3','3','18'],['Overseas','8','8','2','3','1','22'],['Total','10','12','8','6','4','40']],fs=12)+r'<b>i</b> State how many people surveyed were from Australia and responded Agree. <b>ii</b> Do you think that the data supports the notion that overseas visitors think Australians are more friendly? Give a reason.',
+            w=[r'\text{i } 4','*!<span class="tx">ii Yes. $\\tfrac{16}{22} \\approx 73\\%$ of overseas visitors agree or strongly agree, compared with $\\tfrac{6}{18} \\approx 33\\%$ of Australians.</span>']),
+       dict(q=r'A number of people were surveyed to see if they had a mortgage. They were also asked whether they were under or over $50$ years of age. $11$ of the $15$ people under $50$ had a mortgage and $5$ of the $10$ people $50$ or over had a mortgage. Represent the information in a two-way table and find what fraction of people surveyed were $50$ or over and had a mortgage.',
+            w=['!'+tw(['Mortgage','No mortgage','Total'],[['Under $50$','11','4','15'],['$50$ or over','5','5','10'],['Total','16','9','25']],col=RED),r'*\dfrac{5}{25} = \dfrac{1}{5}'])],
+ learn=['tw_read','tw_build'],
+)
+# ======================================================================== 9D
+KI_5=r"<b>Five-figure summary</b>: min, $Q_1$, median $(Q_2)$, $Q_3$, max.<div class='kf'>$\text{IQR} = Q_3 - Q_1$</div><div class='kn'>Leave the median out of the halves when there is an odd number of values.</div>"
+KI_OUT=r"A data point is an <b>outlier</b> when it is below the lower fence or above the upper fence.<div class='kf'>$Q_1 - 1.5 \times \text{IQR}$ &emsp; $Q_3 + 1.5 \times \text{IQR}$</div>"
+S['9D']=dict(
+ apk=[dict(q=r'Find the median of $15, 31, 12, 47, 21, 65, 12, 29$.',w=['12, 12, 15, 21, 29, 31, 47, 65',r'\text{Median} = \dfrac{21 + 29}{2}','= 25']),
+      dict(q=r'Find the IQR of $1, 15, 8, 2, 13, 10, 4, 14$.',w=['1, 2, 4, 8, 10, 13, 14, 15',r'Q_1 = \dfrac{2 + 4}{2} = 3,\ Q_3 = \dfrac{13 + 14}{2} = 13.5',r'\text{IQR} = 13.5 - 3 = 10.5']),
+      dict(q=r'List the data below in order from smallest to largest and find the median $(Q_2)$, the lower quartile $(Q_1)$, the upper quartile $(Q_3)$ and the interquartile range (IQR). Interpret the IQR.<br>$12 \;\; 21 \;\; 18 \;\; 8 \;\; 4 \;\; 16 \;\; 24 \;\; 11 \;\; 27 \;\; 10$',
+           w=['4, 8, 10, 11, 12, 16, 18, 21, 24, 27',r'Q_2 = \dfrac{12 + 16}{2} = 14,\ Q_1 = 10,\ Q_3 = 21',r'\text{IQR} = 21 - 10 = 11','*!<span class="tx">The middle 50% of the data are spread over 11.</span>'])],
+ ex=[dict(n=7,page=791,kp='p. 790',instr='Determine the range and IQR for these data sets by finding the five-figure summary.',ki=KI_5,
+          parts=[('a','2, 2, 4, 5, 6, 8, 10, 13, 16, 20',[r'\text{Range} = 20 - 2 = 18',r'Q_2 = 7,\ \text{so } Q_1 = 4 \text{ and } Q_3 = 13',r'\text{IQR} = 13 - 4','= 9']),
+                 ('b','1.6, 1.7, 1.9, 2.0, 2.1, 2.4, 2.4, 2.7, 2.9',[r'\text{Range} = 2.9 - 1.6 = 1.3',r'Q_1 = \dfrac{1.7 + 1.9}{2} = 1.8',r'Q_3 = \dfrac{2.4 + 2.7}{2} = 2.55',r'\text{IQR} = 2.55 - 1.8','= 0.75'])],
+          yt=[('a','3, 5, 5, 6, 7, 9, 10, 12',[r'\text{Range} = 12 - 3 = 9',r'Q_2 = 6.5,\ \text{so } Q_1 = 5 \text{ and } Q_3 = 9.5',r'\text{IQR} = 9.5 - 5','= 4.5']),
+              ('b','3.8, 3.9, 4.0, 4.2, 4.5, 4.5, 4.7',[r'\text{Range} = 4.7 - 3.8 = 0.9',r'Q_1 = 3.9',r'Q_3 = 4.5',r'\text{IQR} = 4.5 - 3.9','= 0.6'])]),
+     dict(n=8,page=792,kp='p. 790',instr='The following data set represents the number of flying geese spotted on each day of a $13$-day tour of England. &nbsp;$5, 1, 2, 6, 3, 3, 18, 4, 4, 1, 7, 2, 4$',
+          yinstr='The following data set represents the number of people on $11$ buses in a local area. &nbsp;$36, 24, 15, 23, 26, 0, 19, 24, 26, 33, 19$',ki=KI_OUT,
+          parts=[('a','!For the data, find: <b>i</b> the min and max <b>ii</b> the median <b>iii</b> the upper and lower quartiles <b>iv</b> the IQR <b>v</b> any outliers by determining the lower and upper fences.',
+                  [r'\text{i Min} = 1,\ \text{max} = 18',r'\text{ii } 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 6, 7, 18 \;\therefore\ \text{Median} = 4',r'\text{iii Lower quartile} = \dfrac{2 + 2}{2} = 2,\ \text{Upper quartile} = \dfrac{5 + 6}{2} = 5.5',r'\text{iv IQR} = 5.5 - 2 = 3.5',r'\text{v Lower fence} = 2 - 1.5 \times 3.5 = -3.25',r'\text{Upper fence} = 5.5 + 1.5 \times 3.5 = 10.75',r'*\therefore \text{The outlier is } 18.']),
+                 ('b','!Can you give a possible reason for why the outlier occurred?',['*!<span class="tx">Perhaps a flock of geese was spotted that day.</span>'])],
+          yt=[('a','!For the data, find: <b>i</b> the min and max <b>ii</b> the median <b>iii</b> the upper and lower quartiles <b>iv</b> the IQR <b>v</b> any outliers by determining the lower and upper fences.',
+               [r'\text{i Min} = 0,\ \text{max} = 36',r'\text{ii } 0, 15, 19, 19, 23, 24, 24, 26, 26, 33, 36 \;\therefore\ \text{Median} = 24',r'\text{iii Lower quartile} = 19,\ \text{Upper quartile} = 26',r'\text{iv IQR} = 26 - 19 = 7',r'\text{v Lower fence} = 19 - 1.5 \times 7 = 8.5',r'\text{Upper fence} = 26 + 1.5 \times 7 = 36.5',r'*\therefore \text{The outlier is } 0.']),
+              ('b','!Can you give a possible reason for why the outlier occurred?',['*!<span class="tx">Perhaps the bus was not taking passengers.</span>'])])],
+ exit=[dict(q=r'For the data set below find the minimum, maximum, median, upper and lower quartiles and the range and IQR.<br>$7, 10, 12, 12, 14, 18, 22, 25, 26, 30$',
+            w=[r'\text{Min} = 7,\ \text{max} = 30',r'\text{Median} = \dfrac{14 + 18}{2} = 16',r'Q_1 = 12,\ Q_3 = 25',r'\text{Range} = 30 - 7 = 23',r'*\text{IQR} = 25 - 12 = 13']),
+       dict(q=r'The following data represent the number of aces by a tennis player in $11$ grand slam matches for the year:<br>$15, 12, 22, 2, 10, 18, 16, 14, 15, 20, 16$<br>For the data find the upper and lower quartiles and use these to help determine if there are any outliers.',
+            w=['2, 10, 12, 14, 15, 15, 16, 16, 18, 20, 22',r'Q_1 = 12,\ Q_3 = 18,\ \text{IQR} = 6',r'12 - 1.5 \times 6 = 3,\ \ 18 + 1.5 \times 6 = 27',r'*\therefore \text{The outlier is } 2.'])],
+ learn=['five','fence'],
+)
+# ======================================================================== 9E
+KI_BOX=r"A <b>box plot</b> shows min, $Q_1$, $Q_2$, $Q_3$, max. An outlier is marked with a dot $(\bullet)$; the whiskers stretch to the lowest and highest values that are not outliers.<div class='kf'>outlier: $< Q_1 - 1.5 \times \text{IQR}$ or $> Q_3 + 1.5 \times \text{IQR}$</div>"
+S['9E']=dict(
+ apk=[dict(q=r'Find the IQR of $1, 15, 8, 2, 13, 10, 4, 14$.',w=['1, 2, 4, 8, 10, 13, 14, 15',r'Q_1 = 3,\ Q_3 = 13.5',r'\text{IQR} = 10.5']),
+      dict(q=r'This box plot summarises the test results $(\%)$ of a class of students.'+boxplot(40,100,5,10,(45,60,70,90,95),label='Score (%)',W=330,col='#000')+r'<b>i</b> Find the range and interquartile range of the results. <b>ii</b> Twenty-five per cent of results were above what number? <b>iii</b> If there were $24$ students in the class, how many scored above $70\%$?',
+           w=[r'\text{i Range} = 95 - 45 = 50,\ \text{IQR} = 90 - 60 = 30',r'\text{ii } 90',r'*\text{iii } \tfrac{1}{2} \times 24 = 12']),
+      dict(q=r'For the data shown below, find the minimum and maximum values, the median and lower and upper quartiles and draw a box plot to represent the data.<br>$18 \;\; 15 \;\; 13 \;\; 14 \;\; 21 \;\; 25 \;\; 17 \;\; 11 \;\; 15 \;\; 16 \;\; 18 \;\; 20 \;\; 24 \;\; 19$',
+           w=['11, 13, 14, 15, 15, 16, 17, 18, 18, 19, 20, 21, 24, 25',r'\text{Min} = 11,\ \text{max} = 25,\ \text{median} = 17.5,\ Q_1 = 15,\ Q_3 = 20',boxplot(10,26,1,2,(11,15,17.5,20,25),W=320)])],
+ ex=[dict(n=9,page=797,kp='p. 796',instr='Consider the given data set: &nbsp;$5, 9, 4, 3, 5, 6, 6, 5, 7, 12, 2, 3, 5$',yinstr='Consider the given data set: &nbsp;$12, 8, 19, 13, 22, 15, 1, 17, 24, 19$',ki=KI_BOX,
+          parts=[('a','!Determine whether any outliers exist by first finding $Q_1$ and $Q_3$.',['2, 3, 3, 4, 5, 5, 5, 5, 6, 6, 7, 9, 12',r'Q_1 = \dfrac{3 + 4}{2} = 3.5,\ Q_3 = \dfrac{6 + 7}{2} = 6.5',r'\therefore \text{IQR} = 6.5 - 3.5 = 3',r'Q_1 - 1.5 \times \text{IQR} = 3.5 - 1.5 \times 3 = -1',r'Q_3 + 1.5 \times \text{IQR} = 6.5 + 1.5 \times 3 = 11',r'*\therefore 12 \text{ is an outlier.}']),
+                 ('b','!Draw a box plot to summarise the data, marking outliers if they exist.',[boxplot(0,13,1,1,(2,3.5,5,6.5,9),out=(12,),W=560)])],
+          yt=[('a','!Determine whether any outliers exist by first finding $Q_1$ and $Q_3$.',['1, 8, 12, 13, 15, 17, 19, 19, 22, 24',r'Q_1 = 12,\ Q_3 = 19',r'\therefore \text{IQR} = 19 - 12 = 7',r'Q_1 - 1.5 \times \text{IQR} = 12 - 1.5 \times 7 = 1.5',r'Q_3 + 1.5 \times \text{IQR} = 19 + 1.5 \times 7 = 29.5',r'*\therefore 1 \text{ is an outlier.}']),
+              ('b','!Draw a box plot to summarise the data, marking outliers if they exist.',[boxplot(0,26,2,2,(8,12,16,19,24),out=(1,),W=560)])])],
+ exit=[dict(q=r'For the data set $5, 8, 2, 1, 6, 3, 3, 1, 4, 18, 2, 8, 5$, draw a box plot to summarise the data, marking outliers if they exist.',
+            w=['1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 8, 8, 18',r'Q_1 = 2,\ Q_2 = 4,\ Q_3 = 7,\ \text{IQR} = 5',r'2 - 1.5 \times 5 = -5.5,\ \ 7 + 1.5 \times 5 = 14.5\ \therefore\ 18 \text{ is an outlier}',boxplot(0,20,1,2,(1,2,4,7,8),out=(18,),W=600)])],
+ learn=['box','boxlive'],
+)

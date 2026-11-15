@@ -2477,6 +2477,13 @@
     "html": "assessments/CFAT 1.5 - 10MAG - 1K-1L.html",
     "solutions": "assessments/CFAT 1.5 - 10MAG - 1K-1L - Solutions.html"
    }
+  ],
+  "10MAG|Univariate Statistics": [
+   {
+    "kind": "slides",
+    "title": "Slides",
+    "html": "lessons/10MAG Univariate Statistics - Slides.html"
+   }
   ]
  }
 }
