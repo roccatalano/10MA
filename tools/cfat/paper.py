@@ -33,6 +33,9 @@ svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
+def card_tenA(lib,cid):
+    return any(x['id']==cid and x.get('tenA') for c in lib['chapters'] for x in c.get('subchapters',[]))
+
 def load(card): return json.load(open(os.path.join(HERE,f'{card}.json')))
 
 def build(stream,n,unit):
@@ -45,9 +48,10 @@ def build(stream,n,unit):
         b=load(c);sub=c.split('-')[1]
         for s in b['skills']:
             tag=f'{sub}.{s["n"]}';skills.append([tag,s['skill'],0])
-            for it in s['items']:
-                if it['level'] in lv:
-                    it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
+            # one question per skill: alternate the stream's two levels within a subchapter (10A subchapters take the harder level)
+            want=lv[1] if (card_tenA(lib,c) or s['n']%2==0) else lv[0]
+            it=[x for x in s['items'] if x['level']==want][0]
+            it=dict(it,tag=tag);(A if it['type']=='mc' else B).append(it);skills[-1][2]+=it['marks']
     tot=sum(s[2] for s in skills);ma=sum(i['marks'] for i in A);mb=sum(i['marks'] for i in B)
     qn=[0]
     def hd(it):
@@ -56,13 +60,14 @@ def build(stream,n,unit):
     def cite(it): return f'<div class="cite">{it["src"]}</div>'
     def mcbox(it):
         o=''.join(f'<div class="{"ok" if "ABCDE"[k]==it["answer"] else ""}"><b>{"ABCDE"[k]}.</b><span>{x}</span></div>' for k,x in enumerate(it['options']))
-        return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc">{o}</div>{ans(it)}{cite(it)}</div></div>'
+        cols=3 if max(len(x) for x in it["options"])<16 else 2
+        return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc" style="grid-template-columns:repeat({cols},1fr)">{o}</div>{ans(it)}{cite(it)}</div></div>'
     def sabox(it):
-        h=27 if it['marks']==1 else 38
+        h=24 if it['marks']==1 else 32
         return f'<div class="box">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
     title={1:'Algebra review, equations &amp; inequalities'}.get(n,unit)
-    body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · Show all working</div></h1>'
+    body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}'
           f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>{rows(B,sabox)}'
