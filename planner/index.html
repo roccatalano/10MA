@@ -101,7 +101,7 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 #lessons{flex:1;overflow:auto;padding:14px 16px}
 .lu .lh{cursor:pointer}.lu .caret{color:var(--muted)}
 .lrow{display:flex;gap:8px;align-items:flex-start;border-top:1px solid var(--line);padding:5px 2px}.lrow.over{background:#f4f7ff;outline:2px dashed var(--accent)}
-.lrow.review{background:#fdf7ec}.lrow.assess{background:#fcf1f1}
+.lrow.review{background:#fdf7ec}.lrow.practice{background:#f1f6fd}.lrow.practice .lk{color:var(--lesson-i);font-weight:600}.lrow.practice .lc{opacity:.75}.lrow.assess{background:#fcf1f1}
 .ln{font-weight:700;width:34px;flex:none;padding-top:3px}.lk{font-size:11px;color:var(--muted);width:78px;flex:none;padding-top:4px}
 .lrow.assess .lk{color:var(--sac-i);font-weight:600}.lrow.review .lk{color:var(--review-i);font-weight:600}
 .lch{flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center;min-width:0}
@@ -446,7 +446,7 @@ function copyWeek(m,scope){
   saveTT()}
 
 /* ---------- Lesson planning tab: subchapters grouped into lessons per unit ---------- */
-const KIND={teach:'Lesson',review:'Review',assess:'Assessment'};
+const KIND={teach:'Lesson',practice:'Practice',review:'Review',assess:'Assessment'};
 let lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
 const ukey=u=>u.stream+'|'+u.name;
 function planOf(u){ // stored plan, with subchapters no longer in the unit dropped; default = 1 lesson each + review + assessment
@@ -466,20 +466,20 @@ function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream);
   let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}
-   <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'Suggested pace: slow (most subchapters over 2 lessons).':'Suggested pace: standard (heavy subchapters split, light ones paired).'}</span></div>`;
+   <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'1 CFAT = 1 week = 4 lessons (2–3 subchapters a week).':'1 CFAT = 1 week = 4 lessons (3–4 subchapters a week).'}</span></div>`;
   h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
-    p.forEach(l=>l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
+    p.forEach(l=>l.kind==='teach'&&l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
     const loose=u.items.filter(x=>!cnt[x.id]),nt=p.filter(l=>l.kind==='teach').length;
     const cf=cfatsOf(u),cfAt=cfatAfter(u,p),cfIn={};cf.forEach((c,ci)=>c.items.forEach(x=>cfIn[x.id]=ci+1));
-    const cmark=k=>cf.map((c,ci)=>cfAt[ci]===k?`<div class="cmark">▣ <b>CFAT ${ci+1}</b> after this lesson: ${c.items.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:'').join('');
+    const cmark=k=>cf.map((c,ci)=>cfAt[ci]===k?`<div class="cmark">▣ <b>CFAT ${ci+1}</b> · end of week ${ci+1}: ${c.items.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:'').join('');
     let b='';if(open){let n=0;
       b=cfStrip(u,cf,cfIn)+p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
-        <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];seen[x.id]=(seen[x.id]||0)+1;
-          return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}${cfIn[x.id]?`<em title="Assessed in CFAT ${cfIn[x.id]}">C${cfIn[x.id]}</em>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
+        <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];if(l.kind==='teach')seen[x.id]=(seen[x.id]||0)+1;
+          return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${l.kind==='teach'&&cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}${cfIn[x.id]?`<em title="Assessed in CFAT ${cfIn[x.id]}">C${cfIn[x.id]}</em>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
          <input class="lnote" placeholder="note…" value="${esc(l.note||'')}"></div>
         <span class="lbtn"><button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete lesson">✕</button></span></div>`+cmark(k)}).join('');
       b+=(loose.length?`<div class="loose"><b>Not in a lesson yet:</b> ${loose.map(x=>`<span class="lc ${x.id.split('-')[0]}" draggable="true" data-id="${x.id}"><b>${IDX[x.id]?.sub||x.id}</b> <span class="tt">${esc(IDX[x.id]?.title||'')}</span></span>`).join('')}</div>`:'')
-       +`<div class="urow" style="margin-top:8px"><button class="btn addl" data-kind="teach">+ Lesson</button><button class="btn addl" data-kind="review">+ Review</button><button class="btn addl" data-kind="assess">+ Assessment</button>${LP.plans[ukey(u)]?'<button class="btn rst" title="Go back to one lesson per subchapter">Reset</button>':''}</div>`}
+       +`<div class="urow" style="margin-top:8px"><button class="btn addl" data-kind="teach">+ Lesson</button><button class="btn addl" data-kind="practice">+ Practice</button><button class="btn addl" data-kind="review">+ Review</button><button class="btn addl" data-kind="assess">+ Assessment</button>${LP.plans[ukey(u)]?'<button class="btn rst" title="Go back to one lesson per subchapter">Reset</button>':''}</div>`}
     return `<div class="unit lu ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}"><div class="uh lh"><span class="num">${SH[u.stream]}${numOf(u)}</span><b style="flex:1">${esc(u.name)}</b>
       <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters · ${cf.length} CFATs${u.items.some(x=>!cfIn[x.id])?` · <b style="color:var(--sac-i)">${u.items.filter(x=>!cfIn[x.id]).length} not in a CFAT</b>`:''}${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
       ${(+u.lessons||0)!==p.length?`<button class="btn uset" title="Set this unit's lesson count on the Unit planning tab to ${p.length}">Use ${p.length}</button>`:''}<span class="caret">${open?'▾':'▸'}</span></div>${open?`<div class="ub">${b}</div>`:''}</div>`}).join('')||'<p class="empty">No units for this stream yet</p>';

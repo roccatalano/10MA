@@ -1,5 +1,5 @@
 {
- "note": "Lesson groupings per unit, keyed 'stream|unit name'. Suggested by Claude 15 Nov 2026: 10MAG slow pace (most subchapters over 2 lessons), 10MAA standard pace. Edit on the Lesson planning tab. cfats = CFAT groupings per unit (same key), suggested by Claude 15 Nov.",
+ "note": "Lesson groupings + CFATs per unit, keyed 'stream|unit name'. Rebuilt by Claude 15 Nov 2026: 1 CFAT = 1 week = 4 lessons (assumed until timetables are out); CFAT groupings chosen for similar content, then that week's lessons laid out under it. 10MAG 2-3 subchapters/week, 10MAA 3-4. kind practice = consolidation lesson. Edit on the Lesson planning tab.",
  "plans": {
   "10MAG|Univariate Statistics": [
    {
@@ -99,15 +99,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-1A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-1B"
      }
     ],
@@ -180,6 +171,24 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-1G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-1H"
      }
     ],
@@ -216,7 +225,34 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-1J"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-1K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1L"
      }
     ],
     "note": ""
@@ -242,15 +278,6 @@
    }
   ],
   "10MAG|Quadratics and Parabolas": [
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-5A"
-     }
-    ],
-    "note": ""
-   },
    {
     "kind": "teach",
     "items": [
@@ -312,6 +339,24 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-9C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-9H"
      }
     ],
@@ -365,6 +410,15 @@
    }
   ],
   "10MAG|Trigonometry and Measurement": [
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4E"
+     }
+    ],
+    "note": ""
+   },
    {
     "kind": "teach",
     "items": [
@@ -445,6 +499,24 @@
      }
     ],
     "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4K"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-4K"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "teach",
@@ -921,6 +993,18 @@
     "note": ""
    },
    {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "G11-2H"
+     },
+     {
+      "id": "G11-2I"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
     "kind": "teach",
     "items": [
      {
@@ -984,6 +1068,18 @@
     "note": ""
    },
    {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "G11-7D"
+     },
+     {
+      "id": "G11-7E"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
     "kind": "review",
     "items": [],
     "note": ""
@@ -1035,15 +1131,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-3D"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-3E"
      }
     ],
@@ -1062,6 +1149,27 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-3F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-3E"
+     },
+     {
+      "id": "C10-3F"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-3I"
      }
     ],
@@ -1072,15 +1180,6 @@
     "items": [
      {
       "id": "C10-3J"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-3K"
      }
     ],
     "note": ""
@@ -1117,15 +1216,6 @@
     "items": [
      {
       "id": "C10-4B"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-4C"
      }
     ],
     "note": ""
@@ -1182,6 +1272,15 @@
     "kind": "teach",
     "items": [
      {
+      "id": "G11-1B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "G11-1C"
      }
     ],
@@ -1201,12 +1300,33 @@
     "items": [
      {
       "id": "G11-1E"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
      {
       "id": "G11-1F"
      }
     ],
     "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "G11-1D"
+     },
+     {
+      "id": "G11-1E"
+     },
+     {
+      "id": "G11-1F"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "teach",
@@ -1392,6 +1512,18 @@
     "note": ""
    },
    {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-6E"
+     },
+     {
+      "id": "C10-6F"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
+   },
+   {
     "kind": "teach",
     "items": [
      {
@@ -1417,6 +1549,18 @@
      }
     ],
     "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-6G"
+     },
+     {
+      "id": "C10-6H"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "review",
@@ -1497,6 +1641,15 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-5F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-5G"
      }
     ],
@@ -1516,15 +1669,6 @@
     "items": [
      {
       "id": "C10-5I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-5J"
      }
     ],
     "note": ""
@@ -1578,15 +1722,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-7C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-7D"
      }
     ],
@@ -1609,6 +1744,21 @@
      }
     ],
     "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [
+     {
+      "id": "C10-7D"
+     },
+     {
+      "id": "C10-7E"
+     },
+     {
+      "id": "C10-7F"
+     }
+    ],
+    "note": "Consolidation / catch-up on this week's work"
    },
    {
     "kind": "review",
@@ -1692,7 +1842,25 @@
     "kind": "teach",
     "items": [
      {
+      "id": "G11-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "G11-4G"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "G11-4H"
      }
     ],
     "note": ""
@@ -1824,7 +1992,25 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-8B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-8C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-8D"
      }
     ],
     "note": ""
@@ -1918,7 +2104,12 @@
      },
      {
       "id": "C10-1F"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-1G"
      },
@@ -1935,7 +2126,12 @@
      },
      {
       "id": "C10-1J"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-1K"
      },
@@ -2005,7 +2201,12 @@
      },
      {
       "id": "C10-4I"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-4K"
      }
@@ -2314,9 +2515,6 @@
      },
      {
       "id": "G11-3D"
-     },
-     {
-      "id": "G11-3E"
      }
     ],
     "note": ""
@@ -2324,11 +2522,19 @@
    {
     "items": [
      {
+      "id": "G11-3E"
+     },
+     {
       "id": "G11-3F"
      },
      {
       "id": "G11-3G"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "G11-3H"
      },
@@ -2364,7 +2570,12 @@
      },
      {
       "id": "C10-6F"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "items": [
      {
       "id": "C10-6G"
      },
@@ -2386,15 +2597,15 @@
      },
      {
       "id": "C10-5C"
+     },
+     {
+      "id": "C10-5D"
      }
     ],
     "note": ""
    },
    {
     "items": [
-     {
-      "id": "C10-5D"
-     },
      {
       "id": "C10-5E"
      },
