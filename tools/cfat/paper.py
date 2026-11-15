@@ -26,13 +26,13 @@ CSS="""*{box-sizing:border-box}body{font-family:Arial,"Liberation Sans",Helvetic
 .box>.hd{font-weight:bold;font-size:10.5pt;text-transform:uppercase;letter-spacing:.4px;border-bottom:1.2px solid #000;padding:1mm 3mm;background:#eee;display:flex;justify-content:space-between;white-space:nowrap}
 .box>.hd span{text-transform:none;font-weight:normal;letter-spacing:0}
 .box>.bd{padding:2mm 3mm;flex:1;display:flex;flex-direction:column}
-.q{margin:0 0 1.5mm}.mc{display:grid;grid-template-columns:1fr;gap:1.6mm;margin:1mm 0}.mc div{display:flex;gap:1mm}.mc b{flex:none;width:5mm}
-.blank{flex:1}
+.q{margin:0 0 1.5mm}.mc{display:grid;grid-template-columns:1fr;gap:1.2mm;margin:1mm 0}.mc div{display:flex;gap:1mm;align-items:center}.mc b{flex:none;width:5mm}
+.blank{flex:1}.sarow{margin-bottom:2.5mm}.sarow .box{min-height:0}
 .cite{font-size:8pt;font-style:italic;color:#444;text-align:right;margin-top:auto;padding-top:1mm}
 .skill{font-size:8pt;color:#555;font-weight:normal}
 svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
-.ans{display:none;color:#c00}.sol .ans{display:block}.sol .mc .ok{color:#c00;font-weight:bold}
-.ans>div{margin:1mm 0}
+.ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
+.ans>div{margin:.3mm 0}.ans svg.fig{height:14mm;width:auto}.q svg.fig{height:14mm;width:auto}
 .brk{break-before:page}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
@@ -64,17 +64,16 @@ def build(stream,n,unit):
     def cite(it): return f'<div class="cite">{it["src"]}</div>'
     def mcbox(it):
         o=''.join(f'<div class="{"ok" if "ABCDE"[k]==it["answer"] else ""}"><b>{"ABCDE"[k]}.</b><span>{x}</span></div>' for k,x in enumerate(it['options']))
-        cols=3 if max(len(x) for x in it["options"])<16 else 2
-        return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc" style="grid-template-columns:repeat({cols},1fr)">{o}</div>{ans(it)}{cite(it)}</div></div>'
+        return f'<div class="box">{hd(it)}<div class="bd"><p class="q">{it["q"]}</p><div class="mc">{o}</div>{cite(it)}</div></div>'
     def sabox(it):
-        h=24 if it['marks']==1 else 32
-        return f'<div class="box">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
+        h=12
+        return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
     title={1:'Algebra review, equations &amp; inequalities'}.get(n,unit)
     body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}'
-          f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>{rows(B,sabox)}'
+          f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+''.join(f'<div class="sarow">{sabox(x)}</div>' for x in B)
           )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
     base=f'CFAT 1.{n} - {stream} - {subs[0]}-{subs[-1]}'
@@ -85,14 +84,19 @@ def build(stream,n,unit):
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>'
           '<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>'
           f'<style>{CSS}</style></head><body class="{"sol" if sol else ""}"><div id="flow">'
-          + body.replace('Show all working','Worked solutions' if sol else 'Show all working') +
-          """<script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+          + body.replace('Show all working','<b style="color:#c00">Solutions</b>' if sol else 'Show all working') +
+          """</div><script>renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
 document.fonts.ready.then(()=>{const flow=document.getElementById('flow');const items=[...flow.children];const H=297-23-6;const mm=v=>v*96/25.4;
 let sh,used=0,n=0;const newSheet=()=>{sh=document.createElement('div');sh.className='sheet';document.body.appendChild(sh);used=0;n++};newSheet();
 items.forEach((el,k)=>{const h=el.getBoundingClientRect().height+parseFloat(getComputedStyle(el).marginBottom||0);
  const keep=el.classList.contains('secthd')&&items[k+1]?items[k+1].getBoundingClientRect().height:0;
  if(used>0&&used+h+keep>mm(H))newSheet();sh.appendChild(el);used+=h});
-flow.remove();document.querySelectorAll('.sheet').forEach((x,k,a)=>{const p=document.createElement('div');p.className='pno';p.textContent='Page '+(k+1)+' of '+a.length;x.appendChild(p)});document.body.dataset.ready=1})</script></body></html>""")
+flow.remove();
+document.querySelectorAll('.sheet').forEach(x=>{const sa=[...x.querySelectorAll('.box.sa')];if(!sa.length)return;
+ const kids=[...x.children];const last=kids[kids.length-1];const free=x.getBoundingClientRect().bottom-mm(12+6)-last.getBoundingClientRect().bottom;
+ if(free<=0)return;const tm=sa.reduce((a,b)=>a+ +b.dataset.m,0);
+ sa.forEach(b=>{const bd=b.querySelector('.bd');bd.style.minHeight=(bd.getBoundingClientRect().height+free*(+b.dataset.m)/tm)+'px'})});
+document.querySelectorAll('.sheet').forEach((x,k,a)=>{const p=document.createElement('div');p.className='pno';p.textContent='Page '+(k+1)+' of '+a.length;x.appendChild(p)});document.body.dataset.ready=1})</script></body></html>""")
         p=os.path.join(ROOT,'assessments',name+'.html');open(p,'w').write(html);print(p,f'{len(A)} MC + {len(B)} SA = {tot} marks')
 
 if __name__=='__main__':
