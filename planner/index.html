@@ -99,7 +99,7 @@ function chapter(ch){
   });
   return `<section class="chap">
    <div class="chap-h"><div><h2>Chapter ${ch.chapter} · ${esc(ch.title)}</h2>
-   <div class="meta">${esc(ch.id)} · ${s.length} subchapters (${n10a} are 10A) · pp. ${s[0].printed_page}–${s[s.length-1].printed_end}</div></div>
+   <div class="meta">${esc(ch.id)} · ${s.length} subchapters (${n10a} ${n10a===1?"is":"are"} 10A) · pp. ${s[0].printed_page}–${s[s.length-1].printed_end}</div></div>
    <span class="tag tidx">indexed</span></div>
    <div class="chap-body">
     <div class="chap-ov"><div><h3>Victorian Curriculum 2.0</h3><ul>${codes}</ul></div>
