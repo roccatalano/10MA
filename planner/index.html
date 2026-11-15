@@ -159,6 +159,33 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 .holgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:4px}
 .holgrid .day{min-height:0;font-size:11px;padding:3px 5px}
 a{color:var(--accent)}
+/* Lesson planning: course-plan view (look + behaviour copied from the 12MAG planner) */
+.cp{max-width:1200px;margin:0 auto}
+.cp .aos{margin:22px 0 8px;padding:6px 0;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px}.cp .aos b{font-size:15px}.cp .aos span{color:var(--muted)}
+.cp .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:2px 0 6px}.cp .legend span{display:flex;gap:5px;align-items:center}.cp .legend i{width:10px;height:10px;border-radius:3px;background:var(--c)}
+.chgrid{display:grid;grid-template-columns:110px minmax(0,1.6fr) minmax(0,1fr);gap:10px;align-items:start;margin-bottom:14px}
+.wl{padding-top:6px;color:var(--muted);font-size:12px}.wl b{display:block;color:var(--ink);font-size:14px}.wl .cn{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.pcol{display:flex;flex-direction:column;gap:6px}.pcolh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:9px 11px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.card:hover{border-color:var(--muted);border-left-color:var(--c)}.card.open{outline:2px solid var(--accent)}
+.card .meta{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}.card .ttl{font-weight:500;line-height:1.3}.card .tags{display:flex;gap:4px}
+.card .tag{font-size:11px;padding:1px 7px;border-radius:6px;background:var(--b);color:var(--c)}
+.t-teach{--c:var(--lesson-i);--b:var(--lesson)}.t-practice{--c:var(--prac-i);--b:var(--prac)}.t-review{--c:var(--review-i);--b:var(--review)}.t-assess{--c:var(--sac-i);--b:var(--sac)}.t-cfat{--c:#8a6ad8;--b:#efe9fb}
+.card.has-cfat{box-shadow:inset 0 -3px 0 #8a6ad8}.card .tag.cfat{background:#efe9fb;color:#5b3fb0;font-weight:600}
+.card.fa{cursor:default}.card.fa a{text-decoration:none;font-size:12px;border:1px solid #9fd3c9;color:#1d7266;border-radius:6px;padding:1px 8px;margin-right:4px;font-weight:600}
+.pdetail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr;gap:10px}
+.pdetail h2{font-size:17px;margin:0 0 2px}.pdetail .meta{font-size:11px;color:var(--muted)}
+.nest{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--card)}
+.nest>summary{list-style:none;cursor:pointer;padding:9px 12px;display:flex;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+.nest>summary::-webkit-details-marker{display:none}.nest>summary:after{content:"▾";font-size:12px;transition:transform .15s}.nest:not([open])>summary:after{transform:rotate(-90deg)}
+.nest>summary .cnt{font-weight:400;text-transform:none;letter-spacing:0;margin-left:auto;margin-right:8px}
+.nest>.nb{padding:0 14px 12px;font-size:13px;line-height:1.55}.nest .nb ul{margin:4px 0;padding-left:18px}.nest .nb h4{margin:8px 0 2px;font-size:12px;color:var(--ink)}
+.nest.n-mat{border-color:#2f9e8f;background:#f0faf8}.nest.n-mat>summary{color:#1d7266}
+.nest .nb a.pill{text-decoration:none;font-size:12px;border:1px solid #9fd3c9;color:#1d7266;border-radius:6px;padding:1px 8px;font-weight:600;background:#fff}
+.seqempty{color:var(--muted);font-style:italic;border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
+.pnote{width:100%;min-height:50px;font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.vtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:6px}.vtog button{border:0;background:var(--card);padding:5px 14px;cursor:pointer;font-size:13px}.vtog button.on{background:var(--ink);color:#fff}
+@media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -457,7 +484,7 @@ function copyWeek(m,scope){
 
 /* ---------- Lesson planning tab: subchapters grouped into lessons per unit ---------- */
 const KIND={teach:'Lesson',practice:'Practice',review:'Review',assess:'Assessment'};
-let lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
+let lmode=store.get('10ma-lmode')||'plan',lopenId=null,lexpand=false,lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
 const ukey=u=>u.stream+'|'+u.name;
 function planOf(u){ // stored plan, with subchapters no longer in the unit dropped; default = 1 lesson each + review + assessment
   const ids=new Set(u.items.map(x=>x.id));let p=LP.plans[ukey(u)];
@@ -481,10 +508,11 @@ function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(
 function dnLine(d,u,k){if(!d)return'';
   if(!d.items.length)return `<span class="dnl">Do Now: <i>nothing taught yet (pools only exist for Ch1 so far)</i></span>`;
   return `<span class="dnl">Do Now: ${d.items.map(q=>`<span class="q" title="${esc((q.stem+' '+q.tex).replace(/<[^>]+>/g,' ').replace(/\$/g,''))}">${q.sub} ${q.id.split('-').pop()}</span>`).join('')}<a href="donow.html?s=${u.stream}&u=${numOf(u)}&l=${k+1}" target="_blank" rel="noopener">Sheet ↗</a></span>`}
-function renderLessons(){
+function renderLessons(){if(!LP)return;if(lmode==='plan')return renderPlanView();renderLessonsEdit()}
+function renderLessonsEdit(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream),DNS=DN.doNows(lstream,UNITS,LP,IDX);
-  let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}
+  let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}${modeTog()}
    <span class="src">Units come from the Unit planning tab. Drag a subchapter between lessons · ✂ splits it over another lesson · click a title for its lesson plan. ${lstream==='10MAG'?'1 CFAT = 1 week = 3 lessons.':'1 CFAT = 1 week = 3 lessons.'}</span></div>`;
   h+=us.map(u=>{const i=UNITS.units.indexOf(u),p=planOf(u),open=openL.has(ukey(u)),cnt={},seen={};
     p.forEach(l=>l.kind==='teach'&&l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
@@ -503,7 +531,7 @@ function renderLessons(){
     return `<div class="unit lu ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}"><div class="uh lh"><span class="num">${SH[u.stream]}${numOf(u)}</span><b style="flex:1">${esc(u.name)}</b>
       <span class="src">${p.length} lessons (${nt} teaching) · ${u.items.length} subchapters · ${cf.length} CFATs${u.items.some(x=>!cfIn[x.id])?` · <b style="color:var(--sac-i)">${u.items.filter(x=>!cfIn[x.id]).length} not in a CFAT</b>`:''}${loose.length?` · <b style="color:var(--sac-i)">${loose.length} not placed</b>`:''} · Unit planning says ${u.lessons??'?'}</span>
       ${(+u.lessons||0)!==p.length?`<button class="btn uset" title="Set this unit's lesson count on the Unit planning tab to ${p.length}">Use ${p.length}</button>`:''}<span class="caret">${open?'▾':'▸'}</span></div>${open?`<div class="ub">${b}</div>`:''}</div>`}).join('')||'<p class="empty">No units for this stream yet</p>';
-  box.innerHTML=h;box.scrollTop=top;
+  box.innerHTML=h;box.scrollTop=top;wireMode(box);
   box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>{lstream=b.dataset.s;store.set('10ma-lstream',lstream);renderLessons()});
   box.querySelectorAll('.lu').forEach(el=>{const u=UNITS.units[+el.dataset.i],P=()=>JSON.parse(JSON.stringify(planOf(u)));
     el.querySelector('.lh').onclick=e=>{if(e.target.closest('button'))return;const k=ukey(u);openL.has(k)?openL.delete(k):openL.add(k);store.set('10ma-lopen',JSON.stringify([...openL]));renderLessons()};
@@ -537,6 +565,86 @@ function renderLessons(){
       row.querySelector('.dn').onclick=()=>{const p=P();if(k>=p.length-1)return;[p[k+1],p[k]]=[p[k],p[k+1]];setPlan(u,p)};
       row.querySelector('.del').onclick=()=>{const p=P();if(p[k].items.length&&!confirm('Delete this lesson? Its subchapters go back to "Not in a lesson yet" unless they are in another lesson.'))return;p.splice(k,1);setPlan(u,p)}});
   });
+}
+
+/* ---------- Lesson planning: Course plan view (12MAG-style cards + nested lesson detail) ---------- */
+function modeTog(){return `<span class="vtog"><button data-m="plan" class="${lmode==='plan'?'on':''}">Course plan</button><button data-m="edit" class="${lmode==='edit'?'on':''}">Edit lessons</button></span>`}
+function wireMode(box){box.querySelectorAll('.vtog button').forEach(b=>b.onclick=()=>{lmode=b.dataset.m;store.set('10ma-lmode',lmode);renderLessons()})}
+const lnest=k=>store.get('10ma-nest:'+k)==='1';
+function pnest(k,title,body,cnt,cls){return body?`<details class="nest ${cls||''}" data-nest="${k}" ${lnest(k)?'open':''}><summary>${title}${cnt!=null?`<span class="cnt">${cnt}</span>`:''}</summary><div class="nb">${body}</div></details>`:''}
+function subRange(subs){if(!subs.length)return '';
+  const ok=subs.every((s,i)=>i==0||(parseInt(s)==parseInt(subs[0])&&s.slice(-1).charCodeAt(0)==subs[i-1].slice(-1).charCodeAt(0)+1));
+  return subs.length>2&&ok?`${subs[0]}–${subs[subs.length-1]}`:subs.join(subs.length==2&&ok?'–':', ')}
+function lessonNests(L){const S=[...new Set(L.items.map(x=>x.id))].map(id=>IDX[id]).filter(Boolean),u=L.u;
+  const pre=s=>(s.book==='G11'?'Y11 ':'')+s.sub;
+  // grouped by subchapter, like 12MAG: one heading per subchapter, its items under it
+  const grp=f=>{let n=0;const h=S.map(s=>{const a=f(s)||[];n+=a.length;return a.length?`<h4>${esc(pre(s))} ${esc(s.title)}</h4><ul>${a.join('')}</ul>`:''}).join('');return [h,n]};
+  const li=t=>`<li>${t}</li>`;
+  const [lo,nlo]=grp(s=>(s.learning_intentions||[]).map(t=>li(esc(t))));
+  const [sc,nsc]=grp(s=>(s.success_criteria||[]).map(t=>li('☐ '+esc(t.text))));
+  const [cur,ncur]=grp(s=>s.book==='G11'?(s.study_design||[]).map(c=>li(`<b>${esc(c.id.replace('GM-',''))}</b> ${esc(c.text)}`)):(s.vc2||[]).map(c=>li(`<b>${esc(c.code)}</b> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${esc(c.text)}`)));
+  const [voc,nvoc]=grp(s=>(s.key_definitions&&s.key_definitions.length?s.key_definitions.map(k=>li(`<b>${esc(k.term)}</b>: ${esc(k.definition)}`)):(s.key_vocab||[]).map(v=>li(esc(v)))));
+  const [vid,nvid]=grp(s=>(s.videos||[]).map(v=>li(`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a>`)));
+  const [apk,napk]=grp(s=>(s.apk||[]).map(a=>li(`<b>${esc(a.book)}</b> ${esc(a.skill)}<div class="src">${esc(a.src)} #${a.n} (${esc(a.sub)}), PDF p. ${a.pdf_page}</div>`)));
+  const [we,nwe]=grp(s=>(s.examples||[]).map(e=>li(`<b>Example ${e.n}</b> · ${esc(e.title)}<div class="src" style="color:var(--prac-i)">${e.now_you_try?'Now you try: same skill, new numbers':'No Now you try'}</div>`)));
+  const [ex,nex]=grp(s=>(s.exit_tasks||[]).map(e=>li(`☐ ${esc(e.skill)}<div class="src">${esc(e.src)} #${e.n}, p. ${e.printed_page}</div>`)));
+  const [cw,ncw]=grp(s=>s.coursework&&s.coursework.all?[li(`All students: whole of Exercise ${esc(s.sub)} (${esc(s.coursework.all.Exercise)})`)]:s.coursework?['good','better','best'].map(t=>li(`<b>${t[0].toUpperCase()+t.slice(1)}</b>: `+Object.entries(s.coursework[t]).filter(([k,v])=>v!=='–').map(([k,v])=>`${esc(k)} Q${esc(v)}`).join(' · '))):[]);
+  const mats=S.flatMap(s=>(s.materials||[]).map(m=>li(`<b>${esc(m.title)}</b> ${m.html?`<a class="pill" href="../${encodeURI(m.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>`:''} ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}`)));
+  if(L.kind==='teach')mats.push(li(`<b>Do Now sheet</b> <a class="pill" href="donow.html?s=${u.stream}&u=${numOf(u)}&l=${L.k+1}" target="_blank" rel="noopener">Open ↗</a>`));
+  const dn=L.dn&&L.dn.items.length?L.dn.items.map(q=>li(`<b>${esc(q.sub)}</b> ${q.stem} ${q.tex}`)).join(''):'';
+  return pnest('mat','Lesson materials',mats.length?`<ul>${mats.join('')}</ul>`:'',mats.length,'n-mat')
+   +pnest('lo','Learning intentions',lo,nlo)+pnest('sc','Success criteria',sc,nsc)
+   +pnest('cur',S.some(s=>s.book==='G11')?'Curriculum / Study Design':'Victorian Curriculum 2.0',cur,ncur)
+   +pnest('voc','Key vocabulary',voc,nvoc)+pnest('vid','Self-study videos',vid,nvid)
+   +pnest('dn','Do Now',dn?`<ul>${dn}</ul>`:'',dn?L.dn.items.length:null)
+   +pnest('apk','APK (prior knowledge)',apk,napk)+pnest('we','Worked examples &amp; now you trys',we,nwe)
+   +pnest('exit','Exit tasks',ex,nex)+pnest('cw','Coursework',cw,ncw)}
+function planLessons(){ // every lesson in this stream, numbered through the course like 12MAG
+  const us=UNITS.units.filter(u=>u.stream===lstream),DNS=DN.doNows(lstream,UNITS,LP,IDX);let n=0;
+  return us.map(u=>{const p=planOf(u),cf=cfatsOf(u),at=cfatAfter(u,p),U=numOf(u);
+    const cnt={},seen={};p.forEach(l=>l.kind==='teach'&&l.items.forEach(x=>cnt[x.id]=(cnt[x.id]||0)+1));
+    const L=p.map((l,k)=>{n++;const subs=[...new Set(l.items.map(x=>{const s=IDX[x.id]?.sub||x.id;if(l.kind!=='teach'||cnt[x.id]<2)return s;seen[x.id]=(seen[x.id]||0)+1;return `${s} (part ${seen[x.id]})`}))],cfs=cf.map((c,ci)=>at[ci]===k?ci+1:0).filter(Boolean);
+      const titles=[...new Set(l.items.map(x=>IDX[x.id]?.title).filter(Boolean))];
+      return {...l,k,n,u,id:ukey(u)+'#'+k,cfs,section:subRange(subs),dn:DNS[(U-1)+'|'+k],
+        title:l.kind==='assess'?(u.assessment||'Assessment'):l.kind==='review'?'Review':titles.join(' · ')||(l.kind==='practice'?'Practice':'Not planned yet')}});
+    return {u,U,L,cf}})}
+function pcard(l){return `<div class="card t-${l.kind} ${l.cfs.length?'has-cfat':''} ${lopenId===l.id?'open':''}" data-id="${esc(l.id)}">
+  <div class="meta"><span>L${l.n}${l.section?' · '+esc(l.section):''}</span><span class="tags">${l.cfs.length?`<span class="tag cfat">CFAT ${l.cfs.join(', ')}</span>`:''}<span class="tag">${l.kind==='assess'?'Assessment':KIND[l.kind]}</span></span></div>
+  <div class="ttl">${esc(l.title)}${l.note?`<div class="src">${esc(l.note)}</div>`:''}</div></div>`}
+function pdetail(l){return `<div class="pdetail" data-for="${esc(l.id)}"><div class="meta">${SH[l.u.stream]}${numOf(l.u)} ${esc(l.u.name)} · Lesson ${l.n}</div>
+  <h2>${l.section?esc(l.section)+' · ':''}${esc(l.title)}</h2>
+  ${l.items.length?lessonNests(l):'<div class="empty">No subchapters in this lesson.</div>'}
+  <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:6px 0 0">Lesson note</h3>
+  <textarea class="pnote" data-k="${l.k}" placeholder="Notes for this lesson…">${esc(l.note||'')}</textarea></div>`}
+function cfatCards(g){const M=(LP.materials||{})[ukey(g.u)]||[];
+  const cf=g.cf.map((c,ci)=>{const m=M.find(m=>m.kind==='cfat'&&m.n===ci+1);
+    return `<div class="card fa t-cfat"><div class="meta"><span>After L${(g.L.find(l=>l.cfs.includes(ci+1))||{}).n||'?'}</span><span class="tags"><span class="tag">${m?'Ready':'To build'}</span></span></div>
+     <div class="ttl">CFAT ${ci+1} · ${esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)))}</div>
+     ${m?`<div><a href="../${encodeURI(m.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`}).join('');
+  const sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat');
+  const um=`<div class="card fa t-teach"><div class="ttl">Unit materials</div><div>
+    ${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}
+    ${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}
+    <a href="donow.html?s=${g.u.stream}&u=${g.U}" target="_blank" rel="noopener">Do Now sheets ↗</a></div></div>`;
+  return (cf||'<div class="empty">No CFATs yet: set them in Edit lessons</div>')+um}
+function renderPlanView(){
+  const box=document.getElementById('lessons'),top=box.scrollTop,G=planLessons(),tot=G.reduce((a,g)=>a+g.L.length,0);
+  let h=`<div class="ybar">${STREAMS.map(s=>`<button class="cls ${s===lstream?'on':''}" data-s="${s}">${s}</button>`).join('')}${modeTog()}
+    <button class="btn" id="lexp">${lexpand?'Collapse all':'Expand all'}</button>
+    <span class="src">${tot} lessons · ${G.length} units · 3 lessons per week · no dates (the 2027 tab adds them). Click a lesson for its plan.</span></div><div class="cp">
+    <div class="legend"><span class="t-teach"><i></i>Lesson</span><span class="t-practice"><i></i>Practice</span><span class="t-review"><i></i>Review</span><span class="t-assess"><i></i>Assessment</span><span><i style="background:#8a6ad8"></i>CFAT</span></div>`;
+  h+=G.map(g=>`<div class="aos"><b>${SH[g.u.stream]}${g.U} · ${esc(g.u.name)}</b><span>${esc(g.u.assessment||'')}${g.u.note?' · '+esc(g.u.note):''}</span></div>
+    <div class="chgrid"><div class="wl"><span class="cn">Unit ${SH[g.u.stream]}${g.U}</span><b>${esc(g.u.name)}</b>${g.L.length} lessons</div>
+    <div class="pcol"><div class="pcolh">Lessons</div>${g.L.map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
+    <div class="pcol"><div class="pcolh">Formative assessments</div>${cfatCards(g)}</div></div>`).join('')||'<p class="empty">No units for this stream yet</p>';
+  box.innerHTML=h+'</div>';box.scrollTop=top;wireMode(box);
+  box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>{lstream=b.dataset.s;store.set('10ma-lstream',lstream);lopenId=null;renderLessons()});
+  box.querySelector('#lexp').onclick=()=>{lexpand=!lexpand;renderLessons()};
+  box.querySelectorAll('.card[data-id]').forEach(el=>el.onclick=()=>{lopenId=lopenId===el.dataset.id?null:el.dataset.id;renderLessons()});
+  box.querySelectorAll('[data-nest]').forEach(n=>n.ontoggle=()=>store.set('10ma-nest:'+n.dataset.nest,n.open?'1':'0'));
+  box.querySelectorAll('.pdetail').forEach(dv=>{const id=dv.dataset.for,g=G.find(g=>id.startsWith(ukey(g.u)+'#'));
+    dv.querySelector('.pnote').onchange=e=>{const p=JSON.parse(JSON.stringify(planOf(g.u)));p[+e.target.dataset.k].note=e.target.value;setPlan(g.u,p)}});
+  if(window.renderMathInElement)renderMathInElement(box,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
 }
 
 const modal=document.getElementById('modal');
