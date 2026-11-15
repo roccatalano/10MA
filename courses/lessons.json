@@ -2394,5 +2394,21 @@
     "note": ""
    }
   ]
+ },
+ "materials": {
+  "10MAA|Algebra and Linear Relations": [
+   {
+    "kind": "workbook",
+    "title": "Unit workbook",
+    "pdf": "lessons/10MAA Algebra and Linear Relations - Unit workbook.pdf"
+   }
+  ],
+  "10MAG|Algebra and Linear Relations": [
+   {
+    "kind": "workbook",
+    "title": "Unit workbook",
+    "pdf": "lessons/10MAG Algebra and Linear Relations - Unit workbook.pdf"
+   }
+  ]
  }
 }

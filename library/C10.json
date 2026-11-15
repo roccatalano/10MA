@@ -387,7 +387,15 @@
        "slot": "Previous year (Y9 Ch2)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1A worksheet",
+       "html": "lessons/C10-1A worksheet.html",
+       "pdf": "lessons/C10-1A worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1B",
@@ -590,7 +598,15 @@
        "slot": "Previous year (Y9 Ch2)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1B worksheet",
+       "html": "lessons/C10-1B worksheet.html",
+       "pdf": "lessons/C10-1B worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1C",
@@ -768,7 +784,15 @@
        "slot": "Previous year (Y9 Ch2)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1C worksheet",
+       "html": "lessons/C10-1C worksheet.html",
+       "pdf": "lessons/C10-1C worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1D",
@@ -960,7 +984,15 @@
        "slot": "Previous year (Y9 Ch2)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1D worksheet",
+       "html": "lessons/C10-1D worksheet.html",
+       "pdf": "lessons/C10-1D worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1E",
@@ -1194,7 +1226,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1E worksheet",
+       "html": "lessons/C10-1E worksheet.html",
+       "pdf": "lessons/C10-1E worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1F",
@@ -1392,7 +1432,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1F worksheet",
+       "html": "lessons/C10-1F worksheet.html",
+       "pdf": "lessons/C10-1F worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1G",
@@ -1587,7 +1635,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1G worksheet",
+       "html": "lessons/C10-1G worksheet.html",
+       "pdf": "lessons/C10-1G worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1H",
@@ -1777,7 +1833,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1H worksheet",
+       "html": "lessons/C10-1H worksheet.html",
+       "pdf": "lessons/C10-1H worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1I",
@@ -1942,7 +2006,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1I worksheet",
+       "html": "lessons/C10-1I worksheet.html",
+       "pdf": "lessons/C10-1I worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1J",
@@ -2119,7 +2191,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1J worksheet",
+       "html": "lessons/C10-1J worksheet.html",
+       "pdf": "lessons/C10-1J worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1K",
@@ -2288,7 +2368,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1K worksheet",
+       "html": "lessons/C10-1K worksheet.html",
+       "pdf": "lessons/C10-1K worksheet.pdf"
+      }
+     ]
     },
     {
      "id": "C10-1L",
@@ -2455,7 +2543,15 @@
        "slot": "Previous year (Y9 Ch4)"
       }
      ],
-     "status": "indexed"
+     "status": "indexed",
+     "materials": [
+      {
+       "kind": "worksheet",
+       "title": "1L worksheet",
+       "html": "lessons/C10-1L worksheet.html",
+       "pdf": "lessons/C10-1L worksheet.pdf"
+      }
+     ]
     }
    ],
    "status": "full"

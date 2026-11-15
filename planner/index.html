@@ -113,6 +113,7 @@ body:not(.tab-units) .cols,body:not(.tab-units) #hint,body:not(.tab-y27) #year,b
 .cf{background:#fff;border:1px solid #d9cdee;border-radius:8px;padding:5px 7px;display:flex;flex-direction:column;gap:3px;min-width:170px;max-width:300px;flex:1}.cf.over{outline:2px dashed var(--accent)}
 .cf.new{justify-content:center;color:var(--muted);font-size:12px;border-style:dashed;flex:0 0 170px}.cfn{font-weight:700;font-size:12.5px;color:var(--g11);display:flex;gap:2px;align-items:center}.cfn button:first-of-type{margin-left:auto}
 .cc{font-size:11.5px;line-height:1.25;cursor:grab;display:flex;gap:4px;align-items:baseline}.cc .x{font-size:12px;margin-left:auto}.cfmiss{width:100%;font-size:12px;color:var(--sac-i);font-weight:600}
+.mats .btn{text-decoration:none;font-size:12px;padding:2px 9px}.umat{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px;padding:8px;background:#eef3fd;border-radius:9px;font-size:12.5px}.umat .cft{color:var(--lesson-i)}.umat a{text-decoration:none}.umat .pill{border:1px solid var(--line);background:#fff;border-radius:7px;padding:2px 8px}
 .cmark{margin:2px 0 4px 42px;padding:4px 10px;border-radius:6px;background:var(--g11b);color:var(--g11);font-size:12px;border-left:4px solid var(--g11)}
 .lc em{font-style:normal;font-size:10px;font-weight:700;color:var(--g11);background:var(--g11b);border-radius:4px;padding:0 4px}
 #year{flex:1;overflow:auto;padding:14px 16px}
@@ -264,7 +265,7 @@ function subCard(x){
   const u=usedIn(x.id);
   return `<div class="sc ${x.tenA?'is10a':''}" draggable="true" data-id="${x.id}" style="--bk:${x.book==='G11'?'var(--g11)':'var(--lesson-i)'}">
    <span class="id">${x.sub}</span><span class="tt">${esc(x.title)}</span>
-   ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.consolidating?'<span class="tag tcons">Cons.</span>':''}${x.extension?'<span class="tag text">Ext.</span>':''}
+   ${(x.materials||[]).length?'<span title="Has lesson materials">📄</span>':''}${x.tenA?'<span class="tag t10a">10A</span>':''}${x.consolidating?'<span class="tag tcons">Cons.</span>':''}${x.extension?'<span class="tag text">Ext.</span>':''}
    ${u.length?`<span class="used" title="Used in: ${u.join(', ')} (G = 10MAG unit, A = 10MAA unit)">${u.join(' ')}</span>`:''}</div>`;
 }
 
@@ -462,6 +463,12 @@ function setPlan(u,p){LP.plans[ukey(u)]=p;store.set(LKEY,JSON.stringify(LP));lpD
 function cfStrip(u,cf,cfIn){const miss=u.items.filter(x=>!cfIn[x.id]);
   return `<div class="cfs"><b class="cft">CFATs</b>${cf.map((c,ci)=>`<div class="cf" data-ci="${ci}"><span class="cfn">CFAT ${ci+1}<button class="x cup" title="Move earlier">↑</button><button class="x cdel" title="Delete this CFAT">✕</button></span>${c.items.map(x=>`<span class="cc" draggable="true" data-id="${x.id}"><b>${x.id.startsWith('G11')?'Y11 ':''}${IDX[x.id]?.sub||x.id}</b> ${esc(IDX[x.id]?.title||'')}<button class="x">✕</button></span>`).join('')||'<span class="empty">drop subchapters</span>'}</div>`).join('')}
    <div class="cf new" data-ci="-1">+ drop a subchapter here for a new CFAT</div>${miss.length?`<div class="cfmiss">Not in a CFAT: ${miss.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:''}</div>`}
+function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(l=>l.items.forEach(x=>{if(!order.includes(x.id))order.push(x.id)}));
+  const ws=order.map(id=>IDX[id]).filter(s=>s&&(s.materials||[]).length);
+  return `<div class="umat"><b class="cft" style="width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Unit materials</b>
+   <span>Slides: <span class="empty">not made yet</span></span>
+   ${M.map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}" target="_blank" rel="noopener">PDF</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
+   ${ws.length?`<span style="width:100%">Worksheets: ${ws.map(s=>`<a class="pill" href="../${encodeURI(s.materials[0].html)}" target="_blank" rel="noopener" title="${esc(s.title)}">${s.book==='G11'?'Y11 ':''}${s.sub}</a>`).join(' ')}</span>`:''}</div>`}
 function renderLessons(){
   if(!LP)return;const box=document.getElementById('lessons'),top=box.scrollTop;
   const us=UNITS.units.filter(u=>u.stream===lstream);
@@ -473,7 +480,7 @@ function renderLessons(){
     const cf=cfatsOf(u),cfAt=cfatAfter(u,p),cfIn={};cf.forEach((c,ci)=>c.items.forEach(x=>cfIn[x.id]=ci+1));
     const cmark=k=>cf.map((c,ci)=>cfAt[ci]===k?`<div class="cmark">▣ <b>CFAT ${ci+1}</b> · end of week ${ci+1}: ${c.items.map(x=>IDX[x.id]?.sub||x.id).join(', ')}</div>`:'').join('');
     let b='';if(open){let n=0;
-      b=cfStrip(u,cf,cfIn)+p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
+      b=cfStrip(u,cf,cfIn)+matBox(u,p)+p.map((l,k)=>{n++;return `<div class="lrow ${l.kind}" data-k="${k}"><span class="ln">L${n}</span><span class="lk">${l.kind==='assess'?esc(u.assessment||'Assessment'):KIND[l.kind]}</span>
         <div class="lch">${l.items.map((x,j)=>{const s=IDX[x.id];if(l.kind==='teach')seen[x.id]=(seen[x.id]||0)+1;
           return `<span class="lc ${x.id.split('-')[0]}" draggable="true" data-k="${k}" data-j="${j}"><b>${x.id.startsWith('G11')?'Y11 ':''}${s?.sub||x.id}</b> <span class="tt">${esc(s?.title||'')}</span>${l.kind==='teach'&&cnt[x.id]>1?` <i>${seen[x.id]} of ${cnt[x.id]}</i>`:''}${cfIn[x.id]?`<em title="Assessed in CFAT ${cfIn[x.id]}">C${cfIn[x.id]}</em>`:''}<button class="x sp" title="Split: also teach this in a new lesson straight after">✂</button><button class="x rm" title="Take out of this lesson">✕</button></span>`}).join('')||(l.kind==='teach'?'<span class="empty">Drop a subchapter here</span>':'')}
          <input class="lnote" placeholder="note…" value="${esc(l.note||'')}"></div>
@@ -530,6 +537,7 @@ function showDetail(id){
   let h=`<button class="btn close" onclick="modal.classList.remove('on')">Close</button>
    <h2>${x.sub} ${esc(x.title)} ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.extension?'<span class="tag text">Extension</span>':''}</h2>
    <div class="sub">${x.id} · ${x.book==='C10'?'Cambridge 10 &amp; 10A':'Cambridge General U1&amp;2'} pp. ${x.printed_page}–${x.printed_end} (PDF ${x.pdf_page}–${x.pdf_end})${u.length?` · in ${u.join(', ')}`:''}${full?'':' · <b>basic index only</b>: the lesson-plan fields get filled when this chapter is done'}</div><div class="flow">`;
+  if((x.materials||[]).length)h+=`<div class="sec wide mats"><h3>Lesson materials</h3>${x.materials.map(m=>`<b>${esc(m.title)}</b> ${m.html?`<a class="btn" href="../${encodeURI(m.html)}" target="_blank" rel="noopener">Open</a> `:''}${m.pdf?`<a class="btn" href="../${encodeURI(m.pdf)}" target="_blank" rel="noopener">PDF</a>`:''}`).join(' &nbsp; ')}</div>`;
   h+=S(1,'Learning intentions',li((x.learning_intentions||[]).map(t=>`<li>${esc(t)}</li>`)));
   if(x.book==='G11')h+=S(2,'VCE Study Design (General Maths U1&amp;2)',li((x.study_design||[]).map(c=>`<li><span class="code">${c.id.replace('GM-','')}</span> <span class="tag">${c.kind==='content'?'content':'key knowledge'}</span> ${esc(c.text)}<br><span class="src">Unit ${c.unit} · ${esc(c.topic)}</span></li>`)));else
   h+=S(2,'Victorian Curriculum 2.0',li((x.vc2||[]).map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${c.level==='9'?'<span class="tag">L9 review</span> ':''}${esc(c.text)}</li>`)));

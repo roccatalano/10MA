@@ -41,3 +41,9 @@
 - "Use N" sets the unit's lesson count on Unit planning to the plan's length (feeds the 2027 tab).
 - Claude's first suggestion (15 Nov): 10MAG slow (most subchapters 2 lessons); 10MAA standard (1 each; heavy ones split, light pairs combined: G2A+2B, G1E+1F, G4A+4B, G8E+8F). Every unit ends Review + its assessment.
 - **CFATs (15 Nov, rebuilt):** 1 CFAT = 1 week = 3 × 79-min lessons; groupings chosen for similar content, then each week's lessons laid out under it; kind `practice` = consolidation lesson in a short week. `lessons.json` also has `cfats:{"<stream>|<unit>":[{items:[{id}],note}]}`. Purple strip at the top of each open unit: drag subchapters between CFATs, ✕ remove, ↑ reorder, drop on "+" for a new one. Each CFAT shows in the lesson list after the last lesson that teaches any of its subchapters; lesson chips carry C1, C2… Claude's first grouping = similar content per CFAT (e.g. 10MAA Indices: index laws 3A–3D | exponentials 3E–3F | logs 3I–3L | surds 4A–4D).
+
+## Lesson materials in the repo (15 Nov)
+- Finished materials live in `lessons/` (served on the public site so teachers without G: access can open them): `C10-1A worksheet.html/.pdf` …, `<stream> <unit name> - Unit workbook.pdf`.
+- Library cards: `materials:[{kind,title,html,pdf}]` → "Lesson materials" box at the top of the card + 📄 on the library list.
+- `lessons.json` `materials:{"<stream>|<unit>":[{kind,title,pdf}]}` → "Unit materials" box under the CFATs (slides, workbook, plus each subchapter worksheet in plan order).
+- Unit workbook = subchapter worksheet PDFs merged in Lesson planning order (rebuild if the order changes).

@@ -65,5 +65,5 @@
 ## 15 Nov 2026 (late) — Ch1 worksheets moved + APK fixed
 - Rocco's Ch1 worksheet HTMLs (old 10MAA 2027 'Lesson Handouts' folder = archive) copied to `01 Lesson materials` as `C10-1A worksheet.html/.pdf` … `C10-1L`.
 - Their "Activating prior knowledge" used the same subchapter's Building understanding Qs; replaced with the library's APK picks (Y7/8/9 chapter checklist skill + e.g. question), cropped as images from the Y7–9 PDFs (verbatim, diagrams included) and cited with printed pages. 1E's missing citation fixed. No Do Now on worksheets (it goes on the slides, lesson-dependent).
-- Not regenerated: solutions copies and the Unit Workbook PDF. 1D, 1G, 1H, 1I, 1K grew by one page.
+- Unit workbooks rebuilt per stream (10MAA order puts 1L after 1H; 10MAG has no 1D) and, with the worksheets, pushed to `lessons/` in the repo and linked from the planner. Solutions copies not regenerated yet. 1D, 1G, 1H, 1I, 1K grew by one page.
 - Decided: one HTML slide deck per unit (sections per subchapter, exit-task slides from the subchapter checklist at the end of each section), built from shared subchapter source so 10MAG/10MAA share slides. Worksheets stay per subchapter → later one unit booklet. A buffer lesson per unit for catch-up.
