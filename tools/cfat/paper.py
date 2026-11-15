@@ -35,6 +35,7 @@ svg.fig{display:block;margin:1mm 0 1mm 2mm;max-width:100%;height:auto}
 .ans{display:block;visibility:hidden;color:#c00}.sol .ans{visibility:visible}.sol .mc .ok{color:#c00}
 .ans>div{margin:.3mm 0}.ans svg.fig{height:30mm;width:auto;max-width:100%;display:block;margin:2mm auto 0}.ans svg.fig[viewBox^="0 -6"]{height:15mm}.q svg.fig{height:14mm;width:auto}
 .brk{break-before:page}.eqs{margin:1.5mm 0 1.5mm 6mm;line-height:1.7}.sol .stu{display:none}body:not(.sol) .ans svg{display:none}.stu svg.ax.nl{height:15mm!important}.skb{flex-direction:row!important;padding:0!important}.skl{flex:1;display:flex;flex-direction:column;padding:2mm 3mm;border-right:1.2px solid #000}.skr{flex:1;display:flex;align-items:center;justify-content:center;padding:2mm}.skr>div{width:100%}.skr svg{width:100%;height:auto;max-height:var(--gh,66mm);display:block;margin:0 auto}.skr .ans svg.fig{margin:0 auto!important;height:auto}.sol .skr .stu{display:none}body:not(.sol) .skr .ans{display:none}.stu svg.ax{display:block;margin:0;height:30mm;width:auto;max-width:100%}
+.pg{margin-top:2mm}.pg svg{display:block;width:100%;height:auto;max-height:84mm;margin:0 auto}.pg .ans svg.fig{height:auto;margin:0 auto}.sol .pg .stu{display:none}body:not(.sol) .pg .ans{display:none}
 table.sk{break-inside:avoid;border-collapse:collapse;margin:3mm 0 0 auto;font-size:9pt}table.sk td,table.sk th{border:1px solid #000;padding:1mm 2.5mm;text-align:center}table.sk th{background:#eee}
 table.sk td:first-child{text-align:left}"""
 
@@ -109,13 +110,27 @@ def build(stream,n,unit):
                     f'<div class="skr"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div></div></div>')
         if nl: it=dict(it,q=it['q']+'<div class="stu">'+re.sub(r'<(polygon|polyline|circle|text|path|line)[^>]*#d00000[^>]*/?>(</text>)?','',figs[-1]).replace('class="fig"','class="fig ax nl"')+'</div>')
         return f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:{h}mm"><p class="q">{it["q"]}</p>{ans(it)}<div class="blank"></div>{cite(it)}</div></div>'
+    def pbox(it):
+        # sketch question in a side-by-side pair: question on top, big grid underneath
+        it=dict(it,q=eqlines(it['q']))
+        figs=[x for x in it['sol'] if x.startswith('<svg')];txt=dict(it,sol=[x for x in it['sol'] if not x.startswith('<svg')])
+        return (f'<div class="box sa" data-m="{it["marks"]}">{hd(it)}<div class="bd" style="min-height:12mm"><p class="q">{it["q"]}</p>{ans(txt)}<div class="blank"></div>'
+                f'<div class="pg"><div class="stu">{grid10()}</div><div class="ans">{figs[-1]}</div></div>{cite(it)}</div></div>')
+    PAIRS={('10MAG',2):[(6,7)]}.get((stream,n),[])   # question numbers shown side by side
+    def sarows():
+        out=[];k=0;q0=len(A)
+        while k<len(B):
+            if any(q0+k+1==a for a,b in PAIRS) and k+1<len(B):
+                out.append(f'<div class="qgrid pair">{pbox(B[k])}{pbox(B[k+1])}</div>');k+=2
+            else: out.append(f'<div class="sarow">{sabox(B[k])}</div>');k+=1
+        return ''.join(out)
     def rows(items,f): return ''.join(f'<div class="qgrid">{"".join(f(x) for x in items[k:k+2])}</div>' for k in range(0,len(items),2))
     title={'10MAA':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel lines and regions',4:'Simultaneous equations'},
            '10MAG':{1:'Algebra review, equations &amp; inequalities',2:'Graphing and finding straight lines',3:'Length, midpoint, parallel and perpendicular lines',4:'Simultaneous equations',5:'Simultaneous equations in context and regions'}}.get(stream,{}).get(n,unit)
     body=(f'<div class="title"><div class="code">CFAT<br>1.{n}</div><h1>{title}<div>{", ".join(subs)} · {stream} · 20 minutes · Show all working</div></h1>'
           f'<div class="who"><div>Name <i></i></div><div class="scb">/{tot}</div></div></div>'
           +(f'<div class="secthd">Section A · Multiple choice<span>Circle one answer. {ma} marks</span></div>{rows(A,mcbox)}' if A else '')
-          +f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+''.join(f'<div class="sarow">{sabox(x)}</div>' for x in B)
+          +f'<div class="secthd">Section B · Short answer<span>Show your working. {mb} marks</span></div>'+sarows()
           )
     os.makedirs(os.path.join(ROOT,'assessments'),exist_ok=True)
     base=f'CFAT 1.{n} - {stream} - {subs[0]}-{subs[-1]}'
