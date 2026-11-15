@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Slide templates · Worked example / You try</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+/* 1280 x 720 slides, scaled to fit the window. House style: black outlines, Arial, KaTeX maths. */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#2b2b2b;font-family:Arial,Helvetica,sans-serif;color:#000;overflow:hidden}
+.stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:#fff;display:none;flex-direction:column;padding:34px 44px 22px}
+.slide.on{display:flex}
+.katex{font-size:1.15em}
+/* title bar = same as worksheet title box */
+.bar{display:flex;align-items:center;gap:18px;border:3px solid #000;padding:10px 18px}
+.bar .tag{font-size:30px;font-weight:bold;border-right:3px solid #000;padding-right:18px;white-space:nowrap}
+.bar h1{font-size:30px;margin:0;flex:1;font-weight:bold}
+.bar .sub{font-size:18px;color:#333;white-space:nowrap}
+.slide.yt .bar{background:#eee}
+.q{font-size:30px;margin:22px 4px 10px}
+/* one column per part: question on top, empty working space below */
+.parts{flex:1;display:grid;gap:0;border:1.5px solid #000;min-height:0}
+.part{min-width:0;border-left:1.5px solid #000;padding:14px 18px;font-size:30px;display:flex;flex-direction:column}
+.part:first-child{border-left:0}
+.part .lab{font-weight:bold;margin-right:12px}
+.part .qq{white-space:nowrap;overflow:hidden}.part .katex,.part .katex-html{white-space:nowrap}
+.part .work{flex:1}
+.foot{display:flex;justify-content:space-between;font-size:15px;color:#444;margin-top:10px}
+.nav{position:fixed;top:6px;right:14px;color:#aaa;font:13px system-ui}
+</style></head><body>
+<div class="stage" id="stage">
+
+<!-- WORKED EXAMPLE -->
+<section class="slide ex" data-id="C10-1A-ex1">
+  <div class="bar"><span class="tag">Example 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
+  <p class="q">Simplify by collecting like terms.</p>
+  <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <div class="part"><div class="qq"><span class="lab">a</span>$7a + 3a$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">b</span>$3a^2b - 2a^2b$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">c</span>$5xy + 2xy^2 - 2xy + 3y^2x$</div><div class="work"></div></div>
+  </div>
+  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 (p. 6)</span><span class="pg"></span></div>
+</section>
+
+<!-- YOU TRY (same layout; grey title bar) -->
+<section class="slide yt" data-id="C10-1A-yt1">
+  <div class="bar"><span class="tag">You try 1</span><h1>Collecting like terms</h1><span class="sub">1A Review of algebra</span></div>
+  <p class="q">Simplify by collecting like terms.</p>
+  <div class="parts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <div class="part"><div class="qq"><span class="lab">a</span>$4a + 13a$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">b</span>$5ab^2 - 2ab^2$</div><div class="work"></div></div>
+    <div class="part"><div class="qq"><span class="lab">c</span>$3xy + 4x^2y - xy + 2yx^2$</div><div class="work"></div></div>
+  </div>
+  <div class="foot"><span>Cambridge Essential Mathematics 10 &amp; 10A 3rd Ed, 1A Example 1 · Now you try (p. 6)</span><span class="pg"></span></div>
+</section>
+
+</div>
+<div class="nav">← → or click to move · F for full screen</div>
+<script>
+renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+const S=[...document.querySelectorAll('.slide')];let i=0;
+S.forEach((s,k)=>s.querySelector('.pg').textContent=(k+1)+' / '+S.length);
+const show=k=>{i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===i))};
+const fit=()=>{const z=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('stage').style.transform=`translate(-50%,-50%) scale(${z})`};
+addEventListener('resize',fit);fit();show(0);
+// shrink any part that is too wide for its column so maths never wraps
+const shrink=()=>{S.forEach(s=>{s.classList.add('on');s.querySelectorAll('.qq').forEach(q=>{let f=30;q.style.fontSize=f+'px';while(q.scrollWidth>q.clientWidth+1&&f>16){f--;q.style.fontSize=f+'px'}});s.classList.remove('on')});show(i)};
+document.fonts.ready.then(shrink);addEventListener('load',shrink);
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(i+1);if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);if(e.key==='f'||e.key==='F')document.documentElement.requestFullscreen?.()});
+addEventListener('click',e=>show(e.clientX>innerWidth/2?i+1:i-1));
+</script></body></html>
