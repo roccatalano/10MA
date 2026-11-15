@@ -66,6 +66,7 @@ button,select,input{font:inherit}
 .utot{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);padding:6px 2px 2px}
 .utot b{color:var(--ink)}
 .uinfo{margin-top:6px}
+.lesbox{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap}.lesbox input{width:52px;border:1px solid var(--line);border-radius:6px;padding:2px 4px;text-align:center;font-weight:600;color:var(--ink)}
 .modal{position:fixed;inset:0;background:rgba(30,30,28,.35);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:auto;z-index:20}
 .modal.on{display:flex}
 .detail{background:var(--card);border-radius:14px;max-width:1000px;width:100%;padding:18px 20px;position:relative}
@@ -116,6 +117,7 @@ Promise.all(['../library/C10.json','../library/G11.json','../courses/units.json'
   for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
   const local=store.get(KEY);
   UNITS=local?JSON.parse(local):(units||{units:[]});
+  UNITS.units.forEach(u=>{u.items=u.items.map(x=>({id:x.id}));if(!('lessons' in u))u.lessons=null});
   setSaved(local?'Saved in this browser':'Loaded from repo');
   renderLib();renderUnits();
 });
@@ -155,8 +157,8 @@ function subCard(x){
 
 function renderUnits(){
   const box=document.getElementById('units');
-  const tot=UNITS.units.reduce((a,u)=>a+u.items.reduce((b,i)=>b+(+i.lessons||0),0),0);
-  document.getElementById('ustat').textContent=`${UNITS.units.length} units · ${tot} lessons`;
+  const tot=UNITS.units.reduce((a,u)=>a+(+u.lessons||0),0);
+  document.getElementById('ustat').textContent=`${UNITS.units.length} units · ${tot} × 79-min lessons`;
   box.innerHTML=UNITS.units.map((u,i)=>unitCard(u,i)).join('')||'<p class="empty">No units yet: add one, then drag subchapters in.</p>';
   box.querySelectorAll('.unit').forEach(el=>{
     const i=+el.dataset.i,u=UNITS.units[i];
@@ -164,9 +166,10 @@ function renderUnits(){
     el.ondragleave=e=>{if(!el.contains(e.relatedTarget))el.classList.remove('over')};
     el.ondrop=e=>{e.preventDefault();el.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
       if(d.from!=null){if(d.from===i)return;const it=UNITS.units[d.from].items.splice(d.idx,1)[0];if(!u.items.some(x=>x.id===it.id))u.items.push(it)}
-      else d.ids.forEach(id=>{if(!u.items.some(x=>x.id===id))u.items.push({id,lessons:1})});
+      else d.ids.forEach(id=>{if(!u.items.some(x=>x.id===id))u.items.push({id})});
       save()};
     el.querySelector('.name').onchange=e=>{u.name=e.target.value;save()};
+    el.querySelector('.les').onchange=e=>{u.lessons=Math.max(0,+e.target.value||0);save()};
     el.querySelector('.assess').onchange=e=>{u.assessment=e.target.value;save()};
     el.querySelector('.note').onchange=e=>{u.note=e.target.value;save()};
     el.querySelectorAll('.stream').forEach(b=>b.onclick=()=>{const s=b.dataset.s;u.streams=u.streams.includes(s)?u.streams.filter(x=>x!==s):[...u.streams,s];save()});
@@ -175,7 +178,6 @@ function renderUnits(){
     el.querySelector('.dn').onclick=()=>{if(i<UNITS.units.length-1){[UNITS.units[i+1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i+1]];openUnits.clear();save()}};
     el.querySelector('.tog').onclick=e=>{e.preventDefault();openUnits.has(i)?openUnits.delete(i):openUnits.add(i);renderUnits()};
     el.querySelectorAll('.ui').forEach(r=>{const k=+r.dataset.k;
-      r.querySelector('input').onchange=e=>{u.items[k].lessons=Math.max(0,+e.target.value||0);save()};
       r.querySelector('.x').onclick=()=>{u.items.splice(k,1);save()};
       r.querySelector('.tt').onclick=()=>showDetail(u.items[k].id);
       r.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({from:i,idx:k}));
@@ -187,14 +189,14 @@ function renderUnits(){
 function unitCard(u,i){
   if(filt&&!u.streams.includes(filt))return '';
   const items=u.items.map(x=>({...x,s:IDX[x.id]}));
-  const L=items.reduce((a,x)=>a+(+x.lessons||0),0), n10=items.filter(x=>x.s&&x.s.tenA).length;
+  const L=+u.lessons||0, n10=items.filter(x=>x.s&&x.s.tenA).length;
   const books=[...new Set(items.map(x=>x.id.split('-')[0]))];
   const open=openUnits.has(i);
   const codes=new Map(), chs=new Map();
   items.forEach(x=>{if(!x.s)return;(x.s.vc2||[]).forEach(c=>codes.set(c.code,c));const k=x.s.book+' Ch'+x.s.chapter;chs.set(k,(chs.get(k)||0)+1)});
   const info=open?`<div class="uinfo">
    <details class="mini" open><summary>Unit summary</summary><ul>
-    <li><b>${items.length}</b> subchapters · <b>${L}</b> lessons · ${n10} are 10A</li>
+    <li><b>${L}</b> × 79-min lessons for <b>${items.length}</b> subchapters${items.length&&L?` (≈ ${(L/items.length).toFixed(1)} lessons per subchapter)`:''} · ${n10} are 10A</li>
     <li>From: ${[...chs].map(([k,n])=>`${k} (${n})`).join(', ')||'nothing yet'}</li>
     <li>Books: ${books.map(b=>b==='C10'?'Cambridge 10 &amp; 10A':'Cambridge General U1&amp;2').join(', ')||'none'}</li>
     <li>Streams: ${u.streams.join(' + ')||'<i>none set</i>'} · Assessment: ${esc(u.assessment||'not set')}</li>
@@ -205,15 +207,16 @@ function unitCard(u,i){
    <div class="uh"><span class="num">U${i+1}</span><input class="name" value="${esc(u.name)}">
     ${STREAMS.map(s=>`<span class="stream ${u.streams.includes(s)?'on':''}" data-s="${s}">${s}</span>`).join('')}
     <select class="assess">${ASSESS.map(a=>`<option ${a===(u.assessment||'')?'selected':''} value="${a}">${a||'Assessment…'}</option>`).join('')}</select>
+    <label class="lesbox" title="Number of 79-minute lessons for this unit"><input class="les" type="number" min="0" value="${u.lessons??''}" placeholder="?"> × 79-min lessons</label>
     <button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete unit">✕</button></div>
    <div class="ub">
-    ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]}" draggable="true" data-k="${k}"><span class="id">${x.id}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><input type="number" min="0" value="${x.lessons}" title="Lessons planned"><span class="src">les.</span><button class="x" title="Remove">✕</button></div>`).join('')}
+    ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]}" draggable="true" data-k="${k}"><span class="id">${x.id}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><button class="x" title="Remove">✕</button></div>`).join('')}
     <div class="drop">Drop subchapters here</div>
-    <div class="utot"><span><b>${L}</b> lessons</span><span><b>${items.length}</b> subchapters</span>${n10?`<span><b>${n10}</b> 10A</span>`:''}<a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>
+    <div class="utot"><span><b>${L||'?'}</b> lessons</span><span><b>${items.length}</b> subchapters</span>${n10?`<span><b>${n10}</b> 10A</span>`:''}<a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>
     ${info}
    </div></div>`;
 }
-document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',streams:[...STREAMS],assessment:'',items:[]});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
+document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',streams:[...STREAMS],assessment:'',lessons:null,items:[]});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
 document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();

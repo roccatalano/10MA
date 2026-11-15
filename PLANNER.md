@@ -18,7 +18,7 @@
 4. Rocco picks units for each stream (start from the current 10MAA 2027 unit list)
 
 ## Units (built 15 Nov)
-- `courses/units.json` = the saved unit plan: `{units:[{name, streams:[10MAG|10MAA], assessment, note, items:[{id, lessons}]}]}`. Units are shared across both streams; a unit's `streams` says who does it.
+- `courses/units.json` = the saved unit plan: `{units:[{name, streams:[10MAG|10MAA], assessment, note, lessons (number of 79-min lessons for the whole unit), items:[{id}]}]}`. Units are shared across both streams; a unit's `streams` says who does it.
 - The planner page saves edits in the browser (localStorage = the browser's own storage, one computer only). To make changes permanent/shared: **Export units** → give the file to Claude → Claude commits it to `courses/units.json`. **Reset** throws away browser edits and reloads the repo version.
 - Seeded from the 10MAA 2027 folder names (whole chapters, 1 lesson each) — Rocco to edit.
 - Page layout: 3 columns: Year 10 textbook (C10) | Year 11 textbook (G11) | Planned units. Chapter cards hold nested VC2 + chapter-resources cards; click a subchapter for its lesson-plan fields.
