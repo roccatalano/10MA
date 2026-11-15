@@ -27,3 +27,9 @@ A4 pages, boxed sections with grey header bars, in this order:
 - Never write questions: copy verbatim and cite. Wording may be added to make a single part work (Rocco OK'd, e.g. "and graph the solution on a number line"); mark it "adapted" in the citation.
 - Tables and graphs (stem-and-leaf, histograms, dot plots, box plots, two-way tables) are redrawn as house-style HTML tables / SVG (`tools/worksheets/svg.py` style), never screenshots.
 - Solutions copy for each worksheet is still an open item for all units.
+
+## Slides (16 Nov): sample deck 9A–9B with New learning slides
+- `python3 tools/slides/ch9.py 9A 9B` → `lessons/10MAG Univariate Statistics - Slides (9A-9B sample).html`. Content in `tools/slides/ch9_data.py` (same format as `ch1_data.py`); reuses `build.py` (template look, APK, Key ideas, Example/You try, coursework).
+- Order per subchapter: Do Now · Title · LI/SC/sequence · APK · Key ideas · **New learning** · Example/You try pairs · Exit · Coursework.
+- **New learning slides** (Rocco's idea): animated or interactive, built only from the book's Key ideas / Building understanding (cited). 9A: types-of-data tree (click to build), "Sort it" categorical/numerical cards (BU Q3–4), population vs sample dot grid (random / library / one class). 9B: frequency table → histogram (bars grow per click, % axis), symmetrical/skewed slider with live mean and median, stem-and-leaf build. Clicks on buttons/sliders don't advance the slide.
+- Waiting on Rocco's feedback before doing 9C–9E and the full unit deck (needs Lesson planning).
