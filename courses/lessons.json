@@ -2401,6 +2401,11 @@
     "kind": "workbook",
     "title": "Unit workbook",
     "pdf": "lessons/10MAA Algebra and Linear Relations - Unit workbook.pdf"
+   },
+   {
+    "kind": "slides",
+    "title": "Slides",
+    "html": "lessons/10MAA Algebra and Linear Relations - Slides.html"
    }
   ],
   "10MAG|Algebra and Linear Relations": [
