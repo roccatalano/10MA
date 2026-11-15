@@ -66,6 +66,11 @@ button,select,input{font:inherit}
 .utot{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);padding:6px 2px 2px}
 .utot b{color:var(--ink)}
 .uinfo{margin-top:6px}
+.ulists{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ulists.one{grid-template-columns:1fr}
+.ulist{min-width:0}.ulh{display:flex;align-items:center;gap:8px;margin-bottom:8px}.ulh b{font-size:14px}.ulh .src{flex:1}
+.unit.sG{border-top-color:#2f7d5b}.unit.sA{border-top-color:var(--sac-i)}
+.urow{display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap}.urow select{border:1px solid var(--line);border-radius:6px;padding:1px 3px;font-size:12px}
+.ulist .ui{font-size:12px;gap:5px;padding:3px 5px}.ulist .ui .id{min-width:auto;font-size:11px}
 .vers{display:grid;grid-template-columns:1fr 1fr;gap:8px}.vers.one{grid-template-columns:1fr}
 .ver{border:1px solid var(--line);border-radius:9px;padding:6px;background:#fdfcf9;min-width:0}
 .ver.over{outline:2px dashed var(--accent);background:#f4f7ff}
@@ -109,7 +114,6 @@ a{color:var(--accent)}
   <section class="col"><div class="colh"><h2>Year 11 textbook</h2><span>Cambridge General U1&amp;2</span></div><div class="colb" id="g11"></div></section>
   <section class="col"><div class="colh"><h2>Planned units</h2><span id="ustat"></span></div>
     <div class="colb"><div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
-      <button class="btn dark" id="addu">+ Add unit</button>
       <span class="src">Show:</span><select id="filt" class="btn"><option value="">Both streams</option><option>10MAG</option><option>10MAA</option></select></div>
       <div id="units"></div></div></section>
 </div>
@@ -185,92 +189,80 @@ function subCard(x){
   return `<div class="sc ${x.tenA?'is10a':''}" draggable="true" data-id="${x.id}" style="--bk:${x.book==='G11'?'var(--g11)':'var(--lesson-i)'}">
    <span class="id">${x.sub}</span><span class="tt">${esc(x.title)}</span>
    ${x.tenA?'<span class="tag t10a">10A</span>':''}${x.consolidating?'<span class="tag tcons">Cons.</span>':''}${x.extension?'<span class="tag text">Ext.</span>':''}
-   ${u.length?`<span class="used" title="Used in: ${u.join(', ')} (G = 10MAG, A = 10MAA)">${u.join(' ')}</span>`:''}</div>`;
+   ${u.length?`<span class="used" title="Used in: ${u.join(', ')} (G = 10MAG unit, A = 10MAA unit)">${u.join(' ')}</span>`:''}</div>`;
 }
 
-/* ---------- units: each unit has a 10MAG and/or 10MAA version ---------- */
+/* ---------- units: two separate lists, one per stream ---------- */
 function migrate(D){
+  const out=[];
   (D.units||[]).forEach(u=>{
-    if(!u.versions){u.versions={};(u.streams||STREAMS).forEach(s=>u.versions[s]={lessons:u.lessons??null,items:(u.items||[]).map(x=>({id:x.id}))});delete u.streams;delete u.items;delete u.lessons}
-    if('assessment' in u){STREAMS.forEach(s=>{const v=u.versions[s];if(v&&v.assessment===undefined)v.assessment=u.assessment||''});delete u.assessment}
-  });return D;
+    if(u.stream){out.push(u);return}
+    if(u.versions){STREAMS.forEach(s=>{const v=u.versions[s];if(v)out.push({name:u.name,stream:s,lessons:v.lessons??null,assessment:v.assessment??u.assessment??'',note:u.note||'',items:v.items.map(x=>({id:x.id}))})});return}
+    (u.streams||STREAMS).forEach(s=>out.push({name:u.name,stream:s,lessons:u.lessons??null,assessment:u.assessment||'',note:u.note||'',items:(u.items||[]).map(x=>({id:x.id}))}));
+  });
+  D.units=out;return D;
 }
-function usedIn(id){const r=[];UNITS.units.forEach((u,i)=>STREAMS.forEach(s=>{const v=u.versions[s];if(v&&v.items.some(x=>x.id===id))r.push(`U${i+1}${s==='10MAG'?'G':'A'}`)}));return r}
+const SH={'10MAG':'G','10MAA':'A'};
+function numOf(u){return UNITS.units.filter(x=>x.stream===u.stream).indexOf(u)+1}
+function usedIn(id){return UNITS.units.filter(u=>u.items.some(x=>x.id===id)).map(u=>SH[u.stream]+numOf(u))}
 function renderUnits(){
+  const tot=s=>UNITS.units.filter(u=>u.stream===s).reduce((a,u)=>a+(+u.lessons||0),0);
+  document.getElementById('ustat').textContent=`10MAG ${tot('10MAG')} · 10MAA ${tot('10MAA')} × 79-min lessons`;
   const box=document.getElementById('units');
-  const tot=s=>UNITS.units.reduce((a,u)=>a+(+(u.versions[s]||{}).lessons||0),0);
-  document.getElementById('ustat').textContent=`${UNITS.units.length} units · 10MAG ${tot('10MAG')} · 10MAA ${tot('10MAA')} × 79-min lessons`;
-  box.innerHTML=UNITS.units.map((u,i)=>unitCard(u,i)).join('')||'<p class="empty">No units yet: add one, then drag subchapters in.</p>';
+  const shown=filt?[filt]:STREAMS;
+  box.className='ulists '+(filt?'one':'');
+  box.innerHTML=shown.map(s=>{const us=UNITS.units.map((u,i)=>[u,i]).filter(([u])=>u.stream===s);
+    return `<div class="ulist" data-s="${s}"><div class="ulh"><b>${s}</b><span class="src">${us.length} units · ${tot(s)} lessons</span><button class="btn addu" data-s="${s}">+ Unit</button></div>
+     ${us.map(([u,i])=>unitCard(u,i)).join('')||'<p class="empty">No units yet</p>'}</div>`}).join('');
+  box.querySelectorAll('.addu').forEach(b=>b.onclick=()=>{UNITS.units.push({name:'New unit',stream:b.dataset.s,lessons:null,assessment:'',note:'',items:[]});openUnits.add(UNITS.units.length-1);save()});
   box.querySelectorAll('.unit').forEach(el=>{
     const i=+el.dataset.i,u=UNITS.units[i];
+    const sib=()=>UNITS.units.map((x,j)=>[x,j]).filter(([x])=>x.stream===u.stream).map(([,j])=>j);
+    el.ondragover=e=>{e.preventDefault();el.classList.add('over')};
+    el.ondragleave=e=>{if(!el.contains(e.relatedTarget))el.classList.remove('over')};
+    el.ondrop=e=>{e.preventDefault();el.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+      if(d.from!=null){if(d.from===i)return;const src=UNITS.units[d.from];const it=src.items[d.idx];
+        if(!u.items.some(x=>x.id===it.id))u.items.push({id:it.id});
+        if(src.stream===u.stream)src.items.splice(d.idx,1);}   // across streams = copy, same stream = move
+      else d.ids.forEach(id=>{if(!u.items.some(x=>x.id===id))u.items.push({id})});
+      save()};
     el.querySelector('.name').onchange=e=>{u.name=e.target.value;save()};
+    el.querySelector('.assess').onchange=e=>{u.assessment=e.target.value;save()};
+    el.querySelector('.les').onchange=e=>{u.lessons=e.target.value===''?null:Math.max(0,+e.target.value||0);save()};
     const n=el.querySelector('.note');if(n)n.onchange=e=>{u.note=e.target.value;save()};
-    el.querySelector('.del').onclick=()=>{if(confirm(`Delete unit "${u.name}"? Its subchapters go back to the library.`)){UNITS.units.splice(i,1);openUnits.clear();save()}};
-    el.querySelector('.up').onclick=()=>{if(i>0){[UNITS.units[i-1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i-1]];openUnits.clear();save()}};
-    el.querySelector('.dn').onclick=()=>{if(i<UNITS.units.length-1){[UNITS.units[i+1],UNITS.units[i]]=[UNITS.units[i],UNITS.units[i+1]];openUnits.clear();save()}};
+    el.querySelector('.del').onclick=()=>{if(confirm(`Delete ${u.stream} unit "${u.name}"?`)){UNITS.units.splice(i,1);openUnits.clear();save()}};
+    el.querySelector('.dup').onclick=()=>{const o=u.stream==='10MAG'?'10MAA':'10MAG';UNITS.units.push({...JSON.parse(JSON.stringify(u)),stream:o});save()};
+    el.querySelector('.up').onclick=()=>{const s=sib(),k=s.indexOf(i);if(k>0){const j=s[k-1];[UNITS.units[j],UNITS.units[i]]=[UNITS.units[i],UNITS.units[j]];openUnits.clear();save()}};
+    el.querySelector('.dn').onclick=()=>{const s=sib(),k=s.indexOf(i);if(k<s.length-1){const j=s[k+1];[UNITS.units[j],UNITS.units[i]]=[UNITS.units[i],UNITS.units[j]];openUnits.clear();save()}};
     el.querySelector('.tog').onclick=e=>{e.preventDefault();openUnits.has(i)?openUnits.delete(i):openUnits.add(i);renderUnits()};
-    el.querySelectorAll('.addv').forEach(b=>b.onclick=()=>{u.versions[b.dataset.s]={lessons:null,assessment:'',items:[]};save()});
-    el.querySelectorAll('.ver:not(.off)').forEach(V=>{
-      const s=V.dataset.s,v=u.versions[s],other=STREAMS.find(x=>x!==s);
-      V.ondragover=e=>{e.preventDefault();V.classList.add('over')};
-      V.ondragleave=e=>{if(!V.contains(e.relatedTarget))V.classList.remove('over')};
-      V.ondrop=e=>{e.preventDefault();V.classList.remove('over');let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
-        if(d.from!=null){if(d.from===i&&d.s===s)return;const src=UNITS.units[d.from].versions[d.s];const it=src.items[d.idx];
-          if(!v.items.some(x=>x.id===it.id))v.items.push({id:it.id});
-          if(!(e.ctrlKey||e.metaKey||e.altKey)&&!(d.from===i))src.items.splice(d.idx,1); }
-        else d.ids.forEach(id=>{if(!v.items.some(x=>x.id===id))v.items.push({id})});
-        save()};
-      V.querySelector('.assess').onchange=e=>{v.assessment=e.target.value;save()};
-      V.querySelector('.les').onchange=e=>{v.lessons=e.target.value===''?null:Math.max(0,+e.target.value||0);save()};
-      V.querySelector('.offv').onclick=()=>{if(confirm(`Remove the ${s} version of "${u.name}"?`)){delete u.versions[s];save()}};
-      const cp=V.querySelector('.copyv');if(cp)cp.onclick=()=>{const o=u.versions[other];if(!o)return;v.items.forEach(x=>{if(!o.items.some(y=>y.id===x.id))o.items.push({id:x.id})});save()};
-      V.querySelectorAll('.ui').forEach(r=>{const k=+r.dataset.k;
-        r.querySelector('.x').onclick=()=>{v.items.splice(k,1);save()};
-        r.querySelector('.tt').onclick=()=>showDetail(v.items[k].id);
-        r.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({from:i,s,idx:k}));
-        r.ondrop=e=>{let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
-          if(d.from===i&&d.s===s){e.preventDefault();e.stopPropagation();V.classList.remove('over');const it=v.items.splice(d.idx,1)[0];v.items.splice(k,0,it);save()}};
-      });
+    el.querySelectorAll('.ui').forEach(r=>{const k=+r.dataset.k;
+      r.querySelector('.x').onclick=()=>{u.items.splice(k,1);save()};
+      r.querySelector('.tt').onclick=()=>showDetail(u.items[k].id);
+      r.ondragstart=e=>e.dataTransfer.setData('text/plain',JSON.stringify({from:i,idx:k}));
+      r.ondrop=e=>{let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'))}catch(_){return}
+        if(d.from===i){e.preventDefault();e.stopPropagation();el.classList.remove('over');const it=u.items.splice(d.idx,1)[0];u.items.splice(k,0,it);save()}};
     });
   });
 }
-function verCol(u,i,s){
-  const v=u.versions[s],other=STREAMS.find(x=>x!==s);
-  if(!v)return `<div class="ver off"><button class="btn addv" data-s="${s}">+ ${s} version</button></div>`;
-  const ids=new Set((u.versions[other]||{items:[]}).items.map(x=>x.id));
-  const items=v.items.map(x=>({...x,s:IDX[x.id]}));
-  const L=+v.lessons||0;
-  return `<div class="ver" data-s="${s}">
-   <div class="vh"><b>${s}</b><select class="assess" title="${s} assessment for this unit">${ASSESS.map(x=>`<option ${x===(v.assessment||'')?'selected':''} value="${x}">${x||'Assessment…'}</option>`).join('')}</select><label class="lesbox" title="Number of 79-minute lessons for the ${s} version"><input class="les" type="number" min="0" value="${v.lessons??''}" placeholder="?"> lessons</label>
-    ${u.versions[other]?`<button class="x copyv" title="Copy these subchapters to the ${other} version">⇄</button>`:''}<button class="x offv" title="Remove the ${s} version">✕</button></div>
-   ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]} ${u.versions[other]&&!ids.has(x.id)?'only':''}" draggable="true" data-k="${k}" title="${u.versions[other]&&!ids.has(x.id)?s+' only':''}"><span class="id">${x.id.replace(/^C10-|^G11-/,m=>m==='G11-'?'Y11 ':'')}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><button class="x" title="Remove">✕</button></div>`).join('')}
-   <div class="drop">Drop here</div>
-   <div class="vfoot">${items.length} subch.${items.length&&L?` · ≈${(L/items.length).toFixed(1)} les. each`:''}</div></div>`;
-}
 function unitCard(u,i){
-  if(filt&&!u.versions[filt])return '';
-  const open=openUnits.has(i);
-  const all=new Map();STREAMS.forEach(s=>(u.versions[s]||{items:[]}).items.forEach(x=>all.set(x.id,IDX[x.id])));
+  const open=openUnits.has(i), items=u.items.map(x=>({...x,s:IDX[x.id]}));
+  const L=+u.lessons||0, n10=items.filter(x=>x.s&&x.s.tenA).length;
   const codes=new Map(),chs=new Map();
-  [...all.values()].forEach(x=>{if(!x)return;(x.vc2||[]).forEach(c=>codes.set(c.code,c));const k=x.book+' Ch'+x.chapter;chs.set(k,(chs.get(k)||0)+1)});
-  const g=u.versions['10MAG'],a=u.versions['10MAA'];
-  const onlyA=a&&g?a.items.filter(x=>!g.items.some(y=>y.id===x.id)).length:0, onlyG=a&&g?g.items.filter(x=>!a.items.some(y=>y.id===x.id)).length:0;
-  const info=open?`<div class="uinfo">
-   <details class="mini" open><summary>Unit summary</summary><ul>
-    ${STREAMS.map(s=>u.versions[s]?`<li><b>${s}</b>: ${u.versions[s].lessons??'?'} × 79-min lessons · ${esc(u.versions[s].assessment||'no assessment set')} · ${u.versions[s].items.length} subchapters · ${u.versions[s].items.filter(x=>IDX[x.id]&&IDX[x.id].tenA).length} are 10A</li>`:`<li><b>${s}</b>: does not do this unit</li>`).join('')}
-    ${g&&a?`<li>Shared: ${a.items.length-onlyA} · 10MAA only: ${onlyA} · 10MAG only: ${onlyG}</li>`:''}
+  items.forEach(x=>{if(!x.s)return;(x.s.vc2||[]).forEach(c=>codes.set(c.code,c));const k=x.s.book+' Ch'+x.s.chapter;chs.set(k,(chs.get(k)||0)+1)});
+  const info=open?`<div class="uinfo"><details class="mini" open><summary>Unit summary</summary><ul>
+    <li><b>${L||'?'}</b> × 79-min lessons · <b>${items.length}</b> subchapters${items.length&&L?` (≈ ${(L/items.length).toFixed(1)} each)`:''} · ${n10} are 10A</li>
     <li>From: ${[...chs].map(([k,n])=>`${k} (${n})`).join(', ')||'nothing yet'}</li>
     <li><input class="note" placeholder="Notes for this unit…" value="${esc(u.note||'')}" style="width:100%;border:1px solid var(--line);border-radius:6px;padding:3px 6px"></li></ul></details>
-   ${codes.size?`<details class="mini"><summary>VC2 covered (${codes.size}, from fully-detailed subchapters)</summary><ul>${[...codes.values()].map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${esc(c.text)}</li>`).join('')}</ul></details>`:''}
-  </div>`:'';
-  const cols=filt?verCol(u,i,filt):STREAMS.map(s=>verCol(u,i,s)).join('');
-  return `<div class="unit" data-i="${i}">
-   <div class="uh"><span class="num">U${i+1}</span><input class="name" value="${esc(u.name)}">
-    <button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x del" title="Delete unit">✕</button></div>
-   <div class="ub"><div class="vers ${filt?'one':''}">${cols}</div>
-    <div class="utot"><a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>${info}</div></div>`;
+   ${codes.size?`<details class="mini"><summary>VC2 covered (${codes.size}, from fully-detailed subchapters)</summary><ul>${[...codes.values()].map(c=>`<li><span class="code">${c.code}</span> ${c.tenA?'<span class="tag t10a">10A</span> ':''}${esc(c.text)}</li>`).join('')}</ul></details>`:''}</div>`:'';
+  return `<div class="unit ${u.stream==='10MAA'?'sA':'sG'}" data-i="${i}">
+   <div class="uh"><span class="num">${SH[u.stream]}${numOf(u)}</span><input class="name" value="${esc(u.name)}">
+    <button class="x up" title="Move up">↑</button><button class="x dn" title="Move down">↓</button><button class="x dup" title="Copy this unit to the other stream">⧉</button><button class="x del" title="Delete unit">✕</button></div>
+   <div class="ub"><div class="urow"><label class="lesbox"><input class="les" type="number" min="0" value="${u.lessons??''}" placeholder="?"> × 79-min lessons</label>
+     <select class="assess">${ASSESS.map(x=>`<option ${x===(u.assessment||'')?'selected':''} value="${x}">${x||'Assessment…'}</option>`).join('')}</select></div>
+    ${items.map((x,k)=>`<div class="ui ${x.id.split('-')[0]}" draggable="true" data-k="${k}"><span class="id">${x.id.startsWith('G11-')?'Y11 '+x.s?.sub:x.s?.sub||x.id}</span><span class="tt">${esc(x.s?x.s.title:'(not in library)')}${x.s&&x.s.tenA?' <span class="tag t10a">10A</span>':''}</span><button class="x" title="Remove">✕</button></div>`).join('')}
+    <div class="drop">Drop subchapters here</div>
+    <div class="utot"><span><b>${items.length}</b> subchapters${n10?` · ${n10} 10A`:''}</span><a href="#" class="tog">${open?'Hide info':'Show unit info'}</a></div>${info}</div></div>`;
 }
-document.getElementById('addu').onclick=()=>{UNITS.units.push({name:'New unit',assessment:'',note:'',versions:{'10MAG':{lessons:null,assessment:'',items:[]},'10MAA':{lessons:null,assessment:'',items:[]}}});openUnits.add(UNITS.units.length-1);save();const b=document.getElementById('units');b.lastElementChild&&b.lastElementChild.scrollIntoView({behavior:'smooth'})};
 document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
