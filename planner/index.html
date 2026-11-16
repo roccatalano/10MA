@@ -204,6 +204,7 @@ a{color:var(--accent)}
 .uspan{font-size:12px;color:#b5532a;font-weight:600;margin-top:4px}.uopen{margin-top:12px;border:1px solid #ddd;border-radius:10px;padding:6px 12px 12px;background:#fcfcfa}
 .t-pre{border-left-color:#2e8b8b!important}.t-pre .tag{background:#dff1f1;color:#1f6b6b}
 .tblk{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 10px}.tblk span{font-size:12px;background:#fdeee0;color:#8a4a12;border:1px solid #f1c9a3;border-radius:10px;padding:2px 9px}
+.evcard{background:#fdf3e6;border:1px dashed #e0a96d;border-radius:8px;padding:10px 12px;color:#7a4510}.evcard .uc1{color:#a0662a}.evcard .umeta{color:#a0662a}.trh span.over{color:#a32d2d;font-weight:600}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -664,18 +665,22 @@ function renderPlanView(){
     ${SPL?splitUnit(g):`<div class="chgrid"><div class="wl"><span class="cn">Unit ${SH[g.u.stream]}${g.U}</span><b>${esc(g.u.name)}</b>${g.L.length} lessons</div>
     <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.filter(l=>l.kind!=='assess').map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
     <div class="pcol"><div class="pcolh">Assessments</div>${preCard(g)}${cfatCards(g)}${g.L.filter(l=>l.kind==='assess').map(l=>pcard(l)).join('')}</div></div>`}`;
-  // term rows: 3 lessons a week, Step Up first, then each term's teaching weeks
-  // capacity: full week = 3 lessons, week with fewer than 5 teaching days = 2; Year 10 revision/exam/Work Experience weeks skipped (years/2027.json)
-  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),BL=((Y.y10_blocked_weeks||{})[lstream])||{},FW=Y.full_week_lessons||3,SW=Y.short_week_lessons||2;
-  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  const termCap=t=>{const s0=new Date(t.start+'T00:00'),e0=new Date(t.end+'T00:00'),m=new Date(s0);m.setDate(m.getDate()-((m.getDay()+6)%7));let w=1,cap=0;
-    for(;m<=e0;m.setDate(m.getDate()+7),w++){let n=0;for(let k=0;k<5;k++){const d=new Date(m);d.setDate(d.getDate()+k);if(d>=s0&&d<=e0&&!ph.has(iso(d)))n++}
-      if(n&&!((BL[t.n]||{})[w]))cap+=n===5?FW:SW}return cap};
-  const blk=t=>Object.entries(BL[t.n]||{}).map(([w,l])=>`<span>Wk ${w}: ${esc(l)}</span>`).join('');
-  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Y.stepup_lessons||3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:termCap(t),blk:blk(t)}));
-  let acc=0;const rows=caps.map(c=>({...c,G:[]}));
-  let st0=0;rows.forEach(r=>{r.a=st0+1;r.b=st0+r.cap;st0+=r.cap});rows[rows.length-1].b=1e9;
-  G.forEach(g=>{const a=acc+1,b=acc+g.L.length;const hit=rows.filter(r=>r.a<=b&&r.b>=a);(hit.length?hit:[rows[rows.length-1]]).forEach((r,j,arr)=>r.G.push({...g,part:{lo:Math.max(a,r.a),hi:Math.min(b,r.b),n:arr.length,j,prev:j?arr[j-1].lab:'',next:j<arr.length-1?arr[j+1].lab:''}}));acc+=g.L.length});
+  // term rows, week by week: full week = 3 lessons, short week (fewer than 5 days) = 2, Year 10 event weeks (exams, WEX, camp, Step Up) = 0 (years/2027.json y10_events)
+  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),EV=((Y.y10_events||{}).events)||[],FW=Y.full_week_lessons||3,SW=Y.short_week_lessons||2;
+  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`,dm=d=>d.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+  const termWeeks=t=>{const s0=new Date(t.start+'T00:00'),e0=new Date(t.end+'T00:00'),m=new Date(s0);m.setDate(m.getDate()-((m.getDay()+6)%7));const W=[];
+    for(let w=1;m<=e0;m.setDate(m.getDate()+7),w++){let n=0;for(let k=0;k<5;k++){const d=new Date(m);d.setDate(d.getDate()+k);if(d>=s0&&d<=e0&&!ph.has(iso(d)))n++}
+      const ev=EV.find(e=>e.term===t.n&&e.weeks.includes(w));W.push({w,mon:new Date(m),cap:ev?0:(n===5?FW:n?SW:0),ev})}return W};
+  const rows=[];const su=SU();if(su&&su.start)rows.push({lab:'Step Up',W:[{w:1,mon:new Date(su.start+'T00:00'),cap:Y.stepup_lessons||3}],G:[]});
+  Y.terms.forEach(t=>rows.push({lab:'Term '+t.n,W:termWeeks(t),G:[]}));
+  rows.forEach(r=>{r.cap=r.W.reduce((a,x)=>a+x.cap,0);r.used=0;
+    const seen=new Set();r.W.forEach(x=>{if(x.ev&&!seen.has(x.ev)){seen.add(x.ev);r.G.push({ev:x.ev,sw:x.w,mon:x.mon})}})});
+  let ri=0,wi=0,left=rows[0]?rows[0].W[0].cap:0,n=0;
+  const next=()=>{while(ri<rows.length){if(left>0)return true;wi++;if(wi>=rows[ri].W.length){if(ri===rows.length-1){wi--;return false}ri++;wi=0}left=rows[ri].W[wi].cap}return false};
+  G.forEach(g=>{const parts=[];g.L.forEach(()=>{n++;const ok=next();const r=rows[ri],sw=r.W[wi].w;let p=parts.find(p=>p.r===r);if(!p){p={r,lo:n,hi:n,sw,over:0};parts.push(p)}p.hi=n;if(ok){left--;r.used++}else{p.over++;r.used++}});
+    parts.forEach((p,j)=>p.r.G.push({...g,sw:p.sw,part:{lo:p.lo,hi:p.hi,n:parts.length,j,over:p.over,prev:j?parts[j-1].r.lab:'',next:j<parts.length-1?parts[j+1].r.lab:''}}))});
+  rows.forEach(r=>r.G.sort((a,b)=>a.sw-b.sw||(a.ev?-1:1)));
+  const evcard=e=>`<div class="evcard"><div class="uc1"><span>Wk ${e.ev.weeks.join('–')} · ${dm(e.mon)}</span></div><div class="uname">${esc(e.ev.name)}</div><div class="umeta">${esc(e.ev.note||'')} · no unit lessons</div></div>`;
   const uopen=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));
   const ucard=(g,r)=>{const M=(LP.materials||{})[ukey(g.u)]||[],L0=g.L[0]?.n,L1=g.L[g.L.length-1]?.n,op=uopen.has(ukey(g.u)+'@'+r.lab);
     const has=k=>M.some(m=>m.kind===k);const cats=M.filter(m=>m.kind==='cfat').length;
@@ -683,11 +688,11 @@ function renderPlanView(){
     const y11=g.u.items.filter(x=>x.id.startsWith('G11')).length,CO={'10MAG':'#1f4fa0','10MAA':'#b5532a'},cols=(y11?['#2e8b3e']:[CO[g.u.stream]]).concat(sh.length?[CO[other]]:[]);
     const stripe=cols.map((c,k)=>`linear-gradient(${c},${c}) left ${k*100/(cols.length-1||1)}%/6px ${100/cols.length}% no-repeat`).join(',');
     return `<div class="ucard ${op?'open':''} s-${g.u.stream}${cols.length>1?' multi':''}" style="${cols.length>1?'background:'+stripe+','+(op?'#f4f1f8':'#fff'):(y11?'border-left-color:#2e8b3e'+(op?';background:#eef7ef;box-shadow:inset 0 0 0 2px #2e8b3e':''):'')}" title="${sh.length?esc('Shares '+shn+' subchapter'+(shn>1?'s':'')+' with '+other+': '+sh.map(u=>u.name).join(', ')):''}" data-uk="${esc(ukey(g.u)+'@'+r.lab)}"><div class="uc1"><span class="ucode">${SH[g.u.stream]}${g.U}</span><span class="ucar">${op?'▾':'▸'}</span></div>
-      <div class="uname">${esc(g.u.name)}</div><div class="umeta">${g.L.length} lessons${L0?` · L${L0}–L${L1}`:''} · ${esc(g.u.assessment||'—')}</div>${g.part&&g.part.n>1?`<div class="uspan">${g.part.prev?'← continued from '+g.part.prev+' · ':''}L${g.part.lo}–L${g.part.hi} here${g.part.next?' · continues in '+g.part.next+' →':''}</div>`:''}
+      <div class="uname">${esc(g.u.name)}</div><div class="umeta">${g.L.length} lessons${L0?` · L${L0}–L${L1}`:''} · ${esc(g.u.assessment||'—')}</div>${g.part&&g.part.n>1?`<div class="uspan">${g.part.prev?'← continued from '+g.part.prev+' · ':''}L${g.part.lo}–L${g.part.hi} here${g.part.next?' · continues in '+g.part.next+' →':''}</div>`:''}${g.part&&g.part.over?`<div class="uspan" style="color:#a32d2d">${g.part.over} lesson${g.part.over>1?'s':''} don't fit before the end of the year</div>`:''}
       <div class="ubad"><span class="${has('slides')?'y':''}">Slides</span><span class="${has('workbook')?'y':''}">Workbook</span><span class="${cats?'y':''}">CFATs ${cats}/${g.cf.filter(c=>c.items.length).length}</span>${sh.length?`<span class="shb">Shared with ${other} · ${shn}/${mine.size}</span>`:''}${y11?`<span class="y11b">Year 11 · ${y11}/${mine.size}</span>`:''}</div></div>`};
   h+=`<div class="ctl2"><button class="btn" id="uall">Open all units</button><button class="btn" id="unone">Close all units</button></div>`;
-  h+=rows.filter(r=>r.G.length||r.lab!=='Step Up').map(r=>`<div class="trow"><div class="trh">${r.lab}<span>${r.G.reduce((a,g)=>a+(g.part?g.part.hi-g.part.lo+1:g.L.length),0)} of ~${r.cap} lessons</span></div>${r.blk?`<div class="tblk">${r.blk}</div>`:''}<div class="ucards">${r.G.map(g=>ucard(g,r)).join('')||'<div class="empty">Nothing planned yet: add units on Unit planning (or more lessons to the last unit)</div>'}</div>
-    ${r.G.filter(g=>uopen.has(ukey(g.u)+'@'+r.lab)).map(g=>`<div class="uopen">${body(g)}</div>`).join('')}</div>`).join('')||'<p class="empty">No units for this stream yet</p>';
+  h+=rows.map(r=>`<div class="trow"><div class="trh">${r.lab}<span class="${r.used>r.cap?'over':''}">${r.used} of ~${r.cap} lessons${r.used>r.cap?` · ${r.used-r.cap} over`:r.cap>r.used?` · ${r.cap-r.used} spare`:''}</span></div><div class="ucards">${r.G.map(g=>g.ev?evcard(g):ucard(g,r)).join('')||'<div class="empty">Nothing planned yet</div>'}</div>
+    ${r.G.filter(g=>!g.ev&&uopen.has(ukey(g.u)+'@'+r.lab)).map(g=>`<div class="uopen">${body(g)}</div>`).join('')}</div>`).join('')||'<p class="empty">No units for this stream yet</p>';
   box.innerHTML=h+'</div>';box.classList.toggle('wide',SPL);box.scrollTop=top;wireMode(box);
   box.querySelectorAll('.mrm').forEach(b=>b.onclick=e=>{e.stopPropagation();MOD.sheets[b.dataset.sub].splice(+b.dataset.i,1);saveMod()});
   box.querySelectorAll('.madd').forEach(sl=>sl.onchange=()=>{if(!sl.value)return;const a=MOD.sheets[sl.dataset.sub]=MOD.sheets[sl.dataset.sub]||[];if(!a.includes(sl.value))a.push(sl.value);saveMod()});
@@ -696,8 +701,8 @@ function renderPlanView(){
   box.querySelector('#lexp').onclick=()=>{lexpand=!lexpand;renderLessons()};
   const svU=a=>{store.set('10ma-uopen',JSON.stringify([...a]));renderLessons()};
   box.querySelectorAll('.ucard').forEach(c=>c.onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));a.has(c.dataset.uk)?a.delete(c.dataset.uk):a.add(c.dataset.uk);svU(a)});
-  box.querySelector('#uall').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));rows.forEach(r=>r.G.forEach(g=>a.add(ukey(g.u)+'@'+r.lab)));svU(a)};
-  box.querySelector('#unone').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));rows.forEach(r=>r.G.forEach(g=>a.delete(ukey(g.u)+'@'+r.lab)));svU(a)};
+  box.querySelector('#uall').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));rows.forEach(r=>r.G.forEach(g=>{if(!g.ev)a.add(ukey(g.u)+'@'+r.lab)}));svU(a)};
+  box.querySelector('#unone').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));rows.forEach(r=>r.G.forEach(g=>{if(!g.ev)a.delete(ukey(g.u)+'@'+r.lab)}));svU(a)};
   box.querySelectorAll('.card[data-id]').forEach(el=>el.onclick=()=>{lopenId=lopenId===el.dataset.id?null:el.dataset.id;renderLessons()});
   box.querySelectorAll('[data-nest]').forEach(n=>n.ontoggle=()=>store.set('10ma-nest:'+n.dataset.nest,n.open?'1':'0'));
   box.querySelectorAll('.pdetail[data-for]').forEach(dv=>{const id=dv.dataset.for,g=G.find(g=>id.startsWith(ukey(g.u)+'#'));
