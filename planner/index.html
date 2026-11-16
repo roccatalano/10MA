@@ -203,6 +203,7 @@ a{color:var(--accent)}
 .ubad span.shb{background:linear-gradient(90deg,#dfe8f7,#f7e3d9);color:#5a3a6b}
 .uspan{font-size:12px;color:#b5532a;font-weight:600;margin-top:4px}.uopen{margin-top:12px;border:1px solid #ddd;border-radius:10px;padding:6px 12px 12px;background:#fcfcfa}
 .t-pre{border-left-color:#2e8b8b!important}.t-pre .tag{background:#dff1f1;color:#1f6b6b}
+.tblk{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 10px}.tblk span{font-size:12px;background:#fdeee0;color:#8a4a12;border:1px solid #f1c9a3;border-radius:10px;padding:2px 9px}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -669,8 +670,9 @@ function renderPlanView(){
   const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   const termCap=t=>{const s0=new Date(t.start+'T00:00'),e0=new Date(t.end+'T00:00'),m=new Date(s0);m.setDate(m.getDate()-((m.getDay()+6)%7));let w=1,cap=0;
     for(;m<=e0;m.setDate(m.getDate()+7),w++){let n=0;for(let k=0;k<5;k++){const d=new Date(m);d.setDate(d.getDate()+k);if(d>=s0&&d<=e0&&!ph.has(iso(d)))n++}
-      if(n&&!(BL[t.n]||[]).includes(w))cap+=n===5?FW:SW}return cap};
-  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Y.stepup_lessons||3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:termCap(t)}));
+      if(n&&!((BL[t.n]||{})[w]))cap+=n===5?FW:SW}return cap};
+  const blk=t=>Object.entries(BL[t.n]||{}).map(([w,l])=>`<span>Wk ${w}: ${esc(l)}</span>`).join('');
+  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Y.stepup_lessons||3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:termCap(t),blk:blk(t)}));
   let acc=0;const rows=caps.map(c=>({...c,G:[]}));
   let st0=0;rows.forEach(r=>{r.a=st0+1;r.b=st0+r.cap;st0+=r.cap});rows[rows.length-1].b=1e9;
   G.forEach(g=>{const a=acc+1,b=acc+g.L.length;const hit=rows.filter(r=>r.a<=b&&r.b>=a);(hit.length?hit:[rows[rows.length-1]]).forEach((r,j,arr)=>r.G.push({...g,part:{lo:Math.max(a,r.a),hi:Math.min(b,r.b),n:arr.length,j,prev:j?arr[j-1].lab:'',next:j<arr.length-1?arr[j+1].lab:''}}));acc+=g.L.length});
@@ -684,7 +686,7 @@ function renderPlanView(){
       <div class="uname">${esc(g.u.name)}</div><div class="umeta">${g.L.length} lessons${L0?` · L${L0}–L${L1}`:''} · ${esc(g.u.assessment||'—')}</div>${g.part&&g.part.n>1?`<div class="uspan">${g.part.prev?'← continued from '+g.part.prev+' · ':''}L${g.part.lo}–L${g.part.hi} here${g.part.next?' · continues in '+g.part.next+' →':''}</div>`:''}
       <div class="ubad"><span class="${has('slides')?'y':''}">Slides</span><span class="${has('workbook')?'y':''}">Workbook</span><span class="${cats?'y':''}">CFATs ${cats}/${g.cf.filter(c=>c.items.length).length}</span>${sh.length?`<span class="shb">Shared with ${other} · ${shn}/${mine.size}</span>`:''}${y11?`<span class="y11b">Year 11 · ${y11}/${mine.size}</span>`:''}</div></div>`};
   h+=`<div class="ctl2"><button class="btn" id="uall">Open all units</button><button class="btn" id="unone">Close all units</button></div>`;
-  h+=rows.filter(r=>r.G.length||r.lab!=='Step Up').map(r=>`<div class="trow"><div class="trh">${r.lab}<span>${r.G.reduce((a,g)=>a+(g.part?g.part.hi-g.part.lo+1:g.L.length),0)} of ~${r.cap} lessons</span></div><div class="ucards">${r.G.map(g=>ucard(g,r)).join('')||'<div class="empty">Nothing planned yet: add units on Unit planning (or more lessons to the last unit)</div>'}</div>
+  h+=rows.filter(r=>r.G.length||r.lab!=='Step Up').map(r=>`<div class="trow"><div class="trh">${r.lab}<span>${r.G.reduce((a,g)=>a+(g.part?g.part.hi-g.part.lo+1:g.L.length),0)} of ~${r.cap} lessons</span></div>${r.blk?`<div class="tblk">${r.blk}</div>`:''}<div class="ucards">${r.G.map(g=>ucard(g,r)).join('')||'<div class="empty">Nothing planned yet: add units on Unit planning (or more lessons to the last unit)</div>'}</div>
     ${r.G.filter(g=>uopen.has(ukey(g.u)+'@'+r.lab)).map(g=>`<div class="uopen">${body(g)}</div>`).join('')}</div>`).join('')||'<p class="empty">No units for this stream yet</p>';
   box.innerHTML=h+'</div>';box.classList.toggle('wide',SPL);box.scrollTop=top;wireMode(box);
   box.querySelectorAll('.mrm').forEach(b=>b.onclick=e=>{e.stopPropagation();MOD.sheets[b.dataset.sub].splice(+b.dataset.i,1);saveMod()});
