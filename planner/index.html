@@ -238,6 +238,11 @@ a{color:var(--accent)}
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const KEY='10ma-units-v1', STREAMS=['10MAG','10MAA'], ASSESS=['','CAT','Topic test','CFATs only','Extension','Exam revision'];
 const SECN={building_understanding:'Building understanding',fluency:'Fluency',problem_solving:'Problem-solving',reasoning:'Reasoning',enrichment:'Enrichment'};
+const hsh=o=>{const t=JSON.stringify(o);let h=0;for(let i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;return String(h)};
+const STALE=[];
+function draftGet(key,remote,name){const loc=store.get(key),b=store.get(key+'-base'),h=hsh(remote);
+  if(loc&&b!==h){store.set(key+'-old',loc);try{localStorage.removeItem(key)}catch(_){}STALE.push(name);store.set(key+'-base',h);return null}
+  store.set(key+'-base',h);return loc}
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
 let LIB={},IDX={},UNITS=null,openChaps=new Set(JSON.parse(store.get('10ma-open')||'[]')),openUnits=new Set(),filt='';
 
@@ -258,18 +263,18 @@ async function loadRepo(file,fallback){
 Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
   fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}}),loadRepo(CFILE,{decisions:[],rules:[],open:[]}),loadRepo(MFILE,{sheets:{},approved:{},notes:{}}),fetch('../courses/freefall.json?t='+Date.now()).then(r=>r.json()).catch(()=>({books:{},sheets:[]})),fetch('../courses/structure.json?t='+Date.now()).then(r=>r.json()).catch(()=>null)])
 .then(([c10,g11,units,yr,tt,lp,cl,md,ff,stc])=>{STRUCT=stc;
-  {const lm=store.get(MKEY);MOD=lm?JSON.parse(lm):md;MOD.sheets=MOD.sheets||{};MOD.approved=MOD.approved||{};modDirty=!!lm;FFB=ff.books||{};(ff.sheets||[]).forEach(x=>FF[x.id]=x)}
-  {const lc=store.get(CKEY);CLOG=lc?JSON.parse(lc):cl;clDirty=!!lc}
-  {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll;
+  {const lm=draftGet(MKEY,md,'Modified mapping');MOD=lm?JSON.parse(lm):md;MOD.sheets=MOD.sheets||{};MOD.approved=MOD.approved||{};modDirty=!!lm;FFB=ff.books||{};(ff.sheets||[]).forEach(x=>FF[x.id]=x)}
+  {const lc=draftGet(CKEY,cl,'CFAT log');CLOG=lc?JSON.parse(lc):cl;clDirty=!!lc}
+  {const ll=draftGet(LKEY,lp,'lesson plans');LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll;
    // material links always come from GitHub (a browser draft may predate them); CFATs too if the draft has none
    LP.materials=lp.materials||{};if(!LP.cfats&&lp.cfats)LP.cfats=lp.cfats}
   LIB={C10:c10,G11:g11};Y=yr;
   for(const b of [c10,g11]) if(b) for(const ch of b.chapters){ch.book=b.book.id;for(const s of ch.subchapters){s.book=b.book.id;s.chapter=ch.chapter;IDX[s.id]=s}}
-  const local=store.get(KEY);
+  const local=draftGet(KEY,units,'units');
   UNITS=migrate(local?JSON.parse(local):units);dirty=!!local;
-  const lt=store.get(TTKEY);TT=lt?JSON.parse(lt):tt;ttDirty=!!lt;
+  const lt=draftGet(TTKEY,tt,'timetable');TT=lt?JSON.parse(lt):tt;ttDirty=!!lt;
   TT.slots=TT.slots||{};TT.days_off=TT.days_off||{};
-  status();renderLib();renderUnits();
+  status(STALE.length?'GitHub had a newer version of the '+STALE.join(', ')+': loaded that (your older unsaved draft is kept as a backup)':undefined);renderLib();renderUnits();
   setTab(store.get('10ma-tab')||'units');
 });
 function status(msg){const tok=store.get('10ma-gh'),d=dirty||ttDirty||lpDirty||clDirty||modDirty;
@@ -286,11 +291,11 @@ async function saveGH(){
   status('Saving to GitHub…');
   const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
   try{
-    if(dirty){await putGH(FILE,UNITS,'Update unit plan from planner page',H);try{localStorage.removeItem(KEY)}catch(_){}dirty=false}
-    if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY)}catch(_){}ttDirty=false}
-    if(modDirty){await putGH(MFILE,MOD,'Update 10MAG Modified Freefall mapping from planner page',H);try{localStorage.removeItem(MKEY)}catch(_){}modDirty=false}
-    if(clDirty){await putGH(CFILE,CLOG,'Update CFAT decisions log from planner page',H);try{localStorage.removeItem(CKEY)}catch(_){}clDirty=false}
-    if(lpDirty){await putGH(LFILE,LP,'Update lesson groupings from planner page',H);try{localStorage.removeItem(LKEY)}catch(_){}lpDirty=false}
+    if(dirty){await putGH(FILE,UNITS,'Update unit plan from planner page',H);try{localStorage.removeItem(KEY);store.set(KEY+'-base',hsh(UNITS))}catch(_){}dirty=false}
+    if(ttDirty){await putGH(TTFILE,TT,'Update 2027 timetable from planner page',H);try{localStorage.removeItem(TTKEY);store.set(TTKEY+'-base',hsh(TT))}catch(_){}ttDirty=false}
+    if(modDirty){await putGH(MFILE,MOD,'Update 10MAG Modified Freefall mapping from planner page',H);try{localStorage.removeItem(MKEY);store.set(MKEY+'-base',hsh(MOD))}catch(_){}modDirty=false}
+    if(clDirty){await putGH(CFILE,CLOG,'Update CFAT decisions log from planner page',H);try{localStorage.removeItem(CKEY);store.set(CKEY+'-base',hsh(CLOG))}catch(_){}clDirty=false}
+    if(lpDirty){await putGH(LFILE,LP,'Update lesson groupings from planner page',H);try{localStorage.removeItem(LKEY);store.set(LKEY+'-base',hsh(LP))}catch(_){}lpDirty=false}
     status('Saved to GitHub · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
   }catch(e){status('Not saved: '+e.message);alert('Could not save to GitHub.\n\n'+e.message+'\n\nYour changes are still kept in this browser.')}
 }
@@ -405,7 +410,7 @@ document.getElementById('filt').onchange=e=>{filt=e.target.value;renderUnits()};
 document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(UNITS,null,1)],{type:'application/json'}));a.download='units.json';a.click()};
 document.getElementById('imp').onclick=()=>document.getElementById('impf').click();
 document.getElementById('impf').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{UNITS=migrate(JSON.parse(t));save()}catch(_){alert('That file is not a units.json')}})};
-document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units, lessons and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY);localStorage.removeItem(CKEY);localStorage.removeItem(MKEY)}catch(_){}location.reload()}};
+document.getElementById('reset').onclick=()=>{if(confirm('Throw away your unsaved changes (units, lessons and timetable) and reload the version saved on GitHub?')){try{localStorage.removeItem(KEY);localStorage.removeItem(TTKEY);localStorage.removeItem(LKEY);localStorage.removeItem(CKEY);localStorage.removeItem(MKEY);store.set(MKEY+'-base',hsh(MOD))}catch(_){}location.reload()}};
 
 /* ---------- 2027 tab: calendar + class timetables ---------- */
 const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
