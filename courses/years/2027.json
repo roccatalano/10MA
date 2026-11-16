@@ -1,6 +1,6 @@
 {
  "year": 2027,
- "source": "Victorian Government School Term Dates 2027 (screenshot from Rocco, 15 Nov 2026)",
+ "source": "EKC School Planner 2027 (02 Sources/School Planner 2027.pdf, from Rocco 16 Nov 2026) + Vic term dates",
  "stepup": {
   "label": "Step Up (2026)",
   "start": "2026-11-30",
@@ -10,14 +10,15 @@
  "terms": [
   {
    "n": 1,
-   "start": "2027-01-28",
+   "start": "2027-01-29",
    "end": "2027-03-25",
-   "note": "Teachers start Wed 27 Jan, students Thu 28 Jan"
+   "note": "Students return Fri 29 Jan (Tue 26 Australia Day; Wed 27 and Thu 28 staff days). Ends Thu 25 Mar, 2.30 pm finish"
   },
   {
    "n": 2,
    "start": "2027-04-12",
-   "end": "2027-06-25"
+   "end": "2027-06-25",
+   "note": "Ends Fri 25 Jun, 2.30 pm finish"
   },
   {
    "n": 3,
@@ -32,8 +33,16 @@
  ],
  "public_holidays": [
   {
+   "date": "2027-01-26",
+   "name": "Australia Day"
+  },
+  {
    "date": "2027-03-08",
    "name": "Labour Day"
+  },
+  {
+   "date": "2027-03-26",
+   "name": "Good Friday"
   },
   {
    "date": "2027-06-14",
@@ -48,5 +57,9 @@
   "default": 4,
   "wednesday": 3,
   "minutes": 79
+ },
+ "early_finish": {
+  "2027-03-25": "End of Term 1 (2.30 pm finish)",
+  "2027-06-25": "End of Term 2 (2.30 pm finish)"
  }
 }

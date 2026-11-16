@@ -29,60 +29,69 @@
  ],
  "stepup": null,
  "days_off": {
-  "2027-05-24": "Year 10: Exam revision",
-  "2027-05-25": "Year 10: Exam revision",
-  "2027-05-26": "Year 10: Exam revision",
-  "2027-05-27": "Year 10: Exam revision",
-  "2027-05-28": "Year 10: Exam revision",
-  "2027-05-31": "Year 10: Exams",
-  "2027-06-01": "Year 10: Exams",
-  "2027-06-02": "Year 10: Exams",
-  "2027-06-03": "Year 10: Exams",
-  "2027-06-04": "Year 10: Exams",
-  "2027-06-07": "Year 10: Exams",
-  "2027-06-08": "Year 10: Exams",
-  "2027-06-09": "Year 10: Exams",
-  "2027-06-10": "Year 10: Exams",
-  "2027-06-11": "Year 10: Exams",
-  "2027-06-21": "Year 10: Work Experience",
-  "2027-06-22": "Year 10: Work Experience",
-  "2027-06-23": "Year 10: Work Experience",
-  "2027-06-24": "Year 10: Work Experience",
-  "2027-06-25": "Year 10: Work Experience",
-  "2027-11-01": "Year 10: Exam revision",
-  "2027-11-03": "Year 10: Exam revision",
-  "2027-11-04": "Year 10: Exam revision",
-  "2027-11-05": "Year 10: Exam revision",
-  "2027-11-08": "Year 10: Exams",
-  "2027-11-09": "Year 10: Exams",
-  "2027-11-10": "Year 10: Exams",
-  "2027-11-11": "Year 10: Exams",
-  "2027-11-12": "Year 10: Exams",
-  "2027-11-15": "Year 10: Exams",
-  "2027-11-16": "Year 10: Exams",
-  "2027-11-17": "Year 10: Exams",
-  "2027-11-18": "Year 10: Exams",
-  "2027-11-19": "Year 10: Exams",
-  "2027-11-22": "Year 10: Camp",
-  "2027-11-23": "Year 10: Camp",
-  "2027-11-24": "Year 10: Camp",
-  "2027-11-25": "Year 10: Camp",
-  "2027-11-26": "Year 10: Camp",
-  "2027-11-29": "Year 10: Step Up (into Year 11)",
-  "2027-11-30": "Year 10: Step Up (into Year 11)",
-  "2027-12-01": "Year 10: Step Up (into Year 11)",
-  "2027-12-02": "Year 10: Step Up (into Year 11)",
-  "2027-12-03": "Year 10: Step Up (into Year 11)",
-  "2027-12-06": "Year 10: End of year",
-  "2027-12-07": "Year 10: End of year",
-  "2027-12-08": "Year 10: End of year",
-  "2027-12-09": "Year 10: End of year",
-  "2027-12-10": "Year 10: End of year",
-  "2027-12-13": "Year 10: End of year",
-  "2027-12-14": "Year 10: End of year",
-  "2027-12-15": "Year 10: End of year",
-  "2027-12-16": "Year 10: End of year",
-  "2027-12-17": "Year 10: End of year"
+  "2027-03-05": "Student free day (College PL @ Science Gallery)",
+  "2027-03-24": "Parent teacher interviews (check: student free?)",
+  "2027-05-24": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-05-25": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-05-26": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-05-27": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-05-28": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-05-31": "Year 10 & 11 Exams",
+  "2027-06-01": "Year 10 & 11 Exams",
+  "2027-06-02": "Year 10 & 11 Exams",
+  "2027-06-03": "Year 10 & 11 Exams",
+  "2027-06-04": "Year 10 & 11 Exams",
+  "2027-06-07": "Year 10 & 11 Exams",
+  "2027-06-08": "Year 10 & 11 Exams",
+  "2027-06-09": "Year 10 & 11 Exams",
+  "2027-06-10": "Year 10 & 11 Exams",
+  "2027-06-11": "Student free day (Staff Professional Practice)",
+  "2027-06-15": "Student free day (Essendon only: check campus)",
+  "2027-06-21": "Year 10 Work Experience",
+  "2027-06-22": "Year 10 Work Experience",
+  "2027-06-23": "Year 10 Work Experience",
+  "2027-06-24": "Year 10 Work Experience",
+  "2027-06-25": "Year 10 Work Experience",
+  "2027-07-12": "Student free day (Niddrie only: check campus)",
+  "2027-07-15": "Year 10 Victoria University Experience Day",
+  "2027-07-26": "Year 10–11 Course Counselling Day",
+  "2027-09-03": "Student free day (Staff PL)",
+  "2027-09-15": "Parent teacher interviews (student free day)",
+  "2027-10-29": "Student free day (Staff PL)",
+  "2027-11-01": "Student free day (Assessment Day)",
+  "2027-11-03": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-11-04": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-11-05": "Year 10: Exam revision week (revision lessons, no unit lessons)",
+  "2027-11-08": "Year 10 & 11 Exams",
+  "2027-11-09": "Year 10 & 11 Exams",
+  "2027-11-10": "Year 10 & 11 Exams",
+  "2027-11-11": "Year 10 & 11 Exams",
+  "2027-11-12": "Year 10 & 11 Exams",
+  "2027-11-15": "Year 10 & 11 Exams",
+  "2027-11-16": "Year 10 & 11 Exams",
+  "2027-11-17": "Year 10 & 11 Exams",
+  "2027-11-18": "Year 11 2028 Step Up",
+  "2027-11-19": "Year 11 2028 Step Up",
+  "2027-11-22": "Year 11 2028 Step Up",
+  "2027-11-23": "Year 11 2028 Step Up",
+  "2027-11-24": "Year 11 2028 Step Up",
+  "2027-11-25": "Year 11 2028 Step Up",
+  "2027-11-26": "Year 11 2028 Step Up",
+  "2027-11-29": "Year 11 2028 Step Up",
+  "2027-11-30": "Year 11 2028 Step Up",
+  "2027-12-01": "Year 11 2028 Step Up",
+  "2027-12-02": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-03": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-06": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-07": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-08": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-09": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-10": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-13": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-14": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-15": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-16": "Year 10 finished (course confirmation, end of year)",
+  "2027-12-17": "Year 10 finished (course confirmation, end of year)"
  },
  "slots": {
   "catalano-G": {
@@ -93,9 +102,6 @@
     1
    ],
    "2026-12-03": [
-    1
-   ],
-   "2027-01-28": [
     1
    ],
    "2027-02-01": [
@@ -161,9 +167,6 @@
    "2027-03-22": [
     1
    ],
-   "2027-03-24": [
-    1
-   ],
    "2027-03-25": [
     1
    ],
@@ -227,13 +230,7 @@
    "2027-06-17": [
     1
    ],
-   "2027-07-12": [
-    1
-   ],
    "2027-07-14": [
-    1
-   ],
-   "2027-07-15": [
     1
    ],
    "2027-07-19": [
@@ -243,9 +240,6 @@
     1
    ],
    "2027-07-22": [
-    1
-   ],
-   "2027-07-26": [
     1
    ],
    "2027-07-28": [
@@ -311,9 +305,6 @@
    "2027-09-13": [
     1
    ],
-   "2027-09-15": [
-    1
-   ],
    "2027-09-16": [
     1
    ],
@@ -364,9 +355,6 @@
    "2026-12-04": [
     4
    ],
-   "2027-01-28": [
-    4
-   ],
    "2027-01-29": [
     4
    ],
@@ -412,9 +400,6 @@
    "2027-03-04": [
     4
    ],
-   "2027-03-05": [
-    4
-   ],
    "2027-03-09": [
     4
    ],
@@ -434,9 +419,6 @@
     4
    ],
    "2027-03-23": [
-    4
-   ],
-   "2027-03-25": [
     4
    ],
    "2027-04-13": [
@@ -493,9 +475,6 @@
    "2027-05-21": [
     4
    ],
-   "2027-06-15": [
-    4
-   ],
    "2027-06-17": [
     4
    ],
@@ -503,9 +482,6 @@
     4
    ],
    "2027-07-13": [
-    4
-   ],
-   "2027-07-15": [
     4
    ],
    "2027-07-16": [
@@ -571,9 +547,6 @@
    "2027-09-02": [
     4
    ],
-   "2027-09-03": [
-    4
-   ],
    "2027-09-07": [
     4
    ],
@@ -623,9 +596,6 @@
     4
    ],
    "2027-10-28": [
-    4
-   ],
-   "2027-10-29": [
     4
    ]
   }

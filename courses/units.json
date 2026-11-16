@@ -4,7 +4,7 @@
   {
    "name": "Univariate Statistics",
    "stream": "10MAG",
-   "lessons": 9,
+   "lessons": 8,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -28,7 +28,7 @@
   {
    "name": "Sequences and Recursion",
    "stream": "10MAG",
-   "lessons": 12,
+   "lessons": 10,
    "assessment": "CAT",
    "note": "",
    "items": []
@@ -36,7 +36,7 @@
   {
    "name": "Algebra and Linear Relations",
    "stream": "10MAA",
-   "lessons": 13,
+   "lessons": 12,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -81,7 +81,7 @@
   {
    "name": "Algebra and Linear Relations",
    "stream": "10MAG",
-   "lessons": 17,
+   "lessons": 16,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -123,7 +123,7 @@
   {
    "name": "Data Analysis",
    "stream": "10MAA",
-   "lessons": 13,
+   "lessons": 12,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -195,7 +195,7 @@
   {
    "name": "Indices, Logs, Exponentials and Surds",
    "stream": "10MAA",
-   "lessons": 12,
+   "lessons": 11,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -264,7 +264,7 @@
   {
    "name": "Trigonometry and Measurement",
    "stream": "10MAG",
-   "lessons": 18,
+   "lessons": 16,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -300,7 +300,7 @@
   {
    "name": "Sequences and Finance",
    "stream": "10MAA",
-   "lessons": 12,
+   "lessons": 11,
    "assessment": "Topic test",
    "note": "",
    "items": [
@@ -375,7 +375,7 @@
   {
    "name": "Trigonometry and Measurement",
    "stream": "10MAA",
-   "lessons": 10,
+   "lessons": 9,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -408,7 +408,7 @@
   {
    "name": "Quadratics and Parabolas",
    "stream": "10MAA",
-   "lessons": 14,
+   "lessons": 13,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -465,7 +465,7 @@
   {
    "name": "Matrices and Networks",
    "stream": "10MAA",
-   "lessons": 12,
+   "lessons": 11,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -513,7 +513,7 @@
   {
    "name": "Probability",
    "stream": "10MAA",
-   "lessons": 6,
+   "lessons": 5,
    "assessment": "Topic test",
    "note": "",
    "items": [

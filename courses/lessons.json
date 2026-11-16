@@ -48,15 +48,6 @@
     "note": ""
    },
    {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-9E"
-     }
-    ],
-    "note": ""
-   },
-   {
     "kind": "practice",
     "items": [],
     "note": "Buffer / catch-up"
@@ -132,15 +123,6 @@
     "items": [
      {
       "id": "C10-1G"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1H"
      }
     ],
     "note": ""
@@ -362,15 +344,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-4F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-4G"
      }
     ],
@@ -390,15 +363,6 @@
     "items": [
      {
       "id": "C10-4I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-4K"
      }
     ],
     "note": ""
@@ -708,13 +672,7 @@
     "items": [
      {
       "id": "C10-1J"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-1K"
      }
@@ -785,13 +743,7 @@
     "items": [
      {
       "id": "G11-2G"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "G11-2H"
      }
@@ -898,13 +850,7 @@
     "items": [
      {
       "id": "C10-3I"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-3J"
      }
@@ -1056,13 +1002,7 @@
     "items": [
      {
       "id": "G11-3H"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "G11-3I"
      }
@@ -1139,13 +1079,7 @@
     "items": [
      {
       "id": "C10-6G"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-6H"
      }
@@ -1270,13 +1204,7 @@
     "items": [
      {
       "id": "C10-7E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-7F"
      }
@@ -1329,13 +1257,7 @@
     "items": [
      {
       "id": "G11-4E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "G11-4F"
      }
@@ -1430,13 +1352,7 @@
      },
      {
       "id": "C10-8D"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-8F"
      }
@@ -1460,16 +1376,6 @@
    }
   ],
   "10MAG|Sequences and Recursion": [
-   {
-    "kind": "teach",
-    "items": [],
-    "note": "Edrolo content (to choose)"
-   },
-   {
-    "kind": "teach",
-    "items": [],
-    "note": "Edrolo content (to choose)"
-   },
    {
     "kind": "teach",
     "items": [],

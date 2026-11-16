@@ -1,5 +1,5 @@
 {
- "note": "Year-independent term structure for Lesson planning (dates live in courses/years/<year>.json and the 2027 tab). Weeks per term from the draft scope and sequence; Year 10 events take whole weeks, no unit lessons.",
+ "note": "Year-independent term structure for Lesson planning (dates live in courses/years/<year>.json and the 2027 tab). Weeks per term from the draft scope and sequence; Year 10 events take whole weeks, no unit lessons. T4 from the EKC School Planner 2027: exams wk 6–7, Year 11 Step Up wk 7 (Thu) to wk 9 (Wed).",
  "lessons_per_week": 3,
  "stepup_lessons": 3,
  "terms": [
@@ -64,20 +64,13 @@
    "note": "2 weeks"
   },
   {
-   "name": "Camp",
-   "term": 4,
-   "weeks": [
-    8
-   ],
-   "note": "1 week"
-  },
-  {
    "name": "Step Up (into Year 11)",
    "term": 4,
    "weeks": [
+    8,
     9
    ],
-   "note": "1 week"
+   "note": "2 weeks"
   },
   {
    "name": "End of year",
