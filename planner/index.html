@@ -515,7 +515,7 @@ function matBox(u,p){const M=(LP.materials||{})[ukey(u)]||[],order=[];p.forEach(
   const ws=order.map(id=>IDX[id]).filter(s=>s&&(s.materials||[]).length);
   return `<div class="umat"><b class="cft" style="width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Unit materials</b>
    ${(()=>{const sl=M.find(m=>m.kind==='slides');return sl?`<span><b>Slides</b> <a class="pill" href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a></span>`:'<span>Slides: <span class="empty">not made yet</span></span>'})()}<span><b>Do Now sheets</b> <a class="pill" href="donow.html?s=${u.stream}&u=${numOf(u)}" target="_blank" rel="noopener">Open ↗</a> <a class="pill" href="donow.html?s=${u.stream}&u=${numOf(u)}&pdf=1" target="_blank" rel="noopener" title="Opens the print dialog: choose Save as PDF">PDF ⬇</a></span>
-   ${M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat').map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a> <a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
+   ${M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat'&&m.kind!=='cat').map(m=>`<span><b>${esc(m.title)}</b> ${m.pdf?`<a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a> <a class="pill" href="../${encodeURI(m.pdf)}?v=${BUST}" download>PDF ⬇</a>`:''}</span>`).join('')||'<span>Workbook: <span class="empty">not made yet</span></span>'}
    ${ws.length?`<span style="width:100%">Worksheets: ${ws.map(s=>`<a class="pill" href="../${encodeURI(s.materials[0].html)}?v=${BUST}" target="_blank" rel="noopener" title="${esc(s.title)}">${s.book==='G11'?'Y11 ':''}${s.sub} ↗</a>`).join(' ')}</span>`:''}</div>`}
 function dnLine(d,u,k){if(!d)return'';
   if(!d.items.length)return `<span class="dnl">Do Now: <i>nothing taught yet (pools only exist for Ch1 so far)</i></span>`;
@@ -633,7 +633,7 @@ function cfatCards(g){const M=(LP.materials||{})[ukey(g.u)]||[];
     return `<div class="card fa t-cfat"><div class="meta"><span>After L${(g.L.find(l=>l.cfs.includes(ci+1))||{}).n||'?'}</span><span class="tags"><span class="tag">${m?'Ready':'To build'}</span></span></div>
      <div class="ttl">CFAT ${ci+1} · ${esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)))}</div>
      ${m?`<div><a href="../${encodeURI(m.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`}).join('');
-  const sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat');
+  const sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat'&&m.kind!=='cat');
   const um=`<div class="card fa t-teach"><div class="ttl">Unit materials</div><div>
     ${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}
     ${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}
@@ -720,14 +720,14 @@ function mdetail(l){const subs=[...new Set(l.items.map(x=>x.id))];
   <p class="src">Freefall PDFs are licensed to the school: the modified workbook lives on G: (the link opens it in Google Drive for staff with access).</p></div>`}
 function splitLessons(g){const out=[[],[],[],[]];
   g.L.forEach(l=>{
-    if(l.kind==='assess'){out[1].push(pcard(l));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
+    if(l.kind==='assess'){out[1].push(pcard(l));((LP.materials||{})[ukey(g.u)]||[]).filter(m=>m.kind==='cat').forEach(m=>out[1].push(`<div class="card fa t-assess"><div class="meta"><span>CAT</span><span class="tags"><span class="tag">${esc(m.status||'Draft')}</span></span></div><div class="ttl">${esc(m.title)}</div>${m.html||m.pdf?`<div><a href="../${encodeURI(m.html||m.pdf)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>${m.solutions?`<a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a>`:''}</div>`:'<div class="src">Made by hand</div>'}</div>`));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
     out[0].push(pcard(l)+(lexpand||l.id===lopenId?pdetail(l):''));out[2].push(mcard(l)+((lexpand||'M:'+l.id===lopenId)&&(l.kind==='teach'||l.kind==='practice')?mdetail(l):''));
     l.cfs.forEach(ci=>{const c=g.cf[ci-1],M=((LP.materials||{})[ukey(g.u)]||[]).find(m=>m.kind==='cfat'&&m.n===ci),code=cfatCode(g.u,ci-1,c),rng=esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)));
       out[1].push(`<div class="card fa t-cfat"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${M?'Ready':'To build'}</span></span></div><div class="ttl">CFAT ${code} · ${rng}</div>${M?`<div><a href="../${encodeURI(M.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(M.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`);
       const MM=(((MOD.materials||{})[ukey(g.u)]||{}).cfats||[]).find(m=>m.n===ci);
       out[3].push(`<div class="card fa t-cfat mod"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${MM?'Ready':'To plan'}</span></span></div><div class="ttl">CFAT ${code}M · ${rng}</div>${MM?`<div><a href="../${encodeURI(MM.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(MM.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:'<div class="src">Same week and skills, Year 7–8 level</div>'}</div>`)})});
   return out}
-function umatSolid(g){const M=(LP.materials||{})[ukey(g.u)]||[],sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat');
+function umatSolid(g){const M=(LP.materials||{})[ukey(g.u)]||[],sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat'&&m.kind!=='cat');
   return `<div class="umsolid"><div class="ttl">Unit materials</div><div>${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}<a href="donow.html?s=${g.u.stream}&u=${g.U}" target="_blank" rel="noopener">Do Now sheets ↗</a></div></div>`}
 function splitUnit(g){const [a,c,b,d]=splitLessons(g),k=ukey(g.u),ap=MOD.approved[k];
   return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${umatSolid(g)}${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
