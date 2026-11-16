@@ -329,23 +329,53 @@ def colgrid(kind,sub,st,cells,src,note,cols=None):
     return (f'<section class="slide ex4 vc">{B.bar(tag,h1,st)}<p class="q" style="margin:16px 4px 10px">{note}</p>'
             f'<div class="parts gc" style="grid-template-columns:{cols or f'repeat({len(cells)},minmax(0,1fr))'}">{"".join(cells)}</div>{B.foot(src)}</section>')
 
-def slide_cw(sub,c):
-    h=B.slide_cw(sub,c);cw=c['coursework']['good']
-    qs=[]
+def scrib(x,y,w,seed):
+    import random;r=random.Random(seed);d=f'M{x} {y}';cx=x
+    while cx<x+w:
+        st=r.uniform(5,9);d+=f' q{st/2:.1f} {-r.uniform(4,8):.1f} {st:.1f} 0'
+        cx+=st
+        if r.random()<0.18:cx+=r.uniform(4,7);d+=f' M{cx:.1f} {y}'
+    return f'<path d="{d}" fill="none" stroke="#1b2a6b" stroke-width="1.3" stroke-linecap="round"/>'
+def a4_svg(sub,c):
+    cw=c['coursework']['good'];qs=[]
     for k in ('Fluency','Problem-solving','Reasoning'):
         v=cw[k]
         if v in ('–',''):continue
         for part in v.replace('(½)','').split(','):
             part=part.strip()
-            if '–' in part:
-                a,b=part.split('–');qs+=[str(x) for x in range(int(a),int(b)+1)]
+            if '–' in part:a,b=part.split('–');qs+=[str(x) for x in range(int(a),int(b)+1)]
             elif part:qs.append(part)
-    L=''.join(f'<div class="qn">{q}</div><div class="ln"></div><div class="ln s"></div>' for q in qs[:3]);R=''.join(f'<div class="qn">{q}</div><div class="ln"></div><div class="ln s"></div>' for q in qs[3:6])
-    sheet=(f'<div class="cwr"><h2>How to set out your coursework</h2><div class="a4"><div class="mg"></div><div class="dt">Date: 3/2/27</div><div class="hd">Exercise {sub} · Good</div>'
-           f'<div class="sp"><div class="c">{L}</div><div class="c">{R}</div></div></div>'
-           '<ul class="cwl"><li>Date and exercise at the top</li><li>Red margin: question numbers go in it</li><li>Rule a line down the middle: two columns</li><li>Show every step of working</li></ul></div>')
-    h=h.replace('<table class="cw">','<div class="cwgrid"><div><table class="cw">',1)
-    h=h.replace('</p>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),'</p></div>'+sheet+'</div>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),1)
+    W,H,R,TM,LM,MID=420,594,17,74,48,236;hand="font-family=\"'Segoe Print','Comic Sans MS','Bradley Hand',cursive\" fill=\"#1b2a6b\""
+    o=[f'<rect x="0" y="0" width="{W}" height="{H}" fill="#fff" stroke="#999"/>']
+    o+=[f'<line x1="0" y1="{y}" x2="{W}" y2="{y}" stroke="#bcd3ee" stroke-width="1"/>' for y in range(TM+R,H-8,R)]
+    o.append(f'<line x1="0" y1="{TM}" x2="{W}" y2="{TM}" stroke="#d00000" stroke-width="1.6"/><line x1="{LM}" y1="0" x2="{LM}" y2="{H}" stroke="#d00000" stroke-width="1.6"/>')
+    o.append(f'<text x="{W-14}" y="28" font-size="12" text-anchor="end" {hand}>Mon 1 Feb 2027</text>')
+    o.append(f'<text x="{LM+8}" y="{TM-14}" font-size="16" font-weight="bold" {hand}>Exercise {sub}: {html.escape(c["title"])}</text><line x1="{LM+8}" y1="{TM-9}" x2="{W-20}" y2="{TM-9}" stroke="#1b2a6b" stroke-width="1.2"/>')
+    o.append(f'<line x1="{MID}" y1="{TM}" x2="{MID}" y2="{H}" stroke="#1b2a6b" stroke-width="1.6"/>')
+    # fill columns
+    col=[(LM+6,MID-8,True),(MID+8,W-12,False)];seed=1;qs=qs[:6];half=(len(qs)+1)//2
+    for ci,group in enumerate((qs[:half],qs[half:])):
+        row=1
+        for q in group:
+            x0,x1,inmargin=col[ci];y=TM+row*R-4
+            if inmargin:o.append(f'<text x="{LM-6}" y="{y}" font-size="13" text-anchor="end" font-weight="bold" {hand}>{q}</text>')
+            else:o.append(f'<text x="{x0}" y="{y}" font-size="13" font-weight="bold" {hand}>{q}</text>');x0+=18
+            k=0
+            for pl,nl_ in (('a',2),('b',3),('c',2)):
+                yy=TM+(row+k)*R-4;o.append(f'<text x="{x0}" y="{yy}" font-size="12" {hand}>{pl})</text>')
+                for m in range(nl_):
+                    yy=TM+(row+k)*R-4;o.append(scrib(x0+(20 if m==0 else 20),yy-3,r_w(x1-x0-28,seed),seed));seed+=1;k+=1
+            row+=k+1
+    return f'<svg viewBox="0 0 {W} {H}" style="height:100%;max-height:540px;width:auto;filter:drop-shadow(5px 5px 0 #bbb)">{"".join(o)}</svg>'
+def r_w(w,seed):
+    import random;return w*random.Random(seed*7).uniform(.45,.95)
+def slide_cw(sub,c):
+    h=B.slide_cw(sub,c)
+    side=(f'<div class="cwr"><h2>Example: the first page of your coursework</h2>{a4_svg(sub,c)}</div>')
+    tips=('<ul class="cwl"><li><b>Top margin:</b> date on the right, exercise number and title underlined</li><li><b>Left margin:</b> question numbers only</li>'
+          '<li>Rule a line <b>down the middle</b> and work in two columns</li><li>Label every part a), b), c)… and show every step of working</li></ul>')
+    h=h.replace('<table class="cw">','<div class="cwgrid"><div class="cwl2"><table class="cw">',1)
+    h=h.replace('</p>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),'</p>'+tips+'</div>'+side+'</div>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),1)
     return h
 
 def scaffold(html_,answers):
@@ -440,13 +470,13 @@ body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{bord
 .mini .md{display:grid;grid-template-columns:repeat(20,1fr);gap:4px}.mini .md i{aspect-ratio:1;border-radius:50%;background:#555;transition:background .4s,opacity .4s}
 .mini.on .md i{background:#ccc}.mini.on .md i.in{background:#d00000}.mini button{font:inherit;font-size:16px;padding:6px 10px;border:2px solid #000;background:#fff;cursor:pointer;align-self:flex-start}
 .mini .mo{opacity:0;transition:opacity .4s}.mini.on .mo{opacity:1}
-.cwgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;flex:1;min-height:0}.cwgrid .cw{width:100%}
+.cwgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;flex:1;min-height:0;margin-top:12px}.cwgrid .cw th,.cwgrid .cw td{padding:9px 10px}.cwgrid .cw{width:100%}
 .cwr{display:flex;flex-direction:column;align-items:center;min-height:0}.cwr h2{font-size:14px;text-transform:uppercase;margin:0 0 6px;letter-spacing:.4px}.a4{position:relative;aspect-ratio:210/297;height:390px;margin:0 auto;border:1.5px solid #000;background:repeating-linear-gradient(#fff 0 17px,#cfe0f5 17px 18px);box-shadow:4px 4px 0 #bbb;padding:30px 10px 8px 46px;font:15px 'Comic Sans MS','Segoe Print',cursive}
 .a4 .mg{position:absolute;left:36px;top:0;bottom:0;border-left:2.5px solid #d00000}.a4 .dt{position:absolute;right:10px;top:6px;font-size:13px}.a4 .hd{font-weight:bold;text-decoration:underline;margin-bottom:6px}
 .a4 .sp{display:grid;grid-template-columns:1fr 1fr;height:calc(100% - 40px)}.a4 .sp .c{padding:0 6px;position:relative}.a4 .sp .c+.c{border-left:2px solid #000}
 .a4 .qn{position:relative;font-weight:bold;height:18px}.a4 .sp .c:first-child .qn{margin-left:-42px;width:34px;text-align:right;padding-right:6px;height:18px;margin-bottom:-18px}.a4 .sp .c+.c .qn{color:#000}
 .a4 .ln{height:18px;margin:0 4px 0 0;background:linear-gradient(transparent 7px,#666 7px 9px,transparent 9px);opacity:.55;width:85%}.a4 .ln.s{width:55%;margin-bottom:18px}
-.cwl{font-size:14px;margin:6px 0 0 18px;padding:0;align-self:stretch}.cwl li{margin:2px 0}
+.cwl{font-size:19px;margin:18px 0 0 22px;padding:0;line-height:1.35}.cwl li{margin:0 0 8px}.cwr{height:100%}.cwl li{margin:2px 0}
 /* ---- New learning slides (ch9.py) ---- */
 .slide.nl .bar .tag{font-size:22px}
 .slide.nl .lead{font-size:24px;margin:16px 4px 10px}
