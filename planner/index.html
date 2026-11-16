@@ -205,6 +205,7 @@ a{color:var(--accent)}
 .t-pre{border-left-color:#2e8b8b!important}.t-pre .tag{background:#dff1f1;color:#1f6b6b}
 .tblk{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 10px}.tblk span{font-size:12px;background:#fdeee0;color:#8a4a12;border:1px solid #f1c9a3;border-radius:10px;padding:2px 9px}
 .evcard{background:#fdf3e6;border:1px dashed #e0a96d;border-radius:8px;padding:10px 12px;color:#7a4510}.evcard .uc1{color:#a0662a}.evcard .umeta{color:#a0662a}.trh span.over{color:#a32d2d;font-weight:600}
+.les .yw{display:block;font-size:11px;line-height:1.25;margin-top:1px;white-space:normal}.les.yk-practice{background:#e3f1df!important;color:#245c1a!important}.les.yk-review{background:#ecebfb!important;color:#3c3489!important}.les.yk-assess{background:#fbe3e3!important;color:#7a1f1f!important;font-weight:600}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -439,6 +440,9 @@ function lessonMap(){ // `${cid}|${date}|${p}` -> lesson info, numbered in date 
     M[c.id+'|total']=n;M[c.id+'|planned']=us.reduce((a,u)=>a+(+u.lessons||0),0);
   }
   return M}
+function yLes(c,L){const p=(((LP||{}).plans||{})[c.stream+'|'+L.name]||[])[L.l-1];
+  const what=!p?'':p.kind==='teach'?(p.items.map(x=>IDX[x.id]?.sub||x.id).join(' + ')||'')+(p.items.length?' '+esc(p.items.map(x=>IDX[x.id]?.title||'').filter(Boolean).join(' · ')):esc(p.note||'')):({practice:'Buffer',review:'Revision',assess:'Assessment'}[p.kind]||p.kind);
+  return `<span class="les ${SH[c.stream]} yk-${p?p.kind:''}" title="${esc(L.name)}"><b>${L.unit} · L${L.l}/${L.L}</b> <small>${esc(L.name)}</small>${what?`<span class="yw">${what}</span>`:''}</span>`}
 function renderYear(){
   if(!Y||!TT)return;
   const box=document.getElementById('year'),top=box.scrollTop,M=lessonMap(),ph=PH();
@@ -474,7 +478,7 @@ function renderYear(){
         h+=`<div class="day ${why?'off':''}"><div class="dh" data-d="${s}" title="${ph[s]?'Public holiday':'Click to mark this day as having no classes'}">${nice(s)}${why?`<span class="why">${esc(why)}</span>`:''}</div>`;
         if(!why)for(let p=1;p<=nSess(s);p++){
           if(cur){const cur=mine.find(c=>slotsOf(c.id,s).includes(p)),on=!!cur,L=on&&M[`${cur.id}|${s}|${p}`];
-            h+=`<div class="ses click" data-d="${s}" data-p="${p}"><span class="p">${p}</span>${on?(L.unit?`<span class="les ${SH[cur.stream]}" title="${esc(L.name)}"><b>${L.unit}</b> L${L.l}/${L.L} <small>${esc(L.name)}</small></span>`:`<span class="les none">${cur.stream} lesson ${L.n} <small>no unit yet</small></span>`):'<span class="add">+</span>'}</div>`}
+            h+=`<div class="ses click" data-d="${s}" data-p="${p}"><span class="p">${p}</span>${on?(L.unit?`${yLes(cur,L)}`:`<span class="les none">${cur.stream} lesson ${L.n} <small>no unit yet</small></span>`):'<span class="add">+</span>'}</div>`}
           else{const here=TT.classes.filter(c=>slotsOf(c.id,s).includes(p)),tc={};here.forEach(c=>tc[c.teacher]=(tc[c.teacher]||0)+1);
             h+=`<div class="ses"><span class="p">${p}</span><span style="display:flex;flex-wrap:wrap;gap:2px">${here.map(c=>{const L=M[`${c.id}|${s}|${p}`];return `<span class="chip ${SH[c.stream]} ${tc[c.teacher]>1?'clash':''}" title="${esc(clsName(c))}${tc[c.teacher]>1?' · CLASH: same teacher twice':''} · ${L.unit?`${L.unit} lesson ${L.l}/${L.L} ${esc(L.name)}`:'lesson '+L.n+', no unit yet'}">${esc(shortName(c))} ${L.unit?L.unit+'·'+L.l:'#'+L.n}</span>`}).join('')}</span></div>`}}
         h+='</div>'}
