@@ -255,8 +255,8 @@ async function loadRepo(file,fallback){
   return fallback;
 }
 Promise.all([fetch('../library/C10.json').then(r=>r.json()),fetch('../library/G11.json').then(r=>r.json()),loadRepo(FILE,{units:[]}),
-  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}}),loadRepo(CFILE,{decisions:[],rules:[],open:[]}),loadRepo(MFILE,{sheets:{},approved:{},notes:{}}),fetch('../courses/freefall.json?t='+Date.now()).then(r=>r.json()).catch(()=>({books:{},sheets:[]}))])
-.then(([c10,g11,units,yr,tt,lp,cl,md,ff])=>{
+  fetch('../courses/years/2027.json?t='+Date.now()).then(r=>r.json()),loadRepo(TTFILE,{classes:[],days_off:{},slots:{}}),loadRepo(LFILE,{plans:{}}),loadRepo(CFILE,{decisions:[],rules:[],open:[]}),loadRepo(MFILE,{sheets:{},approved:{},notes:{}}),fetch('../courses/freefall.json?t='+Date.now()).then(r=>r.json()).catch(()=>({books:{},sheets:[]})),fetch('../courses/structure.json?t='+Date.now()).then(r=>r.json()).catch(()=>null)])
+.then(([c10,g11,units,yr,tt,lp,cl,md,ff,stc])=>{STRUCT=stc;
   {const lm=store.get(MKEY);MOD=lm?JSON.parse(lm):md;MOD.sheets=MOD.sheets||{};MOD.approved=MOD.approved||{};modDirty=!!lm;FFB=ff.books||{};(ff.sheets||[]).forEach(x=>FF[x.id]=x)}
   {const lc=store.get(CKEY);CLOG=lc?JSON.parse(lc):cl;clDirty=!!lc}
   {const ll=store.get(LKEY);LP=ll?JSON.parse(ll):lp;LP.plans=LP.plans||{};lpDirty=!!ll;
@@ -508,7 +508,7 @@ function copyWeek(m,scope){
 
 /* ---------- Lesson planning tab: subchapters grouped into lessons per unit ---------- */
 const KIND={teach:'Lesson',practice:'Practice',review:'Review',assess:'Assessment'};
-let lmode=store.get('10ma-lmode')||'plan',lopenId=null,lexpand=false,lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
+let STRUCT=null;let lmode=store.get('10ma-lmode')||'plan',lopenId=null,lexpand=false,lstream=store.get('10ma-lstream')||'10MAG',openL=new Set(JSON.parse(store.get('10ma-lopen')||'[]'));
 const ukey=u=>u.stream+'|'+u.name;
 function planOf(u){ // stored plan, with subchapters no longer in the unit dropped; default = 1 lesson each + review + assessment
   const ids=new Set(u.items.map(x=>x.id));let p=LP.plans[ukey(u)];
@@ -665,22 +665,18 @@ function renderPlanView(){
     ${SPL?splitUnit(g):`<div class="chgrid"><div class="wl"><span class="cn">Unit ${SH[g.u.stream]}${g.U}</span><b>${esc(g.u.name)}</b>${g.L.length} lessons</div>
     <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.filter(l=>l.kind!=='assess').map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
     <div class="pcol"><div class="pcolh">Assessments</div>${preCard(g)}${cfatCards(g)}${g.L.filter(l=>l.kind==='assess').map(l=>pcard(l)).join('')}</div></div>`}`;
-  // term rows, week by week: full week = 3 lessons, short week (fewer than 5 days) = 2, Year 10 event weeks (exams, WEX, camp, Step Up) = 0 (years/2027.json y10_events)
-  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),EV=((Y.y10_events||{}).events)||[],FW=Y.full_week_lessons||3,SW=Y.short_week_lessons||2;
-  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`,dm=d=>d.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
-  const termWeeks=t=>{const s0=new Date(t.start+'T00:00'),e0=new Date(t.end+'T00:00'),m=new Date(s0);m.setDate(m.getDate()-((m.getDay()+6)%7));const W=[];
-    for(let w=1;m<=e0;m.setDate(m.getDate()+7),w++){let n=0;for(let k=0;k<5;k++){const d=new Date(m);d.setDate(d.getDate()+k);if(d>=s0&&d<=e0&&!ph.has(iso(d)))n++}
-      const ev=EV.find(e=>e.term===t.n&&e.weeks.includes(w));W.push({w,mon:new Date(m),cap:ev?0:(n===5?FW:n?SW:0),ev})}return W};
-  const rows=[];const su=SU();if(su&&su.start)rows.push({lab:'Step Up',W:[{w:1,mon:new Date(su.start+'T00:00'),cap:Y.stepup_lessons||3}],G:[]});
-  Y.terms.forEach(t=>rows.push({lab:'Term '+t.n,W:termWeeks(t),G:[]}));
+  // term rows, week by week, year-independent (courses/structure.json): weeks per term × lessons per week; event weeks (exams, WEX, camp, Step Up) take no unit lessons
+  const ST=STRUCT||{terms:[],events:[]},EV=ST.events||[],LW=ST.lessons_per_week||3;
+  const rows=[{lab:'Step Up',W:[{w:1,cap:ST.stepup_lessons||3}],G:[]}];
+  (ST.terms||[]).forEach(t=>rows.push({lab:'Term '+t.n,G:[],W:[...Array(t.weeks).keys()].map(k=>{const w=k+1,ev=EV.find(e=>e.term===t.n&&e.weeks.includes(w));return{w,cap:ev?0:LW,ev}})}));
   rows.forEach(r=>{r.cap=r.W.reduce((a,x)=>a+x.cap,0);r.used=0;
-    const seen=new Set();r.W.forEach(x=>{if(x.ev&&!seen.has(x.ev)){seen.add(x.ev);r.G.push({ev:x.ev,sw:x.w,mon:x.mon})}})});
+    const seen=new Set();r.W.forEach(x=>{if(x.ev&&!seen.has(x.ev)){seen.add(x.ev);r.G.push({ev:x.ev,sw:x.w})}})});
   let ri=0,wi=0,left=rows[0]?rows[0].W[0].cap:0,n=0;
   const next=()=>{while(ri<rows.length){if(left>0)return true;wi++;if(wi>=rows[ri].W.length){if(ri===rows.length-1){wi--;return false}ri++;wi=0}left=rows[ri].W[wi].cap}return false};
   G.forEach(g=>{const parts=[];g.L.forEach(()=>{n++;const ok=next();const r=rows[ri],sw=r.W[wi].w;let p=parts.find(p=>p.r===r);if(!p){p={r,lo:n,hi:n,sw,over:0};parts.push(p)}p.hi=n;if(ok){left--;r.used++}else{p.over++;r.used++}});
     parts.forEach((p,j)=>p.r.G.push({...g,sw:p.sw,part:{lo:p.lo,hi:p.hi,n:parts.length,j,over:p.over,prev:j?parts[j-1].r.lab:'',next:j<parts.length-1?parts[j+1].r.lab:''}}))});
   rows.forEach(r=>r.G.sort((a,b)=>a.sw-b.sw||(a.ev?-1:1)));
-  const evcard=e=>`<div class="evcard"><div class="uc1"><span>Wk ${e.ev.weeks.join('–')} · ${dm(e.mon)}</span></div><div class="uname">${esc(e.ev.name)}</div><div class="umeta">${esc(e.ev.note||'')} · no unit lessons</div></div>`;
+  const evcard=e=>`<div class="evcard"><div class="uname">${esc(e.ev.name)}</div><div class="umeta">${e.ev.weeks.length} week${e.ev.weeks.length>1?'s':''}</div></div>`;
   const uopen=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));
   const ucard=(g,r)=>{const M=(LP.materials||{})[ukey(g.u)]||[],L0=g.L[0]?.n,L1=g.L[g.L.length-1]?.n,op=uopen.has(ukey(g.u)+'@'+r.lab);
     const has=k=>M.some(m=>m.kind===k);const cats=M.filter(m=>m.kind==='cfat').length;

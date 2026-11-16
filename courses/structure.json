@@ -1,0 +1,92 @@
+{
+ "note": "Year-independent term structure for Lesson planning (dates live in courses/years/<year>.json and the 2027 tab). Weeks per term from the draft scope and sequence; Year 10 events take whole weeks, no unit lessons.",
+ "lessons_per_week": 3,
+ "stepup_lessons": 3,
+ "terms": [
+  {
+   "n": 1,
+   "weeks": 9
+  },
+  {
+   "n": 2,
+   "weeks": 11
+  },
+  {
+   "n": 3,
+   "weeks": 10
+  },
+  {
+   "n": 4,
+   "weeks": 11
+  }
+ ],
+ "events": [
+  {
+   "name": "Exam revision",
+   "term": 2,
+   "weeks": [
+    7
+   ],
+   "note": "1 week of lessons"
+  },
+  {
+   "name": "Exams",
+   "term": 2,
+   "weeks": [
+    8,
+    9
+   ],
+   "note": "2 weeks"
+  },
+  {
+   "name": "Work Experience",
+   "term": 2,
+   "weeks": [
+    11
+   ],
+   "note": "1 week"
+  },
+  {
+   "name": "Exam revision",
+   "term": 4,
+   "weeks": [
+    5
+   ],
+   "note": "1 week of lessons"
+  },
+  {
+   "name": "Exams",
+   "term": 4,
+   "weeks": [
+    6,
+    7
+   ],
+   "note": "2 weeks"
+  },
+  {
+   "name": "Camp",
+   "term": 4,
+   "weeks": [
+    8
+   ],
+   "note": "1 week"
+  },
+  {
+   "name": "Step Up (into Year 11)",
+   "term": 4,
+   "weeks": [
+    9
+   ],
+   "note": "1 week"
+  },
+  {
+   "name": "End of year",
+   "term": 4,
+   "weeks": [
+    10,
+    11
+   ],
+   "note": "after Step Up"
+  }
+ ]
+}
