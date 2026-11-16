@@ -202,6 +202,7 @@ a{color:var(--accent)}
 .ucard.shared.s-10MAA{background:linear-gradient(#b5532a,#b5532a) left top/6px 50% no-repeat,linear-gradient(#1f4fa0,#1f4fa0) left bottom/6px 50% no-repeat,#fff}.ucard.shared.open{background-color:#f4f1f8}
 .ubad span.shb{background:linear-gradient(90deg,#dfe8f7,#f7e3d9);color:#5a3a6b}
 .uspan{font-size:12px;color:#b5532a;font-weight:600;margin-top:4px}.uopen{margin-top:12px;border:1px solid #ddd;border-radius:10px;padding:6px 12px 12px;background:#fcfcfa}
+.t-pre{border-left-color:#2e8b8b!important}.t-pre .tag{background:#dff1f1;color:#1f6b6b}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -660,8 +661,8 @@ function renderPlanView(){
   const SPL=lstream==='10MAG';
   const body=g=>`<div class="aos"><b>${SH[g.u.stream]}${g.U} · ${esc(g.u.name)}</b><span>${g.L.length} lessons · ${esc(g.u.assessment||'')}${g.u.note?' · '+esc(g.u.note):''}</span></div>
     ${SPL?splitUnit(g):`<div class="chgrid"><div class="wl"><span class="cn">Unit ${SH[g.u.stream]}${g.U}</span><b>${esc(g.u.name)}</b>${g.L.length} lessons</div>
-    <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
-    <div class="pcol"><div class="pcolh">Formative assessments</div>${cfatCards(g)}</div></div>`}`;
+    <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.filter(l=>l.kind!=='assess').map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
+    <div class="pcol"><div class="pcolh">Assessments</div>${preCard(g)}${cfatCards(g)}${g.L.filter(l=>l.kind==='assess').map(l=>pcard(l)).join('')}</div></div>`}`;
   // term rows: 3 lessons a week, Step Up first, then each term's teaching weeks
   const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),wk=(a,b)=>{let n=0;for(let d=new Date(a+'T00:00');d<=new Date(b+'T00:00');d.setDate(d.getDate()+1)){const w=d.getDay();if(w>0&&w<6&&!ph.has(d.toISOString().slice(0,10)))n++}return Math.floor(n/5)};
   const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Math.max(1,wk(su.start,su.end))*3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:wk(t.start,t.end)*3}));
@@ -763,9 +764,11 @@ function splitLessons(g){const out=[[],[],[],[]];
   return out}
 function umatSolid(g){const M=(LP.materials||{})[ukey(g.u)]||[],sl=M.find(m=>m.kind==='slides'),wb=M.filter(m=>m.kind!=='slides'&&m.kind!=='cfat'&&m.kind!=='cat');
   return `<div class="umsolid"><div class="ttl">Unit materials</div><div>${sl?`<a href="../${encodeURI(sl.html)}?v=${BUST}" target="_blank" rel="noopener">Slides ↗</a>`:''}${wb.map(m=>m.pdf?`<a href="../${encodeURI(m.pdf)}?v=${BUST}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:'').join('')}<a href="donow.html?s=${g.u.stream}&u=${g.U}" target="_blank" rel="noopener">Do Now sheets ↗</a></div></div>`}
+function preCard(g){const m=((LP.materials||{})[ukey(g.u)]||[]).find(m=>m.kind==='pre'),f=m&&(m.html||m.pdf);
+  return `<div class="card fa t-pre"><div class="meta"><span>Before L${g.L[0]?.n||1}</span><span class="tags"><span class="tag">${f?'Ready':'Draft'}</span></span></div><div class="ttl">Pre-assessment</div>${f?`<div><a href="../${encodeURI(f)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>${m.solutions?`<a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a>`:''}</div>`:''}</div>`}
 function splitUnit(g){const [a,c,b,d]=splitLessons(g),k=ukey(g.u),ap=MOD.approved[k];
   return `<div class="split"><div class="pcol"><div class="pcolh">10MAG lessons</div>${umatSolid(g)}${a.join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
-   <div class="pcol"><div class="pcolh">10MAG assessments</div>${c.join('')||'<div class="empty">No assessments yet</div>'}</div>
+   <div class="pcol"><div class="pcolh">10MAG assessments</div>${preCard(g)}${c.join('')||'<div class="empty">No assessments yet</div>'}</div>
    <div class="pcol modcol"><div class="pcolh">Modified lessons</div>
    <div class="umsolid mod"><div class="ttl">Modified unit materials</div><div>${((MOD.materials||{})[k]||{}).workbook_url?`<a href="${esc(MOD.materials[k].workbook_url)}" target="_blank" rel="noopener">Modified workbook ↗</a>`:`<span class="nolink">Modified workbook: ${ap?'approved, ready to build':'built once the mapping is approved'}</span>`}${(MOD.g_folders||{}).lesson_materials?`<a href="${esc(MOD.g_folders.lesson_materials)}" target="_blank" rel="noopener">G: Lesson materials ↗</a><a href="${esc(MOD.g_folders.assessments)}" target="_blank" rel="noopener">G: Assessments ↗</a>`:''}</div>
    <label><input type="checkbox" class="mapp" data-k="${esc(k)}" ${ap?'checked':''}> Freefall mapping approved</label></div>${b.join('')}</div>
