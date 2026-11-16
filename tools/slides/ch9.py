@@ -866,21 +866,23 @@ new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.cla
 })).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
 
 // ---- controls: double tap = whole slide, toolbar, help, F toggles full screen
+const clearSl=k=>{const x=S[k];if(!x)return;x.querySelectorAll('.st.show').forEach(e=>e.classList.remove('show'));x.querySelectorAll('.two button,.box').forEach(e=>e.classList.remove('ok','no','on'));x.querySelectorAll('.two').forEach(e=>e.classList.remove('s2','isC','isN'))};
+const prevClean=k=>{clearSl(k);clearSl(k-1);show(k-1)};
 (()=>{let last=null;const D=350,full=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();
   addEventListener('click',e=>{if(e.target.closest('.ix,button,input,.tb,.helpbox'))return;e.stopImmediatePropagation();
     const side=e.clientX>innerWidth/2?1:-1,t=Date.now();
-    if(last&&last.side===side&&t-last.t<D){show(last.i+side);last=null;return}
+    if(last&&last.side===side&&t-last.t<D){if(side<0)prevClean(last.i);else show(last.i+side);last=null;return}
     last={side,t,i};side>0?fwd():back()},true);
   addEventListener('keydown',e=>{if(e.key==='f'||e.key==='F'){e.stopImmediatePropagation();full()}if(e.key==='?'||e.key==='h'||e.key==='H')document.body.classList.toggle('help');if(e.key==='Escape')document.body.classList.remove('help');
     if(e.key==='Backspace'){e.preventDefault();const t=Date.now();if(window._bs&&t-window._bs<400){S[i].querySelectorAll('.st.show').forEach(x=>x.classList.remove('show'));S[i].querySelectorAll('.two button,.box').forEach(x=>x.classList.remove('ok','no','on'));S[i].querySelectorAll('.two').forEach(x=>x.classList.remove('s2','isC','isN'));window._bs=0}else{window._bs=t;back()}}},true);
   const tb=document.createElement('div');tb.className='tb';tb.innerHTML='<button data-a="p" title="Previous slide">◀◀</button><button data-a="b" title="Back one step">◀</button><button data-a="n" title="Next step">▶</button><button data-a="s" title="Next slide">▶▶</button><button data-a="f" title="Full screen on / off (F)">⛶ Full screen</button><button data-a="h" title="How to use (?)">?</button>';
   document.body.appendChild(tb);
-  tb.onclick=e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;({p:()=>show(i-1),b:back,n:fwd,s:()=>show(i+1),f:full,h:()=>document.body.classList.toggle('help')})[a]()};
+  tb.onclick=e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;({p:()=>prevClean(i),b:back,n:fwd,s:()=>show(i+1),f:full,h:()=>document.body.classList.toggle('help')})[a]()};
   const hb=document.createElement('div');hb.className='helpbox';hb.innerHTML=`<h2>How to use these slides</h2><table>
    <tr><th>Next line of working</th><td>Click or tap the <b>right half</b> of the screen · → · Space</td></tr>
    <tr><th>Back one line</th><td>Click or tap the <b>left half</b> · ←</td></tr>
    <tr><th>Next slide (skip the working)</th><td><b>Double tap</b> the right half · ▶▶</td></tr>
-   <tr><th>Previous slide</th><td><b>Double tap</b> the left half · ◀◀</td></tr>
+   <tr><th>Previous slide (cleared)</th><td><b>Double tap</b> the left half · ◀◀ (its working is hidden again)</td></tr>
    <tr><th>Clear this slide</th><td><b>Backspace</b> twice quickly (hides all the working)</td></tr>
    <tr><th>Full screen</th><td><b>F</b> or ⛶ button</td></tr>
    <tr><th>Exit full screen</th><td><b>Esc</b> or <b>F</b> again</td></tr>
