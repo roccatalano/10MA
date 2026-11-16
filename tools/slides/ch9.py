@@ -12,14 +12,15 @@ B.ANS.update({'9A':1070,'9B':1070,'9C':1072,'9D':1073,'9E':1074})
 CK='Chapter 9 checklist'
 
 def slide_li(sub,c,d):
-    st=f'{sub} {c["title"]}'
-    lis=''.join(f'<li>{html.escape(x)}</li>' for x in c['learning_intentions'])
-    sc=''.join(f'<li>☐ {html.escape(x["text"])}</li>' for x in c['success_criteria'])
+    st=f'{sub} {c["title"]}';L=c['learning_intentions'];S=c['success_criteria'];n=max(len(L),len(S))
     seq=['Do Now','Activating prior knowledge','Key ideas','New learning']+[f'Example {e["n"]} · You try {e["n"]} — {B.card_ex_title(c,e["n"])}' for e in d['ex']]+['Exit tasks','Coursework']
-    ns=[x['n'] for x in c['success_criteria']]
-    return (f'<section class="slide li">{B.bar(sub,"Learning intentions",st)}<div class="cols" style="grid-template-columns:1.05fr 1fr .95fr">'
-            f'<div class="col"><h2>Learning intentions</h2><ul>{lis}</ul></div><div class="col"><h2>Success criteria</h2><ul class="ck">{sc}</ul></div>'
-            f'<div class="col"><h2>Lesson sequence</h2><ol class="seq">{"".join(f"<li>{x}</li>" for x in seq)}</ol></div></div>'
+    ns=[x['n'] for x in S];cells=''
+    for k in range(n):
+        cells+=f'<div class="lr" style="grid-row:{k+2};grid-column:1">{("• "+html.escape(L[k])) if k<len(L) else ""}</div><div class="lr" style="grid-row:{k+2};grid-column:2">{("☐ "+html.escape(S[k]["text"])) if k<len(S) else ""}</div>'
+    seqh="".join(f"<li>{x}</li>" for x in seq)
+    return (f'<section class="slide li">{B.bar(sub,"Learning intentions",st)}<div class="lig" style="grid-template-rows:auto repeat({n},auto) 1fr">'
+            f'<h2 style="grid-row:1;grid-column:1">Learning intentions</h2><h2 style="grid-row:1;grid-column:2">Success criteria</h2><h2 style="grid-row:1;grid-column:3">Lesson sequence</h2>'
+            f'{cells}<div style="grid-row:{n+2};grid-column:1"></div><div style="grid-row:{n+2};grid-column:2"></div><ol class="seq2" style="grid-row:2/{n+3};grid-column:3">{seqh}</ol></div>'
             +B.foot(f'{BOOK}, {sub} Learning intentions (p. {c["printed_page"]}); success criteria = {CK} items {ns[0]}–{ns[-1]} (p. 853)')+'</section>')
 
 def slides_exit(sub,c,d):
@@ -27,14 +28,15 @@ def slides_exit(sub,c,d):
     for e,sc in zip(d['exit'],c['success_criteria']):
         cells.append(f'<div class="part"><div class="skill ck"><span class="box"></span><span>{html.escape(sc["text"])}</span></div><div class="qtxt"><b>{sc["n"]}.</b> {B.q_html("!"+e["q"].lstrip("!"))}</div><div class="work">{B.lines_html(e["w"])}</div></div>')
     ns=[x['n'] for x in c['success_criteria']]
-    return [B.grid_slide('exit',sub,st,cells,f'{BOOK}, {CK} items {ns[0]}–{ns[-1]} (p. 853). Working by teacher.','Tick each skill in your checklist when you can do it.')]
+    if sub=='9A':cells[0]=cells[0].replace('<div class="work">',two('N','Discrete',big=True)+'<div class="work">',1)
+    return [colgrid('exit',sub,st,cells,f'{BOOK}, {CK} items {ns[0]}–{ns[-1]} (p. 853). Working by teacher.','Tick each skill in your checklist when you can do it.')]
 
 # ---------------------------------------------------------------- New learning slides
 def nl(sub,title,body,src,cls=''):
     st=f'{sub} {B.card("C10-"+sub)["title"]}'
     return f'<section class="slide nl {cls}">{B.bar("New learning",title,st)}{body}{B.foot(src)}</section>'
 
-def L_types(sub):
+def L_types_old(sub):
     leaf=lambda t,d,k:f'<div class="tn leaf st" style="--d:{k}"><b>{t}</b><span>{d}</span></div>'
     tree=('<div class="tree">'
           '<div class="tn root">Data</div>'
@@ -50,7 +52,7 @@ def L_types(sub):
            f'{BOOK}, 9A Building understanding Q3 and Q4 (p. 768); answers p. 1070','sort')
     return [a,b]
 
-def L_sample(sub):
+def L_sample_old(sub):
     body=('<div class="cols" style="grid-template-columns:1fr 1.25fr"><div class="col"><h2>Key ideas</h2>'
           '<p>A <b>population</b> is a group of people, animals or objects with something in common, e.g. <i>all the students in your school</i>.</p>'
           '<p>A <b>sample</b> is a group that has been chosen from a population. Sometimes information from a sample is used to describe the whole population, so it is important to choose the sample carefully.</p>'
@@ -246,15 +248,129 @@ def L_parallel(sub):
 def slide_end(code,h,txt):
     return f'<section class="slide title"><div class="code">{code}</div><h1>{h}</h1><div class="unit">{txt}</div><span class="pg" style="display:none"></span></section>'
 
+
+# ================================================================ Rocco's 9A edits (16 Nov), applied deck-wide
+def wrap(t,n):
+    w=t.split();L=[''];
+    for x in w:
+        if len((L[-1]+' '+x).strip())>n:L.append(x)
+        else:L[-1]=(L[-1]+' '+x).strip()
+    return L
+def types_flow(anim=False,W=1100,H=440,leafw=240,fs=1.0):
+    U='a' if anim else 'k'
+    g=(lambda x:f'<g class="st">{x}</g>') if anim else (lambda x:x)
+    def node(cx,y,w,h,title,sub,col,big=False):
+        o=f'<rect x="{cx-w/2}" y="{y}" width="{w}" height="{h}" fill="#fff" stroke="{col}" stroke-width="3"/>'
+        o+=f'<text x="{cx}" y="{y+(30 if sub else h/2+9)*fs}" font-size="{(30 if big else 26)*fs}" font-weight="bold" text-anchor="middle">{title}</text>'
+        for k,l in enumerate(sub):o+=f'<text x="{cx}" y="{y+(54+k*20)*fs}" font-size="{16*fs}" text-anchor="middle">{l}</text>'
+        return o
+    def arrow(x1,y1,x2,y2,col):return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{col}" stroke-width="3" marker-end="url(#ah{U}{col[1:]})"/>'
+    B,R='#1f5fbf','#d00000';cx=W/2
+    mk=''.join(f'<marker id="ah{U}{c[1:]}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="{c}"/></marker>' for c in (B,R,'#000000'))
+    o=f'<defs>{mk}</defs>'+node(cx,10,150,56,'Data',[],'#000',True)
+    c1,c2=W*0.27,W*0.73;y2=120;y3=255
+    o+=g(arrow(cx-40,66,c1+20,y2-2,B)+node(c1,y2,220,70,'Categorical',['words / categories'],B))+g(arrow(cx+40,66,c2-20,y2-2,R)+node(c2,y2,220,70,'Numerical',['numbers'],R))
+    leaves=[('Nominal','Categories have no order; e.g. colours: red, blue, yellow',B,c1),('Ordinal','Categories can be ordered; e.g. low, medium, high',B,c1),
+            ('Discrete','Data can take on only a limited number of values; e.g. number of children in a family',R,c2),('Continuous','Data can take on any value in a given range; e.g. time taken to complete a race',R,c2)]
+    gap=(W-4*leafw)/5
+    for k,(t,d,col,par) in enumerate(leaves):
+        lx=gap+leafw/2+k*(leafw+gap);sub=wrap(d,int(leafw/8.6/fs))
+        o+=g(arrow(par+(-40 if k%2==0 else 40),y2+70,lx,y3-2,col)+node(lx,y3,leafw,(52+len(sub)*20)*fs,t,sub,col))
+    return f'<svg viewBox="0 0 {W} {H}" style="width:100%;height:auto">{o}</svg>'
+
+def L_types(sub):
+    a=nl(sub,'Types of data',f'<p class="lead">Statistical data can be divided into subgroups. <span class="hint">Click to build the flow chart.</span></p><div class="flow">{types_flow(True)}</div>',f'{BOOK}, 9A Key ideas (p. 767)')
+    Y9='Cambridge Essential Mathematics 9 3rd Ed'
+    items=[('The mass of each shell in a collection of sea shells','N','Continuous'),('The results of a survey asking people to rate a TV program as good, satisfactory or poor','C','Ordinal'),
+           ('The colours of the next 10 cars that pass on a busy road','C','Nominal'),('The number of computers in a household','N','Discrete'),
+           ('The number of students in all the academic classes in a school','N','Discrete'),('The type of caterpillar found in a number of vegetable garden beds','C','Nominal'),
+           ('The time taken to complete a task','N','Continuous'),('The type of safety vest used with one of three sizes available including large, medium or small','C','Ordinal'),
+           ('The style of jacket on a wall in a shop','C','Nominal'),('The level of firmness of a bed described as hard, medium or soft','C','Ordinal'),
+           ('The weight of 25 packets of chips delivered to a shop','N','Continuous'),('The shirt size of a range of clothing using the integers 36, 37, 38, ...','N','Discrete')]
+    cards=''.join(f'<div class="card"><div class="ct">{t}</div>{two(a1,a2)}</div>' for t,a1,a2 in items)
+    b=nl(sub,'Sort it: what type of data?',f'<p class="lead">Classify the data obtained from each survey. <span class="hint">Step 1: categorical or numerical? Step 2: which kind?</span></p><div class="cards c12">{cards}</div><div class="score ix">Score: <b>0</b> / {len(items)} <button class="reset">Reset</button></div>',
+           f'{Y9}, 9G Example 11 and Now you try (pp. 662–663), Exercise 9G Q2 (p. 664); answers from the Year 9 Answers','sort')
+    return [a,b]
+
+def two(a1,a2,big=False):
+    return (f'<div class="two ix{" big" if big else ""}" data-a="{a1}" data-b="{a2}"><div class="r1"><span class="sl1">Step 1</span><button data-v="C">Categorical</button><button data-v="N">Numerical</button></div>'
+            f'<div class="r2"><span class="sl1">Step 2</span><span class="o C"><button data-v="Nominal">Nominal</button><button data-v="Ordinal">Ordinal</button></span><span class="o N"><button data-v="Discrete">Discrete</button><button data-v="Continuous">Continuous</button></span></div></div>')
+
+def L_sample(sub):
+    body=('<div class="cols" style="grid-template-columns:1fr 1.25fr"><div class="col"><h2>Key ideas</h2>'
+          '<p class="sm2">A <b>population</b> is a group of people, animals or objects with something in common, e.g. <i>all the students in your school</i>.</p>'
+          '<p class="sm2">A <b>sample</b> is a group that has been chosen from a population. Sometimes information from a sample is used to describe the whole population, so it is important to choose the sample carefully.</p>'
+          '<div class="good"><b>A good sample</b><span>✔ is chosen at random from the <b>whole</b> population</span><span>✔ does not leave out any group</span><span>✔ is large enough</span><span>→ so its results are close to the whole population</span></div>'
+          '<div class="out ix" id="sout">Choose a sample →</div></div>'
+          '<div class="col pop"><h2>All the students in your school (240) · question: hours of study per week</h2><div class="dots ix"></div>'
+          '<div class="cmp ix"><div>Whole school average: <b class="pa"></b> h</div><div>Sample average: <b class="sa">–</b></div></div>'
+          '<div class="btns ix"><button data-s="rand">Random sample of 24</button><button data-s="rand6">Random sample of 6</button><button data-s="lib">24 students in the library</button><button data-s="y12">24 students from one Year 12 class</button><button data-s="clr">Clear</button></div></div></div>')
+    return [nl(sub,'Population and sample',body,f'{BOOK}, 9A Key ideas (p. 767); library sample from Example 2 · Now you try (p. 769). Study hours and good-sample points made up by the teacher.','popn')]
+
+def mini(kind):
+    if kind=='net':return ('<div class="mini ix" data-n="160" data-k="net"><div class="mh">Australia (each dot = many people)</div><div class="md"></div><button>Who can answer this survey?</button>'
+                           '<div class="mo">Only people with a computer and internet access (red) can take part. The grey dots are left out.</div></div>')
+    return ('<div class="mini ix" data-n="160" data-k="lib"><div class="mh">All Year 12 students</div><div class="md"></div><button>Who can answer this survey?</button>'
+            '<div class="mo">Only students in the library (red) can take part. Most Year 12 students (grey) are left out.</div></div>')
+
+def slides_apk(sub,c,d):
+    st=f'{sub} {c["title"]}'
+    if 'apk_src' in d: src=d['apk_src']
+    else:
+        ws=B.worksheet(sub);b=B.ws_box(ws,'Activating prior knowledge')
+        src=b.select_one('p.src').get_text().strip().replace('for the Victorian Curriculum ','')+'. Working by teacher.'
+    cells=[]
+    for i,(a,cd) in enumerate(zip(d['apk'],c['apk']),1):
+        cells.append(f'<div class="part"><div class="skill">Year {cd["book"][1]} · {html.escape(cd["skill"])}</div><div class="qtxt"><b>{i}.</b> {B.q_html("!"+a["q"].lstrip("!"))}</div><div class="work">{B.lines_html(a["w"])}</div></div>')
+    return colgrid('apk',sub,st,cells,src,'Answer each question.',d.get('apk_cols'))
+def colgrid(kind,sub,st,cells,src,note,cols=None):
+    tag,h1=('APK','Activating prior knowledge') if kind=='apk' else ('Exit','Exit tasks')
+    return (f'<section class="slide ex4 vc">{B.bar(tag,h1,st)}<p class="q" style="margin:16px 4px 10px">{note}</p>'
+            f'<div class="parts gc" style="grid-template-columns:{cols or f'repeat({len(cells)},minmax(0,1fr))'}">{"".join(cells)}</div>{B.foot(src)}</section>')
+
+def slide_cw(sub,c):
+    h=B.slide_cw(sub,c);cw=c['coursework']['good']
+    qs=[]
+    for k in ('Fluency','Problem-solving','Reasoning'):
+        v=cw[k]
+        if v in ('–',''):continue
+        for part in v.replace('(½)','').split(','):
+            part=part.strip()
+            if '–' in part:
+                a,b=part.split('–');qs+=[str(x) for x in range(int(a),int(b)+1)]
+            elif part:qs.append(part)
+    L=''.join(f'<div class="qn">{q}</div><div class="ln"></div><div class="ln s"></div>' for q in qs[:3]);R=''.join(f'<div class="qn">{q}</div><div class="ln"></div><div class="ln s"></div>' for q in qs[3:6])
+    sheet=(f'<div class="cwr"><h2>How to set out your coursework</h2><div class="a4"><div class="mg"></div><div class="dt">Date: 3/2/27</div><div class="hd">Exercise {sub} · Good</div>'
+           f'<div class="sp"><div class="c">{L}</div><div class="c">{R}</div></div></div>'
+           '<ul class="cwl"><li>Date and exercise at the top</li><li>Red margin: question numbers go in it</li><li>Rule a line down the middle: two columns</li><li>Show every step of working</li></ul></div>')
+    h=h.replace('<table class="cw">','<div class="cwgrid"><div><table class="cw">',1)
+    h=h.replace('</p>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),'</p></div>'+sheet+'</div>'+B.foot(f'{BOOK}, Exercise {sub} pathways (Foundation / Standard / Advanced)'),1)
+    return h
+
+def scaffold(html_,answers):
+    k=[0]
+    def rep(m):
+        if k[0]>=len(answers):return m.group(0)
+        a=answers[k[0]];k[0]+=1;return two(*a,big=True)+m.group(0)
+    return re.sub(r'<div class="pw">',rep,html_)
+
 LEARN={'types':L_types,'sample':L_sample,'hist':L_hist,'shape':L_shape,'stem':L_stem,'tw_read':L_tw_read,'tw_build':L_tw_build,'five':L_five,'fence':L_fence,'box':L_box,'boxlive':L_boxlive,'median':L_median,'meanmode':L_meanmode,'boxsteps':L_boxsteps}
 
 def subchapter(sub):
     c=B.card('C10-'+sub);d=B.DATA[sub];o=[B.slide_donow(f'{sub}')]
-    o+= [B.slide_title(sub,c,B.UNIT),slide_li(sub,c,d),B.slides_apk(sub,c,d),B.slide_ki(sub,c,d)]
+    ki=B.slide_ki(sub,c,d)
+    if sub=='9A':ki=re.sub(r'(<h2>Key formulas</h2>).*?(</div></div><div class="foot">)',lambda m:m.group(1)+'<div class="flow sm">'+types_flow(False,W=640,H=470,leafw=140,fs=0.88)+'</div>'+m.group(2),ki,flags=re.S).replace('<h2>Key formulas</h2>','<h2>Types of data</h2>')
+    o+= [B.slide_title(sub,c,B.UNIT),slide_li(sub,c,d),slides_apk(sub,c,d),ki]
     for k in d.get('learn',[]):o+=LEARN[k](sub)
-    for e in d['ex']:o+=[B.slide_example(sub,c,e,False),B.slide_example(sub,c,e,True)]
+    for e in d['ex']:
+        ex,yt=B.slide_example(sub,c,e,False),B.slide_example(sub,c,e,True)
+        if sub=='9A' and e['n']==1:ex=scaffold(ex,[('N','Discrete'),('C','Nominal')]);yt=scaffold(yt,[('N','Continuous'),('C','Ordinal')])
+        if sub=='9A' and e['n']==2:
+            ex=ex.replace('<div class="pw">',mini('net')+'<div class="pw">',1).replace('class="part wide"','class="part wide wm"',1)
+            yt=yt.replace('<div class="pw">',mini('lib')+'<div class="pw">',1).replace('class="part wide"','class="part wide wm"',1)
+        o+=[ex,yt]
     if sub=='9E':o+=[B.slide_donow(f'Lesson 6 · {sub} continued')]+L_parallel(sub)
-    o+=slides_exit(sub,c,d);o.append(B.slide_cw(sub,c))
+    o+=slides_exit(sub,c,d);o.append(slide_cw(sub,c))
     return o
 
 NL_CSS=r"""
@@ -294,6 +410,41 @@ NL_CSS=r"""
 .helpbox{display:none;position:fixed;inset:0;margin:auto;width:min(760px,92vw);height:fit-content;z-index:60;background:#fff;border:3px solid #000;box-shadow:8px 8px 0 #000;padding:22px 28px;font:18px Arial,sans-serif}
 body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{border-collapse:collapse;width:100%}.helpbox th{text-align:left;padding:7px 14px 7px 0;white-space:nowrap;vertical-align:top}.helpbox td{padding:7px 0;border-bottom:1px dashed #bbb}
 .helpbox .hx{margin-top:14px;font:inherit;padding:6px 16px;border:2px solid #000;background:#fff;cursor:pointer}
+
+/* ---- 9A edits ---- */
+.lig{flex:1;display:grid;grid-template-columns:1.05fr 1fr .95fr;border:1.5px solid #000;margin-top:14px;min-height:0}
+.lig h2{margin:0;font-size:14px;text-transform:uppercase;letter-spacing:.4px;background:#eee;padding:6px 12px;border-bottom:1.5px solid #000}
+.lig>*:nth-child(3n+2),.lig h2:nth-of-type(2),.lig .lr:nth-of-type(2n){border-left:1.5px solid #000}
+.lig .lr{font-size:21px;line-height:1.35;padding:14px 16px 6px;border-left:0}.lig .lr+.lr{border-left:1.5px solid #000}
+.lig>div[style*="grid-column:2"]{border-left:1.5px solid #000}.lig>div[style*="grid-column:1"]{padding-left:30px;text-indent:-14px}
+.seq2{border-left:1.5px solid #000;margin:0;padding:14px 16px 0 44px;font-size:20px;line-height:1.3}.seq2 li{margin-bottom:12px}
+.parts.gc .work .st:not(.fig),.parts.gc .work .st .tx{font-size:20px}.parts.gc .part{overflow:hidden}.parts.gc .st.fig svg{max-width:100%}
+.c12 .card{font-size:18px!important}
+
+.slide.li .col ul.al,.slide.li .col ol.seq{justify-content:flex-start!important;gap:0}.slide.li ul.al li{min-height:118px;margin:0}.slide.li ol.seq li{margin:0 0 14px}
+.parts.gc .part{border-left:1.5px solid #000;padding:10px 14px;display:flex;flex-direction:column}.parts.gc .part:first-child{border-left:0}
+.parts.gc .skill{font-size:15px;margin-bottom:6px}.parts.gc .qtxt{font-size:19px;line-height:1.3}.parts.gc .st{margin:0 0 5px!important;font-size:20px}.parts.gc .work{padding-top:8px;display:flex;flex-direction:column}
+.flow{flex:1;display:flex;align-items:center;justify-content:center}.flow.sm{padding:4px}
+.cards.c12{grid-template-columns:repeat(4,1fr);gap:10px}.c12 .card{min-height:0;padding:8px 10px;font-size:16px;gap:6px}
+.two .r1,.two .r2{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.two .r2{display:none;margin-top:5px}.two.s2 .r2{display:flex}.two .o{display:none;gap:6px}.two.isC .o.C,.two.isN .o.N{display:inline-flex}
+.two .sl1{font-size:12px;color:#777;width:38px}.two button{font:inherit;font-size:14px;padding:4px 8px;border:2px solid #000;background:#fff;cursor:pointer}
+.two button.ok{background:#1a7f1a;color:#fff;border-color:#1a7f1a}.two button.no{background:#fde4e4;border-color:#d00000;animation:shake .35s}
+.two.big{margin:8px 0;padding:8px;border:1.5px dashed #999}.two.big button{font-size:18px;padding:6px 12px}.two.big .sl1{font-size:14px;width:48px}
+.card.done{background:#e3f5e3;border-color:#1a7f1a}
+.good{border:2px solid #1a7f1a;background:#f1faf1;padding:8px 12px;font-size:17px;display:flex;flex-direction:column;gap:2px;margin:4px 0}.good b{font-size:18px}
+.cmp{display:flex;gap:30px;font-size:19px;margin:6px 0}.cmp b{color:#d00000}.pop h2{text-transform:none}
+.part.wm .pw{flex:1}.part.wm{display:grid!important;grid-template-columns:1.1fr .9fr;grid-template-rows:auto 1fr;gap:0 20px}.part.wm .mini{grid-column:2;grid-row:1/3}
+.mini{border:1.5px solid #000;padding:10px;display:flex;flex-direction:column;gap:8px;font-size:17px}.mini .mh{font-weight:bold;font-size:15px;text-transform:uppercase}
+.mini .md{display:grid;grid-template-columns:repeat(20,1fr);gap:4px}.mini .md i{aspect-ratio:1;border-radius:50%;background:#555;transition:background .4s,opacity .4s}
+.mini.on .md i{background:#ccc}.mini.on .md i.in{background:#d00000}.mini button{font:inherit;font-size:16px;padding:6px 10px;border:2px solid #000;background:#fff;cursor:pointer;align-self:flex-start}
+.mini .mo{opacity:0;transition:opacity .4s}.mini.on .mo{opacity:1}
+.cwgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;flex:1;min-height:0}.cwgrid .cw{width:100%}
+.cwr{display:flex;flex-direction:column;align-items:center;min-height:0}.cwr h2{font-size:14px;text-transform:uppercase;margin:0 0 6px;letter-spacing:.4px}.a4{position:relative;aspect-ratio:210/297;height:390px;margin:0 auto;border:1.5px solid #000;background:repeating-linear-gradient(#fff 0 17px,#cfe0f5 17px 18px);box-shadow:4px 4px 0 #bbb;padding:30px 10px 8px 46px;font:15px 'Comic Sans MS','Segoe Print',cursive}
+.a4 .mg{position:absolute;left:36px;top:0;bottom:0;border-left:2.5px solid #d00000}.a4 .dt{position:absolute;right:10px;top:6px;font-size:13px}.a4 .hd{font-weight:bold;text-decoration:underline;margin-bottom:6px}
+.a4 .sp{display:grid;grid-template-columns:1fr 1fr;height:calc(100% - 40px)}.a4 .sp .c{padding:0 6px;position:relative}.a4 .sp .c+.c{border-left:2px solid #000}
+.a4 .qn{position:relative;font-weight:bold;height:18px}.a4 .sp .c:first-child .qn{margin-left:-42px;width:34px;text-align:right;padding-right:6px;height:18px;margin-bottom:-18px}.a4 .sp .c+.c .qn{color:#000}
+.a4 .ln{height:18px;margin:0 4px 0 0;background:linear-gradient(transparent 7px,#666 7px 9px,transparent 9px);opacity:.55;width:85%}.a4 .ln.s{width:55%;margin-bottom:18px}
+.cwl{font-size:14px;margin:6px 0 0 18px;padding:0;align-self:stretch}.cwl li{margin:2px 0}
 /* ---- New learning slides (ch9.py) ---- */
 .slide.nl .bar .tag{font-size:22px}
 .slide.nl .lead{font-size:24px;margin:16px 4px 10px}
@@ -343,16 +494,21 @@ NL_JS=r"""
 document.querySelectorAll('.slide.sort').forEach(sl=>{const sc=sl.querySelector('.score b');const upd=()=>sc.textContent=sl.querySelectorAll('.card.ok').length;
   sl.querySelectorAll('.card button').forEach(b=>b.onclick=e=>{const c=b.closest('.card');c.classList.remove('ok','no');void c.offsetWidth;c.classList.add(b.dataset.v===c.dataset.a?'ok':'no');upd()});
   sl.querySelector('.reset').onclick=()=>{sl.querySelectorAll('.card').forEach(c=>c.classList.remove('ok','no'));upd()}});
-document.querySelectorAll('.slide.popn').forEach(sl=>{const D=sl.querySelector('.dots');for(let k=0;k<240;k++){const i=document.createElement('i');if(k%24>=18&&k<96)i.classList.add('lib');D.appendChild(i)}
-  const dots=[...D.children],out=sl.querySelector('#sout');
-  const T={rand:'<b>Random sample:</b> every student has the same chance of being chosen, so the sample is spread across the whole school. It is more likely to be <b>representative</b>.',
-   lib:'<b>Students in the library:</b> students who study in the library may not reflect a typical group of students. This sample is <b>not representative</b>.',
-   y12:'<b>One Year 12 class:</b> only one year level is included, so the views of younger students are missed. This sample is <b>not representative</b>.',clr:'Choose a sample →'};
+document.querySelectorAll('.slide.popn').forEach(sl=>{const D=sl.querySelector('.dots');let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  for(let k=0;k<240;k++){const i=document.createElement('i');const lib=k%24>=18&&k<96,y12=k>=216;if(lib)i.classList.add('lib');
+    i.dataset.h=lib?Math.round(8+rnd()*5):y12?Math.round(5+rnd()*4):Math.round(rnd()*7);D.appendChild(i)}
+  const dots=[...D.children],out=sl.querySelector('#sout'),avg=a=>(a.reduce((s,d)=>s+ +d.dataset.h,0)/a.length).toFixed(1);
+  sl.querySelector('.pa').textContent=avg(dots);
+  const T={rand:'<b>Random sample of 24:</b> every student has the same chance of being chosen, so the sample is spread across the whole school. Its average is <b>close</b> to the whole school: it is <b>representative</b>.',
+   rand6:'<b>Random sample of 6:</b> chosen fairly, but very small. Click it a few times: the average jumps around. A sample needs to be <b>large enough</b>.',
+   lib:'<b>Students in the library:</b> students who study in the library may not reflect a typical group of students. Their average is <b>much higher</b>: <b>not representative</b>.',
+   y12:'<b>One Year 12 class:</b> only one year level is included, so younger students are missed. <b>Not representative</b>.',clr:'Choose a sample →'};
   sl.querySelectorAll('.btns button').forEach(b=>b.onclick=()=>{dots.forEach(d=>d.classList.remove('on'));const s=b.dataset.s;let pick=[];
-   if(s==='rand'){const ix=[...dots.keys()].sort(()=>Math.random()-.5).slice(0,24);pick=ix}
+   if(s==='rand'||s==='rand6')pick=[...dots.keys()].sort(()=>Math.random()-.5).slice(0,s==='rand'?24:6);
    if(s==='lib')pick=dots.map((d,k)=>d.classList.contains('lib')?k:-1).filter(k=>k>=0).slice(0,24);
    if(s==='y12')pick=[...Array(24).keys()].map(k=>216+k);
-   pick.forEach((k,n)=>setTimeout(()=>dots[k].classList.add('on'),n*35));out.innerHTML=T[s]})});
+   pick.forEach((k,n)=>setTimeout(()=>dots[k].classList.add('on'),n*35));out.innerHTML=T[s];
+   sl.querySelector('.sa').textContent=pick.length?avg(pick.map(k=>dots[k]))+' h':'–'})});
 // histogram: table row appears with its bar
 new MutationObserver(ms=>ms.forEach(m=>{const g=m.target;if(!g.dataset||g.dataset.row===undefined)return;const sl=g.closest('.slide');const on=g.classList.contains('show');
   sl.querySelectorAll('.ft tr.row[data-row="'+g.dataset.row+'"]').forEach(r=>r.classList.toggle('show',on));
@@ -448,6 +604,19 @@ new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.cla
   const fs=()=>{tb.querySelector('[data-a="f"]').textContent=document.fullscreenElement?'⛶ Exit full screen':'⛶ Full screen'};document.addEventListener('fullscreenchange',fs);
   if(i===0)document.body.classList.add('help');
 })();
+
+// two-step classifier (sort cards, Example 1 scaffolds)
+document.querySelectorAll('.two').forEach(t=>{const card=t.closest('.card');
+  t.querySelectorAll('.r1 button').forEach(b=>b.onclick=e=>{e.stopPropagation();t.querySelectorAll('button').forEach(x=>x.classList.remove('ok','no'));t.classList.remove('s2','isC','isN');if(card)card.classList.remove('done');
+    if(b.dataset.v===t.dataset.a){b.classList.add('ok');t.classList.add('s2','is'+t.dataset.a)}else{void b.offsetWidth;b.classList.add('no')}upd(t)});
+  t.querySelectorAll('.r2 button').forEach(b=>b.onclick=e=>{e.stopPropagation();t.querySelectorAll('.r2 button').forEach(x=>x.classList.remove('ok','no'));void b.offsetWidth;
+    if(b.dataset.v===t.dataset.b){b.classList.add('ok');if(card)card.classList.add('done')}else b.classList.add('no');upd(t)})});
+function upd(t){const sl=t.closest('.slide.sort');if(!sl)return;sl.querySelector('.score b').textContent=sl.querySelectorAll('.card.done').length}
+document.querySelectorAll('.slide.sort .reset').forEach(r=>r.onclick=()=>{const sl=r.closest('.slide');sl.querySelectorAll('.two').forEach(t=>{t.classList.remove('s2','isC','isN');t.querySelectorAll('button').forEach(x=>x.classList.remove('ok','no'))});sl.querySelectorAll('.card').forEach(c=>c.classList.remove('done'));sl.querySelector('.score b').textContent=0});
+// mini population panels on Example 2 / You try 2
+document.querySelectorAll('.mini').forEach(m=>{const D=m.querySelector('.md'),n=+m.dataset.n;for(let k=0;k<n;k++){const i=document.createElement('i');
+  const r=(Math.sin(k*12.9898)*43758.5453)%1;if(m.dataset.k==='net'?Math.abs(r)>0.2:(k%20>=14&&k<60))i.classList.add('in');D.appendChild(i)}
+  m.querySelector('button').onclick=e=>{e.stopPropagation();m.classList.toggle('on')}});
 </script>"""
 
 def main(subs):

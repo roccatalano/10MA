@@ -56,7 +56,7 @@ S['9A']=dict(
       dict(q=r'In conducting a survey to determine how many children adults generally have, explain why randomly selecting people outside a childcare centre is likely to lead to bias.',
            w=['!<span class="tx">People outside a childcare centre are very likely to have young children.</span>','*!<span class="tx">Adults with no children (or grown-up children) are left out, so the sample over-represents parents.</span>']),
       dict(q=r'One hundred people at the airport are surveyed about how often they travel.<br>This data is used to make conclusions about that city and how often people travel.<br>Do you think this survey will contain bias? If so, explain why.',
-           w=['*!<span class="tx">Yes.</span>','!<span class="tx">People at an airport are travelling, so they are likely to travel more often than a typical person in the city.</span>'])],
+           w=['!<span class="tx">People at an airport are travelling, so they are likely to travel more often than a typical person in the city.</span>','*!<span class="tx">Yes, the survey will contain bias.</span>'])],
  ex=[dict(n=1,page=768,kp='p. 767',instr='What type of data would the following survey questions generate?',ki=KI_TYPES,
           parts=[('a','!How many televisions do you have in your home?',['*!<span class="tx">Numerical and discrete</span>']),('b','!To what type of music do you most like to listen?',['*!<span class="tx">Categorical and nominal</span>'])],
           yt=[('a','!How tall are the students in Year 10?',['!<span class="tx">The answer is a measurement that can take any value in a range.</span>','*!<span class="tx">Numerical and continuous</span>']),
@@ -67,7 +67,7 @@ S['9A']=dict(
           yt=[('','',['!<span class="tx">A library survey only reaches students who study in the library.</span>','*!<span class="tx">Students who study in the library may not reflect a typical group of Year 12 students.</span>'])])],
  exit=[dict(q=r'What type of data would the survey question ‘How many pairs of shoes do you own?’ generate?',w=['!<span class="tx">The answer is a whole number with a limited number of values.</span>','*!<span class="tx">Numerical and discrete</span>']),
        dict(q=r'A survey is carried out by calling people listed in the phone book to determine their voting preferences for a state election. Why will this sample not necessarily be representative of the state’s views?',
-            w=['*!<span class="tx">Only people with a phone number listed in the phone book can be included.</span>','!<span class="tx">People with only a mobile, or an unlisted number, are left out, so some sections of the community are missed.</span>'])],
+            w=['!<span class="tx">Only people with a phone number listed in the phone book can be included.</span>','*!<span class="tx">People with only a mobile, or an unlisted number, are left out, so some sections of the community are missed.</span>'])],
  learn=['types','sample'],
 )
 # ======================================================================== 9B
@@ -100,7 +100,7 @@ S['9B']=dict(
             w=[hist(['0','5','10','15','20','25','30'],[1,4,5,2,2,1],15,'Hours on the internet',W=300,H=175,ymax=6),'*!<span class="tx">Positively skewed (tail to the right)</span>']),
        dict(q=r'For the stem-and-leaf plot shown below, find the mean correct to one decimal place, the median and the mode.'+stemleaf([('0','2 5 7'),('1','1 1 4 6'),('2','0 3 9'),('3','2 5')],'2 | 3 means 23',col='#000')[1:],
             w=[r'\text{Mean} = \dfrac{205}{12} \approx 17.1',r'\text{Median} = \dfrac{14 + 16}{2} = 15',r'*\text{Mode} = 11'])],
- learn=['hist','shape','stem','median','meanmode'],
+ learn=['hist','shape','stem','median','meanmode'],apk_cols='minmax(0,.85fr) minmax(0,.85fr) minmax(0,1.3fr)',
 )
 
 # ---------------------------------------------------------------- helpers for 9C–9E
@@ -152,7 +152,7 @@ S['9C']=dict(
             w=[r'\text{i } 4','*!<span class="tx">ii Yes. $\\tfrac{16}{22} \\approx 73\\%$ of overseas visitors agree or strongly agree, compared with $\\tfrac{6}{18} \\approx 33\\%$ of Australians.</span>']),
        dict(q=r'A number of people were surveyed to see if they had a mortgage. They were also asked whether they were under or over $50$ years of age. $11$ of the $15$ people under $50$ had a mortgage and $5$ of the $10$ people $50$ or over had a mortgage. Represent the information in a two-way table and find what fraction of people surveyed were $50$ or over and had a mortgage.',
             w=['!'+tw(['Mortgage','No mortgage','Total'],[['Under $50$','11','4','15'],['$50$ or over','5','5','10'],['Total','16','9','25']],col=RED),r'*\dfrac{5}{25} = \dfrac{1}{5}'])],
- learn=['tw_read','tw_build'],apk_split=True,
+ learn=['tw_read','tw_build'],apk_cols='minmax(0,.8fr) minmax(0,1fr) minmax(0,1.25fr)',
 )
 # ======================================================================== 9D
 KI_5=r"<b>Five-figure summary</b>: min, $Q_1$, median $(Q_2)$, $Q_3$, max.<div class='kf'>$\text{IQR} = Q_3 - Q_1$</div><div class='kn'>Leave the median out of the halves when there is an odd number of values.</div>"
@@ -196,5 +196,5 @@ S['9E']=dict(
               ('b','!Draw a box plot to summarise the data, marking outliers if they exist.',[boxplot(0,26,2,2,(8,12,16,19,24),out=(1,),W=560)])])],
  exit=[dict(q=r'For the data set $5, 8, 2, 1, 6, 3, 3, 1, 4, 18, 2, 8, 5$, draw a box plot to summarise the data, marking outliers if they exist.',
             w=['1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 8, 8, 18',r'Q_1 = 2,\ Q_2 = 4,\ Q_3 = 7,\ \text{IQR} = 5',r'2 - 1.5 \times 5 = -5.5,\ \ 7 + 1.5 \times 5 = 14.5\ \therefore\ 18 \text{ is an outlier}',boxplot(0,20,1,2,(1,2,4,7,8),out=(18,),W=600)])],
- learn=['box','boxlive','boxsteps'],
+ learn=['box','boxlive','boxsteps'],apk_cols='minmax(0,.8fr) minmax(0,1fr) minmax(0,1.3fr)',
 )
