@@ -1010,6 +1010,11 @@
     "note": ""
    },
    {
+    "kind": "practice",
+    "items": [],
+    "note": "Buffer / catch-up"
+   },
+   {
     "kind": "review",
     "items": [],
     "note": ""
@@ -1018,11 +1023,6 @@
     "kind": "assess",
     "items": [],
     "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [],
-    "note": "Buffer / catch-up"
    }
   ],
   "10MAA|Trigonometry and Measurement": [

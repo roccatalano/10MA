@@ -30,7 +30,7 @@
  "stepup": null,
  "days_off": {
   "2027-03-05": "Student free day (College PL @ Science Gallery)",
-  "2027-03-24": "Parent teacher interviews (check: student free?)",
+  "2027-03-24": "Parent teacher interviews (student free day)",
   "2027-05-24": "Year 10: Exam revision week (revision lessons, no unit lessons)",
   "2027-05-25": "Year 10: Exam revision week (revision lessons, no unit lessons)",
   "2027-05-26": "Year 10: Exam revision week (revision lessons, no unit lessons)",
@@ -46,13 +46,12 @@
   "2027-06-09": "Year 10 & 11 Exams",
   "2027-06-10": "Year 10 & 11 Exams",
   "2027-06-11": "Student free day (Staff Professional Practice)",
-  "2027-06-15": "Student free day (Essendon only: check campus)",
   "2027-06-21": "Year 10 Work Experience",
   "2027-06-22": "Year 10 Work Experience",
   "2027-06-23": "Year 10 Work Experience",
   "2027-06-24": "Year 10 Work Experience",
   "2027-06-25": "Year 10 Work Experience",
-  "2027-07-12": "Student free day (Niddrie only: check campus)",
+  "2027-07-12": "Student free day (Niddrie)",
   "2027-07-15": "Year 10 Victoria University Experience Day",
   "2027-07-26": "Year 10–11 Course Counselling Day",
   "2027-09-03": "Student free day (Staff PL)",
@@ -475,6 +474,9 @@
    "2027-05-21": [
     4
    ],
+   "2027-06-15": [
+    4
+   ],
    "2027-06-17": [
     4
    ],
@@ -599,5 +601,6 @@
     4
    ]
   }
- }
+ },
+ "note_campus": "Year 10+ are at Niddrie (Rocco 16 Nov): Essendon-only free days do not apply, Niddrie-only ones do."
 }
