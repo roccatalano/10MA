@@ -200,15 +200,6 @@
     "note": ""
    },
    {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-1L"
-     }
-    ],
-    "note": ""
-   },
-   {
     "kind": "practice",
     "items": [],
     "note": "Buffer / catch-up"
@@ -362,15 +353,6 @@
     "kind": "teach",
     "items": [
      {
-      "id": "C10-4E"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
       "id": "C10-4F"
      }
     ],
@@ -381,15 +363,6 @@
     "items": [
      {
       "id": "C10-4F"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-4G"
      }
     ],
     "note": ""
@@ -453,15 +426,6 @@
     "items": [
      {
       "id": "C10-6A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-6B"
      }
     ],
     "note": ""
