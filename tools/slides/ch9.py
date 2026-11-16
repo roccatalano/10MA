@@ -287,6 +287,13 @@ NL_CSS=r"""
 
 .para h2{text-transform:none}
 .col.sm ul li{font-size:19px!important;line-height:1.35}.col.sm table.kt td{font-size:18px}.col.sm table.kt table{width:100%}.col.sm table.kt table td,.col.sm table.kt table th{font-size:16px!important;padding:6px 5px}
+
+.nav{display:none!important}
+.tb{position:fixed;top:8px;right:10px;z-index:50;display:flex;gap:6px;opacity:.35;transition:opacity .2s}.tb:hover{opacity:1}
+.tb button{font:14px Arial,sans-serif;padding:6px 10px;border:2px solid #000;background:#fff;cursor:pointer;border-radius:4px}.tb button:hover{background:#eee}
+.helpbox{display:none;position:fixed;inset:0;margin:auto;width:min(760px,92vw);height:fit-content;z-index:60;background:#fff;border:3px solid #000;box-shadow:8px 8px 0 #000;padding:22px 28px;font:18px Arial,sans-serif}
+body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{border-collapse:collapse;width:100%}.helpbox th{text-align:left;padding:7px 14px 7px 0;white-space:nowrap;vertical-align:top}.helpbox td{padding:7px 0;border-bottom:1px dashed #bbb}
+.helpbox .hx{margin-top:14px;font:inherit;padding:6px 16px;border:2px solid #000;background:#fff;cursor:pointer}
 /* ---- New learning slides (ch9.py) ---- */
 .slide.nl .bar .tag{font-size:22px}
 .slide.nl .lead{font-size:24px;margin:16px 4px 10px}
@@ -417,6 +424,30 @@ new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.cla
   if(t.dataset.act==='mode')sl.querySelectorAll('.dp.v1').forEach(c=>c.classList.toggle('hi',on));
   if(t.dataset.act==='med'){const all=[...sl.querySelectorAll('.dp')];[4,5].forEach(q=>{})}
 })).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
+
+// ---- controls: double tap = whole slide, toolbar, help, F toggles full screen
+(()=>{let last=null;const D=350,full=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();
+  addEventListener('click',e=>{if(e.target.closest('.ix,button,input,.tb,.helpbox'))return;e.stopImmediatePropagation();
+    const side=e.clientX>innerWidth/2?1:-1,t=Date.now();
+    if(last&&last.side===side&&t-last.t<D){show(last.i+side);last=null;return}
+    last={side,t,i};side>0?fwd():back()},true);
+  addEventListener('keydown',e=>{if(e.key==='f'||e.key==='F'){e.stopImmediatePropagation();full()}if(e.key==='?'||e.key==='h'||e.key==='H')document.body.classList.toggle('help');if(e.key==='Escape')document.body.classList.remove('help')},true);
+  const tb=document.createElement('div');tb.className='tb';tb.innerHTML='<button data-a="p" title="Previous slide">◀◀</button><button data-a="b" title="Back one step">◀</button><button data-a="n" title="Next step">▶</button><button data-a="s" title="Next slide">▶▶</button><button data-a="f" title="Full screen on / off (F)">⛶ Full screen</button><button data-a="h" title="How to use (?)">?</button>';
+  document.body.appendChild(tb);
+  tb.onclick=e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;({p:()=>show(i-1),b:back,n:fwd,s:()=>show(i+1),f:full,h:()=>document.body.classList.toggle('help')})[a]()};
+  const hb=document.createElement('div');hb.className='helpbox';hb.innerHTML=`<h2>How to use these slides</h2><table>
+   <tr><th>Next line of working</th><td>Click or tap the <b>right half</b> of the screen · → · Space</td></tr>
+   <tr><th>Back one line</th><td>Click or tap the <b>left half</b> · ←</td></tr>
+   <tr><th>Next slide (skip the working)</th><td><b>Double tap</b> the right half · ▶▶</td></tr>
+   <tr><th>Previous slide</th><td><b>Double tap</b> the left half · ◀◀</td></tr>
+   <tr><th>Full screen</th><td><b>F</b> or ⛶ button</td></tr>
+   <tr><th>Exit full screen</th><td><b>Esc</b> or <b>F</b> again</td></tr>
+   <tr><th>Jump to a slide</th><td>Type its number, then <b>Enter</b> · Home = first · End = last</td></tr>
+   <tr><th>This help</th><td><b>?</b> button or <b>H</b> · close with Esc or ?</td></tr></table><button class="hx">Close</button>`;
+  document.body.appendChild(hb);hb.querySelector('.hx').onclick=()=>document.body.classList.remove('help');
+  const fs=()=>{tb.querySelector('[data-a="f"]').textContent=document.fullscreenElement?'⛶ Exit full screen':'⛶ Full screen'};document.addEventListener('fullscreenchange',fs);
+  if(i===0)document.body.classList.add('help');
+})();
 </script>"""
 
 def main(subs):
