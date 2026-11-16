@@ -13,7 +13,7 @@ CK='Chapter 9 checklist'
 
 def slide_li(sub,c,d):
     st=f'{sub} {c["title"]}';L=c['learning_intentions'];S=c['success_criteria'];n=max(len(L),len(S))
-    seq=['Do Now','Activating prior knowledge','Key ideas','New learning']+[f'Example {e["n"]} · You try {e["n"]} — {B.card_ex_title(c,e["n"])}' for e in d['ex']]+['Exit tasks','Coursework']
+    seq=['Activating prior knowledge','Key ideas','New learning']+[f'Example {e["n"]} · You try {e["n"]} — {B.card_ex_title(c,e["n"])}' for e in d['ex']]+['Exit tasks','Coursework']
     ns=[x['n'] for x in S];cells=''
     for k in range(n):
         cells+=f'<div class="lr" style="grid-row:{k+2};grid-column:1">{("• "+html.escape(L[k])) if k<len(L) else ""}</div><div class="lr" style="grid-row:{k+2};grid-column:2">{("☐ "+html.escape(S[k]["text"])) if k<len(S) else ""}</div>'
@@ -610,7 +610,7 @@ def L_parallel(sub):
 LEARN={'types':L_types,'sample':L_sample,'hist':L_hist,'shape':L_shape,'stem':L_stem,'tw_read':L_tw_read,'tw_build':L_tw_build,'five':L_five,'fence':L_fence,'box':L_box,'boxlive':L_boxlive,'median':L_median,'meanmode':L_meanmode,'boxsteps':L_boxsteps}
 
 def subchapter(sub):
-    c=B.card('C10-'+sub);d=B.DATA[sub];o=[B.slide_donow(f'{sub}')]
+    c=B.card('C10-'+sub);d=B.DATA[sub];o=[]
     ki=B.slide_ki(sub,c,d)
     if sub=='9A':ki=re.sub(r'(<h2>Key formulas</h2>).*?(</div></div><div class="foot">)',lambda m:m.group(1)+'<div class="flow sm">'+types_flow(False,W=640,H=470,leafw=140,fs=0.88)+'</div>'+m.group(2),ki,flags=re.S).replace('<h2>Key formulas</h2>','<h2>Types of data</h2>')
     o+= [B.slide_title(sub,c,B.UNIT),slide_li(sub,c,d),slides_apk(sub,c,d),ki]
@@ -625,7 +625,7 @@ def subchapter(sub):
             ex=ex.replace('<div class="pw">',mini('net')+'<div class="pw">',1).replace('class="part wide"','class="part wide wm"',1)
             yt=yt.replace('<div class="pw">',mini('lib')+'<div class="pw">',1).replace('class="part wide"','class="part wide wm"',1)
         o+=[ex,yt]
-    if sub=='9E':o+=[B.slide_donow(f'Lesson 6 · {sub} continued')]+L_parallel(sub)
+    if sub=='9E':o+=L_parallel(sub)
     o+=slides_exit(sub,c,d);o.append(slide_cw(sub,c))
     return o
 
