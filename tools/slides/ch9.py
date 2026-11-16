@@ -386,6 +386,227 @@ def scaffold(html_,answers):
         a=answers[k[0]];k[0]+=1;return two(*a,big=True)+m.group(0)
     return re.sub(r'<div class="pw">',rep,html_)
 
+
+# ================================================================ Rocco's second pass (16 Nov): step-by-step engines
+def tl(T,vals,big=True):
+    s=sorted(vals);return f'<div class="tl{" sm" if not big else ""}" data-t="{T}">'+''.join(f'<span class="mtile" data-o="{v:g}" data-s="{w:g}">{v:g}</span>' for v,w in zip(vals,s))+'</div>'
+def stp(txt,act='',mark='',mcls='',tag='div',cls=''):
+    a=f' data-act="{act}"' if act else '';m=f' data-mark=\'{mark}\'' if mark else '';c=f' data-markcls="{mcls}"' if mcls else ''
+    return f'<{tag} class="st stp {cls}"{a}{m}{c}>{txt}</{tag}>'
+def med_acts(T,a,b,cls='mid'):return f'cross:{T}:{a}:{b} mid:{T}:{a}:{b}:{cls}'
+def fmt(v):return f'{v:g}'
+def med(a):
+    n=len(a);return a[n//2] if n%2 else (a[n//2-1]+a[n//2])/2
+
+def L_median(sub):
+    odd=[19,3,26,12,34,1,24,15,30,21,27];even=[9,3,12,5,10,2,14,6,11,4]
+    A=(tl('o',odd)+stp('<b>Step 1</b> Write the data in order. Count them: $n = 11$','sort:o')
+       +stp('<b>Step 2</b> Cross off the smallest and the largest, again and again.','cross:o:0:10')
+       +stp('<b>Step 3</b> One value is left in the middle. <b>Median $= 21$</b>','mid:o:0:10:mid')
+       +stp('<span class="sc">Check: the median is the $\\tfrac{n + 1}{2}$th value $= \\tfrac{11 + 1}{2} =$ 6th value</span>'))
+    Bv=(tl('e',even)+stp('<b>Step 1</b> Write the data in order. Count them: $n = 10$','sort:e')
+       +stp('<b>Step 2</b> Cross off the smallest and the largest, again and again.','cross:e:0:9')
+       +stp('<b>Step 3</b> Two values are left: $6$ and $9$. Find halfway: <b>Median $= \\tfrac{6 + 9}{2} = 7.5$</b>','mid:e:0:9:mid')
+       +stp('<span class="sc">Check: $\\tfrac{10 + 1}{2} = 5.5$, so halfway between the 5th and 6th values</span>'))
+    body=(f'<p class="lead"><b>Median</b>: the middle value when data are placed in order. <span class="hint">Click to find the median.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1fr 1fr"><div class="col"><h2>Odd number of values</h2>{A}</div>'
+          f'<div class="col"><h2>Even number of values</h2>{Bv}</div></div>')
+    return [nl(sub,'Finding the median step by step',body,f'{BOOK}, 9B Key ideas (p. 773). Data and steps by teacher.','medn eng')]
+
+def L_meanmode(sub):
+    mean=(stp('<b>Step 1</b> Add all the data values:<br>$0 \\times 1 + 1 \\times 5 + 2 \\times 3 + 3 \\times 1$<br>$= 0 + 5 + 6 + 3 = 14$')
+          +stp('<b>Step 2</b> Count the data values: $n = 10$ families')
+          +stp('<b>Step 3</b> Divide:<br><b>$\\bar{x} = \\dfrac{14}{10} = 1.4$</b>'))
+    medn=(stp('<b>Step 1</b> Write the data in order:<br>$0, 1, 1, 1, 1, 1, 2, 2, 2, 3$')
+          +stp('<b>Step 2</b> $n = 10$, so the middle is between the 5th and 6th values.')
+          +stp('<b>Step 3</b> The 5th and 6th values are $1$ and $1$:<br><b>Median $= \\tfrac{1 + 1}{2} = 1$</b>'))
+    mode=(stp('<b>Step 1</b> Count each value:<br>$0$: 1 &nbsp; $1$: 5 &nbsp; $2$: 3 &nbsp; $3$: 1')
+          +stp('<b>Step 2</b> The value $1$ occurs most often (tallest column).','mode')
+          +stp('<b>Mode $= 1$</b>'))
+    body=(f'<p class="lead">A number of families were surveyed to find the number of children in each. <span class="hint">Click to work through each measure.</span></p>'
+          f'<div class="cols" style="grid-template-columns:.8fr 1fr 1fr 1fr"><div class="col" style="justify-content:center">{dotplot_svg()}</div>'
+          f'<div class="col"><h2>Mean</h2><div class="kfm sm">$\\bar{{x}} = \\dfrac{{\\text{{sum of all data values}}}}{{\\text{{number of data values}}}}$</div>{mean}</div>'
+          f'<div class="col"><h2>Median</h2><div class="kfm sm">the middle value when data are placed in order</div>{medn}</div>'
+          f'<div class="col"><h2>Mode</h2><div class="kfm sm">the value that occurs most frequently</div>{mode}</div></div>')
+    return [nl(sub,'Mean, median and mode step by step',body,f'{BOOK}, 9B Building understanding Q1 (p. 774) and Key ideas (p. 773). Working by teacher.','mmode')]
+
+def hist_parts(vals,bins,xlab,W=440,H=300,ymax=None,pct=True,total=None,tail=None,T='h',fs=1):
+    """bins = list of (label, lo, hi). returns table html (rows st, marking chips) and svg (bars st)"""
+    n=len(vals);f=[sum(1 for v in vals if lo<=v<=hi) for _,lo,hi in bins];ymax=ymax or max(f)+1
+    def p(x):
+        v=x/n*100;return f'{v:g}' if abs(v*100-round(v*100))<1e-9 else f'{v:.2f}'
+    rows=''.join(f'<tr class="st" data-mark=\'.chip[data-t="{T}"][data-bin="{k}"]\'><td>{lab}</td><td>{f[k]}</td>{f"<td>{p(f[k])}</td>" if pct else ""}</tr>' for k,(lab,_,_) in enumerate(bins))
+    rows+=f'<tr class="st tot"><td>Total</td><td>{n}</td>{"<td>100</td>" if pct else ""}</tr>'
+    tbl=f'<table class="ft2"><tr><th>Class interval</th><th>Frequency</th>{"<th>% frequency</th>" if pct else ""}</tr>{rows}</table>'
+    L,R,Tp,Bm=48,(48 if pct else 16),24,46;nb=len(bins);w=(W-L-R)/nb;h=H-Tp-Bm;y=lambda q:Tp+h-q/ymax*h
+    o=[f'<line x1="{L}" y1="{Tp+h}" x2="{W-R}" y2="{Tp+h}" stroke="#000" stroke-width="2"/><line x1="{L}" y1="{Tp-6}" x2="{L}" y2="{Tp+h}" stroke="#000" stroke-width="2"/>']
+    st=1 if ymax<=10 else 2
+    for k in range(0,ymax+1,st):o.append(f'<line x1="{L-5}" y1="{y(k)}" x2="{L}" y2="{y(k)}" stroke="#000"/><text x="{L-9}" y="{y(k)+5}" font-size="{14*fs}" text-anchor="end">{k}</text>')
+    for k,(lab,lo,hi) in enumerate(bins):o.append(f'<text x="{L+k*w}" y="{Tp+h+18}" font-size="{14*fs}" text-anchor="middle">{lo}</text>')
+    o.append(f'<text x="{W-R}" y="{Tp+h+18}" font-size="{14*fs}" text-anchor="middle">{bins[-1][2]+1}</text><text x="{(L+W-R)/2}" y="{H-6}" font-size="{15*fs}" text-anchor="middle">{xlab}</text><text x="14" y="{Tp+h/2}" font-size="{15*fs}" text-anchor="middle" transform="rotate(-90 14 {Tp+h/2})">Frequency</text>')
+    for k,q in enumerate(f):
+        if q:o.append(f'<g class="st grow"><rect x="{L+k*w}" y="{y(q)}" width="{w}" height="{Tp+h-y(q)}" fill="#d00000" fill-opacity=".25" stroke="#d00000" stroke-width="2"/><text x="{L+k*w+w/2}" y="{y(q)-6}" font-size="{15*fs}" text-anchor="middle" fill="#d00000" font-weight="bold">{q}</text></g>')
+    if pct:
+        o.append('<g class="st">'+f'<line x1="{W-R}" y1="{Tp-6}" x2="{W-R}" y2="{Tp+h}" stroke="#000" stroke-width="2"/>'+''.join(f'<line x1="{W-R}" y1="{y(k)}" x2="{W-R+5}" y2="{y(k)}" stroke="#000"/><text x="{W-R+8}" y="{y(k)+5}" font-size="{13*fs}">{k/n*100:g}</text>' for k in range(0,ymax+1,st) if (k/n*100)==int(k/n*100))+f'<text x="{W-10}" y="{Tp+h/2}" font-size="{14*fs}" text-anchor="middle" transform="rotate(90 {W-10} {Tp+h/2})">% frequency</text></g>')
+    if tail:
+        k0=tail;x1=L+k0*w+4;x2=W-R-6;yy=y(max(f[k0:]))-26
+        o.append(f'<g class="st"><defs><marker id="tl{T}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f5fbf"/></marker></defs><line x1="{x1}" y1="{yy}" x2="{x2}" y2="{yy}" stroke="#1f5fbf" stroke-width="3" marker-end="url(#tl{T})"/><text x="{(x1+x2)/2}" y="{yy-8}" font-size="{16*fs}" text-anchor="middle" fill="#1f5fbf" font-weight="bold">tail</text></g>')
+    svg=f'<svg class="hsv" viewBox="0 0 {W} {H}" style="width:100%;height:auto;max-height:100%">{"".join(o)}</svg>'
+    return tbl,svg
+def chips(T,vals,bins):
+    def b(v):return next(k for k,(_,lo,hi) in enumerate(bins) if lo<=v<=hi)
+    return '<div class="chips2">'+''.join(f'<span class="chip" data-t="{T}" data-bin="{b(v)}">{v:g}</span>' for v in vals)+'</div>'
+
+def L_hist(sub):
+    vals=[22,7,31,15,25,12,4,27,18,35,21,9,29,13,24,38,11,26,20,33]
+    bins=[('0–9',0,9),('10–19',10,19),('20–29',20,29),('30–39',30,39)]
+    tbl,svg=hist_parts(vals,bins,'Score',W=520,H=330,ymax=10,T='h')
+    body=(f'<p class="lead">Twenty students sat a test. Their scores are below. <span class="hint">Click: each class interval is counted into the table, then drawn as a bar.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1.1fr 1fr"><div class="col"><h2>1 · Data → frequency table</h2>{chips("h",vals,bins)}{tbl}'
+          '<p class="sm2">The interval $10–19$ includes all whole numbers from $10$ to $19$. % frequency $= \\dfrac{\\text{frequency}}{\\text{total}} \\times 100$</p></div>'
+          f'<div class="col"><h2>2 · Frequency table → histogram</h2><div style="flex:1;min-height:0;display:flex;align-items:center">{svg}</div><p class="sm2 after">The bars sit across the class boundaries and there are <b>no gaps</b> between bars.</p></div></div>')
+    return [nl(sub,'From data to frequency table to histogram',body,f'{BOOK}, 9B Key ideas (p. 773); notes on bars from Example 3 (p. 775). Data made up by the teacher.','hist2')]
+
+def ex3_slide(sub,c,yt):
+    if not yt:
+        vals=[21,19,5,10,15,18,31,40,32,25,11,28,31,29,16,2,13,33,14,24];bins=[('0–9',0,9),('10–19',10,19),('20–29',20,29),('30–39',30,39),('40–49',40,49)]
+        q='Twenty people were surveyed to find out how many times they use the internet in a week. The raw data are listed.<br>$21, 19, 5, 10, 15, 18, 31, 40, 32, 25$<br>$11, 28, 31, 29, 16, 2, 13, 33, 14, 24$';xl='Number of times the internet is accessed'
+        src=f'{BOOK}, 9B Example 3 (p. 774–775); class intervals written as 0–9, 10–19, … by the teacher; key idea p. 773'
+    else:
+        vals=[10,7,2,5,22,14,7,9,11,29,32,18,5,24,12,14];bins=[('0–9',0,9),('10–19',10,19),('20–29',20,29),('30–39',30,39)]
+        q='Sixteen people were surveyed to find out how many phone texts they send in one day. The raw data are as follows.<br>$10, 7, 2, 5, 22, 14, 7, 9, 11, 29, 32, 18, 5, 24, 12, 14$';xl='Number of phone texts'
+        src=f'{BOOK}, 9B Example 3 · Now you try (p. 774); working follows Example 3, answers checked against p. 1070; key idea p. 773'
+    T='y' if yt else 'x';tbl,svg=hist_parts(vals,bins,xl,W=430,H=290,T=T,tail=1)
+    pa=f'<div class="part"><div class="qq qt"><span class="lab">a</span>Organise the data into a frequency table using class intervals of 10. Include a percentage frequency column.</div><div class="pw"><div class="work">{chips(T,vals,bins)}{tbl}</div></div></div>'
+    pb=f'<div class="part"><div class="qq qt"><span class="lab">b</span>Construct a histogram for the data, showing both the frequency and percentage frequency on the one graph.</div><div class="pw"><div class="work">{svg}</div></div></div>'
+    pc=(f'<div class="part"><div class="qq qt"><span class="lab">c</span>Describe the data in the histogram as symmetrical, positively skewed or negatively skewed.</div><div class="pw"><div class="work">'
+        +stp('Most of the data is on the <b>left</b> (lower values).')+stp('The <b>tail</b> stretches out to the <b>right</b>.')+'<div class="st final"><b>Positively skewed</b></div></div></div></div>')
+    tag=f'You try 3' if yt else 'Example 3'
+    return (f'<section class="slide ex ex3{" yt" if yt else ""}">{B.bar(tag,B.card_ex_title(c,3),f"{sub} {c[chr(116)+chr(105)+chr(116)+chr(108)+chr(101)]}")}'
+            f'<div class="top"><p class="q">{q}</p><div class="ki"><div class="kh">Key idea</div><div class="kb">{B.DATA[sub]["ex"][0]["ki"]}</div></div></div>'
+            f'<div class="parts" style="grid-template-columns:minmax(0,1.15fr) minmax(0,1.1fr) minmax(0,.7fr)">{pa}{pb}{pc}</div>{B.foot(src)}</section>')
+
+def ex4_slide(sub,c,yt):
+    if not yt:
+        q=r'Twelve test marks for Rolle in a semester are given as percentages in the raw data below:<br>$66 \;\; 74 \;\; 81 \;\; 68 \;\; 94 \;\; 88 \;\; 74 \;\; 85 \;\; 90 \;\; 72 \;\; 79 \;\; 86$'
+        stems=[('6','6 8'),('7','2 4 4 9'),('8','1 5 6 8'),('9','0 4')];key='8 | 4 means 84%';u='%'
+        mode=['!<span class="tx">74 appears twice; every other mark appears once.</span>','*\\text{Mode} = 74\\%']
+        medn=['!<span class="tx">$n = 12$, so the middle is between the 6th and 7th marks.</span>','\\text{6th} = 79,\\ \\text{7th} = 81','*\\text{Median} = \\dfrac{79 + 81}{2} = 80\\%']
+        mean=['!<span class="tx">Add all 12 marks: $66 + 68 + \\cdots + 94 = 957$</span>','*\\text{Mean} = \\dfrac{957}{12} = 79.75\\%']
+        src=f'{BOOK}, 9B Example 4 (p. 776); working set out step by step by the teacher; key idea p. 773'
+    else:
+        q='Payments from Lucy’s last twelve babysitting jobs are given below.<br><span class="nomath">$</span>36 &nbsp;<span class="nomath">$</span>48 &nbsp;<span class="nomath">$</span>44 &nbsp;<span class="nomath">$</span>62 &nbsp;<span class="nomath">$</span>56 &nbsp;<span class="nomath">$</span>58 &nbsp;<span class="nomath">$</span>52 &nbsp;<span class="nomath">$</span>39 &nbsp;<span class="nomath">$</span>56 &nbsp;<span class="nomath">$</span>38 &nbsp;<span class="nomath">$</span>60 &nbsp;<span class="nomath">$</span>45'
+        stems=[('3','6 8 9'),('4','4 5 8'),('5','2 6 6 8'),('6','0 2')];key='5 | 2 means $52';u='\\$'
+        mode=['!<span class="tx">56 appears twice; every other payment appears once.</span>','*\\text{Mode} = \\$56']
+        medn=['!<span class="tx">$n = 12$, so the middle is between the 6th and 7th payments.</span>','\\text{6th} = 48,\\ \\text{7th} = 52','*\\text{Median} = \\dfrac{48 + 52}{2} = \\$50']
+        mean=['!<span class="tx">Add all 12 payments: $36 + 38 + \\cdots + 62 = 594$</span>','*\\text{Mean} = \\dfrac{594}{12} = \\$49.50']
+        src=f'{BOOK}, 9B Example 4 · Now you try (p. 776); working follows Example 4, answers checked against p. 1070; key idea p. 773'
+    rows=''.join(f'<tr class="st"><td class="sm_">{s}</td><td class="lv_">{l}</td></tr>' for s,l in stems)
+    sl=f'<table class="slp"><tr><th>Stem</th><th>Leaf</th></tr>{rows}</table><div class="st">{key.replace("$","<span class=nomath>$</span>")}</div>'
+    def box(lab,t,ls):return f'<div class="sub3"><div class="qq qt"><span class="lab">{lab}</span>{t}</div><div class="work">{B.lines_html(ls)}</div></div>'
+    pa=f'<div class="part"><div class="qq qt"><span class="lab">a</span>Construct a stem-and-leaf plot for the data.</div><div class="pw"><div class="work">'+stp('Stems: the tens digits. Leaves: the units digits, written in order.')+f'{sl}</div></div></div>'
+    pb=(f'<div class="part"><div class="qq qt"><span class="lab">b</span>Use your stem-and-leaf plot to find:</div><div class="b3">'
+        +box('i','the mode',mode)+box('ii','the median',medn)+box('iii','the mean',mean)+'</div></div>')
+    tag='You try 4' if yt else 'Example 4'
+    return (f'<section class="slide ex ex4s{" yt" if yt else ""}">{B.bar(tag,B.card_ex_title(c,4),sub+" "+c["title"])}'
+            f'<div class="top"><p class="q">{q}</p><div class="ki"><div class="kh">Key idea</div><div class="kb">{B.DATA[sub]["ex"][1]["ki"]}</div></div></div>'
+            f'<div class="parts" style="grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr)">{pa}{pb}</div>{B.foot(src)}</section>')
+
+def L_stem(sub):
+    vals=[24,3,30,15,1,27,19,34,12,21,26];s=sorted(vals)
+    rows=''
+    for st_ in range(4):
+        lv=[(k,v) for k,v in enumerate(s) if v//10==st_]
+        leaves=''.join(stp(f'{v%10}',mark=f'.tl[data-t="sl"] .mtile:nth-child({k+1})',tag='span',cls='lf2') for k,v in lv)
+        rows+=f'<tr><td class="stm mk">{st_}</td><td class="lvs">{leaves}</td></tr>'
+    body=(f'<div class="cols" style="grid-template-columns:.85fr 1.15fr"><div class="col"><h2>Data</h2>{tl("sl",vals)}'
+          +stp('<b>Step 1</b> Write the data in order.','sort:sl')
+          +stp('<b>Step 2</b> Write the <b>stems</b> (tens digits) down the left: $0, 1, 2, 3$.',mark='.stm',mcls='on')
+          +stp('<b>Step 3</b> Write the <b>key</b>, so everyone knows how to read the plot.',mark='.keyb',mcls='on')
+          +stp('<b>Step 4</b> Write each <b>leaf</b> (units digit) next to its stem, in order.')
+          +'</div><div class="col"><h2>Stem-and-leaf plot <span class="hint" style="text-transform:none">click to build</span></h2>'
+          f'<table class="sl"><tr><th>Stem</th><th>Leaf</th></tr>{rows}</table><div class="mk keyb">Key: $2\\,|\\,4$ means $24$</div></div></div>')
+    # order of reveal: steps in left column then right column; reorder so stems/key/leaves follow their step
+    return [nl(sub,'Building a stem-and-leaf plot',body,f'{BOOK}, 9B Key ideas (p. 773). Data made up by the teacher.','stem2 eng')]
+
+def L_five(sub):
+    odd=[6,2,9,1,5,7,2,6,3];even=[8,3,9,2,9,4,7,3,9,8]
+    A=(tl('a',odd)+stp('<b>1</b> Order the data. $n = 9$','sort:a')+stp('<b>2</b> Find the median, as before: <b>$Q_2 = 5$</b>',med_acts('a',0,8))
+       +stp('<b>3</b> Split into a lower half and an upper half. With an odd $n$, leave the median out.','clr:a band:a:0:3:lo band:a:5:8:hi mid:a:4:4:mid')
+       +stp('<b>4</b> $Q_1$ = the median of the lower half: <b>$Q_1 = \\tfrac{2 + 2}{2} = 2$</b>',med_acts('a',0,3,'q'))
+       +stp('<b>5</b> $Q_3$ = the median of the upper half: <b>$Q_3 = \\tfrac{6 + 7}{2} = 6.5$</b>',med_acts('a',5,8,'q'))
+       +stp('<b>$\\text{IQR} = Q_3 - Q_1 = 6.5 - 2 = 4.5$</b>'))
+    Bv=(tl('b',even)+stp('<b>1</b> Order the data. $n = 10$','sort:b')+stp('<b>2</b> Find the median, as before: <b>$Q_2 = \\tfrac{7 + 8}{2} = 7.5$</b>',med_acts('b',0,9))
+       +stp('<b>3</b> Split into a lower half and an upper half (5 values each).','clr:b band:b:0:4:lo band:b:5:9:hi')
+       +stp('<b>4</b> $Q_1$ = the median of the lower half: <b>$Q_1 = 3$</b>',med_acts('b',0,4,'q'))
+       +stp('<b>5</b> $Q_3$ = the median of the upper half: <b>$Q_3 = 9$</b>',med_acts('b',5,9,'q'))
+       +stp('<b>$\\text{IQR} = Q_3 - Q_1 = 9 - 3 = 6$</b>'))
+    body=(f'<p class="lead">Quartiles are just <b>medians of each half</b> of the data. <span class="hint">Click to find each quartile.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1fr 1fr"><div class="col"><h2>Odd number of values</h2>{A}</div><div class="col"><h2>Even number of values</h2>{Bv}</div></div>')
+    return [nl(sub,'Finding quartiles and the IQR',body,f'{BOOK}, 9D Key ideas (p. 790): data from the Key ideas, given unordered by the teacher. Steps by teacher.','five2 eng')]
+
+def L_fence(sub):
+    body=('<div class="ctx">Eight houses sold in a suburb this year. Then one owner either <b>knocks the house down</b> and sells the empty block cheaply, or <b>builds a mansion</b> and sells it for millions. Drag the slider to change that one sale price. Which prices are <b>outliers</b>?</div>'
+          '<div class="cols" style="grid-template-columns:1.4fr .6fr"><div class="col"><h2>House sale prices ($ thousands) <span class="hint" style="text-transform:none">drag the slider</span></h2>'
+          '<svg class="fz ix" viewBox="0 0 700 230" style="width:100%;flex:1;min-height:0"></svg>'
+          '<div class="ix sl"><span>Knocked down</span><input type="range" min="100" max="3000" step="10" value="800" class="big"><span>Mansion</span><b class="bv"></b></div></div>'
+          '<div class="col"><h2>Live summary</h2><div class="fsum"></div></div></div>')
+    return [nl(sub,'Outliers and fences',body,f'{BOOK}, 9D Key ideas (p. 790). House prices made up by the teacher.','fence2')]
+
+def L_box(sub):
+    W,L=900,40;a,b=0,30;x=lambda v:L+(v-a)/(b-a)*(W-2*L);by=110
+    marks=[('Minimum value',5),('Lower quartile $Q_1$',10),('Median $Q_2$',15),('Upper quartile $Q_3$',20),('Maximum value',25)]
+    o=[f'<line x1="{L-20}" y1="190" x2="{W-L+20}" y2="190" stroke="#000" stroke-width="2"/>']+[f'<line x1="{x(v)}" y1="184" x2="{x(v)}" y2="196" stroke="#000"/><text x="{x(v)}" y="218" font-size="20" text-anchor="middle">{v}</text>' for v in range(0,31,5)]
+    for k,(t,v) in enumerate(marks):o.append(f'<g class="mk" id="bm{k}"><line x1="{x(v)}" y1="{by-36}" x2="{x(v)}" y2="{by+36}" stroke="#d00000" stroke-width="4"/></g>')
+    o.append(f'<g class="st"><rect x="{x(10)}" y="{by-34}" width="{x(20)-x(10)}" height="68" fill="#d00000" fill-opacity=".15" stroke="#000" stroke-width="3"/><line x1="{x(15)}" y1="{by-34}" x2="{x(15)}" y2="{by+34}" stroke="#000" stroke-width="3"/></g>')
+    o.append(f'<g class="st"><line x1="{x(5)}" y1="{by}" x2="{x(10)}" y2="{by}" stroke="#000" stroke-width="3"/><line x1="{x(20)}" y1="{by}" x2="{x(25)}" y2="{by}" stroke="#000" stroke-width="3"/><text x="{x(7.5)}" y="{by+28}" font-size="16" text-anchor="middle">whisker</text><text x="{x(22.5)}" y="{by+28}" font-size="16" text-anchor="middle">whisker</text><text x="{x(15)}" y="{by+56}" font-size="16" text-anchor="middle">box</text></g>')
+    o.append('<g class="st">'+''.join(f'<text x="{(x(p)+x(q))/2}" y="{by-46}" font-size="19" text-anchor="middle" fill="#1f5fbf" font-weight="bold">approx. 25%</text>' for p,q in ((5,10),(10,15),(15,20),(20,25)))+'</g>')
+    svg=f'<svg viewBox="0 0 {W} 230" style="width:100%">{"".join(o)}</svg>'
+    rows=''.join(f'<tr class="st" data-mark="#bm{k}" data-markcls="on"><th>{t}</th><td>{v}</td></tr>' for k,(t,v) in enumerate(marks))
+    body=(f'<p class="lead">A <b>box plot</b> is drawn from the <b>five-figure summary</b>. It divides the data set into four groups that are approximately equal in size (25%). <span class="hint">Click to draw each value.</span></p>'
+          f'<div class="cols" style="grid-template-columns:.42fr 1fr"><div class="col"><h2>Five-figure summary</h2><table class="ffs">{rows}</table></div><div class="col" style="justify-content:center">{svg}</div></div>'
+          '<p class="sm2 after">The <b>box</b> goes from $Q_1$ to $Q_3$ (its width is the IQR). The <b>whiskers</b> stretch to the lowest and highest data values that are not outliers.</p>')
+    return [nl(sub,'Parts of a box plot',body,f'{BOOK}, 9E Key ideas (p. 796); values from Building understanding Q1 (p. 796)','boxs2')]
+
+def L_boxlive(sub):
+    body=('<div class="ctx">Thirteen students recorded how many minutes it takes them to walk to school. One student’s time changes: they might live <b>right next door</b>, or <b>a very long way away</b>. Drag the slider. When does that time become an <b>outlier</b>, and what happens to the box plot?</div>'
+          '<div class="cols" style="grid-template-columns:1.45fr .55fr"><div class="col"><h2>Walking time to school (minutes) <span class="hint" style="text-transform:none">drag the slider</span></h2>'
+          '<svg class="bz ix" viewBox="0 0 760 300" style="width:100%;flex:1;min-height:0"></svg>'
+          '<div class="ix sl"><span>Next door</span><input type="range" min="0" max="45" value="24" class="big"><span>Very far</span><b class="bv"></b></div></div>'
+          '<div class="col"><h2>Five-figure summary</h2><div class="fsum"></div><p class="sm2" style="margin-top:auto">An outlier is marked with a dot (•). The whisker stops at the last value that is <b>not</b> an outlier.</p></div></div>')
+    return [nl(sub,'Box plots with outliers',body,f'{BOOK}, 9E Key ideas (p. 796). Walking times made up by the teacher.','boxl2')]
+
+def L_boxsteps(sub):
+    d=TA;s=sorted(d)
+    steps=(stp('<b>1</b> Order the data. $n = 12$','sort:t')+stp('<b>2</b> Cross off from both ends to find the median: <b>$Q_2 = \\tfrac{4 + 4}{2} = 4$</b>',med_acts('t',0,11))
+           +stp('<b>3</b> Split into halves of 6. $Q_1$ = median of the lower half: <b>$Q_1 = \\tfrac{3 + 3}{2} = 3$</b>','clr:t band:t:0:5:lo band:t:6:11:hi '+med_acts('t',0,5,'q'))
+           +stp('<b>4</b> $Q_3$ = median of the upper half: <b>$Q_3 = \\tfrac{4 + 5}{2} = 4.5$</b>',med_acts('t',6,11,'q'))
+           +stp('<b>5</b> Fill in the five-figure summary.',mark='.ffs.h',mcls='on')
+           +stp('<b>6</b> $\\text{IQR} = 4.5 - 3 = 1.5$. Fences: $3 - 1.5 \\times 1.5 = 0.75$ and $4.5 + 1.5 \\times 1.5 = 6.75$. Nothing outside them: <b>no outliers</b>')
+           +stp('<b>7</b> Draw the scale, mark each value, then draw the box and whiskers.'))
+    f=five(d);X=lambda v:40+v*55
+    tbl='<table class="ffs h mk"><tr><th>Min</th><th>$Q_1$</th><th>$Q_2$</th><th>$Q_3$</th><th>Max</th></tr><tr>'+''.join(f'<td>{fmt(v)}</td>' for v in (min(d),f["q1"],f["q2"],f["q3"],max(d)))+'</tr></table>'
+    svg=f'<svg viewBox="0 0 640 150" style="width:100%">{axis(X,0,10,115)}<g class="st">{"".join(f"<line x1=\"{X(v)}\" y1=\"28\" x2=\"{X(v)}\" y2=\"72\" stroke=\"#d00000\" stroke-width=\"3\" stroke-dasharray=\"5 4\"/>" for v in (min(d),f["q1"],f["q2"],f["q3"],max(d)))}</g>{bp_parts(f,50,X)}</svg>'
+    body=(f'<p class="lead">Test A: &nbsp;$4, 6, 3, 4, 1, 3, 6, 4, 5, 3, 4, 3$ <span class="hint">Click for each step: the same method as before.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1.05fr .95fr"><div class="col">{tl("t",d)}{steps}</div>'
+          f'<div class="col" style="justify-content:space-around"><h2>Five-figure summary</h2>{tbl}<h2>Box plot</h2>{svg}</div></div>')
+    return [nl(sub,'Drawing a box plot step by step',body,f'{BOOK}, 9E Example 9 method (p. 797); data from Using calculators Test A (p. 798). Working by teacher.','bstep2 eng')]
+
+def L_parallel(sub):
+    A,Bf=five(TA),five(TB);X=lambda v:110+v*48
+    svg=(f'<svg viewBox="0 0 640 250" style="width:100%">{axis(X,0,10,210)}'
+         f'{bp_parts(A,60,X,"#1f5fbf",lab="Test A")}{bp_parts(Bf,145,X,"#d00000",lab="Test B")}</svg>')
+    def bl(w):return f'<span class="blank"><span class="st fillw">{w}</span></span>'
+    def sent(h,parts):return f'<div class="tmpl"><div class="th">{h}</div><div class="tt">{parts}</div></div>'
+    s1=sent('Centre (median)',f'The median of Test {bl("B")} is higher than Test {bl("A")} ({bl("5.5")} compared with {bl("4")}), so students generally scored {bl("higher")} on Test {bl("B")}.')
+    s2=sent('Spread (IQR)',f'Test {bl("B")} has the larger IQR ({bl("3")} compared with {bl("1.5")}), so its results are {bl("more spread out")}.')
+    s3=sent('Range',f'Test {bl("B")} has the larger range ({bl("8")} compared with {bl("5")}).')
+    s4=sent('Outliers',f'{bl("Neither test")} has an outlier.')
+    body=(f'<p class="lead">Test A: $4, 6, 3, 4, 1, 3, 6, 4, 5, 3, 4, 3$ &nbsp;&nbsp; Test B: $7, 3, 5, 6, 9, 3, 6, 7, 4, 1, 4, 6$</p><div class="cols" style="grid-template-columns:1fr 1fr"><div class="col"><h2>Parallel box plots</h2>'
+          f'<p class="sm2"><b>Parallel box plots</b> are two or more box plots drawn on the same scale. They are used to compare data sets within the same context. <span class="hint">Click to draw each, then fill in the sentences.</span></p>{svg}</div>'
+          f'<div class="col"><h2>Reporting: fill in the template</h2>{s1}{s2}{s3}{s4}</div></div>')
+    return [nl(sub,'Comparing data with parallel box plots',body,f'{BOOK}, 9E Key ideas (p. 796); data from Using calculators Tests A and B (p. 798). Sentence templates and working by teacher.','para2')]
+
 LEARN={'types':L_types,'sample':L_sample,'hist':L_hist,'shape':L_shape,'stem':L_stem,'tw_read':L_tw_read,'tw_build':L_tw_build,'five':L_five,'fence':L_fence,'box':L_box,'boxlive':L_boxlive,'median':L_median,'meanmode':L_meanmode,'boxsteps':L_boxsteps}
 
 def subchapter(sub):
@@ -396,6 +617,9 @@ def subchapter(sub):
     for k in d.get('learn',[]):o+=LEARN[k](sub)
     for e in d['ex']:
         ex,yt=B.slide_example(sub,c,e,False),B.slide_example(sub,c,e,True)
+        if sub=='9B' and e['n']==3:ex,yt=ex3_slide(sub,c,False),ex3_slide(sub,c,True)
+        if sub=='9B' and e['n']==4:ex,yt=ex4_slide(sub,c,False),ex4_slide(sub,c,True)
+        if sub=='9D' and e['n']==7:ex=ex.replace('; key idea',', set out by the teacher to match the method taught; key idea')
         if sub=='9A' and e['n']==1:ex=scaffold(ex,[('N','Discrete'),('C','Nominal')]);yt=scaffold(yt,[('N','Continuous'),('C','Ordinal')])
         if sub=='9A' and e['n']==2:
             ex=ex.replace('<div class="pw">',mini('net')+'<div class="pw">',1).replace('class="part wide"','class="part wide wm"',1)
@@ -481,6 +705,29 @@ body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{bord
 .a4 .qn{position:relative;font-weight:bold;height:18px}.a4 .sp .c:first-child .qn{margin-left:-42px;width:34px;text-align:right;padding-right:6px;height:18px;margin-bottom:-18px}.a4 .sp .c+.c .qn{color:#000}
 .a4 .ln{height:18px;margin:0 4px 0 0;background:linear-gradient(transparent 7px,#666 7px 9px,transparent 9px);opacity:.55;width:85%}.a4 .ln.s{width:55%;margin-bottom:18px}
 .cwl{font-size:19px;margin:18px 0 0 22px;padding:0;line-height:1.35}.cwl li{margin:0 0 8px}.cwr{height:100%}.cwl li{margin:2px 0}
+
+/* ---- second pass ---- */
+.bstep2 .stp{font-size:17px;margin-bottom:7px}.bstep2 .mtile{font-size:20px;min-width:34px;padding:2px 4px}.bstep2 .tl{gap:5px;margin:2px 0 8px}
+.ex3 .ft2 td{font-size:16px!important}.ex3 .ft2 th{font-size:12px}.ex3 .top .q{font-size:22px}
+[data-id="C10-9D-ex8"] .parts,[data-id="C10-9D-yt8"] .parts{grid-template-columns:minmax(0,1.75fr) minmax(0,.55fr)!important}
+.tl{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 12px}.tl .mtile{transition:opacity .35s,background .3s,transform .3s,color .3s}
+.mtile.lo{background:#dbe7fb;border-color:#1f5fbf}.mtile.hi{background:#fde9cf;border-color:#c46a00}.mtile.q{background:#1f5fbf;color:#fff;border-color:#1f5fbf;transform:scale(1.1)}
+.mtile.x.q,.mtile.x.mid{opacity:1;text-decoration:none}
+.mk{opacity:0;transition:opacity .4s}.mk.on{opacity:1}
+.chips2{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 8px}.chips2 .chip{font-size:18px;padding:2px 7px;border:1.5px solid #000;transition:opacity .4s,background .4s}.chips2 .chip.used{opacity:.3;background:#ffd9d9}
+.ft2{border-collapse:collapse;font-size:18px}.ft2 td,.ft2 th{border:1.5px solid #000;padding:3px 12px;text-align:center}.ft2 th{background:#eee;font-size:13px}.ft2 tr.st td{color:#d00000}.ft2 tr.tot td{font-weight:bold}
+.ft2 tr.st{display:table-row!important;white-space:normal}.slp tr.st,.ffs tr.st{display:table-row!important}
+.ex3 .parts .work{overflow:hidden}.ex3 .chips2 .chip{font-size:14px;padding:1px 5px}.ex3 .ft2{font-size:15px}.ex3 .ft2 td{padding:2px 8px}.ex3 .stp{font-size:20px;color:#d00000}.ex3 .stp b{color:#d00000}
+.ex4s .b3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1;border-top:1.5px dashed #888;margin-top:6px}.sub3{padding:8px 10px;display:flex;flex-direction:column}.sub3+.sub3{border-left:1.5px dashed #888}
+.ex4s .sub3 .st,.ex4s .sub3 .st .tx{font-size:19px!important;white-space:normal}.slp{border-collapse:collapse;font-size:26px;margin:6px 0}.slp th{font-size:15px;padding:2px 10px;border-bottom:2.5px solid #d00000;color:#d00000}.slp td{color:#d00000;padding:2px 10px}.slp td.sm_{border-right:2.5px solid #d00000;text-align:right;font-weight:bold}
+.slp tr.st{display:table-row}.ex4s .stp{font-size:17px;color:#000}
+.stem2 .stm.mk{opacity:0}.stem2 .stm.mk.on{opacity:1}.keyb{font-size:24px;margin:14px 0 0 30px;color:#d00000;font-weight:bold}.lf2{display:inline-block;margin-right:22px;color:#d00000;font-weight:bold;font-size:40px}
+.kfm.sm{font-size:16px;color:#444;border-bottom:1.5px dashed #999;padding-bottom:8px}.mmode .stp{font-size:18px}
+.ffs{border-collapse:collapse;font-size:22px;width:100%}.ffs th,.ffs td{border:1.5px solid #000;padding:8px 10px;text-align:left}.ffs td{color:#d00000;font-weight:bold;text-align:center}.ffs tr.st{display:table-row}.ffs.h th{text-align:center;background:#eee}
+g.mk{opacity:0;transition:opacity .4s}g.mk.on{opacity:1}
+.tmpl{border:1.5px solid #000;margin:0 0 10px;font-size:19px;line-height:1.7}.tmpl .th{background:#eee;font-size:13px;font-weight:bold;text-transform:uppercase;padding:3px 10px}.tmpl .tt{padding:6px 10px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid #000;text-align:center;margin:0 3px;line-height:1.2}.blank .st{display:inline;margin:0;font-weight:bold;white-space:nowrap}
+.fsum2{font-size:20px;line-height:1.55}.fsum2 b{color:#d00000}
 /* ---- New learning slides (ch9.py) ---- */
 .slide.nl .bar .tag{font-size:22px}
 .slide.nl .lead{font-size:24px;margin:16px 4px 10px}
@@ -596,13 +843,14 @@ document.querySelectorAll('.slide.boxl').forEach(sl=>{const sv=sl.querySelector(
 // shape slider: histogram with mean and median
 document.querySelectorAll('.slide.shape').forEach(sl=>{const sv=sl.querySelector('svg.shp'),r=sl.querySelector('.skew');
   const draw=()=>{const a=+r.value/100,N=11,W=640,H=300,L=30,B=36,w=(W-2*L)/N;
-    let f=[...Array(N).keys()].map(k=>{const x=(k+.5)/N;const p=1+3*Math.max(0,-a)*1.6+2,q=1+3*Math.max(0,a)*1.6+2;return Math.pow(x,p-1)*Math.pow(1-x,q-1)});
+    let f=[...Array(N).keys()].map(k=>{const x=(k+.5)/N;const p=3+9*Math.max(0,-a),q=3+9*Math.max(0,a);return Math.pow(x,p-1)*Math.pow(1-x,q-1)});
     const mx=Math.max(...f);f=f.map(v=>Math.round(v/mx*12));const n=f.reduce((s,v)=>s+v,0);
     let mean=f.reduce((s,v,k)=>s+v*k,0)/n;let c=0,med=0;for(let k=0;k<N;k++){if(c+f[k]>=n/2){med=k-.5+(n/2-c)/f[k];break}c+=f[k]}
     const X=v=>L+(v+.5)*w,Y=v=>H-B-v/12*(H-B-20);
     let s=`<line x1="${L}" y1="${H-B}" x2="${W-L}" y2="${H-B}" stroke="#000" stroke-width="2"/>`;
     f.forEach((v,k)=>{s+=`<rect x="${L+k*w}" y="${Y(v)}" width="${w}" height="${H-B-Y(v)}" fill="#d00000" fill-opacity=".2" stroke="#d00000" stroke-width="1.5"/>`;s+=`<text x="${L+k*w+w/2}" y="${H-B+18}" font-size="14" text-anchor="middle">${k}</text>`});
     s+=`<line x1="${X(med)}" y1="10" x2="${X(med)}" y2="${H-B}" stroke="#1f5fbf" stroke-width="4"/><line x1="${X(mean)}" y1="10" x2="${X(mean)}" y2="${H-B}" stroke="#d00000" stroke-width="4" stroke-dasharray="9 6"/>`;
+    if(Math.abs(a)>=.12){const y0=60,x1=a>0?X(med)+40:X(med)-40,x2=a>0?W-L-6:L+6;s+=`<defs><marker id="tla" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f5fbf"/></marker></defs><line x1="${x1}" y1="${y0}" x2="${x2}" y2="${y0}" stroke="#1f5fbf" stroke-width="4" marker-end="url(#tla)"/><text x="${(x1+x2)/2}" y="${y0-10}" font-size="20" text-anchor="middle" fill="#1f5fbf" font-weight="bold">tail</text>`}
     sv.innerHTML=s;sl.querySelector('.vmed').textContent=med.toFixed(1);sl.querySelector('.vmean').textContent=mean.toFixed(1);
     const k=Math.abs(a)<.12?'sym':(a>0?'pos':'neg');sl.querySelector('.shape-name').textContent={sym:'Symmetrical',pos:'Positively skewed',neg:'Negatively skewed'}[k];
     sl.querySelectorAll('.rules li').forEach(li=>li.classList.toggle('on',li.dataset.k===k))};
@@ -656,6 +904,45 @@ document.querySelectorAll('.mini').forEach(m=>{const D=m.querySelector('.md'),n=
 
 // tickable checklist boxes
 document.querySelectorAll('.skill.ck .box').forEach(b=>{b.classList.add('ix');b.onclick=e=>{e.stopPropagation();b.classList.toggle('on')}});
+
+// ---- second pass engines
+function engApply(sl,anim){sl.querySelectorAll('.tl .mtile').forEach(t=>{t.textContent=t.dataset.o;t.className='mtile'});
+  [...sl.querySelectorAll('.st[data-act]')].filter(s=>s.classList.contains('show')).forEach(s=>{const last=s===anim;
+    s.dataset.act.split(' ').forEach(a=>{const [op,T,x,y,c]=a.split(':');if(!T)return;const tiles=[...sl.querySelectorAll('.tl[data-t="'+T+'"] .mtile')];if(!tiles.length)return;
+      if(op==='sort')tiles.forEach(t=>{t.textContent=t.dataset.s;if(last){t.style.transform='scale(.7)';setTimeout(()=>t.style.transform='',250)}});
+      if(op==='clr')tiles.forEach(t=>t.classList.remove('x','mid','q'));
+      if(op==='band')tiles.slice(+x,+y+1).forEach(t=>t.classList.add(c));
+      if(op==='cross'){let i=+x,j=+y,k=0;while(j-i>=2){[i,j].forEach(q=>{const t=tiles[q];if(last)setTimeout(()=>t.classList.add('x'),k*380);else t.classList.add('x')});i++;j--;k++}}
+      if(op==='mid'){const a0=+x,n=+y-a0+1,m=a0+Math.floor((n-1)/2);const go=()=>(n%2?[m]:[m,m+1]).forEach(q=>tiles[q].classList.add(c||'mid'));
+        if(last&&s.dataset.act.includes('cross:'+T+':'+x+':'+y))setTimeout(go,Math.floor((n-1)/2)*380+150);else go()}})})}
+new MutationObserver(ms=>{const done=new Set();ms.forEach(m=>{const t=m.target;if(!t.classList)return;
+  if(t.dataset&&t.dataset.act&&t.classList.contains('st')){const sl=t.closest('.slide');if(sl&&sl.querySelector('.tl')&&!done.has(sl)){done.add(sl);engApply(sl,t.classList.contains('show')?t:null)}}
+  if(t.dataset&&t.dataset.mark&&t.classList.contains('st')){const sl=t.closest('.slide');sl.querySelectorAll(t.dataset.mark).forEach(e=>e.classList.toggle(t.dataset.markcls||'used',t.classList.contains('show')))}})}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
+// 9D fences: house prices
+document.querySelectorAll('.slide.fence2').forEach(sl=>{const sv=sl.querySelector('svg.fz'),r=sl.querySelector('input.big'),O=sl.querySelector('.fsum');O.classList.add('fsum2');
+  const draw=()=>{const X=+r.value;sl.querySelector('.bv').textContent='$'+X+'k';const d=[620,680,700,720,750,780,820,X];const f=fivefig(d),iqr=f.q3-f.q1,lo=f.q1-1.5*iqr,hi=f.q3+1.5*iqr;
+    const mean=d.reduce((s,v)=>s+v,0)/d.length;const A=0,B=3000,px=v=>30+(v-A)/(B-A)*640;let s=`<line x1="20" y1="170" x2="690" y2="170" stroke="#000" stroke-width="2"/>`;
+    for(let v=0;v<=3000;v+=500)s+=`<line x1="${px(v)}" y1="164" x2="${px(v)}" y2="176" stroke="#000"/><text x="${px(v)}" y="196" font-size="15" text-anchor="middle">${v}</text>`;
+    s+=`<rect x="${px(lo)}" y="40" width="${px(hi)-px(lo)}" height="120" fill="#1f5fbf" fill-opacity=".07"/><line x1="${px(lo)}" y1="30" x2="${px(lo)}" y2="170" stroke="#1f5fbf" stroke-width="3" stroke-dasharray="8 6"/><line x1="${px(hi)}" y1="30" x2="${px(hi)}" y2="170" stroke="#1f5fbf" stroke-width="3" stroke-dasharray="8 6"/>`;
+    s+=`<text x="${px(lo)-4}" y="22" font-size="14" text-anchor="end" fill="#1f5fbf">lower fence ${lo}</text><text x="${px(hi)+4}" y="22" font-size="14" fill="#1f5fbf">upper fence ${hi}</text>`;
+    d.forEach((v,k)=>{const o=v<lo||v>hi;s+=`<circle cx="${px(v)}" cy="${k===7?130:150}" r="${k===7?10:8}" fill="${o?'#d00000':(k===7?'#fff':'#555')}" stroke="${k===7?'#d00000':'none'}" stroke-width="3"/>`});
+    s+=`<line x1="${px(f.q2)}" y1="50" x2="${px(f.q2)}" y2="165" stroke="#000" stroke-width="3"/><line x1="${px(mean)}" y1="50" x2="${px(mean)}" y2="165" stroke="#d00000" stroke-width="3" stroke-dasharray="4 4"/>`;
+    sv.innerHTML=s;const ol=d.filter(v=>v<lo||v>hi);
+    O.innerHTML=`$Q_1$ = <b>${f.q1}</b> &nbsp; $Q_3$ = <b>${f.q3}</b><br>IQR = <b>${iqr}</b><br>Lower fence = $Q_1 - 1.5\\times\\text{IQR}$ = <b>${lo}</b><br>Upper fence = $Q_3 + 1.5\\times\\text{IQR}$ = <b>${hi}</b><br>Outlier: <span class="ol">${ol.length?ol.map(v=>'$'+v+'k').join(', ').replace(/\$/g,'&#36;'):'none'}</span><br><span style="border-top:3px solid #000;display:inline-block;width:26px"></span> Median = <b>${f.q2}</b><br><span style="border-top:3px dashed #d00000;display:inline-block;width:26px"></span> Mean = <b>${mean.toFixed(1)}</b><br><span class="sm2">The outlier pulls the <b>mean</b> a long way. The <b>median</b> hardly moves.</span>`;
+    renderMathInElement(O,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false})};r.oninput=draw;draw()});
+// 9E live box plot: walking times
+document.querySelectorAll('.slide.boxl2').forEach(sl=>{const sv=sl.querySelector('svg.bz'),r=sl.querySelector('input.big'),O=sl.querySelector('.fsum');O.classList.add('fsum2');
+  const draw=()=>{const X=+r.value;sl.querySelector('.bv').textContent=X+' min';const d=[12,14,15,15,16,17,18,18,19,20,21,22,X];const f=fivefig(d),iqr=f.q3-f.q1,lo=f.q1-1.5*iqr,hi=f.q3+1.5*iqr;
+    const ok=d.filter(v=>v>=lo&&v<=hi),ol=d.filter(v=>v<lo||v>hi);const wl=Math.min(...ok),wh=Math.max(...ok);const px=v=>30+v/45*700;let s='';
+    const seen={};d.forEach((v,k)=>{seen[v]=(seen[v]||0)+1;s+=`<circle cx="${px(v)}" cy="${120-seen[v]*20}" r="8" fill="${k===12?'#fff':'#888'}" stroke="${k===12?'#d00000':'none'}" stroke-width="3"/>`});
+    s+=`<line x1="20" y1="265" x2="740" y2="265" stroke="#000" stroke-width="2"/>`;for(let v=0;v<=45;v+=5)s+=`<line x1="${px(v)}" y1="259" x2="${px(v)}" y2="271" stroke="#000"/><text x="${px(v)}" y="292" font-size="16" text-anchor="middle">${v}</text>`;
+    const y=195;s+=`<line x1="${px(wl)}" y1="${y}" x2="${px(f.q1)}" y2="${y}" stroke="#d00000" stroke-width="3"/><rect x="${px(f.q1)}" y="${y-26}" width="${px(f.q3)-px(f.q1)}" height="52" fill="#d00000" fill-opacity=".12" stroke="#d00000" stroke-width="3"/>`;
+    s+=`<line x1="${px(f.q2)}" y1="${y-26}" x2="${px(f.q2)}" y2="${y+26}" stroke="#d00000" stroke-width="3"/><line x1="${px(f.q3)}" y1="${y}" x2="${px(wh)}" y2="${y}" stroke="#d00000" stroke-width="3"/>`;
+    s+=`<line x1="${px(wl)}" y1="${y-13}" x2="${px(wl)}" y2="${y+13}" stroke="#d00000" stroke-width="3"/><line x1="${px(wh)}" y1="${y-13}" x2="${px(wh)}" y2="${y+13}" stroke="#d00000" stroke-width="3"/>`;
+    ol.forEach(v=>s+=`<circle cx="${px(v)}" cy="${y}" r="8" fill="#d00000"/>`);
+    [[lo,'lower fence'],[hi,'upper fence']].forEach(([v,t])=>{s+=`<line x1="${px(v)}" y1="${y-42}" x2="${px(v)}" y2="${y+42}" stroke="#1f5fbf" stroke-width="2" stroke-dasharray="7 5"/><text x="${px(v)}" y="${y+58}" font-size="14" text-anchor="middle" fill="#1f5fbf">${t} ${v}</text>`});
+    sv.innerHTML=s;O.innerHTML=`Min = <b>${f.min}</b><br>$Q_1$ = <b>${f.q1}</b><br>Median = <b>${f.q2}</b><br>$Q_3$ = <b>${f.q3}</b><br>Max = <b>${f.max}</b><br>IQR = <b>${iqr}</b><br>Fences: <b>${lo}</b> and <b>${hi}</b><br>Outlier: <span class="ol">${ol.length?ol.join(', '):'none'}</span>`;
+    renderMathInElement(O,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false})};r.oninput=draw;draw()});
 </script>"""
 
 def main(subs):
