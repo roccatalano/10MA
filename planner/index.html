@@ -193,6 +193,7 @@ a{color:var(--accent)}
 .vtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:6px}.vtog button{border:0;background:var(--card);padding:5px 14px;cursor:pointer;font-size:13px}.vtog button.on{background:var(--ink);color:#fff}
 @media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
+.catnest{display:flex;flex-direction:column;gap:4px;margin-top:6px}.catpart{background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:6px;padding:4px 6px;font-size:12px}.catpart .meta{display:flex;justify-content:space-between;align-items:center}.catpart a{margin-right:8px}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -622,7 +623,10 @@ function planLessons(){ // every lesson in this stream, numbered through the cou
     return {u,U,L,cf}})}
 function pcard(l){return `<div class="card t-${l.kind} ${l.cfs.length?'has-cfat':''} ${lopenId===l.id?'open':''}" data-id="${esc(l.id)}">
   <div class="meta"><span>L${l.n}${l.section?' · '+esc(l.section):''}</span><span class="tags">${l.cfs.length?`<span class="tag cfat">CFAT ${l.cfs.join(', ')}</span>`:''}<span class="tag">${l.kind==='assess'?'Assessment':KIND[l.kind]}</span></span></div>
-  <div class="ttl">${esc(l.title)}${l.note?`<div class="src">${esc(l.note)}</div>`:''}</div></div>`}
+  <div class="ttl">${esc(l.title)}${l.note?`<div class="src">${esc(l.note)}</div>`:''}</div>${catNest(l)}</div>`}
+function catNest(l){if(l.kind!=='assess'||l.u.assessment!=='CAT'||String(l.id).startsWith('M:'))return '';const M=((LP.materials||{})[ukey(l.u)]||[]).filter(m=>m.kind==='cat');
+  return `<div class="catnest">${['Practice','Final Task','Redemption'].map(t=>{const m=M.find(m=>m.title===t)||{};const f=m.html||m.pdf;
+    return `<div class="catpart"><div class="meta"><b>${t}</b><span class="tag">${f?'Ready':'Draft'}</span></div>${f?`<div><a href="../${encodeURI(f)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>${m.solutions?`<a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a>`:''}</div>`:''}</div>`}).join('')}</div>`}
 function pdetail(l){return `<div class="pdetail" data-for="${esc(l.id)}"><div class="meta">${SH[l.u.stream]}${numOf(l.u)} ${esc(l.u.name)} · Lesson ${l.n}</div>
   <h2>${l.section?esc(l.section)+' · ':''}${esc(l.title)}</h2>
   ${l.items.length?lessonNests(l):'<div class="empty">No subchapters in this lesson.</div>'}
@@ -720,7 +724,7 @@ function mdetail(l){const subs=[...new Set(l.items.map(x=>x.id))];
   <p class="src">Freefall PDFs are licensed to the school: the modified workbook lives on G: (the link opens it in Google Drive for staff with access).</p></div>`}
 function splitLessons(g){const out=[[],[],[],[]];
   g.L.forEach(l=>{
-    if(l.kind==='assess'){out[1].push(pcard(l));((LP.materials||{})[ukey(g.u)]||[]).filter(m=>m.kind==='cat').forEach(m=>out[1].push(`<div class="card fa t-assess"><div class="meta"><span>CAT</span><span class="tags"><span class="tag">${esc(m.status||'Draft')}</span></span></div><div class="ttl">${esc(m.title)}</div>${m.html||m.pdf?`<div><a href="../${encodeURI(m.html||m.pdf)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a>${m.solutions?`<a href="../${encodeURI(m.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a>`:''}</div>`:'<div class="src">Made by hand</div>'}</div>`));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
+    if(l.kind==='assess'){out[1].push(pcard(l));out[3].push(pcard({...l,id:'M:'+l.id,title:'Modified '+l.title}));return}
     out[0].push(pcard(l)+(lexpand||l.id===lopenId?pdetail(l):''));out[2].push(mcard(l)+((lexpand||'M:'+l.id===lopenId)&&(l.kind==='teach'||l.kind==='practice')?mdetail(l):''));
     l.cfs.forEach(ci=>{const c=g.cf[ci-1],M=((LP.materials||{})[ukey(g.u)]||[]).find(m=>m.kind==='cfat'&&m.n===ci),code=cfatCode(g.u,ci-1,c),rng=esc(subRange(c.items.map(x=>IDX[x.id]?.sub||x.id)));
       out[1].push(`<div class="card fa t-cfat"><div class="meta"><span>After L${l.n}</span><span class="tags"><span class="tag">${M?'Ready':'To build'}</span></span></div><div class="ttl">CFAT ${code} · ${rng}</div>${M?`<div><a href="../${encodeURI(M.html)}?v=${BUST}" target="_blank" rel="noopener">Open ↗</a><a href="../${encodeURI(M.solutions)}?v=${BUST}" target="_blank" rel="noopener">Solutions ↗</a></div>`:''}</div>`);

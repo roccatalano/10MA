@@ -2502,21 +2502,6 @@
     "title": "CFAT 2",
     "html": "assessments/CFAT 1.9.2 - 10MAG - 9D-9E.html",
     "solutions": "assessments/CFAT 1.9.2 - 10MAG - 9D-9E - Solutions.html"
-   },
-   {
-    "kind": "cat",
-    "title": "CAT Practice",
-    "status": "Draft"
-   },
-   {
-    "kind": "cat",
-    "title": "CAT Final Task",
-    "status": "Draft"
-   },
-   {
-    "kind": "cat",
-    "title": "CAT Redemption",
-    "status": "Draft"
    }
   ]
  }
