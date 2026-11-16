@@ -100,7 +100,7 @@ S['9B']=dict(
             w=[hist(['0','5','10','15','20','25','30'],[1,4,5,2,2,1],15,'Hours on the internet',W=300,H=175,ymax=6),'*!<span class="tx">Positively skewed (tail to the right)</span>']),
        dict(q=r'For the stem-and-leaf plot shown below, find the mean correct to one decimal place, the median and the mode.'+stemleaf([('0','2 5 7'),('1','1 1 4 6'),('2','0 3 9'),('3','2 5')],'2 | 3 means 23',col='#000')[1:],
             w=[r'\text{Mean} = \dfrac{205}{12} \approx 17.1',r'\text{Median} = \dfrac{14 + 16}{2} = 15',r'*\text{Mode} = 11'])],
- learn=['hist','shape','stem','median','meanmode'],apk_cols='minmax(0,.85fr) minmax(0,.85fr) minmax(0,1.3fr)',
+ learn=['hist','shape','stem','median','meanmode'],apk_cols='minmax(0,1.05fr) minmax(0,.85fr) minmax(0,1.2fr)',
 )
 
 # ---------------------------------------------------------------- helpers for 9C–9E

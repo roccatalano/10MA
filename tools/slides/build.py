@@ -263,7 +263,7 @@ const shrink=()=>{S.forEach(s=>{s.classList.add('on');
   s.querySelectorAll('.qq').forEach(q=>wfit(q,parseFloat(getComputedStyle(q).fontSize)));
   s.querySelectorAll('.work').forEach(fitWork);
   s.querySelectorAll('.col').forEach(c=>{let f=parseFloat(getComputedStyle(c).fontSize),g=0;while(over(c)&&f>11&&g<30){g++;f-=0.5;c.style.fontSize=f+'px'}});
-  s.querySelectorAll('.parts.g22 .part,.parts.g21 .part,.parts.gc .part').forEach(c=>{let g=0;while((over(c)||c.scrollWidth>c.clientWidth+2)&&g<20){g++;c.querySelectorAll('.qtxt,.st:not(.fig)').forEach(q=>{q.style.fontSize=(parseFloat(getComputedStyle(q).fontSize)*0.94)+'px'});c.querySelectorAll('svg.fig,svg.figc').forEach(v=>{v.style.height=(v.getBoundingClientRect().height*0.92)+'px';v.style.width='auto'})}});
+  s.querySelectorAll('.parts.g22 .part,.parts.g21 .part,.parts.gc .part').forEach(c=>{let g=0;while((over(c)||c.scrollWidth>c.clientWidth+2||[...c.querySelectorAll('.work,.bd')].some(over))&&g<20){g++;c.querySelectorAll('.qtxt,.st:not(.fig)').forEach(q=>{q.style.fontSize=(parseFloat(getComputedStyle(q).fontSize)*0.94)+'px'});c.querySelectorAll('svg.fig,svg.figc').forEach(v=>{v.style.height=(v.getBoundingClientRect().height*0.92)+'px';v.style.width='auto'})}});
   s.classList.remove('on')});show(i);document.body.dataset.ready=1};
 const fl=['KaTeX_Main','KaTeX_Math','KaTeX_Size1','KaTeX_Size2','KaTeX_AMS'].flatMap(f=>['normal','bold','italic','italic bold'].map(w=>document.fonts.load(w+' 20px '+f).catch(()=>0)));
 Promise.all(fl).then(()=>document.fonts.ready).then(()=>setTimeout(shrink,80));

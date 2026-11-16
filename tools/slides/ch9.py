@@ -28,7 +28,7 @@ def slides_exit(sub,c,d):
     for e,sc in zip(d['exit'],c['success_criteria']):
         cells.append(f'<div class="part"><div class="skill ck"><span class="box"></span><span>{html.escape(sc["text"])}</span></div><div class="qtxt"><b>{sc["n"]}.</b> {B.q_html("!"+e["q"].lstrip("!"))}</div><div class="work">{B.lines_html(e["w"])}</div></div>')
     ns=[x['n'] for x in c['success_criteria']]
-    if sub=='9A':cells[0]=cells[0].replace('<div class="work">',two('N','Discrete',big=True)+'<div class="work">',1)
+    if sub=='9A':cells[0]=cells[0].replace('<div class="work">','<div class="work">'+two('N','Discrete',big=True),1)
     return [colgrid('exit',sub,st,cells,f'{BOOK}, {CK} items {ns[0]}–{ns[-1]} (p. 853). Working by teacher.','Tick each skill in your checklist when you can do it.')]
 
 # ---------------------------------------------------------------- New learning slides
@@ -325,6 +325,7 @@ def slides_apk(sub,c,d):
         cells.append(f'<div class="part"><div class="skill">Year {cd["book"][1]} · {html.escape(cd["skill"])}</div><div class="qtxt"><b>{i}.</b> {B.q_html("!"+a["q"].lstrip("!"))}</div><div class="work">{B.lines_html(a["w"])}</div></div>')
     return colgrid('apk',sub,st,cells,src,'Answer each question.',d.get('apk_cols'))
 def colgrid(kind,sub,st,cells,src,note,cols=None):
+    cells=[c.replace('<div class="qtxt">','<div class="bd"><div class="qtxt">',1)[:-6]+'</div></div>' for c in cells]
     tag,h1=('APK','Activating prior knowledge') if kind=='apk' else ('Exit','Exit tasks')
     return (f'<section class="slide ex4 vc">{B.bar(tag,h1,st)}<p class="q" style="margin:16px 4px 10px">{note}</p>'
             f'<div class="parts gc" style="grid-template-columns:{cols or f'repeat({len(cells)},minmax(0,1fr))'}">{"".join(cells)}</div>{B.foot(src)}</section>')
@@ -443,6 +444,9 @@ body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{bord
 .helpbox .hx{margin-top:14px;font:inherit;padding:6px 16px;border:2px solid #000;background:#fff;cursor:pointer}
 
 /* ---- 9A edits ---- */
+.skill.ck .box{cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;color:#1a7f1a;font-weight:bold}.skill.ck .box.on{background:#e3f5e3;border-color:#1a7f1a}.skill.ck .box.on::after{content:'✓'}
+.parts.gc{grid-template-rows:auto minmax(0,1fr);min-height:0;overflow:hidden}.parts.gc .bd{display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:8px 14px}.parts.gc .bd .work{padding:8px 0 0!important}.parts.gc .part>.work{justify-content:flex-start!important;min-height:0;overflow:hidden}.parts.gc .part{display:grid!important;grid-row:1/3;grid-template-rows:subgrid;padding:0!important}
+.parts.gc .part>.skill{padding:8px 14px;border-bottom:1.5px dashed #888;margin:0!important;display:flex;align-items:flex-end}.parts.gc .part>.qtxt{padding:8px 14px 0}.parts.gc .part>.work{padding:8px 14px}
 .ctx{font-size:18px;line-height:1.35;border:2px solid #000;background:#fff7d6;padding:8px 14px;margin:10px 0 8px}.popn .sm2{font-size:16px;margin:2px 0 6px}.popn .good{font-size:15px;padding:6px 10px}.popn .out{min-height:80px;font-size:17px}.popn .btns button{font-size:14px;padding:5px 8px}.good span b{font-size:inherit}.popn .dots{gap:4px;flex:none;width:80%;margin:0 auto}.popn .cmp{margin:4px 0}
 .lig{flex:1;display:grid;grid-template-columns:1.05fr 1fr .95fr;border:1.5px solid #000;margin-top:14px;min-height:0}
 .lig h2{margin:0;font-size:14px;text-transform:uppercase;letter-spacing:.4px;background:#eee;padding:6px 12px;border-bottom:1.5px solid #000}
@@ -649,6 +653,9 @@ document.querySelectorAll('.slide.sort .reset').forEach(r=>r.onclick=()=>{const 
 document.querySelectorAll('.mini').forEach(m=>{const D=m.querySelector('.md'),n=+m.dataset.n;for(let k=0;k<n;k++){const i=document.createElement('i');
   const r=(Math.sin(k*12.9898)*43758.5453)%1;if(m.dataset.k==='net'?Math.abs(r)>0.2:(k%20>=14&&k<60))i.classList.add('in');D.appendChild(i)}
   m.querySelector('button').onclick=e=>{e.stopPropagation();m.classList.toggle('on')}});
+
+// tickable checklist boxes
+document.querySelectorAll('.skill.ck .box').forEach(b=>{b.classList.add('ix');b.onclick=e=>{e.stopPropagation();b.classList.toggle('on')}});
 </script>"""
 
 def main(subs):
