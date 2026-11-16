@@ -23,7 +23,7 @@ Design: a **subchapter library** (one card per subchapter in both books) and **c
 - `E11` = Edrolo General Maths U1&2 — exam-style questions (VCAA reprints at the back of subchapters) for the G11-based units
 - `J10` = 2022-jacaranda-10-10a-maths-quest.pdf — extra questions to pull from
 - `O10` = 2022-oxford-10-10a-maths.pdf — extra questions to pull from
-- VC2 curriculum: not yet copied in
+- VC2 curriculum IS in 02 Sources: `Mathematics Levels 7–10A_28-07-2023.docx` and `VC2_ASExtract-CD-Elab_15-10-2026.csv` (achievement-standard sentence, content description and elaborations per code: use this for achievement standards, never paraphrase). Also `2023MathematicsSD.docx` (VCE Study Design, for G11).
 
 ## Rules (carried over from 12MAG; confirm or change with Rocco)
 1. **Never write questions.** Copy verbatim and cite. Adapt only when unavoidable and label it "adapted".
