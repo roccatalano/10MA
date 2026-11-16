@@ -871,7 +871,8 @@ new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.cla
     const side=e.clientX>innerWidth/2?1:-1,t=Date.now();
     if(last&&last.side===side&&t-last.t<D){show(last.i+side);last=null;return}
     last={side,t,i};side>0?fwd():back()},true);
-  addEventListener('keydown',e=>{if(e.key==='f'||e.key==='F'){e.stopImmediatePropagation();full()}if(e.key==='?'||e.key==='h'||e.key==='H')document.body.classList.toggle('help');if(e.key==='Escape')document.body.classList.remove('help')},true);
+  addEventListener('keydown',e=>{if(e.key==='f'||e.key==='F'){e.stopImmediatePropagation();full()}if(e.key==='?'||e.key==='h'||e.key==='H')document.body.classList.toggle('help');if(e.key==='Escape')document.body.classList.remove('help');
+    if(e.key==='Backspace'){e.preventDefault();const t=Date.now();if(window._bs&&t-window._bs<400){S[i].querySelectorAll('.st.show').forEach(x=>x.classList.remove('show'));S[i].querySelectorAll('.two button,.box').forEach(x=>x.classList.remove('ok','no','on'));S[i].querySelectorAll('.two').forEach(x=>x.classList.remove('s2','isC','isN'));window._bs=0}else{window._bs=t;back()}}},true);
   const tb=document.createElement('div');tb.className='tb';tb.innerHTML='<button data-a="p" title="Previous slide">◀◀</button><button data-a="b" title="Back one step">◀</button><button data-a="n" title="Next step">▶</button><button data-a="s" title="Next slide">▶▶</button><button data-a="f" title="Full screen on / off (F)">⛶ Full screen</button><button data-a="h" title="How to use (?)">?</button>';
   document.body.appendChild(tb);
   tb.onclick=e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;({p:()=>show(i-1),b:back,n:fwd,s:()=>show(i+1),f:full,h:()=>document.body.classList.toggle('help')})[a]()};
@@ -880,6 +881,7 @@ new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.cla
    <tr><th>Back one line</th><td>Click or tap the <b>left half</b> · ←</td></tr>
    <tr><th>Next slide (skip the working)</th><td><b>Double tap</b> the right half · ▶▶</td></tr>
    <tr><th>Previous slide</th><td><b>Double tap</b> the left half · ◀◀</td></tr>
+   <tr><th>Clear this slide</th><td><b>Backspace</b> twice quickly (hides all the working)</td></tr>
    <tr><th>Full screen</th><td><b>F</b> or ⛶ button</td></tr>
    <tr><th>Exit full screen</th><td><b>Esc</b> or <b>F</b> again</td></tr>
    <tr><th>Jump to a slide</th><td>Type its number, then <b>Enter</b> · Home = first · End = last</td></tr>
