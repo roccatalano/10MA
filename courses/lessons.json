@@ -212,13 +212,7 @@
     "items": [
      {
       "id": "C10-5A"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "teach",
-    "items": [
+     },
      {
       "id": "C10-5B"
      }
@@ -235,28 +229,9 @@
     "note": ""
    },
    {
-    "kind": "teach",
-    "items": [
-     {
-      "id": "C10-5C"
-     }
-    ],
-    "note": ""
-   },
-   {
-    "kind": "review",
-    "items": [],
-    "note": ""
-   },
-   {
     "kind": "assess",
     "items": [],
     "note": ""
-   },
-   {
-    "kind": "practice",
-    "items": [],
-    "note": "Buffer / catch-up"
    }
   ],
   "10MAG|Bivariate Data": [
