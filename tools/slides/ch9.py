@@ -297,13 +297,14 @@ def two(a1,a2,big=False):
             f'<div class="r2"><span class="sl1">Step 2</span><span class="o C"><button data-v="Nominal">Nominal</button><button data-v="Ordinal">Ordinal</button></span><span class="o N"><button data-v="Discrete">Discrete</button><button data-v="Continuous">Continuous</button></span></div></div>')
 
 def L_sample(sub):
-    body=('<div class="cols" style="grid-template-columns:1fr 1.25fr"><div class="col"><h2>Key ideas</h2>'
+    body=('<div class="ctx"><b>The question:</b> the principal wants to know how many hours a week students at your school spend studying. Asking all <b>240 students</b> (the <b>population</b>) takes too long, so we ask a <b>sample</b> of students and use their answers to estimate the whole school. Each dot is one student. <b>Which sample gives the best estimate?</b></div>'
+          '<div class="cols" style="grid-template-columns:1fr 1.25fr"><div class="col"><h2>Key ideas</h2>'
           '<p class="sm2">A <b>population</b> is a group of people, animals or objects with something in common, e.g. <i>all the students in your school</i>.</p>'
           '<p class="sm2">A <b>sample</b> is a group that has been chosen from a population. Sometimes information from a sample is used to describe the whole population, so it is important to choose the sample carefully.</p>'
           '<div class="good"><b>A good sample</b><span>✔ is chosen at random from the <b>whole</b> population</span><span>✔ does not leave out any group</span><span>✔ is large enough</span><span>→ so its results are close to the whole population</span></div>'
           '<div class="out ix" id="sout">Choose a sample →</div></div>'
-          '<div class="col pop"><h2>All the students in your school (240) · question: hours of study per week</h2><div class="dots ix"></div>'
-          '<div class="cmp ix"><div>Whole school average: <b class="pa"></b> h</div><div>Sample average: <b class="sa">–</b></div></div>'
+          '<div class="col pop"><h2>All 240 students in your school (1 dot = 1 student · dashed = library)</h2><div class="dots ix"></div>'
+          '<div class="cmp ix"><div>Whole school average (the true answer): <b class="pa"></b> h</div><div>Sample average: <b class="sa">–</b></div></div>'
           '<div class="btns ix"><button data-s="rand">Random sample of 24</button><button data-s="rand6">Random sample of 6</button><button data-s="lib">24 students in the library</button><button data-s="y12">24 students from one Year 12 class</button><button data-s="clr">Clear</button></div></div></div>')
     return [nl(sub,'Population and sample',body,f'{BOOK}, 9A Key ideas (p. 767); library sample from Example 2 · Now you try (p. 769). Study hours and good-sample points made up by the teacher.','popn')]
 
@@ -412,6 +413,7 @@ body.help .helpbox{display:block}.helpbox h2{margin:0 0 12px}.helpbox table{bord
 .helpbox .hx{margin-top:14px;font:inherit;padding:6px 16px;border:2px solid #000;background:#fff;cursor:pointer}
 
 /* ---- 9A edits ---- */
+.ctx{font-size:18px;line-height:1.35;border:2px solid #000;background:#fff7d6;padding:8px 14px;margin:10px 0 8px}.popn .sm2{font-size:16px;margin:2px 0 6px}.popn .good{font-size:15px;padding:6px 10px}.popn .out{min-height:80px;font-size:17px}.popn .btns button{font-size:14px;padding:5px 8px}.good span b{font-size:inherit}.popn .dots{gap:4px;flex:none;width:80%;margin:0 auto}.popn .cmp{margin:4px 0}
 .lig{flex:1;display:grid;grid-template-columns:1.05fr 1fr .95fr;border:1.5px solid #000;margin-top:14px;min-height:0}
 .lig h2{margin:0;font-size:14px;text-transform:uppercase;letter-spacing:.4px;background:#eee;padding:6px 12px;border-bottom:1.5px solid #000}
 .lig>*:nth-child(3n+2),.lig h2:nth-of-type(2),.lig .lr:nth-of-type(2n){border-left:1.5px solid #000}
