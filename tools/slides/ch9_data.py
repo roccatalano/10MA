@@ -100,7 +100,7 @@ S['9B']=dict(
             w=[hist(['0','5','10','15','20','25','30'],[1,4,5,2,2,1],15,'Hours on the internet',W=300,H=175,ymax=6),'*!<span class="tx">Positively skewed (tail to the right)</span>']),
        dict(q=r'For the stem-and-leaf plot shown below, find the mean correct to one decimal place, the median and the mode.'+stemleaf([('0','2 5 7'),('1','1 1 4 6'),('2','0 3 9'),('3','2 5')],'2 | 3 means 23',col='#000')[1:],
             w=[r'\text{Mean} = \dfrac{205}{12} \approx 17.1',r'\text{Median} = \dfrac{14 + 16}{2} = 15',r'*\text{Mode} = 11'])],
- learn=['hist','shape','stem'],
+ learn=['hist','shape','stem','median','meanmode'],
 )
 
 # ---------------------------------------------------------------- helpers for 9C–9E
@@ -148,11 +148,11 @@ S['9C']=dict(
           yt=[('a','!Represent this information in a two-way table.',['!'+tw(['Pure','Mixed','Total'],[['Country','18','12','30'],['City','7','13','20'],['Total','25','25','50']],col=RED)]),
               ('b','!What fraction of the dogs surveyed: <b>i</b> were from the city? <b>ii</b> were from the city and of pure breed?',[r'\text{i } \dfrac{20}{50} = \dfrac{2}{5}',r'*\text{ii } \dfrac{7}{50}']),
               ('c','!Would you say that this data supports the notion that country dogs are more likely to be of mixed breed? Give a reason.',['*!<span class="tx">No. The proportion of mixed breed dogs is higher for the city.</span>'])])],
- exit=[dict(q=r'This two-way table summarises data from a survey of $40$ people using a 5-point Likert scale. The survey asked if they live in Australia or live overseas and are visiting and to what degree they thought Australians were friendly.'+tw(LIK,[['Aus','2','4','6','3','3','18'],['Overseas','8','8','2','3','1','22'],['Total','10','12','8','6','4','40']],fs=12)+r'<b>i</b> State how many people surveyed were from Australia and responded Agree. <b>ii</b> Do you think that the data supports the notion that overseas visitors think Australians are more friendly? Give a reason.',
+ exit=[dict(q=r'This two-way table summarises data from a survey of $40$ people using a 5-point Likert scale. The survey asked if they live in Australia or live overseas and are visiting and to what degree they thought Australians were friendly.'+tw(LIK,[['Aus','2','4','6','3','3','18'],['Overseas','8','8','2','3','1','22'],['Total','10','12','8','6','4','40']],fs=16)+r'<b>i</b> State how many people surveyed were from Australia and responded Agree. <b>ii</b> Do you think that the data supports the notion that overseas visitors think Australians are more friendly? Give a reason.',
             w=[r'\text{i } 4','*!<span class="tx">ii Yes. $\\tfrac{16}{22} \\approx 73\\%$ of overseas visitors agree or strongly agree, compared with $\\tfrac{6}{18} \\approx 33\\%$ of Australians.</span>']),
        dict(q=r'A number of people were surveyed to see if they had a mortgage. They were also asked whether they were under or over $50$ years of age. $11$ of the $15$ people under $50$ had a mortgage and $5$ of the $10$ people $50$ or over had a mortgage. Represent the information in a two-way table and find what fraction of people surveyed were $50$ or over and had a mortgage.',
             w=['!'+tw(['Mortgage','No mortgage','Total'],[['Under $50$','11','4','15'],['$50$ or over','5','5','10'],['Total','16','9','25']],col=RED),r'*\dfrac{5}{25} = \dfrac{1}{5}'])],
- learn=['tw_read','tw_build'],
+ learn=['tw_read','tw_build'],apk_split=True,
 )
 # ======================================================================== 9D
 KI_5=r"<b>Five-figure summary</b>: min, $Q_1$, median $(Q_2)$, $Q_3$, max.<div class='kf'>$\text{IQR} = Q_3 - Q_1$</div><div class='kn'>Leave the median out of the halves when there is an odd number of values.</div>"
@@ -179,7 +179,7 @@ S['9D']=dict(
             w=[r'\text{Min} = 7,\ \text{max} = 30',r'\text{Median} = \dfrac{14 + 18}{2} = 16',r'Q_1 = 12,\ Q_3 = 25',r'\text{Range} = 30 - 7 = 23',r'*\text{IQR} = 25 - 12 = 13']),
        dict(q=r'The following data represent the number of aces by a tennis player in $11$ grand slam matches for the year:<br>$15, 12, 22, 2, 10, 18, 16, 14, 15, 20, 16$<br>For the data find the upper and lower quartiles and use these to help determine if there are any outliers.',
             w=['2, 10, 12, 14, 15, 15, 16, 16, 18, 20, 22',r'Q_1 = 12,\ Q_3 = 18,\ \text{IQR} = 6',r'12 - 1.5 \times 6 = 3,\ \ 18 + 1.5 \times 6 = 27',r'*\therefore \text{The outlier is } 2.'])],
- learn=['five','fence'],
+ learn=['five','fence'],apk_split=True,
 )
 # ======================================================================== 9E
 KI_BOX=r"A <b>box plot</b> shows min, $Q_1$, $Q_2$, $Q_3$, max. An outlier is marked with a dot $(\bullet)$; the whiskers stretch to the lowest and highest values that are not outliers.<div class='kf'>outlier: $< Q_1 - 1.5 \times \text{IQR}$ or $> Q_3 + 1.5 \times \text{IQR}$</div>"
@@ -196,5 +196,5 @@ S['9E']=dict(
               ('b','!Draw a box plot to summarise the data, marking outliers if they exist.',[boxplot(0,26,2,2,(8,12,16,19,24),out=(1,),W=560)])])],
  exit=[dict(q=r'For the data set $5, 8, 2, 1, 6, 3, 3, 1, 4, 18, 2, 8, 5$, draw a box plot to summarise the data, marking outliers if they exist.',
             w=['1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 8, 8, 18',r'Q_1 = 2,\ Q_2 = 4,\ Q_3 = 7,\ \text{IQR} = 5',r'2 - 1.5 \times 5 = -5.5,\ \ 7 + 1.5 \times 5 = 14.5\ \therefore\ 18 \text{ is an outlier}',boxplot(0,20,1,2,(1,2,4,7,8),out=(18,),W=600)])],
- learn=['box','boxlive'],
+ learn=['box','boxlive','boxsteps'],
 )

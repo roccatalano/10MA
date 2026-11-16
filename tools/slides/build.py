@@ -103,7 +103,7 @@ def slides_apk(sub,c,d):
     for i,(a,cd) in enumerate(zip(d['apk'],c['apk']),1):
         yr=cd['book'][1]
         cells.append(f'<div class="part"><div class="skill">Year {yr} · {html.escape(cd["skill"])}</div><div class="qtxt"><b>{i}.</b> {q_html("!"+a["q"].lstrip("!"))}</div><div class="work">{lines_html(a["w"])}</div></div>')
-    if any('<svg' in x for x in cells) and len(cells)>2:
+    if (any('<svg' in x for x in cells) or d.get('apk_split')) and len(cells)>2:
         return ''.join(grid_slide('apk',sub,st,cells[k:k+2],src,'Answer each question.') for k in range(0,len(cells),2))
     return grid_slide('apk',sub,st,cells,src,'Answer each question.')
 

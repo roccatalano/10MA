@@ -162,13 +162,98 @@ def L_boxlive(sub):
           '<div class="col"><h2>Five-figure summary</h2><div class="fsum"></div><p class="sm2" style="margin-top:auto">An outlier is marked with a dot (•). The whisker stops at the highest value that is <b>not</b> an outlier.</p></div></div>')
     return [nl(sub,'Box plots with outliers',body,f'{BOOK}, 9E Key ideas (p. 796); data from 9D Building understanding Q2 (p. 790), largest value changed by the teacher','boxl')]
 
-LEARN={'types':L_types,'sample':L_sample,'hist':L_hist,'shape':L_shape,'stem':L_stem,'tw_read':L_tw_read,'tw_build':L_tw_build,'five':L_five,'fence':L_fence,'box':L_box,'boxlive':L_boxlive}
+
+# ---------------------------------------------------------------- step-by-step procedure slides (16 Nov critique)
+def stepline(txt,act='',extra=''):
+    return f'<div class="st stp"{(" data-act=\"%s\""%act) if act else ""}{extra}>{txt}</div>'
+def mtiles(vals,cls=''):
+    return '<div class="mt '+cls+'">'+''.join(f'<span class="mtile" data-i="{k}">{v}</span>' for k,v in enumerate(vals))+'</div>'
+def L_median(sub):
+    odd=[1,3,12,15,19,21,24,26,27,30,34];even=[0,1,1,1,1,1,2,2,2,3]
+    A=(mtiles(odd,'odd')+stepline('<b>Step 1</b> Write the data in order and count them: $n = 11$')
+       +stepline('<b>Step 2</b> Cross off the smallest and the largest, again and again.','cross')
+       +stepline('<b>Step 3</b> One value is left in the middle. <b>Median $= 21$</b>','mid')
+       +stepline('<span class="sc">Check: the median is the $\\dfrac{n + 1}{2}$th value $= \\dfrac{11 + 1}{2} =$ 6th value</span>'))
+    Bv=(mtiles(even,'even')+stepline('<b>Step 1</b> Write the data in order and count them: $n = 10$')
+       +stepline('<b>Step 2</b> Cross off the smallest and the largest, again and again.','cross')
+       +stepline('<b>Step 3</b> Two values are left. Find halfway: <b>Median $= \\tfrac{1 + 1}{2} = 1$</b>','mid')
+       +stepline('<span class="sc">Check: $\\dfrac{10 + 1}{2} = 5.5$, so halfway between the 5th and 6th values</span>'))
+    body=(f'<p class="lead"><b>Median</b>: the middle value when data are placed in order. <span class="hint">Click to find the median.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1fr 1fr"><div class="col"><h2>Odd number of values (stem-and-leaf data)</h2>{A}</div>'
+          f'<div class="col"><h2>Even number of values (dot plot data)</h2>{Bv}</div></div>')
+    return [nl(sub,'Finding the median step by step',body,f'{BOOK}, 9B Key ideas (p. 773); odd data = stem-and-leaf demonstration (teacher), even data = Building understanding Q1 dot plot (p. 774). Steps by teacher.','medn')]
+def dotplot_svg():
+    cnt={0:1,1:5,2:3,3:1};W,H=420,250;x=lambda v:70+v*95;o=[f'<line x1="30" y1="215" x2="{W-20}" y2="215" stroke="#000" stroke-width="2"/>']
+    for v in range(4):
+        o.append(f'<line x1="{x(v)}" y1="209" x2="{x(v)}" y2="221" stroke="#000"/><text x="{x(v)}" y="244" font-size="22" text-anchor="middle">{v}</text>')
+        for k in range(cnt[v]):o.append(f'<circle class="dp v{v}" cx="{x(v)}" cy="{192-k*34}" r="12" fill="#555"/>')
+    return f'<svg class="dpl" viewBox="0 0 {W} {H}" style="width:100%;max-height:330px">{"".join(o)}</svg><div class="sm2" style="text-align:center">Number of children in each family</div>'
+def L_meanmode(sub):
+    st=(stepline('<b>Mode</b>: find the value that occurs most often. The value $1$ has the tallest column. <b>Mode $= 1$</b>','mode')
+        +stepline('<b>Mean, step 1</b> Add all the data values: $0 + 1 \\times 5 + 2 \\times 3 + 3 = 14$','sum')
+        +stepline('<b>Mean, step 2</b> Count the data values: $n = 10$ families')
+        +stepline('<b>Mean, step 3</b> Divide: <b>$\\bar{x} = \\dfrac{14}{10} = 1.4$</b>')
+        +stepline('<b>Median</b>: the 5th and 6th values are both $1$, so <b>median $= 1$</b>','med'))
+    body=(f'<p class="lead">A number of families were surveyed to find the number of children in each. <span class="hint">Click to find each measure.</span></p>'
+          f'<div class="cols" style="grid-template-columns:.85fr 1.15fr"><div class="col" style="justify-content:center">{dotplot_svg()}</div>'
+          f'<div class="col"><h2>Measures of centre</h2><div class="kfm">$\\bar{{x}} = \\dfrac{{\\text{{sum of all data values}}}}{{\\text{{number of data values}}}}$</div>{st}</div></div>')
+    return [nl(sub,'Mode and mean step by step',body,f'{BOOK}, 9B Building understanding Q1 (p. 774) and Key ideas (p. 773). Working by teacher.','mmode')]
+
+TA=[4,6,3,4,1,3,6,4,5,3,4,3];TB=[7,3,5,6,9,3,6,7,4,1,4,6]
+def five(d):
+    a=sorted(d);n=len(a);m=lambda b:(b[len(b)//2] if len(b)%2 else (b[len(b)//2-1]+b[len(b)//2])/2);h=n//2
+    q1,q2,q3=m(a[:h]),m(a),m(a[h+(n%2):]);i=q3-q1;lo,hi=q1-1.5*i,q3+1.5*i
+    ins=[v for v in a if lo<=v<=hi];return dict(a=a,q1=q1,q2=q2,q3=q3,iqr=i,lo=lo,hi=hi,mn=min(ins),mx=max(ins),out=[v for v in a if v<lo or v>hi])
+def g(v): return f'{v:g}'
+def bp_parts(f,y,X,col='#d00000',steps=True,lab=''):
+    c=lambda s:f'<g class="st">{s}</g>' if steps else s
+    box=(f'<rect x="{X(f["q1"])}" y="{y-22}" width="{X(f["q3"])-X(f["q1"])}" height="44" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="3"/>'
+         f'<line x1="{X(f["q2"])}" y1="{y-22}" x2="{X(f["q2"])}" y2="{y+22}" stroke="{col}" stroke-width="3"/>')
+    wh=(f'<line x1="{X(f["mn"])}" y1="{y}" x2="{X(f["q1"])}" y2="{y}" stroke="{col}" stroke-width="3"/><line x1="{X(f["q3"])}" y1="{y}" x2="{X(f["mx"])}" y2="{y}" stroke="{col}" stroke-width="3"/>'
+        f'<line x1="{X(f["mn"])}" y1="{y-11}" x2="{X(f["mn"])}" y2="{y+11}" stroke="{col}" stroke-width="3"/><line x1="{X(f["mx"])}" y1="{y-11}" x2="{X(f["mx"])}" y2="{y+11}" stroke="{col}" stroke-width="3"/>')
+    dots=''.join(f'<circle cx="{X(v)}" cy="{y}" r="8" fill="{col}"/>' for v in f['out'])
+    L=f'<text x="8" y="{y+7}" font-size="20" font-weight="bold">{lab}</text>' if lab else ''
+    return L+c(box)+c(wh)+(c(dots) if dots else '')
+def axis(X,a,b,y):
+    o=f'<line x1="{X(a)-15}" y1="{y}" x2="{X(b)+15}" y2="{y}" stroke="#000" stroke-width="2"/>'
+    for v in range(a,b+1):o+=f'<line x1="{X(v)}" y1="{y-7}" x2="{X(v)}" y2="{y+7}" stroke="#000"/><text x="{X(v)}" y="{y+30}" font-size="20" text-anchor="middle">{v}</text>'
+    return o
+def L_boxsteps(sub):
+    f=five(TA);X=lambda v:60+v*52
+    svg=f'<svg viewBox="30 20 580 150" style="width:100%">{axis(X,0,10,130)}<g class="st">{""}</g>{bp_parts(f,60,X)}</svg>'
+    ex='Example 9 explanation'
+    rows=[('Order the data to help find the quartiles.',f'${", ".join(map(str,f["a"]))}$'),
+          ('Locate the median $Q_2$ then split the data in half above and below this value.',f'$Q_2 = \\dfrac{{4 + 4}}{{2}} = 4$'),
+          ('$Q_1$ is the middle value of the lower half and $Q_3$ the middle value of the upper half.',f'$Q_1 = 3,\\ Q_3 = \\dfrac{{4 + 5}}{{2}} = 4.5$'),
+          ('Determine $\\text{IQR} = Q_3 - Q_1$.',f'$\\text{{IQR}} = 4.5 - 3 = 1.5$'),
+          ('Check for any outliers; i.e. values below $Q_1 - 1.5 \\times \\text{IQR}$ or above $Q_3 + 1.5 \\times \\text{IQR}$.',f'$3 - 1.5 \\times 1.5 = 0.75$, &nbsp;$4.5 + 1.5 \\times 1.5 = 6.75$ &nbsp;no data values are below $0.75$ or above $6.75$, so <b>no outliers</b>')]
+    lst=''.join(f'<li class="st bs"><span class="bt">{t}</span><span class="bw">{w}</span></li>' for t,w in rows)
+    body=(f'<p class="lead">Test A: &nbsp;$4, 6, 3, 4, 1, 3, 6, 4, 5, 3, 4, 3$ <span class="hint">Click for each step.</span></p>'
+          f'<div class="cols" style="grid-template-columns:1.2fr .8fr"><div class="col"><ol class="bsteps">{lst}<li class="st bs"><span class="bt">Draw a scale. Draw the box from $Q_1$ to $Q_3$ with a line at $Q_2$, then the whiskers to the lowest and highest values that are <b>not</b> outliers ($1$ and $6$). Outliers would be marked with a dot.</span></li></ol></div><div class="col" style="justify-content:center"><div class="bsvg">{svg}</div></div></div>')
+    return [nl(sub,'Drawing a box plot step by step',body,f'{BOOK}, 9E Example 9 explanation (p. 797; last step adapted); data from Using calculators Test A (p. 798). Working by teacher.','bstep')]
+def L_parallel(sub):
+    A,Bf=five(TA),five(TB);X=lambda v:110+v*48
+    svg=(f'<svg viewBox="0 0 640 250" style="width:100%">{axis(X,0,10,210)}'
+         f'{bp_parts(A,60,X,"#1f5fbf",lab="Test A")}{bp_parts(Bf,145,X,"#d00000",lab="Test B")}</svg>')
+    cmp=(stepline('<b>Centre</b>: Test B has the higher median ($5.5$ compared with $4$), so students generally scored higher on Test B.')
+         +stepline('<b>Spread</b>: Test B has the larger IQR ($3$ compared with $1.5$), so its results are more spread out.')
+         +stepline('<b>Range</b>: Test B also has the larger range ($9 - 1 = 8$ compared with $6 - 1 = 5$). Neither test has an outlier.'))
+    body=(f'<p class="lead">Test A: $4, 6, 3, 4, 1, 3, 6, 4, 5, 3, 4, 3$ &nbsp;&nbsp; Test B: $7, 3, 5, 6, 9, 3, 6, 7, 4, 1, 4, 6$</p><div class="cols" style="grid-template-columns:1.15fr .85fr"><div class="col"><h2>Parallel box plots</h2>'
+          f'<p class="sm2"><b>Parallel box plots</b> are two or more box plots drawn on the same scale. They are used to compare data sets within the same context. <span class="hint">Click to draw each.</span></p>{svg}</div>'
+          f'<div class="col"><h2>What do the box plots say about how the tests compare?</h2>{cmp}</div></div>')
+    return [nl(sub,'Comparing data with parallel box plots',body,f'{BOOK}, 9E Key ideas (p. 796); data from Using calculators Tests A and B (p. 798); question adapted from the Lesson starter (p. 795). Working by teacher.','para')]
+
+def slide_end(code,h,txt):
+    return f'<section class="slide title"><div class="code">{code}</div><h1>{h}</h1><div class="unit">{txt}</div><span class="pg" style="display:none"></span></section>'
+
+LEARN={'types':L_types,'sample':L_sample,'hist':L_hist,'shape':L_shape,'stem':L_stem,'tw_read':L_tw_read,'tw_build':L_tw_build,'five':L_five,'fence':L_fence,'box':L_box,'boxlive':L_boxlive,'median':L_median,'meanmode':L_meanmode,'boxsteps':L_boxsteps}
 
 def subchapter(sub):
     c=B.card('C10-'+sub);d=B.DATA[sub];o=[B.slide_donow(f'{sub}')]
     o+= [B.slide_title(sub,c,B.UNIT),slide_li(sub,c,d),B.slides_apk(sub,c,d),B.slide_ki(sub,c,d)]
     for k in d.get('learn',[]):o+=LEARN[k](sub)
     for e in d['ex']:o+=[B.slide_example(sub,c,e,False),B.slide_example(sub,c,e,True)]
+    if sub=='9E':o+=[B.slide_donow(f'Lesson 6 · {sub} continued')]+L_parallel(sub)
     o+=slides_exit(sub,c,d);o.append(B.slide_cw(sub,c))
     return o
 
@@ -193,6 +278,15 @@ NL_CSS=r"""
 [data-id="C10-9B-ex3"] .part,[data-id="C10-9B-yt3"] .part,[data-id="C10-9C-ex5"] .part,[data-id="C10-9C-yt5"] .part{padding:8px 12px}
 [data-id="C10-9B-ex3"] .work,[data-id="C10-9B-yt3"] .work,[data-id="C10-9C-ex5"] .work,[data-id="C10-9C-yt5"] .work{padding-top:6px}
 
+
+.mt{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 14px}.mtile{font-size:26px;border:2px solid #000;min-width:44px;text-align:center;padding:4px 6px;transition:opacity .35s,background .3s,transform .3s}
+.mtile.x{opacity:.22;text-decoration:line-through;transform:scale(.88)}.mtile.mid{background:#d00000;color:#fff;border-color:#d00000;transform:scale(1.12)}
+.stp{white-space:normal;color:#000;font-size:21px;margin:0 0 12px;line-height:1.35}.stp b{color:#d00000}.stp .sc{color:#555;font-size:18px}
+.kfm{font-size:22px;margin:4px 0 14px}.dp{transition:fill .3s}.dp.hi{fill:#d00000}
+.bsteps{margin:0 0 0 22px;padding:0;font-size:19px}.slide.bstep .bsvg{width:100%}.slide.bstep .bsvg svg{width:100%;height:auto}.bsteps{list-style:none;counter-reset:bs;margin-left:0!important}.bsteps li.bs::before{counter-increment:bs;content:'Step ' counter(bs) ' ';font-weight:bold;color:#d00000}.bsteps li.bs{white-space:normal;color:#000;margin:0 0 7px;line-height:1.3}.bs .bw{display:block;color:#d00000;font-size:20px}
+
+.para h2{text-transform:none}
+.col.sm ul li{font-size:19px!important;line-height:1.35}.col.sm table.kt td{font-size:18px}.col.sm table.kt table{width:100%}.col.sm table.kt table td,.col.sm table.kt table th{font-size:16px!important;padding:6px 5px}
 /* ---- New learning slides (ch9.py) ---- */
 .slide.nl .bar .tag{font-size:22px}
 .slide.nl .lead{font-size:24px;margin:16px 4px 10px}
@@ -314,12 +408,22 @@ document.querySelectorAll('.slide.shape').forEach(sl=>{const sv=sl.querySelector
     const k=Math.abs(a)<.12?'sym':(a>0?'pos':'neg');sl.querySelector('.shape-name').textContent={sym:'Symmetrical',pos:'Positively skewed',neg:'Negatively skewed'}[k];
     sl.querySelectorAll('.rules li').forEach(li=>li.classList.toggle('on',li.dataset.k===k))};
   r.oninput=draw;draw()});
+
+// step-by-step slides (median cross-off, mode highlight)
+new MutationObserver(ms=>ms.forEach(m=>{const t=m.target;if(!t.classList||!t.classList.contains('stp')||!t.dataset.act)return;const on=t.classList.contains('show'),col=t.closest('.col'),sl=t.closest('.slide');
+  const T=col?[...col.querySelectorAll('.mtile')]:[],n=T.length,k=Math.floor((n-1)/2);
+  if(t.dataset.act==='cross'){T.forEach(x=>{clearTimeout(x._t);x.classList.remove('x')});if(on)for(let j=0;j<k+(n%2?0:0)&&j<Math.floor((n-1)/2);j++){[j,n-1-j].forEach(q=>T[q]._t=setTimeout(()=>T[q].classList.add('x'),j*450))}}
+  if(t.dataset.act==='mid'){T.forEach(x=>x.classList.remove('mid'));if(on){if(n%2)T[k].classList.add('mid');else{T[n/2-1].classList.add('mid');T[n/2].classList.add('mid')}}}
+  if(t.dataset.act==='mode')sl.querySelectorAll('.dp.v1').forEach(c=>c.classList.toggle('hi',on));
+  if(t.dataset.act==='med'){const all=[...sl.querySelectorAll('.dp')];[4,5].forEach(q=>{})}
+})).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
 </script>"""
 
 def main(subs):
     tag='' if len(subs)==5 else f" ({', '.join(subs)} sample)"
     S=[f'<section class="slide title cover"><div class="code">10MAG</div><h1>Univariate Statistics</h1><div class="unit">Year 10 General Mathematics · Unit 1 slides{tag}</div><div class="pp">{BOOK}</div><span class="pg" style="display:none"></span></section>']
     for s in subs:S+=subchapter(s)
+    if len(subs)==5:S+=[slide_end('Review','Univariate Statistics','Review lesson'),slide_end('CAT','Univariate Statistics','Practice · Final Task · Redemption')]
     t=open(os.path.join(B.ROOT,'lessons/slides-template.html')).read()
     head=t[:t.index('<div class="stage" id="stage">')].replace('<title>Slide templates · Worked example / You try</title>','<title>10MAG Univariate Statistics · Slides</title>')
     head=head.replace('</style>',B.EXTRA_CSS+NL_CSS+'</style>')
