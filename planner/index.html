@@ -194,6 +194,11 @@ a{color:var(--accent)}
 @media(max-width:860px){.chgrid{grid-template-columns:1fr}}
 @media(max-width:1000px){body{height:auto}.cols{grid-template-columns:1fr}.colb{max-height:70vh}.flow{grid-template-columns:1fr}}
 .catnest{display:flex;flex-direction:column;gap:4px;margin-top:6px}.catpart{background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:6px;padding:4px 6px;font-size:12px}.catpart .meta{display:flex;justify-content:space-between;align-items:center}.catpart a{margin-right:8px}
+.ctl2{display:flex;gap:8px;margin:6px 0 4px}.trow{margin:14px 0 18px}.trh{font-weight:700;font-size:15px;border-bottom:2px solid #222;padding:4px 0;margin-bottom:10px;display:flex;justify-content:space-between}.trh span{font-weight:400;color:var(--muted);font-size:13px}
+.ucards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}.ucard{background:#fff;border:1px solid #ddd;border-left:6px solid #1f4fa0;border-radius:8px;padding:10px 12px;cursor:pointer;transition:box-shadow .15s}.ucard:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.ucard.s-10MAA{border-left-color:#b5532a}.ucard.open{background:#eef3fb;box-shadow:inset 0 0 0 2px #1f4fa0}.ucard.s-10MAA.open{background:#fbf0ea;box-shadow:inset 0 0 0 2px #b5532a}
+.uc1{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:700}.uname{font-weight:700;font-size:15px;margin:3px 0}.umeta{font-size:12px;color:var(--muted)}.ubad{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.ubad span{font-size:11px;padding:1px 7px;border-radius:9px;background:#eee;color:#888}.ubad span.y{background:#dff1e2;color:#1a6b2a}
+.uopen{margin-top:12px;border:1px solid #ddd;border-radius:10px;padding:6px 12px 12px;background:#fcfcfa}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -650,16 +655,34 @@ function renderPlanView(){
     <span class="src">${tot} lessons · ${G.length} units · 3 lessons per week · no dates (the 2027 tab adds them). Click a lesson for its plan.</span></div><div class="cp">
     <div class="legend"><span class="t-teach"><i></i>Lesson</span><span class="t-practice"><i></i>Practice</span><span class="t-review"><i></i>Review</span><span class="t-assess"><i></i>Assessment</span><span><i style="background:#8a6ad8"></i>CFAT</span></div>`;
   const SPL=lstream==='10MAG';
-  h+=G.map(g=>`<div class="aos"><b>${SH[g.u.stream]}${g.U} · ${esc(g.u.name)}</b><span>${g.L.length} lessons · ${esc(g.u.assessment||'')}${g.u.note?' · '+esc(g.u.note):''}</span></div>
+  const body=g=>`<div class="aos"><b>${SH[g.u.stream]}${g.U} · ${esc(g.u.name)}</b><span>${g.L.length} lessons · ${esc(g.u.assessment||'')}${g.u.note?' · '+esc(g.u.note):''}</span></div>
     ${SPL?splitUnit(g):`<div class="chgrid"><div class="wl"><span class="cn">Unit ${SH[g.u.stream]}${g.U}</span><b>${esc(g.u.name)}</b>${g.L.length} lessons</div>
     <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
-    <div class="pcol"><div class="pcolh">Formative assessments</div>${cfatCards(g)}</div></div>`}`).join('')||'<p class="empty">No units for this stream yet</p>';
+    <div class="pcol"><div class="pcolh">Formative assessments</div>${cfatCards(g)}</div></div>`}`;
+  // term rows: 3 lessons a week, Step Up first, then each term's teaching weeks
+  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),wk=(a,b)=>{let n=0;for(let d=new Date(a+'T00:00');d<=new Date(b+'T00:00');d.setDate(d.getDate()+1)){const w=d.getDay();if(w>0&&w<6&&!ph.has(d.toISOString().slice(0,10)))n++}return Math.floor(n/5)};
+  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Math.max(1,wk(su.start,su.end))*3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:wk(t.start,t.end)*3}));
+  let acc=0;const rows=caps.map(c=>({...c,G:[]}));let pos=0;
+  G.forEach(g=>{const first=acc+1;let k=0,c=0;for(;k<rows.length;k++){c+=rows[k].cap;if(first<=c)break}rows[Math.min(k,rows.length-1)].G.push(g);acc+=g.L.length});
+  const uopen=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));
+  const ucard=g=>{const M=(LP.materials||{})[ukey(g.u)]||[],L0=g.L[0]?.n,L1=g.L[g.L.length-1]?.n,op=uopen.has(ukey(g.u));
+    const has=k=>M.some(m=>m.kind===k);const cats=M.filter(m=>m.kind==='cfat').length;
+    return `<div class="ucard ${op?'open':''} s-${g.u.stream}" data-uk="${esc(ukey(g.u))}"><div class="uc1"><span class="ucode">${SH[g.u.stream]}${g.U}</span><span class="ucar">${op?'▾':'▸'}</span></div>
+      <div class="uname">${esc(g.u.name)}</div><div class="umeta">${g.L.length} lessons${L0?` · L${L0}–L${L1}`:''} · ${esc(g.u.assessment||'—')}</div>
+      <div class="ubad"><span class="${has('slides')?'y':''}">Slides</span><span class="${has('workbook')?'y':''}">Workbook</span><span class="${cats?'y':''}">CFATs ${cats}/${g.cf.filter(c=>c.items.length).length}</span></div></div>`};
+  h+=`<div class="ctl2"><button class="btn" id="uall">Open all units</button><button class="btn" id="unone">Close all units</button></div>`;
+  h+=rows.filter(r=>r.G.length).map(r=>`<div class="trow"><div class="trh">${r.lab}<span>${r.G.reduce((a,g)=>a+g.L.length,0)} of ~${r.cap} lessons</span></div><div class="ucards">${r.G.map(ucard).join('')}</div>
+    ${r.G.filter(g=>uopen.has(ukey(g.u))).map(g=>`<div class="uopen">${body(g)}</div>`).join('')}</div>`).join('')||'<p class="empty">No units for this stream yet</p>';
   box.innerHTML=h+'</div>';box.classList.toggle('wide',SPL);box.scrollTop=top;wireMode(box);
   box.querySelectorAll('.mrm').forEach(b=>b.onclick=e=>{e.stopPropagation();MOD.sheets[b.dataset.sub].splice(+b.dataset.i,1);saveMod()});
   box.querySelectorAll('.madd').forEach(sl=>sl.onchange=()=>{if(!sl.value)return;const a=MOD.sheets[sl.dataset.sub]=MOD.sheets[sl.dataset.sub]||[];if(!a.includes(sl.value))a.push(sl.value);saveMod()});
   box.querySelectorAll('.mapp').forEach(c=>c.onchange=()=>{MOD.approved[c.dataset.k]=c.checked?new Date().toLocaleDateString('en-CA'):undefined;if(!c.checked)delete MOD.approved[c.dataset.k];saveMod()});
   box.querySelectorAll('.cls').forEach(b=>b.onclick=()=>{lstream=b.dataset.s;store.set('10ma-lstream',lstream);lopenId=null;renderLessons()});
   box.querySelector('#lexp').onclick=()=>{lexpand=!lexpand;renderLessons()};
+  const svU=a=>{store.set('10ma-uopen',JSON.stringify([...a]));renderLessons()};
+  box.querySelectorAll('.ucard').forEach(c=>c.onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));a.has(c.dataset.uk)?a.delete(c.dataset.uk):a.add(c.dataset.uk);svU(a)});
+  box.querySelector('#uall').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));G.forEach(g=>a.add(ukey(g.u)));svU(a)};
+  box.querySelector('#unone').onclick=()=>{const a=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));G.forEach(g=>a.delete(ukey(g.u)));svU(a)};
   box.querySelectorAll('.card[data-id]').forEach(el=>el.onclick=()=>{lopenId=lopenId===el.dataset.id?null:el.dataset.id;renderLessons()});
   box.querySelectorAll('[data-nest]').forEach(n=>n.ontoggle=()=>store.set('10ma-nest:'+n.dataset.nest,n.open?'1':'0'));
   box.querySelectorAll('.pdetail[data-for]').forEach(dv=>{const id=dv.dataset.for,g=G.find(g=>id.startsWith(ukey(g.u)+'#'));
