@@ -81,7 +81,7 @@
   {
    "name": "Algebra and Linear Relations",
    "stream": "10MAG",
-   "lessons": 16,
+   "lessons": 18,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -172,20 +172,23 @@
    ]
   },
   {
-   "name": "Quadratics and Parabolas",
+   "name": "Bivariate Data",
    "stream": "10MAG",
-   "lessons": 3,
-   "assessment": "Topic test",
+   "lessons": 9,
+   "assessment": "CAT",
    "note": "",
    "items": [
     {
-     "id": "C10-5A"
+     "id": "C10-9C"
     },
     {
-     "id": "C10-5B"
+     "id": "C10-9H"
     },
     {
-     "id": "C10-5C"
+     "id": "C10-9I"
+    },
+    {
+     "id": "C10-9J"
     }
    ]
   },
@@ -241,30 +244,27 @@
    ]
   },
   {
-   "name": "Bivariate Data",
+   "name": "Quadratics and Parabolas",
    "stream": "10MAG",
-   "lessons": 8,
-   "assessment": "CAT",
+   "lessons": 7,
+   "assessment": "Topic test",
    "note": "",
    "items": [
     {
-     "id": "C10-9C"
+     "id": "C10-5A"
     },
     {
-     "id": "C10-9H"
+     "id": "C10-5B"
     },
     {
-     "id": "C10-9I"
-    },
-    {
-     "id": "C10-9J"
+     "id": "C10-5C"
     }
    ]
   },
   {
    "name": "Trigonometry and Measurement",
    "stream": "10MAG",
-   "lessons": 15,
+   "lessons": 21,
    "assessment": "CAT",
    "note": "",
    "items": [

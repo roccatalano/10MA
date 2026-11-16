@@ -149,6 +149,15 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-1H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-1I"
      }
     ],
@@ -191,6 +200,15 @@
     "note": ""
    },
    {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-1L"
+     }
+    ],
+    "note": ""
+   },
+   {
     "kind": "practice",
     "items": [],
     "note": "Buffer / catch-up"
@@ -212,7 +230,13 @@
     "items": [
      {
       "id": "C10-5A"
-     },
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
      {
       "id": "C10-5B"
      }
@@ -229,9 +253,28 @@
     "note": ""
    },
    {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-5C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "review",
+    "items": [],
+    "note": ""
+   },
+   {
     "kind": "assess",
     "items": [],
     "note": ""
+   },
+   {
+    "kind": "practice",
+    "items": [],
+    "note": "Buffer / catch-up"
    }
   ],
   "10MAG|Bivariate Data": [
@@ -249,6 +292,15 @@
     "items": [
      {
       "id": "C10-9H"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-9I"
      }
     ],
     "note": ""
@@ -310,7 +362,34 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-4E"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4F"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-4G"
      }
     ],
     "note": ""
@@ -373,6 +452,24 @@
     "kind": "teach",
     "items": [
      {
+      "id": "C10-6A"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6B"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
       "id": "C10-6B"
      }
     ],
@@ -392,6 +489,15 @@
     "items": [
      {
       "id": "C10-6C"
+     }
+    ],
+    "note": ""
+   },
+   {
+    "kind": "teach",
+    "items": [
+     {
+      "id": "C10-6D"
      }
     ],
     "note": ""
