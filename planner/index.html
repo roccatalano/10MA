@@ -664,9 +664,14 @@ function renderPlanView(){
     <div class="pcol"><div class="pcolh">Lessons</div>${umatSolid(g)}${g.L.filter(l=>l.kind!=='assess').map(l=>pcard(l)+(lexpand||l.id===lopenId?pdetail(l):'')).join('')||'<div class="empty">No subchapters in this unit yet</div>'}</div>
     <div class="pcol"><div class="pcolh">Assessments</div>${preCard(g)}${cfatCards(g)}${g.L.filter(l=>l.kind==='assess').map(l=>pcard(l)).join('')}</div></div>`}`;
   // term rows: 3 lessons a week, Step Up first, then each term's teaching weeks
-  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),wk=(a,b)=>{let n=0;for(let d=new Date(a+'T00:00');d<=new Date(b+'T00:00');d.setDate(d.getDate()+1)){const w=d.getDay();if(w>0&&w<6&&!ph.has(d.toISOString().slice(0,10)))n++}return Math.floor(n/5)};
-  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Math.max(1,wk(su.start,su.end))*3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:wk(t.start,t.end)*3}));
-  let acc=0;const rows=caps.map(c=>({...c,G:[]}));let pos=0;
+  // capacity: full week = 3 lessons, week with fewer than 5 teaching days = 2; Year 10 revision/exam/Work Experience weeks skipped (years/2027.json)
+  const ph=new Set((Y.public_holidays||[]).map(x=>x.date)),BL=((Y.y10_blocked_weeks||{})[lstream])||{},FW=Y.full_week_lessons||3,SW=Y.short_week_lessons||2;
+  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const termCap=t=>{const s0=new Date(t.start+'T00:00'),e0=new Date(t.end+'T00:00'),m=new Date(s0);m.setDate(m.getDate()-((m.getDay()+6)%7));let w=1,cap=0;
+    for(;m<=e0;m.setDate(m.getDate()+7),w++){let n=0;for(let k=0;k<5;k++){const d=new Date(m);d.setDate(d.getDate()+k);if(d>=s0&&d<=e0&&!ph.has(iso(d)))n++}
+      if(n&&!(BL[t.n]||[]).includes(w))cap+=n===5?FW:SW}return cap};
+  const caps=[];const su=SU();if(su&&su.start)caps.push({lab:'Step Up',cap:Y.stepup_lessons||3});Y.terms.forEach(t=>caps.push({lab:'Term '+t.n,cap:termCap(t)}));
+  let acc=0;const rows=caps.map(c=>({...c,G:[]}));
   let st0=0;rows.forEach(r=>{r.a=st0+1;r.b=st0+r.cap;st0+=r.cap});rows[rows.length-1].b=1e9;
   G.forEach(g=>{const a=acc+1,b=acc+g.L.length;const hit=rows.filter(r=>r.a<=b&&r.b>=a);(hit.length?hit:[rows[rows.length-1]]).forEach((r,j,arr)=>r.G.push({...g,part:{lo:Math.max(a,r.a),hi:Math.min(b,r.b),n:arr.length,j,prev:j?arr[j-1].lab:'',next:j<arr.length-1?arr[j+1].lab:''}}));acc+=g.L.length});
   const uopen=new Set(JSON.parse(store.get('10ma-uopen')||'[]'));

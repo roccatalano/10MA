@@ -4,7 +4,7 @@
   {
    "name": "Univariate Statistics",
    "stream": "10MAG",
-   "lessons": null,
+   "lessons": 9,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -36,7 +36,7 @@
   {
    "name": "Algebra and Linear Relations",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 13,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -81,7 +81,7 @@
   {
    "name": "Algebra and Linear Relations",
    "stream": "10MAG",
-   "lessons": 12,
+   "lessons": 16,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -123,7 +123,7 @@
   {
    "name": "Data Analysis",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 13,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -174,7 +174,7 @@
   {
    "name": "Quadratics and Parabolas",
    "stream": "10MAG",
-   "lessons": 3,
+   "lessons": 7,
    "assessment": "Topic test",
    "note": "",
    "items": [
@@ -192,7 +192,7 @@
   {
    "name": "Indices, Logs, Exponentials and Surds",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 12,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -243,7 +243,7 @@
   {
    "name": "Bivariate Data",
    "stream": "10MAG",
-   "lessons": 4,
+   "lessons": 8,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -300,7 +300,7 @@
   {
    "name": "Sequences and Finance",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 12,
    "assessment": "Topic test",
    "note": "",
    "items": [
@@ -354,7 +354,7 @@
   {
    "name": "Networks",
    "stream": "10MAG",
-   "lessons": 12,
+   "lessons": 8,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -375,7 +375,7 @@
   {
    "name": "Trigonometry and Measurement",
    "stream": "10MAA",
-   "lessons": 0,
+   "lessons": 10,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -408,7 +408,7 @@
   {
    "name": "Quadratics and Parabolas",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 14,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -465,7 +465,7 @@
   {
    "name": "Matrices and Networks",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 12,
    "assessment": "CAT",
    "note": "",
    "items": [
@@ -488,12 +488,6 @@
      "id": "G11-4F"
     },
     {
-     "id": "G11-4G"
-    },
-    {
-     "id": "G11-4H"
-    },
-    {
      "id": "G11-4I"
     },
     {
@@ -509,12 +503,6 @@
      "id": "G11-8D"
     },
     {
-     "id": "G11-8E"
-    },
-    {
-     "id": "G11-8F"
-    },
-    {
      "id": "G11-8G"
     },
     {
@@ -525,7 +513,7 @@
   {
    "name": "Probability",
    "stream": "10MAA",
-   "lessons": null,
+   "lessons": 6,
    "assessment": "Topic test",
    "note": "",
    "items": [
@@ -549,7 +537,7 @@
   {
    "name": "Probability",
    "stream": "10MAG",
-   "lessons": null,
+   "lessons": 9,
    "assessment": "",
    "note": "",
    "items": [

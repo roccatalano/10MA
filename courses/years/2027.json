@@ -1,17 +1,89 @@
 {
  "year": 2027,
  "source": "Victorian Government School Term Dates 2027 (screenshot from Rocco, 15 Nov 2026)",
- "stepup": {"label": "Step Up (2026)", "start": "2026-11-30", "end": "2026-12-04", "note": "Dates are a guess: change them on the 2027 tab"},
+ "stepup": {
+  "label": "Step Up (2026)",
+  "start": "2026-11-30",
+  "end": "2026-12-04",
+  "note": "Dates are a guess: change them on the 2027 tab"
+ },
  "terms": [
-  {"n": 1, "start": "2027-01-28", "end": "2027-03-25", "note": "Teachers start Wed 27 Jan, students Thu 28 Jan"},
-  {"n": 2, "start": "2027-04-12", "end": "2027-06-25"},
-  {"n": 3, "start": "2027-07-12", "end": "2027-09-17"},
-  {"n": 4, "start": "2027-10-04", "end": "2027-12-17"}
+  {
+   "n": 1,
+   "start": "2027-01-28",
+   "end": "2027-03-25",
+   "note": "Teachers start Wed 27 Jan, students Thu 28 Jan"
+  },
+  {
+   "n": 2,
+   "start": "2027-04-12",
+   "end": "2027-06-25"
+  },
+  {
+   "n": 3,
+   "start": "2027-07-12",
+   "end": "2027-09-17"
+  },
+  {
+   "n": 4,
+   "start": "2027-10-04",
+   "end": "2027-12-17"
+  }
  ],
  "public_holidays": [
-  {"date": "2027-03-08", "name": "Labour Day"},
-  {"date": "2027-06-14", "name": "King's Birthday"},
-  {"date": "2027-11-02", "name": "Melbourne Cup"}
+  {
+   "date": "2027-03-08",
+   "name": "Labour Day"
+  },
+  {
+   "date": "2027-06-14",
+   "name": "King's Birthday"
+  },
+  {
+   "date": "2027-11-02",
+   "name": "Melbourne Cup"
+  }
  ],
- "sessions": {"default": 4, "wednesday": 3, "minutes": 79}
+ "sessions": {
+  "default": 4,
+  "wednesday": 3,
+  "minutes": 79
+ },
+ "y10_blocked_weeks": {
+  "note": "Year 10 weeks with no new teaching (2027 draft scope and sequence, 16 Nov): revision, exams, Work Experience, after the T4 exams",
+  "10MAG": {
+   "2": [
+    7,
+    8,
+    9,
+    11
+   ],
+   "4": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ]
+  },
+  "10MAA": {
+   "2": [
+    8,
+    9,
+    11
+   ],
+   "4": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ]
+  }
+ },
+ "short_week_lessons": 2,
+ "full_week_lessons": 3,
+ "stepup_lessons": 3
 }
